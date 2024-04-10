@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme-provider";
 import { useState } from "react";
+import { Icon } from "@iconify-icon/react";
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
@@ -13,13 +14,21 @@ export function ModeToggle() {
       onClick={() => {
         setTheme(darkMode ? "light" : "dark");
         setDarkMode(!darkMode);
-      }}>
+      }}
+    >
       {darkMode ? (
-        <div className="i-line-md:sunny-outline-to-moon-loop-transition absolute h-[1.2rem] w-[1.2rem] transition-all" />
+        <Icon
+          icon="line-md:sunny-outline-to-moon-loop-transition"
+          width="1.2em"
+          height="1.2em"
+        />
       ) : (
-        <div className="i-line-md:moon-to-sunny-outline-loop-transition h-[1.2rem] w-[1.2rem] transition-all" />
+        <Icon
+          icon="line-md:moon-to-sunny-outline-loop-transition"
+          width="1.2em"
+          height="1.2em"
+        />
       )}
-      <span className="sr-only">Toggle theme</span>
     </Button>
   );
 }
