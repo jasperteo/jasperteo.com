@@ -1,4 +1,6 @@
-import { defineConfig, presetUno, presetIcons } from "unocss";
+import { defineConfig, presetUno, presetIcons, presetWebFonts } from "unocss";
+import presetAnimations from "unocss-preset-animations";
+import { presetShadcn } from "unocss-preset-shadcn";
 
 export default defineConfig({
   theme: {
@@ -15,5 +17,17 @@ export default defineConfig({
       ],
     },
   },
-  presets: [presetUno(), presetIcons()],
+  presets: [
+    presetUno({ dark: "class" }),
+    presetIcons(),
+    presetWebFonts({
+      provider: "google",
+      fonts: {
+        playpen: "Playpen Sans",
+        mono: "IBM Plex Mono",
+      },
+    }),
+    presetAnimations(),
+    presetShadcn(),
+  ],
 });
