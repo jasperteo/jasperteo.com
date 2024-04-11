@@ -3,7 +3,7 @@ import { useTheme } from "@/components/theme-provider";
 import { useState } from "react";
 import { Icon } from "@iconify-icon/react";
 
-export function ModeToggle() {
+export default function ModeToggle() {
   const { setTheme } = useTheme();
   const [darkMode, setDarkMode] = useState(true);
 
