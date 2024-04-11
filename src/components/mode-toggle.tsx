@@ -1,22 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/theme-provider";
-import { useState } from "react";
 import { Icon } from "@iconify-icon/react";
 
 export default function ModeToggle() {
-  const { setTheme } = useTheme();
-  const [darkMode, setDarkMode] = useState(true);
+  const { theme, setTheme } = useTheme();
 
   return (
     <Button
       variant="outline"
       size="icon"
       onClick={() => {
-        setTheme(darkMode ? "light" : "dark");
-        setDarkMode(!darkMode);
+        setTheme(theme === "dark" ? "light" : "dark");
       }}
     >
-      {darkMode ? (
+      {theme === "dark" ? (
         <Icon
           icon="line-md:sunny-outline-to-moon-loop-transition"
           width="1.2em"
