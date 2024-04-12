@@ -1,5 +1,7 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { Document, Page, pdfjs } from "react-pdf";
+import { Icon } from "@iconify-icon/react";
+import { Button } from "@/components/ui/button";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
@@ -12,15 +14,22 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString();
 
+const resumePDF =
+  "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/resumePDF/jasperCV.pdf";
+
 function Resume() {
   return (
     <>
-      <h1 className="p-2 text-4xl">this is my resumea</h1>
-      <div className="p-2 font-mono text-4xl">eating</div>
-      <Document
-        className="w-fit"
-        file="https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/resumePDF/jasperCV.pdf"
-      >
+      <div className="p-6 text-center">
+        <a href={`${resumePDF}?download=`}>
+          <Button variant="outline">
+            <div className="font-mono text-xl">
+              <Icon inline icon="carbon:generate-pdf" /> Download
+            </div>
+          </Button>
+        </a>
+      </div>
+      <Document className="mx-auto w-fit" file={resumePDF}>
         <Page pageNumber={1} />
       </Document>
     </>
