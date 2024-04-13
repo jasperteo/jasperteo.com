@@ -1,5 +1,4 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
-import InfoCard from "@/components/info-card";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -8,11 +7,10 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   return (
     <>
-      <h1 className="font-playpen p-2 text-4xl">
+      <h1 className="font-playpen line-height-relaxed p-2 text-center text-4xl">
         Hello!
         <br />I am Jasper!
       </h1>
-      <InfoCard />
     </>
   );
 }
