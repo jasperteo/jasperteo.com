@@ -13,7 +13,7 @@ export const Route = createLazyFileRoute("/resume")({
 function Resume() {
   const { ref, width } = useWidth();
 
-  const scale = width < 595 ? width / 595 : 1;
+  const scaledWidth = width < 595 ? width : 595;
   const resumePDF =
     "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/resumePDF/jasperCV.pdf";
 
@@ -33,8 +33,16 @@ function Resume() {
           </Button>
         </a>
       </div>
-      <Document className="mx-auto w-fit" file={resumePDF}>
-        <Page scale={scale} pageNumber={1} />
+      <Document
+        className="mx-auto w-fit"
+        file={resumePDF}
+        loading={
+          <>
+            <Icon icon="svg-spinners:gooey-balls-1" /> Loading
+          </>
+        }
+      >
+        <Page width={scaledWidth} pageNumber={1} />
       </Document>
     </>
   );

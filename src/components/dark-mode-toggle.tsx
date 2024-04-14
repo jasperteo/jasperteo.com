@@ -1,8 +1,8 @@
+import { Icon } from "@iconify-icon/react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
-import { Icon } from "@iconify-icon/react";
 
-export default function ModeToggle() {
+export default function DarkModeToggle() {
   const { theme, setTheme } = useTheme();
 
   return (

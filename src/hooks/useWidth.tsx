@@ -1,10 +1,10 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 
 export const useWidth = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       if (ref.current) {
         setWidth(ref.current.offsetWidth);
