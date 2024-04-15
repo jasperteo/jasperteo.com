@@ -10,9 +10,10 @@ export const useTextColorTransition = ({
   const [textColor, setTextColor] = useState("");
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setTextColor(color);
     }, delay);
+    return () => clearTimeout(timeout);
   }, [color, delay]);
 
   return textColor;
