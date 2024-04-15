@@ -117,7 +117,7 @@ const Skills = () => (
     </div>
     <div>
       <Icon inline icon="logos:react" />{" "}
-      <Icon inline icon="logos:nextjs-icon" /> React
+      <Icon inline icon="logos:nextjs-icon" /> Next.js
     </div>
     <div>
       <Icon inline icon="skill-icons:expressjs-dark" />{" "}
