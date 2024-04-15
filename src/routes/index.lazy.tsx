@@ -26,7 +26,7 @@ function BentoGridLayout() {
       className: "md:col-span-2 md:row-span-2",
       title: "About Me",
       header: <Introduction />,
-      icon: <Icon icon="carbon:bee" className="text-zinc-500" />,
+      icon: <Icon icon="carbon:machine-learning" className="text-zinc-500" />,
     },
     {
       className: "md:col-span-1 md:row-span-1",
@@ -37,9 +37,9 @@ function BentoGridLayout() {
     },
     {
       className: "md:col-span-1 md:row-span-1",
-      title: "Tools",
+      title: "Primary Tools",
       header: <Skills />,
-      icon: <Icon icon="carbon:tool-kit" className="text-zinc-500" />,
+      icon: <Icon icon="carbon:code" className="text-zinc-500" />,
     },
   ];
 
@@ -64,13 +64,12 @@ const Introduction = () => (
     <div>
       My name is{" "}
       <span className="bg-gradient-to-r from-blue-200 to-indigo-200 font-bold dark:from-blue-500 dark:to-indigo-500">
-        Jasper
+        Jasper Teo
       </span>
-      , and I focus on full stack development and web technologies. I am
-      passionate about building robust solutions using modern tools and
-      technologies and I am always looking for opportunities to learn and grow.
-      Currently leaning towards React and TypeScript (Next.js) as preferred
-      tools for web development, and Postgres for database management.
+      , and I focus on full stack development and web technologies. I am mainly
+      interested building products with that deliver a good user experience,
+      leveraging on modern tools and technologies to improve productivity and
+      developer experience. Always looking for opportunities to learn and grow.
     </div>
     <br />
     <div>
