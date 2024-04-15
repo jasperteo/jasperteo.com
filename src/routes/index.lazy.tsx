@@ -2,17 +2,25 @@ import { createLazyFileRoute } from "@tanstack/react-router";
 import { Icon } from "@iconify-icon/react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { useTextColorTransition } from "@/hooks/useTextColorTransition";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
 });
 
 function Index() {
+  const textTransparent = useTextColorTransition({
+    color: "text-transparent",
+    delay: 4500,
+  });
+
   const openingMessage = "Welcome! 你 好!";
 
   return (
     <>
-      <h1 className="font-welcome m-auto mb-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-4xl font-bold text-transparent dark:from-indigo-400 dark:to-purple-400">
+      <h1
+        className={`font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold transition-colors duration-1000 ease-in sm:text-4xl dark:from-indigo-400 dark:to-purple-400 ${textTransparent}`}
+      >
         <TextGenerateEffect words={openingMessage} />
       </h1>
       <BentoGridLayout />
