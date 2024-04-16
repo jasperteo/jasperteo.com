@@ -16,13 +16,6 @@ export default defineConfig({
       devOptions: {
         enabled: true,
       },
-      includeAssets: [
-        "apple-touch-icon.png",
-        "favicon.ico",
-        "favicon-16x16.png",
-        "favicon-32x32.png",
-        "robots.txt",
-      ],
       manifest: {
         name: "Jasper Teo",
         short_name: "Jasper Teo",
