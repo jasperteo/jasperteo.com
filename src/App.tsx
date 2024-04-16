@@ -2,8 +2,7 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const router = createRouter({ routeTree });
-
+const router = createRouter({ routeTree, defaultPreload: "intent" });
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;

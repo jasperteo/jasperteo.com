@@ -10,8 +10,9 @@ export const Route = createLazyFileRoute("/")({
 
 function Index() {
   const textTransparent = useTextColorTransition({
+    initial: "text-inherit",
     color: "text-transparent",
-    delay: 4500,
+    delay: 4200,
   });
 
   const openingMessage = "Welcome! 你 好!";
@@ -19,9 +20,10 @@ function Index() {
   return (
     <>
       <h1
-        className={`font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold transition-colors duration-1000 ease-in sm:text-4xl dark:from-indigo-400 dark:to-purple-400 ${textTransparent}`}
+        className={`font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold transition-colors duration-1000 ease-in sm:text-5xl dark:from-indigo-400 dark:to-purple-400 ${textTransparent}`}
       >
         <TextGenerateEffect words={openingMessage} />
+        <span className="sr-only">{openingMessage}</span>
       </h1>
       <BentoGridLayout />
     </>
@@ -68,7 +70,7 @@ function BentoGridLayout() {
 }
 
 const Introduction = () => (
-  <div className="line-height-relaxed m-auto p-4">
+  <div className="m-auto p-4 leading-relaxed">
     <div>
       My name is{" "}
       <span className="bg-gradient-to-r from-blue-200 to-indigo-200 font-bold dark:from-blue-500 dark:to-indigo-500">
@@ -87,7 +89,7 @@ const Introduction = () => (
 );
 
 const ContactInfo = () => (
-  <div className="line-height-loose m-auto p-4 font-mono text-lg">
+  <div className="m-auto p-4 font-mono text-lg leading-loose">
     <div>
       <Icon inline icon="line-md:github-loop" />{" "}
       <a
@@ -114,7 +116,7 @@ const ContactInfo = () => (
 );
 
 const Skills = () => (
-  <div className="line-height-loose m-auto font-mono">
+  <div className="m-auto font-mono leading-loose">
     <div>
       <Icon inline icon="logos:javascript" />{" "}
       <Icon inline icon="logos:typescript-icon" /> JS/TS

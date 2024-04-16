@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 
 export const useTextColorTransition = ({
+  initial,
   color,
   delay,
 }: {
-  color: string;
+  initial?: string;
+  color?: string;
   delay: number;
 }) => {
-  const [textColor, setTextColor] = useState("");
+  const [textColor, setTextColor] = useState(initial);
 
   useEffect(() => {
     const timeout = setTimeout(() => {

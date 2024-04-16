@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -9,25 +8,19 @@ export const TextGenerateEffect = ({
   words: string;
   className?: string;
 }) => {
-  const [scope, animate] = useAnimate();
-
-  useEffect(() => {
-    void animate("span", { opacity: 1 }, { duration: 2, delay: stagger(0.2) });
-  }, [animate]);
-
   return (
-    <div className={cn(className)}>
-      <div className="tracking-wide">
-        <motion.div ref={scope}>
-          <div>
-            {words.split("").map((letter, i) => (
-              <motion.span key={letter + i} className="opacity-0">
-                {letter}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </div>
+    <motion.div className={cn(className)}>
+      {[...words].map((letter, i) => (
+        <motion.span
+          aria-hidden="true"
+          key={letter + i}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: i * 0.2 }}
+        >
+          {letter}
+        </motion.span>
+      ))}
+    </motion.div>
   );
 };

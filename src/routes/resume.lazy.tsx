@@ -34,11 +34,16 @@ function Resume() {
         </a>
       </div>
       <Document
-        className="mx-auto w-fit"
+        className="mx-auto w-fit font-mono"
         file={resumePDF}
         loading={
           <>
-            <Icon icon="svg-spinners:gooey-balls-1" /> Loading
+            <Icon inline icon="line-md:loading-twotone-loop" /> Loading
+          </>
+        }
+        error={
+          <>
+            <Icon inline icon="carbon:cloud-offline" /> Unable to load
           </>
         }
       >

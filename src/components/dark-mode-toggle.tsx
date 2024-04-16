@@ -2,7 +2,7 @@ import { Icon } from "@iconify-icon/react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
 
-export default function DarkModeToggle() {
+export const DarkModeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -13,19 +13,19 @@ export default function DarkModeToggle() {
         setTheme(theme === "dark" ? "light" : "dark");
       }}
     >
-      {theme === "dark" ? (
+      {theme === "light" ? (
         <Icon
-          icon="line-md:sunny-outline-to-moon-loop-transition"
+          icon="line-md:moon-to-sunny-outline-loop-transition"
           width="1.2em"
           height="1.2em"
         />
       ) : (
         <Icon
-          icon="line-md:moon-to-sunny-outline-loop-transition"
+          icon="line-md:sunny-outline-to-moon-loop-transition"
           width="1.2em"
           height="1.2em"
         />
       )}
     </Button>
   );
-}
+};
