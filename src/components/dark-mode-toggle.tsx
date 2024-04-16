@@ -2,7 +2,7 @@ import { Icon } from "@iconify-icon/react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
 
-export const DarkModeToggle = () => {
+const DarkModeToggle = () => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -29,3 +29,5 @@ export const DarkModeToggle = () => {
     </Button>
   );
 };
+
+export { DarkModeToggle };

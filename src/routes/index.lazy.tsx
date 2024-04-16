@@ -17,20 +17,6 @@ function Index() {
 
   const openingMessage = "Welcome! 你 好!";
 
-  return (
-    <>
-      <h1
-        className={`font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold transition-colors duration-1000 ease-in sm:text-5xl dark:from-indigo-400 dark:to-purple-400 ${textTransparent}`}
-      >
-        <TextGenerateEffect words={openingMessage} />
-        <span className="sr-only">{openingMessage}</span>
-      </h1>
-      <BentoGridLayout />
-    </>
-  );
-}
-
-function BentoGridLayout() {
   const cards = [
     {
       className: "md:col-span-2 md:row-span-2",
@@ -54,18 +40,26 @@ function BentoGridLayout() {
   ];
 
   return (
-    <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
-      {cards.map((card, i) => (
-        <BentoGridItem
-          key={i}
-          title={card.title}
-          description={card?.description}
-          header={card.header}
-          className={card.className}
-          icon={card.icon}
-        />
-      ))}
-    </BentoGrid>
+    <>
+      <h1
+        className={`font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold transition-colors duration-1000 ease-in sm:text-5xl dark:from-indigo-400 dark:to-purple-400 ${textTransparent}`}
+      >
+        <TextGenerateEffect words={openingMessage} />
+        <span className="sr-only">{openingMessage}</span>
+      </h1>
+      <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
+        {cards.map((card, i) => (
+          <BentoGridItem
+            key={i}
+            title={card.title}
+            description={card?.description}
+            header={card.header}
+            className={card.className}
+            icon={card.icon}
+          />
+        ))}
+      </BentoGrid>
+    </>
   );
 }
 
