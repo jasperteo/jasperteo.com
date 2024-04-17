@@ -49,7 +49,7 @@ export default defineConfig({
         display: "standalone",
         background_color: "#27272a",
         theme_color: "#f4f4f5",
-        description: "Jasper Teo",
+        description: "Welcome to my personal site!",
       },
     }),
   ],
