@@ -7,6 +7,7 @@ const DarkModeToggle = () => {
 
   return (
     <Button
+      aria-label="Toggle dark mode"
       variant="outline"
       size="icon"
       onClick={() => {
