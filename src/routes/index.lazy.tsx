@@ -42,10 +42,10 @@ function Index() {
   return (
     <>
       <h1
-        className={`font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold transition-colors duration-1000 ease-in sm:text-5xl dark:from-indigo-400 dark:to-purple-400 ${textTransparent}`}
+        className={`font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold tracking-wide transition-colors duration-1000 ease-in sm:text-5xl dark:from-indigo-400 dark:to-purple-400 ${textTransparent}`}
       >
         <TextGenerateEffect words={openingMessage} />
-        <h1 className="sr-only">{openingMessage}</h1>
+        <span className="sr-only">{openingMessage}</span>
       </h1>
       <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
         {cards.map((card, i) => (
@@ -84,51 +84,55 @@ const Introduction = () => (
 
 const ContactInfo = () => (
   <div className="m-auto p-4 font-mono text-lg leading-loose">
-    <p>
-      <Icon inline icon="line-md:github-loop" />{" "}
-      <a
-        href="https://github.com/jasperteo"
-        target="_blank"
-        rel="noreferrer"
-        className="hover:font-semibold hover:underline"
-      >
-        GitHub
-      </a>
-    </p>
-    <p>
-      <Icon inline icon="line-md:linkedin" />{" "}
-      <a
-        href="https://www.linkedin.com/in/jaspertzj/"
-        target="_blank"
-        rel="noreferrer"
-        className="hover:font-semibold hover:underline"
-      >
-        LinkedIn
-      </a>
-    </p>
+    <ul>
+      <li>
+        <Icon inline icon="line-md:github-loop" />{" "}
+        <a
+          href="https://github.com/jasperteo"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:font-semibold hover:underline"
+        >
+          GitHub
+        </a>
+      </li>
+      <li>
+        <Icon inline icon="line-md:linkedin" />{" "}
+        <a
+          href="https://www.linkedin.com/in/jaspertzj/"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:font-semibold hover:underline"
+        >
+          LinkedIn
+        </a>
+      </li>
+    </ul>
   </div>
 );
 
 const Skills = () => (
   <div className="m-auto font-mono leading-loose">
-    <p>
-      <Icon inline icon="logos:javascript" />{" "}
-      <Icon inline icon="logos:typescript-icon" /> JS/TS
-    </p>
-    <p>
-      <Icon inline icon="logos:nodejs-icon" /> <Icon inline icon="logos:bun" />{" "}
-      Node.js/Bun
-    </p>
-    <p>
-      <Icon inline icon="logos:react" />{" "}
-      <Icon inline icon="logos:nextjs-icon" /> Next.js
-    </p>
-    <p>
-      <Icon inline icon="skill-icons:expressjs-dark" />{" "}
-      <Icon inline icon="logos:hono" /> Express/Hono
-    </p>
-    <p>
-      <Icon inline icon="logos:postgresql" /> Postgres
-    </p>
+    <ul>
+      <li>
+        <Icon inline icon="logos:javascript" />{" "}
+        <Icon inline icon="logos:typescript-icon" /> JS/TS
+      </li>
+      <li>
+        <Icon inline icon="logos:nodejs-icon" />{" "}
+        <Icon inline icon="logos:bun" /> Node.js/Bun
+      </li>
+      <li>
+        <Icon inline icon="logos:react" />{" "}
+        <Icon inline icon="logos:nextjs-icon" /> Next.js
+      </li>
+      <li>
+        <Icon inline icon="skill-icons:expressjs-dark" />{" "}
+        <Icon inline icon="logos:hono" /> Express/Hono
+      </li>
+      <li>
+        <Icon inline icon="logos:postgresql" /> Postgres
+      </li>
+    </ul>
   </div>
 );
