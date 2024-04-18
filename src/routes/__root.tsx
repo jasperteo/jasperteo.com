@@ -32,6 +32,8 @@ function RootComponent() {
         <main>
           <Outlet />
         </main>
+
+        <footer></footer>
       </div>
     </div>
   );

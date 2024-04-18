@@ -98,6 +98,17 @@ const ContactInfo = () => (
           LinkedIn
         </a>
       </li>
+      <li>
+        <Icon inline icon="line-md:twitter-x-alt" />{" "}
+        <a
+          href="https://twitter.com/jasper_teo"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:font-semibold hover:underline"
+        >
+          Twitter
+        </a>
+      </li>
     </ul>
   </div>
 );
@@ -118,8 +129,7 @@ const Skills = () => (
         <Icon inline icon="logos:nextjs-icon" /> Next.js
       </li>
       <li>
-        <Icon inline icon="skill-icons:expressjs-dark" />{" "}
-        <Icon inline icon="logos:hono" /> Express/Hono
+        <Icon inline icon="logos:hono" /> Hono
       </li>
       <li>
         <Icon inline icon="logos:postgresql" /> Postgres
