@@ -8,7 +8,11 @@ const TextGenerateEffect = ({
   words: string;
   className?: string;
 }) => (
-  <motion.div className={cn(className)}>
+  <motion.div
+    className={cn(className)}
+    animate={{ color: "rgba(0, 0, 0, 0)" }}
+    transition={{ duration: 1.69, delay: 4.2 }}
+  >
     {[...words].map((letter, i) => (
       <motion.span
         aria-hidden="true"
