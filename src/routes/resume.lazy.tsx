@@ -34,7 +34,7 @@ function Resume() {
         </a>
       </div>
       <Document
-        className="mx-auto w-fit font-mono"
+        className="mx-auto w-fit font-mono invert-0 dark:invert"
         file={resumePDF}
         loading={
           <>

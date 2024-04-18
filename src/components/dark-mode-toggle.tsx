@@ -7,6 +7,7 @@ const DarkModeToggle = () => {
 
   return (
     <Button
+      className="text-lg"
       aria-label="Toggle dark mode"
       variant="outline"
       size="icon"
@@ -15,17 +16,9 @@ const DarkModeToggle = () => {
       }}
     >
       {theme === "light" ? (
-        <Icon
-          icon="line-md:moon-to-sunny-outline-loop-transition"
-          width="1.2em"
-          height="1.2em"
-        />
+        <Icon icon="line-md:moon-to-sunny-outline-loop-transition" />
       ) : (
-        <Icon
-          icon="line-md:sunny-outline-to-moon-loop-transition"
-          width="1.2em"
-          height="1.2em"
-        />
+        <Icon icon="line-md:sunny-outline-to-moon-loop-transition" />
       )}
     </Button>
   );

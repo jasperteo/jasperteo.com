@@ -39,9 +39,9 @@ function Index() {
         <span className="sr-only">{openingMessage}</span>
       </h1>
       <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
-        {cards.map((card, i) => (
+        {cards.map((card) => (
           <BentoGridItem
-            key={i}
+            key={card.title}
             title={card.title}
             description={card?.description}
             header={card.header}
@@ -73,44 +73,54 @@ const Introduction = () => (
   </div>
 );
 
-const ContactInfo = () => (
-  <div className="m-auto p-4 font-mono text-lg leading-loose">
-    <ul>
-      <li>
-        <Icon inline icon="line-md:github-loop" />{" "}
-        <a
-          href="https://github.com/jasperteo"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:font-semibold hover:underline"
-        >
-          GitHub
-        </a>
-      </li>
-      <li>
-        <Icon inline icon="line-md:linkedin" />{" "}
-        <a
-          href="https://www.linkedin.com/in/jaspertzj/"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:font-semibold hover:underline"
-        >
-          LinkedIn
-        </a>
-      </li>
-      <li>
-        <Icon inline icon="line-md:twitter-x-alt" />{" "}
-        <a
-          href="https://twitter.com/jasper_teo"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:font-semibold hover:underline"
-        >
-          Twitter
-        </a>
-      </li>
-    </ul>
-  </div>
+type ContactInfoitemProps = {
+  name: string;
+  url: string;
+  icon?: React.ReactNode | string;
+};
+
+const ContactInfo = () => {
+  const contactInfoItems: ContactInfoitemProps[] = [
+    {
+      name: "GitHub",
+      url: "https://github.com/jasperteo",
+      icon: <Icon inline icon="line-md:github-loop" />,
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/jaspertzj/",
+      icon: <Icon inline icon="line-md:linkedin" />,
+    },
+    {
+      name: "Twitter",
+      url: "https://twitter.com/jasper_teo",
+      icon: <Icon inline icon="line-md:twitter-x-alt" />,
+    },
+  ];
+
+  return (
+    <div className="m-auto p-4 font-mono text-lg leading-loose">
+      <ul>
+        {contactInfoItems.map((item) => (
+          <ContactInfoitem key={item.name} {...item} />
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
+  <li>
+    {icon}{" "}
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className="hover:font-semibold hover:underline"
+    >
+      {name}
+    </a>
+  </li>
 );
 
 const Skills = () => (
