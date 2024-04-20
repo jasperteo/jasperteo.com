@@ -1,6 +1,6 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
-import { ThemeProvider } from "@/contexts/theme-provider";
+import { ThemeProvider } from "@/context/theme-provider";
 
 const router = createRouter({ routeTree, defaultPreload: "intent" });
 

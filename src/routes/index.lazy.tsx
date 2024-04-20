@@ -134,7 +134,7 @@ const Skills = () => (
 
       <li>
         <Icon inline icon="logos:postgresql" />{" "}
-        <Icon icon="logos:supabase-icon" /> Supabase
+        <Icon inline icon="logos:supabase-icon" /> Supabase
       </li>
       <li>
         <Icon inline icon="logos:hono" /> Hono
