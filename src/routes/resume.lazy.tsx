@@ -10,17 +10,17 @@ export const Route = createLazyFileRoute("/resume")({
   component: Resume,
 });
 
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.min.js",
+  import.meta.url,
+).toString();
+
 function Resume() {
   const { ref, width } = useWidth();
 
   const scaledWidth = width < 595 ? width : 595;
   const resumePDF =
     "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/resumePDF/jasperCV.pdf";
-
-  pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    "pdfjs-dist/build/pdf.worker.min.js",
-    import.meta.url,
-  ).toString();
 
   return (
     <>
@@ -48,9 +48,9 @@ function Resume() {
         }
       >
         <Page
+          className="invert-0 dark:invert"
           width={scaledWidth}
           pageNumber={1}
-          className="invert-0 dark:invert"
         />
       </Document>
     </>
