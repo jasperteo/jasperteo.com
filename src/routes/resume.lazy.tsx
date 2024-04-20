@@ -34,20 +34,24 @@ function Resume() {
         </a>
       </div>
       <Document
-        className="mx-auto w-fit font-mono invert-0 dark:invert"
+        className="mx-auto w-fit font-mono"
         file={resumePDF}
         loading={
-          <>
+          <p>
             <Icon inline icon="line-md:loading-twotone-loop" /> Loading
-          </>
+          </p>
         }
         error={
-          <>
+          <p>
             <Icon inline icon="carbon:cloud-offline" /> Unable to load
-          </>
+          </p>
         }
       >
-        <Page width={scaledWidth} pageNumber={1} />
+        <Page
+          width={scaledWidth}
+          pageNumber={1}
+          className="invert-0 dark:invert"
+        />
       </Document>
     </>
   );

@@ -1,12 +1,8 @@
 import { cn } from "@/lib/utils";
 
-const BentoGrid = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children?: React.ReactNode;
-}) => (
+type BentoGridProps = { className?: string; children?: React.ReactNode };
+
+const BentoGrid = ({ className, children }: BentoGridProps) => (
   <div
     className={cn(
       "mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3 ",
@@ -17,20 +13,22 @@ const BentoGrid = ({
   </div>
 );
 
+type BentoGridItemProps = {
+  className?: string;
+  title?: string | React.ReactNode;
+  description?: string | React.ReactNode;
+  header?: React.ReactNode;
+  icon?: React.ReactNode;
+};
+
 const BentoGridItem = ({
   className,
   title,
   description,
   header,
   icon,
-}: {
-  className?: string;
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  header?: React.ReactNode;
-  icon?: React.ReactNode;
-}) => (
-  <div
+}: BentoGridItemProps) => (
+  <section
     className={cn(
       "group/bento row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-zinc-900/20 bg-zinc-50 p-4 shadow-zinc-600/50 transition-shadow duration-300 ease-in-out hover:shadow-2xl dark:border-zinc-100/20 dark:bg-zinc-950",
       className,
@@ -44,7 +42,7 @@ const BentoGridItem = ({
       </h2>
       <p className="text-xs text-zinc-600 dark:text-zinc-300">{description}</p>
     </div>
-  </div>
+  </section>
 );
 
 export { BentoGrid, BentoGridItem };

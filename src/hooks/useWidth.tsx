@@ -5,14 +5,16 @@ export const useWidth = () => {
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
-    const handleResize = () => {
+    const resizeObserver = new ResizeObserver(() => {
       if (ref.current) {
         setWidth(ref.current.offsetWidth);
       }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    });
+    if (ref.current) {
+      resizeObserver.observe(ref.current);
+      setWidth(ref.current.offsetWidth);
+    }
+    return () => resizeObserver.disconnect();
   }, []);
 
   return { ref, width };

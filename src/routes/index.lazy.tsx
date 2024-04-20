@@ -1,7 +1,7 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { Icon } from "@iconify-icon/react";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
+import { TextGenerateEffect } from "@/components/text-generate-effect";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -40,14 +40,7 @@ function Index() {
       </h1>
       <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
         {cards.map((card) => (
-          <BentoGridItem
-            key={card.title}
-            title={card.title}
-            description={card?.description}
-            header={card.header}
-            className={card.className}
-            icon={card.icon}
-          />
+          <BentoGridItem key={card.title} {...card} />
         ))}
       </BentoGrid>
     </>
@@ -62,7 +55,7 @@ const Introduction = () => (
         Jasper Teo
       </span>
       , and I focus on full stack development and web technologies. I am mainly
-      interested building products with that deliver a good user experience,
+      interested building products that deliver a good user experience,
       leveraging on modern tools and technologies to improve productivity and
       developer experience. Always looking for opportunities to learn and grow.
     </p>
@@ -74,8 +67,8 @@ const Introduction = () => (
 );
 
 type ContactInfoitemProps = {
-  name: string;
-  url: string;
+  name?: string;
+  url?: string;
   icon?: React.ReactNode | string;
 };
 
@@ -138,11 +131,13 @@ const Skills = () => (
         <Icon inline icon="logos:react" />{" "}
         <Icon inline icon="logos:nextjs-icon" /> Next.js
       </li>
+
       <li>
-        <Icon inline icon="logos:hono" /> Hono
+        <Icon inline icon="logos:postgresql" />{" "}
+        <Icon icon="logos:supabase-icon" /> Supabase
       </li>
       <li>
-        <Icon inline icon="logos:postgresql" /> Postgres
+        <Icon inline icon="logos:hono" /> Hono
       </li>
     </ul>
   </div>

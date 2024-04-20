@@ -1,8 +1,9 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/contexts/theme-provider";
 
 const router = createRouter({ routeTree, defaultPreload: "intent" });
+
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
@@ -11,7 +12,7 @@ declare module "@tanstack/react-router" {
 
 export default function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="theme">
       <RouterProvider router={router} />
     </ThemeProvider>
   );

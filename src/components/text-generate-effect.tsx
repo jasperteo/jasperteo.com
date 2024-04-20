@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const TextGenerateEffect = ({
-  words,
-  className,
-}: {
-  words: string;
-  className?: string;
-}) => (
+type TextGenerateEffectProps = { words: string; className?: string };
+
+const TextGenerateEffect = ({ words, className }: TextGenerateEffectProps) => (
   <motion.div
     className={cn(className)}
     animate={{ color: "rgba(0, 0, 0, 0)" }}
