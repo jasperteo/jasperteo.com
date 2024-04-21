@@ -7,7 +7,11 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
 export const Route = createLazyFileRoute("/resume")({
-  component: Resume,
+  component: () => (
+    <Resume>
+      <Docs />
+    </Resume>
+  ),
 });
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -15,16 +19,13 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString();
 
-function Resume() {
-  const { ref, width } = useWidth();
+const resumePDF =
+  "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/resumePDF/jasperCV.pdf";
 
-  const scaledWidth = width < 595 ? width : 595;
-  const resumePDF =
-    "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/resumePDF/jasperCV.pdf";
-
+function Resume({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div ref={ref} className="w-full p-6 text-center">
+      <div className="mx-auto w-fit p-6">
         <a href={`${resumePDF}?download=`}>
           <Button variant="outline">
             <div className="font-mono text-xl">
@@ -33,6 +34,16 @@ function Resume() {
           </Button>
         </a>
       </div>
+      <article>{children}</article>
+    </>
+  );
+}
+
+function Docs() {
+  const { ref, width } = useWidth();
+
+  return (
+    <div ref={ref} className="w-full">
       <Document
         className="mx-auto w-fit font-mono"
         file={resumePDF}
@@ -47,12 +58,8 @@ function Resume() {
           </p>
         }
       >
-        <Page
-          className="invert-0 dark:invert"
-          width={scaledWidth}
-          pageNumber={1}
-        />
+        <Page className="invert-0 dark:invert" width={width} pageNumber={1} />
       </Document>
-    </>
+    </div>
   );
 }

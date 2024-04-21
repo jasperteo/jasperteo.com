@@ -92,13 +92,13 @@ const ContactInfo = () => {
   ];
 
   return (
-    <div className="m-auto p-4 font-mono text-lg leading-loose">
+    <nav className="m-auto font-mono text-lg leading-loose">
       <ul>
         {contactInfoItems.map((item) => (
           <ContactInfoitem key={item.name} {...item} />
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 
