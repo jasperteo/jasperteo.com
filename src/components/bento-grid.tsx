@@ -15,7 +15,7 @@ const BentoGrid = ({ className, children }: BentoGridProps) => (
 
 type BentoGridItemProps = {
   className?: string;
-  title?: string | React.ReactNode;
+  title?: string;
   description?: string | React.ReactNode;
   header?: React.ReactNode;
   icon?: React.ReactNode;
@@ -46,3 +46,4 @@ const BentoGridItem = ({
 );
 
 export { BentoGrid, BentoGridItem };
+export type { BentoGridItemProps };

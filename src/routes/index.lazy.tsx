@@ -1,6 +1,11 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { Icon } from "@iconify-icon/react";
-import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
+
+import {
+  BentoGrid,
+  BentoGridItem,
+  BentoGridItemProps,
+} from "@/components/bento-grid";
 import { TextGenerateEffect } from "@/components/text-generate-effect";
 
 export const Route = createLazyFileRoute("/")({
@@ -10,7 +15,7 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   const openingMessage = "Welcome! 你 好!";
 
-  const cards = [
+  const cards: BentoGridItemProps[] = [
     {
       className: "md:col-span-2 md:row-span-2",
       title: "About Me",

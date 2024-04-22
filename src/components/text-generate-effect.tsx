@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import { cn } from "@/lib/utils";
 
 type TextGenerateEffectProps = { words: string; className?: string };

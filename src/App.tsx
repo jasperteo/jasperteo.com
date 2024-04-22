@@ -1,8 +1,12 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
-import { ThemeProvider } from "@/context/theme-provider";
+import { NotFoundComponent } from "./components/not-found-component";
 
-const router = createRouter({ routeTree, defaultPreload: "intent" });
+const router = createRouter({
+  routeTree,
+  defaultPreload: "intent",
+  defaultNotFoundComponent: NotFoundComponent,
+});
 
 declare module "@tanstack/react-router" {
   interface Register {
@@ -11,9 +15,5 @@ declare module "@tanstack/react-router" {
 }
 
 export default function App() {
-  return (
-    <ThemeProvider defaultTheme="system" storageKey="theme">
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  );
+  return <RouterProvider router={router} />;
 }
