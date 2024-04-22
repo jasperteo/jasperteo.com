@@ -1,32 +1,11 @@
-import {
-  createRootRoute,
-  Link,
-  Outlet,
-  ErrorComponent,
-} from "@tanstack/react-router";
+import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { Icon } from "@iconify-icon/react";
 
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
 
 export const Route = createRootRoute({
   component: RootComponent,
-  errorComponent: ({ error, reset }) => (
-    <div className="absolute inset-32 mx-auto min-w-80 text-center font-mono text-lg lg:max-w-5xl">
-      <p className="text-4xl sm:text-5xl">
-        <Icon icon="carbon:number-4" />
-        <Icon icon="carbon:number-0" />
-        <Icon icon="carbon:number-0" />
-      </p>
-      <p className="my-4">Bad Request</p>
-      <br />
-      <ErrorComponent error={error} />
-      <Button onClick={reset} variant="default" className="my-4">
-        Retry
-      </Button>
-    </div>
-  ),
 });
 
 function RootComponent() {
