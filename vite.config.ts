@@ -13,9 +13,8 @@ export default defineConfig({
     TanStackRouterVite(),
     VitePWA({
       registerType: "autoUpdate",
-      devOptions: {
-        enabled: true,
-      },
+      devOptions: { enabled: true },
+      selfDestroying: true,
       manifest: {
         name: "Jasper Teo",
         short_name: "Jasper Teo",

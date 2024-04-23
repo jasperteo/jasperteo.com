@@ -15,7 +15,7 @@ const NotFoundComponent = () => (
       Not Found
     </h1>
     <Button asChild variant="default">
-      <Link to="/"> Home </Link>
+      <Link to="/">Home</Link>
     </Button>
   </div>
 );

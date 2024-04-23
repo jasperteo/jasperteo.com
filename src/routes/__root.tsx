@@ -13,42 +13,52 @@ function RootComponent() {
     {
       url: "https://pages.cloudflare.com/",
       icon: <Icon icon="simple-icons:cloudflarepages" />,
+      label: "Cloudflare Pages",
     },
     {
       url: "https://vitejs.dev/",
       icon: <Icon icon="simple-icons:vite" />,
+      label: "Vite",
     },
     {
       url: "https://supabase.com/",
       icon: <Icon icon="simple-icons:supabase" />,
+      label: "Supabase",
     },
     {
       url: "https://bun.sh/",
       icon: <Icon icon="simple-icons:bun" />,
+      label: "Bun",
     },
     {
       url: "https://react.dev/",
       icon: <Icon icon="simple-icons:react" />,
+      label: "React",
     },
     {
       url: "https://unocss.dev/",
       icon: <Icon icon="simple-icons:unocss" />,
+      label: "UnoCSS",
     },
     {
       url: "https://www.radix-ui.com/",
       icon: <Icon icon="simple-icons:radixui" />,
+      label: "Radix UI",
     },
     {
       url: "https://ui.shadcn.com/",
       icon: <Icon icon="simple-icons:shadcnui" />,
+      label: "Shadcn UI",
     },
     {
       url: "https://iconify.design/",
       icon: <Icon icon="simple-icons:iconify" />,
+      label: "Iconify",
     },
     {
       url: "https://www.framer.com/motion/",
       icon: <Icon icon="simple-icons:framer" />,
+      label: "Framer Motion",
     },
   ];
 
@@ -76,10 +86,12 @@ function RootComponent() {
         </main>
 
         <footer className="absolute inset-x-8 bottom-8 mx-auto min-w-80 lg:max-w-5xl">
-          <h3 className="my-4 text-center font-medium">Made With:</h3>
+          <h3 className="mx-auto my-4 w-fit text-center font-medium">
+            Made With:
+          </h3>
           <nav className="mx-auto grid w-fit grid-cols-5 gap-5 text-base sm:flex sm:gap-6 sm:text-xl">
-            {footerLinksList.map((link, i) => (
-              <FooterLinks key={i} {...link} />
+            {footerLinksList.map((link) => (
+              <FooterLinks key={link.label} {...link} />
             ))}
           </nav>
         </footer>
@@ -88,14 +100,19 @@ function RootComponent() {
   );
 }
 
-type FooterLinksProps = { url?: string; icon?: React.ReactNode | string };
+type FooterLinksProps = {
+  url: string;
+  icon: React.ReactNode | string;
+  label: string;
+};
 
-const FooterLinks = ({ url, icon }: FooterLinksProps) => (
+const FooterLinks = ({ url, icon, label }: FooterLinksProps) => (
   <a
     href={url}
     target="_blank"
     rel="noreferrer"
     className="transition-all hover:scale-150"
+    aria-label={label}
   >
     {icon}
   </a>

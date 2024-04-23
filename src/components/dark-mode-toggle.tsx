@@ -4,10 +4,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { Button } from "@/components/ui/button";
 
 const DarkModeToggle = () => {
-  const [theme, setTheme] = useTheme({
-    defaultTheme: "system",
-    storageKey: "theme",
-  });
+  const [theme, setTheme] = useTheme({ defaultTheme: "system" });
 
   return (
     <Button
