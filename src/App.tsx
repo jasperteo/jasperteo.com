@@ -15,7 +15,7 @@ const router = createRouter({
   defaultPreload: "intent",
   defaultNotFoundComponent: NotFoundComponent,
   defaultErrorComponent: ({ error, reset }) => (
-    <div className="mx-auto w-full p-7 text-center text-base">
+    <div className="mx-auto w-full space-y-4 p-7 text-center text-base">
       <h1 className="my-6 font-mono text-2xl sm:text-3xl">
         <span className="text-3xl sm:text-5xl">
           <Icon icon="carbon:number-4" />
@@ -25,9 +25,8 @@ const router = createRouter({
         <br />
         Bad Request
       </h1>
-      <br />
       <ErrorComponent error={error} />
-      <Button onClick={reset} variant="default" className="my-4">
+      <Button onClick={reset} variant="default">
         Retry
       </Button>
     </div>

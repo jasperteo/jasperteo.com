@@ -86,14 +86,14 @@ function RootComponent() {
         </main>
 
         <footer className="absolute inset-x-8 bottom-8 mx-auto min-w-80 lg:max-w-5xl">
-          <h3 className="mx-auto my-4 w-fit text-center font-medium">
+          <h2 className="mx-auto my-4 w-fit text-center font-medium">
             Made With:
-          </h3>
-          <nav className="mx-auto grid w-fit grid-cols-5 gap-5 text-base sm:flex sm:gap-6 sm:text-xl">
+          </h2>
+          <div className="mx-auto grid w-fit grid-cols-5 gap-5 text-base sm:flex sm:gap-6 sm:text-xl">
             {footerLinksList.map((link) => (
               <FooterLinks key={link.label} {...link} />
             ))}
-          </nav>
+          </div>
         </footer>
       </div>
     </div>
@@ -111,7 +111,7 @@ const FooterLinks = ({ url, icon, label }: FooterLinksProps) => (
     href={url}
     target="_blank"
     rel="noreferrer"
-    className="transition-all hover:scale-150"
+    className="transition-all duration-300 hover:scale-150"
     aria-label={label}
   >
     {icon}

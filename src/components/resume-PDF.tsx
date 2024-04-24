@@ -15,19 +15,19 @@ const ResumePDF = () => {
   const { ref, width } = useWidth();
 
   return (
-    <div ref={ref} className="w-full">
+    <div ref={ref} role="document" className="w-full">
       <Document
         className="mx-auto w-fit font-mono"
         file={linkPDF}
         loading={
-          <p>
+          <>
             <Icon inline icon="line-md:loading-twotone-loop" /> Loading
-          </p>
+          </>
         }
         error={
-          <p>
+          <>
             <Icon inline icon="carbon:cloud-offline" /> Unable to load
-          </p>
+          </>
         }
       >
         <Page className="invert-0 dark:invert" width={width} pageNumber={1} />

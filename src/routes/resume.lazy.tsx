@@ -18,7 +18,11 @@ function Resume({ children }: { children: React.ReactNode }) {
     <>
       <div className="mx-auto my-4 w-fit p-4">
         <Button asChild variant="outline">
-          <a href={`${linkPDF}?download=`} className="font-mono text-xl">
+          <a
+            download="jasperCV.pdf"
+            href={`${linkPDF}?download=`}
+            className="font-mono text-xl"
+          >
             <Icon inline icon="carbon:generate-pdf" className="mr-3" /> Download
           </a>
         </Button>

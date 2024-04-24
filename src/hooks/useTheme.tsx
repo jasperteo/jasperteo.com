@@ -11,8 +11,6 @@ const useTheme = ({ defaultTheme, storageKey = "theme" }: UseThemeProps) => {
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
   );
 
-  const root = document.documentElement;
-
   if (theme !== "dark" && theme !== "light") {
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
       .matches
@@ -20,8 +18,8 @@ const useTheme = ({ defaultTheme, storageKey = "theme" }: UseThemeProps) => {
       : "light";
     setTheme(systemTheme);
   } else {
-    root.classList.remove(...themeValues);
-    root.classList.add(theme);
+    document.documentElement.classList.remove(...themeValues);
+    document.documentElement.classList.add(theme);
     localStorage.setItem(storageKey, theme);
   }
 

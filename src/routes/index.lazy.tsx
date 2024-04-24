@@ -53,7 +53,7 @@ function Index() {
 }
 
 const Introduction = () => (
-  <div className="m-auto p-4 leading-relaxed">
+  <div className="m-auto space-y-4 p-4 leading-relaxed">
     <p>
       My name is{" "}
       <span className="bg-gradient-to-r from-blue-200 to-indigo-200 font-bold dark:from-blue-500 dark:to-indigo-500">
@@ -64,7 +64,6 @@ const Introduction = () => (
       leveraging on modern tools and technologies to improve productivity and
       developer experience. Always looking for opportunities to learn and grow.
     </p>
-    <br />
     <p>
       I am currently looking for a full-time position as a software engineer.
     </p>
@@ -97,13 +96,13 @@ const ContactInfo = () => {
   ];
 
   return (
-    <nav className="m-auto font-mono text-lg leading-loose">
+    <div className="m-auto font-mono text-lg leading-loose">
       <ul>
         {contactInfoItems.map((item) => (
           <ContactInfoitem key={item.name} {...item} />
         ))}
       </ul>
-    </nav>
+    </div>
   );
 };
 
