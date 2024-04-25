@@ -11,6 +11,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString();
 
+/**
+ * Renders a PDF document containing a resume.
+ */
 const ResumePDF = () => {
   const { ref, width } = useWidth();
 

@@ -3,6 +3,9 @@ import { Icon } from "@iconify-icon/react";
 import { useTheme } from "@/hooks/useTheme";
 import { Button } from "@/components/ui/button";
 
+/**
+ * Renders a toggle button for switching between light and dark mode.
+ */
 const DarkModeToggle = () => {
   const [theme, setTheme] = useTheme({ defaultTheme: "system" });
 

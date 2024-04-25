@@ -4,7 +4,7 @@ import { Icon } from "@iconify-icon/react";
 import {
   BentoGrid,
   BentoGridItem,
-  BentoGridItemProps,
+  type BentoGridItemProps,
 } from "@/components/bento-grid";
 import { TextGenerateEffect } from "@/components/text-generate-effect";
 

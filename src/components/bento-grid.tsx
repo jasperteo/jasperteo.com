@@ -1,7 +1,13 @@
 import { cn } from "@/lib/utils";
 
-type BentoGridProps = { className?: string; children?: React.ReactNode };
+type BentoGridProps = {
+  className?: string;
+  children?: React.ReactNode;
+};
 
+/**
+ * A grid component for displaying BentoGridItems.
+ */
 const BentoGrid = ({ className, children }: BentoGridProps) => (
   <div
     className={cn(
@@ -21,6 +27,9 @@ type BentoGridItemProps = {
   icon?: React.ReactNode;
 };
 
+/**
+ * A grid item component for displaying content within the BentoGrid.
+ */
 const BentoGridItem = ({
   className,
   title,
@@ -45,5 +54,4 @@ const BentoGridItem = ({
   </section>
 );
 
-export { BentoGrid, BentoGridItem };
-export type { BentoGridItemProps };
+export { BentoGrid, BentoGridItem, type BentoGridItemProps };

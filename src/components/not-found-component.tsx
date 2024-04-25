@@ -3,6 +3,10 @@ import { Icon } from "@iconify-icon/react";
 
 import { Button } from "@/components/ui/button";
 
+/**
+ * Renders the NotFoundComponent.
+ * This component displays a "Not Found" message along with a button to navigate back to the home page.
+ */
 const NotFoundComponent = () => (
   <div className="m-auto w-fit place-content-center text-center">
     <h1 className="my-8 font-mono text-2xl sm:text-4xl">

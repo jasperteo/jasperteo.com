@@ -4,6 +4,13 @@ import { cn } from "@/lib/utils";
 
 type TextGenerateEffectProps = { words: string; className?: string };
 
+/**
+ * Renders a text effect that generates each letter of the given words one by one.
+ *
+ * @param words - The words to be displayed with the text effect.
+ * @param className - Optional class name for the component.
+ * @returns The JSX element representing the text effect.
+ */
 const TextGenerateEffect = ({ words, className }: TextGenerateEffectProps) => (
   <motion.div
     className={cn(className)}
