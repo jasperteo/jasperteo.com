@@ -1,10 +1,10 @@
 import { createRouter, ErrorComponent } from "@tanstack/react-router";
 import { Icon } from "@iconify-icon/react";
 
-import { NotFoundComponent } from "./components/not-found-component";
+import { NotFoundComponent } from "@/components/not-found-component";
 import { Button } from "@/components/ui/button";
 
-import { routeTree } from "./routeTree.gen";
+import { routeTree } from "@/routeTree.gen";
 
 /**
  * Creates a router with the specified configuration.
