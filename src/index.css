@@ -1,5 +1,8 @@
 :root {
   font-synthesis: none;
+  color-scheme: light dark;
+  background-color: light-dark(rgb(244 244 245), rgb(24 24 27));
+  color: light-dark(rgb(24 24 27), rgb(244 244 245));
 }
 
 iconify-icon {

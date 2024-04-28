@@ -19,18 +19,16 @@ const useTheme = ({ defaultTheme, storageKey = "theme" }: UseThemeProps) => {
   );
 
   useEffect(() => {
-    if (defaultTheme === "system") {
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", matchTheme);
-    }
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", matchTheme);
 
     return () => {
       window
         .matchMedia("(prefers-color-scheme: dark)")
         .removeEventListener("change", matchTheme);
     };
-  }, [defaultTheme]);
+  }, []);
 
   const matchTheme = () => {
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")

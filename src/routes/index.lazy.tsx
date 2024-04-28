@@ -26,12 +26,26 @@ function Index() {
       className: "md:col-span-1 md:row-span-1",
       title: "Contact",
       header: <ContactInfo />,
-      description: "Drop me an email at jaspertzj@outlook.sg",
+      description: (
+        <>
+          Drop me an email at{" "}
+          <a
+            className="decoration-dashed hover:underline"
+            href="mailto:jaspertzj@outlook.sg"
+          >
+            jaspertzj@outlook.sg
+          </a>
+        </>
+      ),
       icon: <Icon icon="carbon:phone-ip" className="text-zinc-500" />,
     },
     {
       className: "md:col-span-1 md:row-span-1",
-      title: "Primary Tools",
+      title: (
+        <>
+          <Icon inline icon="line-md:heart-filled" /> Tech I love
+        </>
+      ),
       header: <Skills />,
       icon: <Icon icon="carbon:code" className="text-zinc-500" />,
     },
@@ -44,8 +58,8 @@ function Index() {
         <span className="sr-only">{openingMessage}</span>
       </h1>
       <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
-        {cards.map((card) => (
-          <BentoGridItem key={card.title} {...card} />
+        {cards.map((card, i) => (
+          <BentoGridItem key={i} {...card} />
         ))}
       </BentoGrid>
     </>
