@@ -14,6 +14,10 @@ export default defineConfig({
     UnoCSS(),
     react(),
     TanStackRouterVite(),
-    VitePWA({ registerType: "autoUpdate", selfDestroying: true }),
+    VitePWA({
+      registerType: "autoUpdate",
+      selfDestroying: true,
+      manifest: false,
+    }),
   ],
 });
