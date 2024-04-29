@@ -24,16 +24,19 @@ const router = createRouter({
       <h1 className="font-mono text-2xl sm:text-3xl">
         <span className="text-3xl sm:text-5xl">
           <Icon icon="carbon:number-4" />
-          <Icon icon="carbon:number-0" />
-          <Icon icon="carbon:number-0" />
+          <Icon icon="carbon:number-1" />
+          <Icon icon="carbon:number-8" />
         </span>
         <br />
-        Bad Request
+        I&apos;m a teapot
       </h1>
+      <img
+        src="https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/418I'mateapot.png"
+        className="sm:w-md mx-auto w-96"
+        alt="I'm a teapot"
+      />
       <ErrorComponent error={error} />
-      <Button onClick={reset} variant="default">
-        Retry
-      </Button>
+      <Button onClick={reset}>Retry</Button>
     </div>
   ),
 });

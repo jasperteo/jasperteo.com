@@ -1,8 +1,8 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 
 import { NavBar } from "@/components/nav-bar";
-import { Separator } from "@/components/ui/separator";
 import { FooterItems } from "@/components/footer-items";
+import { Separator } from "@/components/ui/separator";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -10,7 +10,7 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <div className="min-w-dvw relative min-h-dvh bg-zinc-100 p-8 font-sans text-zinc-900 antialiased transition duration-500 ease-out dark:bg-zinc-900 dark:text-zinc-100">
+    <div className="min-w-dvw relative min-h-dvh bg-zinc-50 p-8 font-sans antialiased transition-colors dark:bg-zinc-900">
       <div className="mx-auto min-w-80 lg:max-w-5xl">
         <header>
           <NavBar />

@@ -22,7 +22,7 @@ export default defineConfig({
         ],
       },
     }),
+    presetShadcn({ color: "orange", radius: 0.75 }),
     presetAnimations(),
-    presetShadcn(),
   ],
 });

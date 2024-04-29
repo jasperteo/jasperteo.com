@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const themeValues = ["dark", "light", "system"] as const;
 
@@ -18,28 +18,12 @@ const useTheme = ({ defaultTheme, storageKey = "theme" }: UseThemeProps) => {
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
   );
 
-  useEffect(() => {
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", matchTheme);
-
-    return () => {
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .removeEventListener("change", matchTheme);
-    };
-  }, []);
-
-  const matchTheme = () => {
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dark"
-      : "light";
-    setTheme(systemTheme);
-  };
-
   if (theme !== "dark" && theme !== "light") {
-    matchTheme();
+    setTheme(
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light",
+    );
   } else {
     document.documentElement.classList.remove(...themeValues);
     document.documentElement.classList.add(theme);

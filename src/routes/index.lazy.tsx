@@ -7,6 +7,7 @@ import {
   type BentoGridItemProps,
 } from "@/components/bento-grid";
 import { TextGenerateEffect } from "@/components/text-generate-effect";
+import { Button } from "@/components/ui/button";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -20,7 +21,7 @@ function Index() {
       className: "md:col-span-2 md:row-span-2",
       title: "About Me",
       header: <Introduction />,
-      icon: <Icon icon="carbon:machine-learning" className="text-zinc-500" />,
+      icon: <Icon icon="carbon:machine-learning" />,
     },
     {
       className: "md:col-span-1 md:row-span-1",
@@ -37,23 +38,23 @@ function Index() {
           </a>
         </>
       ),
-      icon: <Icon icon="carbon:phone-ip" className="text-zinc-500" />,
+      icon: <Icon icon="carbon:phone-ip" />,
     },
     {
       className: "md:col-span-1 md:row-span-1",
       title: (
         <>
-          <Icon inline icon="line-md:heart-filled" /> Tech I love
+          <Icon inline icon="carbon:favorite" /> Tech I love
         </>
       ),
       header: <Skills />,
-      icon: <Icon icon="carbon:code" className="text-zinc-500" />,
+      icon: <Icon icon="carbon:code" />,
     },
   ];
 
   return (
     <>
-      <h1 className="font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold tracking-wide ease-in sm:text-5xl dark:from-indigo-400 dark:to-purple-400">
+      <h1 className="font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold tracking-wide transition-colors ease-in sm:text-5xl dark:from-indigo-400 dark:to-purple-400">
         <TextGenerateEffect words={openingMessage} />
         <span className="sr-only">{openingMessage}</span>
       </h1>
@@ -67,10 +68,10 @@ function Index() {
 }
 
 const Introduction = () => (
-  <div className="m-auto space-y-4 p-4 leading-relaxed">
+  <div className="m-auto space-y-6 p-4 leading-7">
     <p>
       My name is{" "}
-      <span className="bg-gradient-to-r from-blue-200 to-indigo-200 font-bold dark:from-blue-500 dark:to-indigo-500">
+      <span className="bg-gradient-to-r from-blue-200 to-indigo-200 font-bold transition-colors dark:from-blue-500 dark:to-indigo-500">
         Jasper Teo
       </span>
       , and I focus on full stack development and web technologies. I am mainly
@@ -95,68 +96,64 @@ const ContactInfo = () => {
     {
       name: "GitHub",
       url: "https://github.com/jasperteo",
-      icon: <Icon inline icon="line-md:github-loop" />,
+      icon: <Icon inline icon="line-md:github-loop" className="mr-2" />,
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/jaspertzj/",
-      icon: <Icon inline icon="line-md:linkedin" />,
+      icon: <Icon inline icon="line-md:linkedin" className="mr-2" />,
     },
     {
       name: "Twitter",
       url: "https://twitter.com/jasper_teo",
-      icon: <Icon inline icon="line-md:twitter-x-alt" />,
+      icon: <Icon inline icon="line-md:twitter-x-alt" className="mr-2" />,
     },
   ];
 
   return (
-    <div className="m-auto font-mono text-lg leading-loose">
-      <ul>
-        {contactInfoItems.map((item) => (
-          <ContactInfoitem key={item.name} {...item} />
-        ))}
-      </ul>
-    </div>
+    <ul className="m-auto space-y-2.5 font-mono">
+      {contactInfoItems.map((item) => (
+        <ContactInfoitem key={item.name} {...item} />
+      ))}
+    </ul>
   );
 };
 
 const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
   <li>
-    {icon}{" "}
-    <a
-      href={url}
-      target="_blank"
-      rel="noreferrer"
-      className="hover:font-semibold hover:underline"
+    <Button
+      asChild
+      variant="link"
+      className="hover:text-primary text-lg text-inherit"
     >
-      {name}
-    </a>
+      <a href={url} target="_blank" rel="noreferrer">
+        {icon} {name}
+      </a>
+    </Button>
   </li>
 );
 
 const Skills = () => (
-  <div className="m-auto font-mono leading-loose">
-    <ul>
-      <li>
-        <Icon inline icon="logos:javascript" />{" "}
-        <Icon inline icon="logos:typescript-icon" /> JS/TS
-      </li>
-      <li>
-        <Icon inline icon="logos:nodejs-icon" />{" "}
-        <Icon inline icon="logos:bun" /> Node.js/Bun
-      </li>
-      <li>
-        <Icon inline icon="logos:react" />{" "}
-        <Icon inline icon="logos:nextjs-icon" /> Next.js
-      </li>
+  <ul className="m-auto space-y-2 font-mono">
+    <li>
+      <Icon inline icon="logos:javascript" />{" "}
+      <Icon inline icon="logos:typescript-icon" /> JS/TS
+    </li>
+    <li>
+      <Icon inline icon="logos:nodejs-icon" /> <Icon inline icon="logos:bun" />{" "}
+      Node.js/Bun
+    </li>
+    <li>
+      <Icon inline icon="logos:react" />{" "}
+      <Icon inline icon="logos:nextjs-icon" /> Next.js
+    </li>
 
-      <li>
-        <Icon inline icon="logos:postgresql" />{" "}
-        <Icon inline icon="logos:supabase-icon" /> Supabase
-      </li>
-      <li>
-        <Icon inline icon="logos:hono" /> Hono
-      </li>
-    </ul>
-  </div>
+    <li>
+      <Icon inline icon="logos:postgresql" />{" "}
+      <Icon inline icon="logos:supabase-icon" /> Supabase
+    </li>
+    <li>
+      <Icon inline icon="logos:hono" /> Hono
+    </li>
+  </ul>
 );

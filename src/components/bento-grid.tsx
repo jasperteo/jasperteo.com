@@ -39,17 +39,17 @@ const BentoGridItem = ({
 }: BentoGridItemProps) => (
   <section
     className={cn(
-      "group/bento row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-zinc-900/20 bg-zinc-50 p-4 shadow-zinc-600/50 transition-shadow duration-300 hover:shadow-2xl dark:border-zinc-100/20 dark:bg-zinc-950",
+      "group/bento bg-card text-card-foreground border-border row-span-1 flex flex-col justify-between space-y-4 rounded-xl border p-4 shadow transition-all duration-200 hover:shadow-2xl dark:shadow-zinc-700",
       className,
     )}
   >
     {header}
-    <div className="transition-transform duration-300 ease-in-out group-hover/bento:translate-x-2">
-      {icon}
-      <h2 className="mb-2 mt-2 font-bold text-zinc-600 transition-colors duration-300 dark:text-zinc-200">
-        {title}
-      </h2>
-      <p className="text-xs text-zinc-600 dark:text-zinc-300">{description}</p>
+    <div className="transition duration-200 group-hover/bento:translate-x-2">
+      <span className="group-hover/bento:text-primary/69 text-zinc-500">
+        {icon}
+      </span>
+      <h2 className="mb-2 mt-2 font-sans font-bold">{title}</h2>
+      <p className="font-sans text-xs font-normal">{description}</p>
     </div>
   </section>
 );

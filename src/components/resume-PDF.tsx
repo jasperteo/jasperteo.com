@@ -20,11 +20,11 @@ const ResumePDF = () => {
   return (
     <div ref={ref} role="document" className="w-full">
       <Document
-        className="mx-auto w-fit font-mono"
+        className="border-border mx-auto w-fit border font-mono"
         file={linkPDF}
         loading={
           <>
-            <Icon inline icon="line-md:loading-twotone-loop" /> Loading
+            <Icon inline icon="line-md:loading-twotone-loop" /> Loading...
           </>
         }
         error={
@@ -33,7 +33,11 @@ const ResumePDF = () => {
           </>
         }
       >
-        <Page className="invert-0 dark:invert" width={width} pageNumber={1} />
+        <Page
+          className="invert-0 transition dark:invert"
+          width={width}
+          pageNumber={1}
+        />
       </Document>
     </div>
   );

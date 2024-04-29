@@ -23,7 +23,7 @@ const TextGenerateEffect = ({ words, className }: TextGenerateEffectProps) => (
         key={letter + i}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.69, delay: i * 0.169 }}
+        transition={{ duration: 2, delay: i * 0.2 }}
       >
         {letter}
       </motion.span>
