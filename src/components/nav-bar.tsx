@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button";
  * @returns The rendered navigation bar.
  */
 const NavBar = () => (
-  <nav className="m-10 flex h-11 place-content-evenly items-center gap-5 text-center sm:place-content-end">
-    <Button asChild variant="ghost" className="text-base">
+  <nav className="my-10 flex h-11 place-items-center justify-center gap-2 sm:mr-10 sm:justify-end">
+    <Button asChild variant="ghost" className="sm:text-base">
       <Link to="/" className="[&.active]:font-bold">
         <Icon inline icon="carbon:home" className="mr-2" /> Home
       </Link>
@@ -27,7 +27,7 @@ const NavBar = () => (
 
     <Separator orientation="vertical" />
 
-    <DarkModeToggle />
+    <DarkModeToggle className="mx-4" />
   </nav>
 );
 

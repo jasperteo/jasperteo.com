@@ -2,16 +2,17 @@ import { Icon } from "@iconify-icon/react";
 
 import { useTheme } from "@/hooks/useTheme";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 /**
  * Renders a toggle button for switching between light and dark mode.
  */
-const DarkModeToggle = () => {
+const DarkModeToggle = ({ className }: { className?: string }) => {
   const [theme, setTheme] = useTheme({ defaultTheme: "system" });
 
   return (
     <Button
-      className="text-lg"
+      className={cn("text-lg", className)}
       aria-label="Toggle dark mode"
       variant="outline"
       size="icon"
