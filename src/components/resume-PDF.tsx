@@ -20,7 +20,7 @@ const ResumePDF = () => {
   return (
     <div ref={ref} role="document" className="w-full">
       <Document
-        className="border-border mx-auto w-fit border font-mono"
+        className="mx-auto w-fit font-mono"
         file={linkPDF}
         loading={
           <>
@@ -34,7 +34,7 @@ const ResumePDF = () => {
         }
       >
         <Page
-          className="invert-0 transition dark:invert"
+          className="invert-0 transition dark:invert "
           width={width}
           pageNumber={1}
         />
