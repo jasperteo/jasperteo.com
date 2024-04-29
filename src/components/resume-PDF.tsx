@@ -34,7 +34,7 @@ const ResumePDF = () => {
         }
       >
         <Page
-          className="invert-0 transition dark:invert "
+          className="invert-0 transition dark:invert"
           width={width}
           pageNumber={1}
         />
