@@ -19,7 +19,7 @@ const NavBar = () => (
 
     <Separator orientation="vertical" />
 
-    <Button asChild variant="ghost" className="text-base">
+    <Button asChild variant="ghost" className="sm:text-base">
       <Link to="/resume" className="[&.active]:font-bold">
         <Icon inline icon="carbon:document-pdf" className="mr-2" /> Resume
       </Link>

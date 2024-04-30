@@ -60,8 +60,10 @@ const FooterItems = () => {
 
   return (
     <>
-      <h2 className="mx-auto my-4 w-fit text-center font-medium">Made With:</h2>
-      <div className="shadow-primary/69 mx-auto grid w-fit grid-cols-5 gap-x-5 gap-y-3 rounded-2xl border border-transparent px-5 py-3 transition-colors sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-sm sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10">
+      <h2 className="mx-auto my-4 w-fit text-center font-medium transition-colors">
+        Made With:
+      </h2>
+      <div className="shadow-primary/69 mx-auto grid w-fit grid-cols-5 gap-x-5 gap-y-3 rounded-2xl border border-transparent px-5 py-3 transition sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-sm sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10">
         {footerLinksList.map((link) => (
           <FooterLinks key={link.label} {...link} />
         ))}

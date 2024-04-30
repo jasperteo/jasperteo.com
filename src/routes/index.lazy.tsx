@@ -68,7 +68,7 @@ function Index() {
 }
 
 const Introduction = () => (
-  <div className="m-auto space-y-6 p-4 leading-7">
+  <div className="m-auto space-y-6 p-4 leading-7 transition-colors">
     <p>
       My name is{" "}
       <span className="bg-gradient-to-r from-blue-200 to-indigo-200 font-bold transition-colors dark:from-blue-500 dark:to-indigo-500">
@@ -134,10 +134,10 @@ const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
 );
 
 const Skills = () => (
-  <ul className="m-auto space-y-2 font-mono">
+  <ul className="m-auto space-y-2 font-mono transition-colors">
     <li>
       <Icon inline icon="logos:javascript" />{" "}
-      <Icon inline icon="logos:typescript-icon" /> JS/TS
+      <Icon inline icon="logos:typescript-icon" /> TypeScript
     </li>
     <li>
       <Icon inline icon="logos:nodejs-icon" /> <Icon inline icon="logos:bun" />{" "}
@@ -147,13 +147,15 @@ const Skills = () => (
       <Icon inline icon="logos:react" />{" "}
       <Icon inline icon="logos:nextjs-icon" /> Next.js
     </li>
-
     <li>
       <Icon inline icon="logos:postgresql" />{" "}
       <Icon inline icon="logos:supabase-icon" /> Supabase
     </li>
     <li>
       <Icon inline icon="logos:hono" /> Hono
+    </li>
+    <li>
+      <Icon inline icon="logos:vitejs" /> Vite
     </li>
   </ul>
 );
