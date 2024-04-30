@@ -54,7 +54,7 @@ function Index() {
 
   return (
     <>
-      <h1 className="font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold tracking-wide transition-colors ease-in sm:text-5xl dark:from-indigo-400 dark:to-purple-400">
+      <h1 className="font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold tracking-wide transition-colors sm:text-5xl dark:from-indigo-400 dark:to-purple-400">
         <TextGenerateEffect words={openingMessage} />
         <span className="sr-only">{openingMessage}</span>
       </h1>
