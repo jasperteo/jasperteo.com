@@ -31,9 +31,10 @@ const router = createRouter({
         I&apos;m a teapot
       </h1>
       <img
-        src="https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/418I'mateapot.png"
         className="sm:w-md mx-auto w-96"
+        src="https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/418Teapot.png"
         alt="I'm a teapot"
+        title="Logo by @sawaratsuki1004"
       />
       <ErrorComponent error={error} />
       <Button onClick={reset}>Retry</Button>

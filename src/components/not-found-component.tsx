@@ -19,9 +19,10 @@ const NotFoundComponent = () => (
       Not Found
     </h1>
     <img
-      src="https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/NotFound.png"
       className="sm:w-md mx-auto w-96"
+      src="https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/404NotFound.png"
       alt="404 Not Found"
+      title="Logo by @sawaratsuki1004"
     />
     <Button asChild>
       <Link to="/">Home</Link>
