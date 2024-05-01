@@ -20,12 +20,12 @@ const NotFoundComponent = () => (
     </h1>
     <img
       className="sm:w-md mx-auto w-96"
-      src="https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/404NotFound.png"
+      src="404NotFound.avif"
       alt="404 Not Found"
       title="Logo by @sawaratsuki1004"
     />
-    <Button asChild>
-      <Link to="/">Home</Link>
+    <Button asChild className="font-mono">
+      <Link to="/">cd ~</Link>
     </Button>
   </div>
 );

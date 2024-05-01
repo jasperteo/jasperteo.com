@@ -84,7 +84,7 @@ const FooterLinks = ({ url, icon, label }: FooterLinksProps) => (
     target="_blank"
     rel="noreferrer"
     aria-label={label}
-    className="transition-transform duration-300 hover:scale-150"
+    className="place-self-center transition-all duration-300 hover:scale-150 sm:hover:mx-2"
   >
     {icon}
   </a>

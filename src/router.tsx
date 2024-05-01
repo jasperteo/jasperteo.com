@@ -32,7 +32,7 @@ const router = createRouter({
       </h1>
       <img
         className="sm:w-md mx-auto w-96"
-        src="https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/418Teapot.png"
+        src="418Teapot.avif"
         alt="I'm a teapot"
         title="Logo by @sawaratsuki1004"
       />
