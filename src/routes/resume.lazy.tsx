@@ -17,11 +17,16 @@ function Resume({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className="mx-auto my-4 w-fit p-4">
-        <Button asChild variant="secondary" size="lg">
+        <Button
+          asChild
+          variant="outline"
+          size="lg"
+          className="hover:animate-rubber-band"
+        >
           <a
             download="jasperCV.pdf"
             href={`${linkPDF}?download=`}
-            className="font-mono text-xl"
+            className="text-xl"
           >
             <Icon inline icon="carbon:generate-pdf" className="mr-3" /> Download
           </a>

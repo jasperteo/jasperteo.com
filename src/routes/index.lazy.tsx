@@ -111,7 +111,7 @@ const ContactInfo = () => {
   ];
 
   return (
-    <ul className="m-auto space-y-2.5 font-mono">
+    <ul className="font-welcome m-auto space-y-2.5">
       {contactInfoItems.map((item) => (
         <ContactInfoitem key={item.name} {...item} />
       ))}

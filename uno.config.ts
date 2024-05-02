@@ -9,14 +9,14 @@ export default defineConfig({
       provider: "google",
       fonts: {
         sans: "IBM Plex Sans:400,500,600,700,800,900",
-        mono: "IBM Plex Mono:400,500,600,700,800,900",
+        mono: "Sono:400,500,600,700,800,900",
         welcome: [
           {
             name: "Playpen Sans",
             weights: [`400`, `500`, `600`, `700`, `800`, `900`],
           },
           {
-            name: "Ma Shan Zheng",
+            name: "ZCOOL KuaiLe",
             weights: [`400`],
           },
         ],
