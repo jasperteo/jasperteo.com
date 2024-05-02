@@ -3,6 +3,7 @@ import { Icon } from "@iconify-icon/react";
 
 import { NotFoundComponent } from "@/components/not-found-component";
 import { Button } from "@/components/ui/button";
+import teapot from "@/images/418Teapot.avif";
 
 import { routeTree } from "@/routeTree.gen";
 
@@ -32,7 +33,7 @@ const router = createRouter({
       </h1>
       <img
         className="sm:w-md mx-auto w-96"
-        src="418Teapot.avif"
+        src={teapot.src}
         alt="I'm a teapot"
         title="Logo by @sawaratsuki1004"
       />

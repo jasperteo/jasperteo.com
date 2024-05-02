@@ -10,9 +10,9 @@ import { Button } from "@/components/ui/button";
  * @returns The rendered navigation bar.
  */
 const NavBar = () => (
-  <nav className="my-10 flex h-11 place-items-center justify-center gap-2 sm:mr-10 sm:justify-end">
+  <nav className="my-10 flex h-11 place-items-center justify-center gap-2 font-mono sm:mr-10 sm:justify-end">
     <Button asChild variant="ghost" className="sm:text-base">
-      <Link to="/" className="[&.active]:font-bold">
+      <Link to="/" className="[&.active]:animate-swing [&.active]:font-bold">
         <Icon inline icon="carbon:home" className="mr-2" /> Home
       </Link>
     </Button>
@@ -20,7 +20,10 @@ const NavBar = () => (
     <Separator orientation="vertical" />
 
     <Button asChild variant="ghost" className="sm:text-base">
-      <Link to="/resume" className="[&.active]:font-bold">
+      <Link
+        to="/resume"
+        className="[&.active]:animate-swing [&.active]:font-bold"
+      >
         <Icon inline icon="carbon:document-pdf" className="mr-2" /> Resume
       </Link>
     </Button>

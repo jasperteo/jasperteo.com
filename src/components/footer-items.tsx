@@ -12,24 +12,19 @@ const FooterItems = () => {
       label: "Cloudflare Pages",
     },
     {
-      url: "https://vitejs.dev/",
-      icon: <Icon icon="simple-icons:vite" />,
-      label: "Vite",
-    },
-    {
       url: "https://supabase.com/",
       icon: <Icon icon="simple-icons:supabase" />,
       label: "Supabase",
     },
     {
+      url: "https://astro.build/",
+      icon: <Icon icon="simple-icons:astro" />,
+      label: "Astro",
+    },
+    {
       url: "https://react.dev/",
       icon: <Icon icon="simple-icons:react" />,
       label: "React",
-    },
-    {
-      url: "https://tanstack.com/router/latest",
-      icon: <Icon icon="simple-icons:reactquery" />,
-      label: "TanStack Router",
     },
     {
       url: "https://bun.sh/",
@@ -51,11 +46,6 @@ const FooterItems = () => {
       icon: <Icon icon="simple-icons:shadcnui" />,
       label: "Shadcn UI",
     },
-    {
-      url: "https://www.framer.com/motion/",
-      icon: <Icon icon="simple-icons:framer" />,
-      label: "Framer Motion",
-    },
   ];
 
   return (
@@ -63,7 +53,7 @@ const FooterItems = () => {
       <h2 className="mx-auto my-4 w-fit text-center font-medium transition-colors">
         Made With:
       </h2>
-      <div className="shadow-primary/69 mx-auto grid w-fit grid-cols-5 gap-x-5 gap-y-3 rounded-2xl border border-transparent px-5 py-3 transition sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-sm sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10">
+      <div className="shadow-primary/69 mx-auto grid w-fit grid-cols-4 gap-x-5 gap-y-3 rounded-2xl border border-transparent px-5 py-3 sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-sm sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10">
         {footerLinksList.map((link) => (
           <FooterLinks key={link.label} {...link} />
         ))}

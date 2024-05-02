@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Icon } from "@iconify-icon/react";
 
 import { Button } from "@/components/ui/button";
+import notFound from "@/images/404NotFound.avif";
 
 /**
  * Renders the NotFoundComponent, which displays a 404 Not Found page.
@@ -20,7 +21,7 @@ const NotFoundComponent = () => (
     </h1>
     <img
       className="sm:w-md mx-auto w-96"
-      src="404NotFound.avif"
+      src={notFound.src}
       alt="404 Not Found"
       title="Logo by @sawaratsuki1004"
     />
