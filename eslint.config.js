@@ -10,7 +10,7 @@ export default [
     ignores: ["eslint.config.js", "dist"],
   },
   pluginJs.configs.recommended,
-  // pluginReactConfig,
+  pluginReactConfig,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
 ];
