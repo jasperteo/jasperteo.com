@@ -4,6 +4,7 @@ import "react-pdf/dist/Page/TextLayer.css";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 
 import { useWidth } from "@/hooks/useWidth";
+import { Skeleton } from "@/components/ui/skeleton";
 import { linkPDF } from "@/lib/utils";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -18,13 +19,13 @@ const ResumePDF = () => {
   const { ref, width } = useWidth();
 
   return (
-    <div ref={ref} role="document" className="w-full">
+    <div ref={ref} role="document">
       <Document
-        className="mx-auto w-fit font-mono"
+        className="mx-auto max-w-[595px] text-center font-mono"
         file={linkPDF}
         loading={
           <>
-            <Icon inline icon="line-md:loading-twotone-loop" /> Loading...
+            <Skeleton className="mx-auto aspect-[1/sqrt(2)] rounded-lg" />
           </>
         }
         error={
