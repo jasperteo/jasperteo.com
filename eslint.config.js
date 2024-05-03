@@ -1,16 +1,25 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
+import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
+import pluginReactJSXConfig from "eslint-plugin-react/configs/jsx-runtime.js";
 import eslintPluginAstro from "eslint-plugin-astro";
 
 export default [
   {
-    languageOptions: { globals: globals.browser },
-    ignores: ["eslint.config.js", "dist"],
+    languageOptions: {
+      globals: globals.browser,
+      parserOptions: {
+        project: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
   },
-  pluginJs.configs.recommended,
+  { ignores: ["eslint.config.js", "dist"] },
+  { files: ["**/*.js"], ...tseslint.configs.disableTypeChecked },
+  eslint.configs.recommended,
   pluginReactConfig,
-  ...tseslint.configs.recommended,
+  pluginReactJSXConfig,
+  ...tseslint.configs.recommendedTypeChecked,
   ...eslintPluginAstro.configs.recommended,
 ];
