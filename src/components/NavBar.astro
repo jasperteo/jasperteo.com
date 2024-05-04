@@ -1,0 +1,15 @@
+---
+import { NavHome, NavResume } from "@/components/nav-bar";
+import { DarkModeToggle } from "@/components/dark-mode-toggle";
+import { Separator } from "@/components/ui/separator";
+---
+
+<nav
+  class="my-10 h-11 flex place-items-center justify-center gap-2 font-mono sm:mr-10 sm:justify-end"
+>
+  <NavHome />
+  <Separator orientation="vertical" />
+  <NavResume />
+  <Separator orientation="vertical" />
+  <DarkModeToggle className="mx-4" client:only="react" />
+</nav>

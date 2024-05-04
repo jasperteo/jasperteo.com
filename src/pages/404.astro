@@ -1,0 +1,29 @@
+---
+import RootLayout from "@/layouts/RootLayout.astro";
+import AppLayout from "@/layouts/AppLayout.astro";
+import { FooterItems } from "@/components/footer-items";
+import NotFound from "@/components/NotFound.astro";
+import NavBar from "@/components/NavBar.astro";
+---
+
+<!-- <script is:inline>
+  const themeValues = ["dark", "light", "system"];
+  const theme = localStorage.getItem("theme");
+  const setTheme = (document) => {
+    document.documentElement.classList.remove(...themeValues);
+    document.documentElement.classList.add(theme);
+  };
+  setTheme(document);
+  document.addEventListener("astro:page-load", (e) => setTheme(e.newDocument));
+  document.addEventListener("astro:before-swap", (e) =>
+    setTheme(e.newDocument)
+  );
+  document.addEventListener("astro:after-swap", (e) => setTheme(e.newDocument));
+</script> -->
+<RootLayout title="404 Not Found" description="404 Not Found">
+  <AppLayout slot="app">
+    <NavBar slot="navbar" />
+    <NotFound slot="outlet" />
+    <FooterItems slot="footer" />
+  </AppLayout>
+</RootLayout>

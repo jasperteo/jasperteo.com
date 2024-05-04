@@ -1,14 +1,13 @@
 ---
-const title = "Jasper Teo";
+// import { ViewTransitions } from "astro:transitions";
 
-const description =
-  "Hey there! I like crafting cool stuff for the web. Come explore and see what I'm up to!";
-
+type Props = { title: string; description: string };
+const { title, description } = Astro.props;
 const image =
   "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/meta-image.png";
 ---
 
-<html lang="en" transition:animate="none">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,14 +32,15 @@ const image =
     <meta name="twitter:image" content={image} />
     <meta name="generator" content={Astro.generator} />
 
-    <slot name="viewTransitions" />
+    <!-- <ViewTransitions /> -->
   </head>
+
   <body>
     <slot name="app" />
   </body>
 </html>
 
-<style>
+<style is:global>
   :root {
     font-synthesis: none;
     color-scheme: light dark;

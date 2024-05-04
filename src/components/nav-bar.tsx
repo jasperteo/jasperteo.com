@@ -36,4 +36,22 @@ const NavBar = () => (
   </nav>
 );
 
-export { NavBar };
+const NavHome = () => (
+  <Button asChild variant="ghost" className="sm:text-base">
+    <a href="/" className="[&.active]:animate-swing [&.active]:font-bold">
+      <Icon inline icon="carbon:home" className="mr-2" />
+      Home
+    </a>
+  </Button>
+);
+
+const NavResume = () => (
+  <Button asChild variant="ghost" className="sm:text-base">
+    <a href="/resume" className="[&.active]:animate-swing [&.active]:font-bold">
+      <Icon inline icon="carbon:document-pdf" className="mr-2" />
+      Resume
+    </a>
+  </Button>
+);
+
+export { NavBar, NavHome, NavResume };

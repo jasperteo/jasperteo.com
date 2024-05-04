@@ -31,4 +31,10 @@ const NotFoundComponent = () => (
   </div>
 );
 
-export { NotFoundComponent };
+const ButtonToHome = () => (
+  <Button asChild className="font-welcome">
+    <a href="/">cd ~</a>
+  </Button>
+);
+
+export { NotFoundComponent, ButtonToHome };

@@ -1,0 +1,23 @@
+---
+import { Separator } from "@/components/ui/separator";
+---
+
+<div
+  class="relative min-w-dvw bg-zinc-50 p-8 font-sans antialiased transition-colors min-h-dvh dark:bg-zinc-900"
+>
+  <div class="mx-auto min-w-80 lg:max-w-5xl">
+    <header>
+      <slot name="navbar" />
+    </header>
+
+    <Separator className="my-4" />
+
+    <main class="mb-40">
+      <slot name="outlet" />
+    </main>
+
+    <footer class="absolute inset-x-8 bottom-8 mx-auto min-w-80 lg:max-w-5xl">
+      <slot name="footer" />
+    </footer>
+  </div>
+</div>
