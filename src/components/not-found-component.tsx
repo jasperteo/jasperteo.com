@@ -9,8 +9,8 @@ import notFound from "@/images/404NotFound.avif";
  * @returns The JSX element representing the NotFoundComponent.
  */
 const NotFoundComponent = () => (
-  <div className="m-auto w-full place-content-center space-y-8 text-center">
-    <h1 className="font-mono text-2xl sm:text-3xl">
+  <div className="m-auto w-full place-content-center text-center space-y-8">
+    <h1 className="text-2xl font-mono sm:text-3xl">
       <span className="text-3xl sm:text-5xl">
         <Icon icon="carbon:number-4" />
         <Icon icon="carbon:number-0" />
@@ -20,12 +20,12 @@ const NotFoundComponent = () => (
       Not Found
     </h1>
     <img
-      className="sm:w-md mx-auto w-96"
+      className="mx-auto w-96 sm:w-md"
       src={notFound.src}
       alt="404 Not Found"
       title="Logo by @sawaratsuki1004"
     />
-    <Button asChild className="font-mono">
+    <Button asChild className="font-welcome">
       <Link to="/">cd ~</Link>
     </Button>
   </div>

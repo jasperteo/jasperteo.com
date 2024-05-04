@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { clsx, type ClassValue } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 
 /**
  * Merges multiple class names using Tailwind CSS and clsx.

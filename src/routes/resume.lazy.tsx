@@ -6,14 +6,10 @@ import { Button } from "@/components/ui/button";
 import { linkPDF } from "@/lib/utils";
 
 export const Route = createLazyFileRoute("/resume")({
-  component: () => (
-    <Resume>
-      <ResumePDF />
-    </Resume>
-  ),
+  component: Resume,
 });
 
-function Resume({ children }: { children: React.ReactNode }) {
+function Resume() {
   return (
     <>
       <div className="mx-auto my-4 w-fit p-4">
@@ -28,11 +24,14 @@ function Resume({ children }: { children: React.ReactNode }) {
             href={`${linkPDF}?download=`}
             className="text-xl"
           >
-            <Icon inline icon="carbon:generate-pdf" className="mr-3" /> Download
+            <Icon inline icon="carbon:generate-pdf" className="mr-3" />
+            Download
           </a>
         </Button>
       </div>
-      <article>{children}</article>
+      <article>
+        <ResumePDF />
+      </article>
     </>
   );
 }

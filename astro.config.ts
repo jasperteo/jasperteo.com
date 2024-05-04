@@ -8,8 +8,9 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   integrations: [react(), UnoCSS({ injectReset: true })],
   output: "server",
-  adapter: cloudflare(),
+  adapter: cloudflare({ platformProxy: { enabled: true } }),
   site: "https://jasperteo.com/",
+  prefetch: { prefetchAll: true },
   vite: {
     css: { transformer: "lightningcss" },
     build: { cssMinify: "lightningcss" },

@@ -54,12 +54,13 @@ function Index() {
 
   return (
     <>
-      <h1 className="font-welcome mx-auto my-8 w-fit bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text p-4 text-center text-3xl font-bold tracking-wide transition-colors sm:text-5xl dark:from-indigo-400 dark:to-purple-400">
+      <h1 className="mx-auto my-8 w-fit from-indigo-700 to-purple-700 bg-gradient-to-r bg-clip-text p-4 text-center text-3xl font-bold tracking-wide font-welcome transition-colors dark:from-indigo-400 dark:to-purple-400 sm:text-5xl">
         <TextGenerateEffect words={openingMessage} />
         <span className="sr-only">{openingMessage}</span>
       </h1>
       <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
         {cards.map((card, i) => (
+          // eslint-disable-next-line react/no-array-index-key
           <BentoGridItem key={i} {...card} />
         ))}
       </BentoGrid>
@@ -68,10 +69,10 @@ function Index() {
 }
 
 const Introduction = () => (
-  <div className="m-auto space-y-6 p-4 leading-7 transition-colors">
+  <div className="m-auto p-4 leading-7 transition-colors space-y-6">
     <p>
       My name is{" "}
-      <span className="bg-gradient-to-r from-blue-200 to-indigo-200 font-bold transition-colors dark:from-blue-500 dark:to-indigo-500">
+      <span className="from-blue-200 to-indigo-200 bg-gradient-to-r font-bold transition-colors dark:from-blue-500 dark:to-indigo-500">
         Jasper Teo
       </span>
       , and I focus on full stack development and web technologies. I am mainly
@@ -111,7 +112,7 @@ const ContactInfo = () => {
   ];
 
   return (
-    <ul className="font-welcome m-auto space-y-2.5">
+    <ul className="m-auto font-welcome space-y-2.5">
       {contactInfoItems.map((item) => (
         <ContactInfoitem key={item.name} {...item} />
       ))}
@@ -124,7 +125,7 @@ const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
     <Button
       asChild
       variant="link"
-      className="hover:text-primary text-lg text-inherit"
+      className="text-lg text-inherit hover:text-primary"
     >
       <a href={url} target="_blank" rel="noreferrer">
         {icon} {name}
@@ -134,7 +135,7 @@ const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
 );
 
 const Skills = () => (
-  <ul className="m-auto space-y-2 font-mono transition-colors">
+  <ul className="m-auto font-mono transition-colors space-y-2">
     <li>
       <Icon inline icon="logos:javascript" />{" "}
       <Icon inline icon="logos:typescript-icon" /> TypeScript

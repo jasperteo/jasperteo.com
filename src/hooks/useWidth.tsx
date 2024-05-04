@@ -1,4 +1,4 @@
-import { useRef, useState, useLayoutEffect } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 /**
  * Custom hook that returns the width of a DOM element.
@@ -24,7 +24,7 @@ const useWidth = () => {
     };
   }, []);
 
-  return { ref: ref, width: width };
+  return { ref, width };
 };
 
 export { useWidth };

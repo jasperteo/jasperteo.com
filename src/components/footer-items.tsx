@@ -12,6 +12,11 @@ const FooterItems = () => {
       label: "Cloudflare Pages",
     },
     {
+      url: "https://workers.cloudflare.com/",
+      icon: <Icon icon="simple-icons:cloudflareworkers" />,
+      label: "Cloudflare Workers",
+    },
+    {
       url: "https://supabase.com/",
       icon: <Icon icon="simple-icons:supabase" />,
       label: "Supabase",
@@ -25,11 +30,6 @@ const FooterItems = () => {
       url: "https://react.dev/",
       icon: <Icon icon="simple-icons:react" />,
       label: "React",
-    },
-    {
-      url: "https://bun.sh/",
-      icon: <Icon icon="simple-icons:bun" />,
-      label: "Bun",
     },
     {
       url: "https://www.radix-ui.com/",
@@ -53,7 +53,7 @@ const FooterItems = () => {
       <h2 className="mx-auto my-4 w-fit text-center font-medium transition-colors">
         Made With:
       </h2>
-      <div className="shadow-primary/69 mx-auto grid w-fit grid-cols-4 gap-x-5 gap-y-3 rounded-2xl border border-transparent px-5 py-3 sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-sm sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10">
+      <div className="grid grid-cols-4 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/69 sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-sm sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10">
         {footerLinksList.map((link) => (
           <FooterLinks key={link.label} {...link} />
         ))}

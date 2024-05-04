@@ -1,4 +1,4 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
 
 import { NavBar } from "@/components/nav-bar";
 import { FooterItems } from "@/components/footer-items";
@@ -10,7 +10,7 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <div className="min-w-dvw relative min-h-dvh bg-zinc-50 p-8 font-sans antialiased transition-colors dark:bg-zinc-900">
+    <div className="relative min-w-dvw bg-zinc-50 p-8 font-sans antialiased transition-colors min-h-dvh dark:bg-zinc-900">
       <div className="mx-auto min-w-80 lg:max-w-5xl">
         <header>
           <NavBar />

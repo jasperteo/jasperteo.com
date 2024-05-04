@@ -1,7 +1,7 @@
 import {
-  forwardRef,
-  type ElementRef,
   type ComponentPropsWithoutRef,
+  type ElementRef,
+  forwardRef,
 } from "react";
 import { Root } from "@radix-ui/react-separator";
 
@@ -13,7 +13,7 @@ const Separator = forwardRef<
 >(
   (
     { className, orientation = "horizontal", decorative = true, ...props },
-    ref,
+    ref
   ) => (
     <Root
       ref={ref}
@@ -22,11 +22,11 @@ const Separator = forwardRef<
       className={cn(
         "shrink-0 bg-neutral-300 dark:bg-neutral-700",
         orientation === "horizontal" ? "h-px w-full" : "h-full w-px",
-        className,
+        className
       )}
       {...props}
     />
-  ),
+  )
 );
 Separator.displayName = Root.displayName;
 

@@ -8,8 +8,7 @@ const image =
   "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/meta-image.png";
 ---
 
-<!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,13 +32,15 @@ const image =
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
     <meta name="generator" content={Astro.generator} />
+
+    <slot name="viewTransitions" />
   </head>
   <body>
-    <slot />
+    <slot name="app" />
   </body>
 </html>
 
-<style is:global>
+<style>
   :root {
     font-synthesis: none;
     color-scheme: light dark;
