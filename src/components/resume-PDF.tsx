@@ -23,11 +23,7 @@ const ResumePDF = () => {
       <Document
         className="mx-auto max-w-[595px] text-center font-mono"
         file={linkPDF}
-        loading={
-          <>
-            <Skeleton className="mx-auto aspect-[1/sqrt(2)] rounded-lg" />
-          </>
-        }
+        loading={<Skeleton className="mx-auto aspect-[1/sqrt(2)] rounded-lg" />}
         error={
           <>
             <Icon inline icon="carbon:cloud-offline" /> Unable to load
