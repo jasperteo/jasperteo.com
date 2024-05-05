@@ -11,5 +11,7 @@ import { Separator } from "@/components/ui/separator";
   <Separator orientation="vertical" />
   <NavResume />
   <Separator orientation="vertical" />
-  <DarkModeToggle className="mx-4" client:only="react" />
+  <div class="mx-4 h-9 w-9">
+    <DarkModeToggle client:only="react" />
+  </div>
 </nav>

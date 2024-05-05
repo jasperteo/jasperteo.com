@@ -112,7 +112,7 @@ const ContactInfo = () => {
   ];
 
   return (
-    <ul className="m-auto font-welcome space-y-2.5">
+    <ul className="m-auto p-4 font-welcome space-y-2.5">
       {contactInfoItems.map((item) => (
         <ContactInfoitem key={item.name} {...item} />
       ))}
@@ -135,7 +135,7 @@ const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
 );
 
 const Skills = () => (
-  <ul className="m-auto font-mono transition-colors space-y-2">
+  <ul className="m-auto p-4 font-mono transition-colors space-y-2">
     <li>
       <Icon inline icon="logos:javascript" />{" "}
       <Icon inline icon="logos:typescript-icon" /> TypeScript
