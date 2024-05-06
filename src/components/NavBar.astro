@@ -1,16 +1,45 @@
 ---
-import { NavHome, NavResume } from "@/components/nav-bar";
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
+
+const { pathname } = Astro.url;
+const isActive = (href: string) =>
+  href === pathname || href === pathname.replace(/\/$/, "");
+
+type NavListType = {
+  href: string;
+  icon: string;
+  label: string;
+};
+
+const navList: NavListType[] = [
+  { href: "/", icon: "carbon:home", label: "Home" },
+  { href: "/resume", icon: "carbon:document-pdf", label: "Resume" },
+];
 ---
 
 <nav
   class="my-10 h-11 flex place-items-center justify-center gap-2 font-mono sm:mr-10 sm:justify-end"
 >
-  <NavHome />
-  <Separator orientation="vertical" />
-  <NavResume />
-  <Separator orientation="vertical" />
+  {
+    navList.map(({ href, icon, label }) => (
+      <>
+        <a
+          href={href}
+          class:list={[
+            buttonVariants({ variant: "ghost" }),
+            { active: isActive(href) },
+            "[&.active]:animate-swing [&.active]:font-bold sm:text-base",
+          ]}
+        >
+          <iconify-icon inline icon={icon} class="mr-2" />
+          {label}
+        </a>
+        <Separator orientation="vertical" />
+      </>
+    ))
+  }
   <div class="mx-4 h-9 w-9">
     <DarkModeToggle client:only="react" />
   </div>

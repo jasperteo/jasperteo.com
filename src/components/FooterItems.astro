@@ -1,5 +1,9 @@
 ---
-type FooterLinksType = { url: string; icon: string; label: string };
+type FooterLinksType = {
+  url: string;
+  icon: string;
+  label: string;
+};
 
 const footerLinksList: FooterLinksType[] = [
   {
@@ -52,15 +56,15 @@ const footerLinksList: FooterLinksType[] = [
   class="grid grid-cols-4 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/69 sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-sm sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10"
 >
   {
-    footerLinksList.map((link) => (
+    footerLinksList.map(({ url, label, icon }) => (
       <a
-        href={link.url}
+        href={url}
         target="_blank"
         rel="noreferrer"
-        aria-label={link.label}
+        aria-label={label}
         class="place-self-center transition-all duration-300 hover:scale-150 sm:hover:mx-2"
       >
-        <iconify-icon icon={link.icon} />
+        <iconify-icon icon={icon} />
       </a>
     ))
   }

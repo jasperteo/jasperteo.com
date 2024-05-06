@@ -2,6 +2,24 @@
 import { Separator } from "@/components/ui/separator";
 ---
 
+<script is:inline>
+  const useTheme = () => {
+    const themeValues = ["dark", "light", "system"];
+    const defaultTheme = "system";
+    const storageKey = "theme";
+    const theme = localStorage.getItem(storageKey) ?? defaultTheme;
+
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    document.documentElement.classList.remove(...themeValues);
+    document.documentElement.classList.add(theme);
+  };
+  useTheme();
+</script>
+
 <div
   class="relative min-w-dvw bg-zinc-50 p-8 font-sans antialiased transition-colors min-h-dvh dark:bg-zinc-900"
 >
