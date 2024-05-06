@@ -2,13 +2,13 @@
 import RootLayout from "@/layouts/RootLayout.astro";
 import { App } from "@/components/App";
 
-export const getStaticPaths = () => {
-  const pages: { slug: string | undefined }[] = [
-    { slug: undefined },
-    { slug: "resume" },
-  ];
-  return pages.map(({ slug }) => ({ params: { slug } }));
-};
+// export const getStaticPaths = () => {
+//   const pages: { slug: string | undefined }[] = [
+//     { slug: undefined },
+//     { slug: "resume" },
+//   ];
+//   return pages.map(({ slug }) => ({ params: { slug } }));
+// };
 
 const title = "Jasper Teo";
 const description =

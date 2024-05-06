@@ -7,7 +7,7 @@ import { TanStackRouterVite } from "@tanstack/router-vite-plugin";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), UnoCSS({ injectReset: true })],
-  output: "hybrid",
+  output: "server",
   adapter: cloudflare({
     platformProxy: { enabled: true },
     imageService: "passthrough",
