@@ -9,7 +9,7 @@ export const Route = createLazyFileRoute("/resume")({
   component: Resume,
 });
 
-function Resume() {
+export function Resume() {
   return (
     <>
       <div className="mx-auto my-4 w-fit p-4">

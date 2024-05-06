@@ -14,8 +14,8 @@ type NavListType = {
 };
 
 const navList: NavListType[] = [
-  { href: "/", icon: "carbon:home", label: "Home" },
-  { href: "/resume", icon: "carbon:document-pdf", label: "Resume" },
+  { href: "/test", icon: "carbon:home", label: "Home" },
+  { href: "/test/resume", icon: "carbon:document-pdf", label: "Resume" },
 ];
 ---
 
@@ -41,6 +41,6 @@ const navList: NavListType[] = [
     ))
   }
   <div class="mx-4 h-9 w-9">
-    <DarkModeToggle client:only="react" />
+    <DarkModeToggle client:only="react" transition:persist />
   </div>
 </nav>

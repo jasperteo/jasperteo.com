@@ -1,4 +1,4 @@
-import { defineConfig, passthroughImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import cloudflare from "@astrojs/cloudflare";
 import UnoCSS from "unocss/astro";
@@ -7,12 +7,11 @@ import { TanStackRouterVite } from "@tanstack/router-vite-plugin";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), UnoCSS({ injectReset: true })],
-  output: "server",
+  output: "hybrid",
   adapter: cloudflare({
     platformProxy: { enabled: true },
     imageService: "passthrough",
   }),
-  image: { service: passthroughImageService() },
   site: "https://jasperteo.com/",
   prefetch: { prefetchAll: true },
   vite: {

@@ -1,0 +1,22 @@
+---
+import { ResumePDF } from "@/components/resume-PDF";
+import { buttonVariants } from "@/components/ui/button-variants";
+import { linkPDF } from "@/lib/utils";
+---
+
+<div class="mx-auto my-4 w-fit p-4">
+  <a
+    download="jasperCV.pdf"
+    href={`${linkPDF}?download=`}
+    class:list={[
+      buttonVariants({ variant: "outline", size: "lg" }),
+      "text-xl hover:animate-rubber-band",
+    ]}
+  >
+    <iconify-icom inline icon="carbon:generate-pdf" class="mr-3"></iconify-icom>
+    Download
+  </a>
+</div>
+<article class="mx-auto aspect-[1/sqrt(2)] max-w-[595px]">
+  <ResumePDF client:only="react" />
+</article>

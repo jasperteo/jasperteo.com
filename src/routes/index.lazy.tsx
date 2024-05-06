@@ -14,8 +14,15 @@ export const Route = createLazyFileRoute("/")({
 });
 
 function Index() {
-  const openingMessage = "Welcome! 你 好!";
+  return (
+    <>
+      <OpeningMessage />
+      <Bento />
+    </>
+  );
+}
 
+export const Bento = () => {
   const cards: BentoGridItemProps[] = [
     {
       className: "md:col-span-2 md:row-span-2",
@@ -53,20 +60,25 @@ function Index() {
   ];
 
   return (
-    <>
-      <h1 className="mx-auto my-8 w-fit from-indigo-700 to-purple-700 bg-gradient-to-r bg-clip-text p-4 text-center text-3xl font-bold tracking-wide font-welcome transition-colors dark:from-indigo-400 dark:to-purple-400 sm:text-5xl">
-        <TextGenerateEffect words={openingMessage} />
-        <span className="sr-only">{openingMessage}</span>
-      </h1>
-      <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
-        {cards.map((card, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <BentoGridItem key={i} {...card} />
-        ))}
-      </BentoGrid>
-    </>
+    <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
+      {cards.map((card, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <BentoGridItem key={i} {...card} />
+      ))}
+    </BentoGrid>
   );
-}
+};
+
+export const OpeningMessage = () => {
+  const openingMessage = "Welcome! 你 好!";
+
+  return (
+    <h1 className="mx-auto my-8 w-fit from-indigo-700 to-purple-700 bg-gradient-to-r bg-clip-text p-4 text-center text-3xl font-bold tracking-wide font-welcome transition-colors dark:from-indigo-400 dark:to-purple-400 sm:text-5xl">
+      <TextGenerateEffect words={openingMessage} />
+      <span className="sr-only">{openingMessage}</span>
+    </h1>
+  );
+};
 
 const Introduction = () => (
   <div className="m-auto p-4 leading-7 transition-colors space-y-6">
@@ -135,7 +147,7 @@ const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
 );
 
 const Skills = () => (
-  <ul className="m-auto p-4 font-mono transition-colors space-y-2">
+  <ul className="m-auto pt-4 font-mono transition-colors space-y-2">
     <li>
       <Icon inline icon="logos:javascript" />{" "}
       <Icon inline icon="logos:typescript-icon" /> TypeScript

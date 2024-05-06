@@ -1,15 +1,12 @@
 ---
 import RootLayout from "@/layouts/RootLayout.astro";
 import AppLayout from "@/layouts/AppLayout.astro";
-import FooterItems from "@/components/FooterItems.astro";
-import NavBar from "@/components/NavBar.astro";
+
 import NotFound from "@/components/NotFound.astro";
 ---
 
 <RootLayout title="404 Not Found" description="404 Not Found">
   <AppLayout slot="app">
-    <NavBar slot="navbar" />
     <NotFound slot="outlet" />
-    <FooterItems slot="footer" />
   </AppLayout>
 </RootLayout>

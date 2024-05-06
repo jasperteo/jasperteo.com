@@ -1,14 +1,17 @@
 ---
 import { Separator } from "@/components/ui/separator";
+
+import FooterItems from "@/components/FooterItems.astro";
+import NavBar from "@/components/NavBar.astro";
 ---
 
 <script is:inline>
-  const useTheme = () => {
-    const themeValues = ["dark", "light", "system"];
-    const defaultTheme = "system";
-    const storageKey = "theme";
-    const theme = localStorage.getItem(storageKey) ?? defaultTheme;
+  const themeValues = ["dark", "light", "system"];
+  const defaultTheme = "system";
+  const storageKey = "theme";
+  let theme = localStorage.getItem(storageKey) ?? defaultTheme;
 
+  const useTheme = (document) => {
     if (theme !== "dark" && theme !== "light") {
       theme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
@@ -17,7 +20,12 @@ import { Separator } from "@/components/ui/separator";
     document.documentElement.classList.remove(...themeValues);
     document.documentElement.classList.add(theme);
   };
-  useTheme();
+
+  useTheme(document);
+
+  document.addEventListener("astro:before-swap", (event) =>
+    useTheme(event.newDocument)
+  );
 </script>
 
 <div
@@ -25,7 +33,7 @@ import { Separator } from "@/components/ui/separator";
 >
   <div class="mx-auto min-w-80 lg:max-w-5xl">
     <header>
-      <slot name="navbar" />
+      <NavBar />
     </header>
 
     <Separator className="my-4" />
@@ -35,7 +43,7 @@ import { Separator } from "@/components/ui/separator";
     </main>
 
     <footer class="absolute inset-x-8 bottom-8 mx-auto min-w-80 lg:max-w-5xl">
-      <slot name="footer" />
+      <FooterItems />
     </footer>
   </div>
 </div>
