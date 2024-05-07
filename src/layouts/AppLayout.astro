@@ -9,9 +9,9 @@ import NavBar from "@/components/NavBar.astro";
   const themeValues = ["dark", "light", "system"];
   const defaultTheme = "system";
   const storageKey = "theme";
-  let theme = localStorage.getItem(storageKey) ?? defaultTheme;
 
   const useTheme = (document) => {
+    let theme = localStorage.getItem(storageKey) ?? defaultTheme;
     if (theme !== "dark" && theme !== "light") {
       theme = window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"

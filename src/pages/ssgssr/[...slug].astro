@@ -1,0 +1,36 @@
+---
+import RootLayout from "@/layouts/RootLayout.astro";
+import AppLayout from "@/layouts/AppLayout.astro";
+import HomepageOutlet from "@/components/HomepageOutlet.astro";
+import ResumeOutlet from "@/components/ResumeOutlet.astro";
+
+// export const getStaticPaths = () => {
+//   const pages: { slug: string | undefined }[] = [
+//     { slug: undefined },
+//     { slug: "resume" },
+//   ];
+//   return pages.map(({ slug }) => ({ params: { slug } }));
+// };
+
+const pages: { slug: string | undefined }[] = [
+  { slug: undefined },
+  { slug: "resume" },
+];
+
+const { slug } = Astro.params;
+const page = pages.find((page) => page.slug === slug);
+if (!page) {
+  return Astro.redirect("/404");
+}
+
+const title = "Jasper Teo";
+const description =
+  "Hey there! I like crafting cool stuff for the web. Come explore and see what I'm up to!";
+---
+
+<RootLayout title={title} description={description}>
+  <AppLayout slot="app">
+    {slug === undefined && <HomepageOutlet slot="outlet" />}
+    {slug === "resume" && <ResumeOutlet slot="outlet" />}
+  </AppLayout>
+</RootLayout>

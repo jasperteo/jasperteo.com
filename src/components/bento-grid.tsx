@@ -48,7 +48,7 @@ const BentoGridItem = ({
       <span className="text-lg text-zinc-400 dark:text-zinc-500 group-hover/bento:text-primary/69">
         {icon}
       </span>
-      <h2 className="mb-2 mt-2 font-bold font-sans">{title}</h2>
+      <h2 className="mb-2 font-bold font-sans">{title}</h2>
       <p className="text-xs font-normal font-sans">{description}</p>
     </div>
   </section>

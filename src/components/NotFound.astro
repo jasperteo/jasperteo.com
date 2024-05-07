@@ -1,7 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 
-import { ButtonToHome } from "@/components/not-found-component";
+import { buttonVariants } from "@/components/ui/button-variants";
 import notFound from "@/images/404NotFound.avif";
 ---
 
@@ -25,5 +25,5 @@ import notFound from "@/images/404NotFound.avif";
       formats={["avif", "webp"]}
     />
   </div>
-  <ButtonToHome />
+  <a href="/" class:list={[buttonVariants(), "font-welcome"]}>cd ~</a>
 </div>

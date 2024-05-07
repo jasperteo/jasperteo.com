@@ -60,7 +60,7 @@ export const Bento = () => {
   ];
 
   return (
-    <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
+    <BentoGrid className="mx-auto max-w-4xl md:auto-rows-fr">
       {cards.map((card, i) => (
         // eslint-disable-next-line react/no-array-index-key
         <BentoGridItem key={i} {...card} />
@@ -147,7 +147,7 @@ const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
 );
 
 const Skills = () => (
-  <ul className="m-auto pt-4 font-mono transition-colors space-y-2">
+  <ul className="m-auto p-4 font-mono transition-colors space-y-2">
     <li>
       <Icon inline icon="logos:javascript" />{" "}
       <Icon inline icon="logos:typescript-icon" /> TypeScript
