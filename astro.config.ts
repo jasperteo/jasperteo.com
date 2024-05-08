@@ -10,6 +10,6 @@ export default defineConfig({
   output: "static",
   vite: {
     css: { transformer: "lightningcss" },
-    build: { cssMinify: "lightningcss", minify: false },
+    build: { cssMinify: "lightningcss" },
   },
 });
