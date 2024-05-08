@@ -14,8 +14,8 @@ type NavListType = {
 };
 
 const navList: NavListType[] = [
-  { href: "/ssgssr", icon: "carbon:home", label: "Home" },
-  { href: "/ssgssr/resume", icon: "carbon:document-pdf", label: "Resume" },
+  { href: "/", icon: "carbon:home", label: "Home" },
+  { href: "/resume", icon: "carbon:document-pdf", label: "Resume" },
 ];
 ---
 
@@ -26,7 +26,7 @@ const navList: NavListType[] = [
     navList.map(({ href, icon, label }) => (
       <>
         <a
-          href={href}
+          href={isActive(href) ? null : href}
           class:list={[
             buttonVariants({ variant: "ghost" }),
             { active: isActive(href) },
