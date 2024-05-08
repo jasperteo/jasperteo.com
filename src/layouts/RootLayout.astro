@@ -3,9 +3,36 @@ import { ViewTransitions } from "astro:transitions";
 
 type Props = { title: string; description: string };
 const { title, description } = Astro.props;
+
 const image =
   "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/meta-image.png";
 ---
+
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
+></script>
+
+<script is:inline>
+  const themeValues = ["dark", "light", "system"];
+  const defaultTheme = "system";
+  const storageKey = "theme";
+
+  const useTheme = (document) => {
+    let theme = localStorage.getItem(storageKey) ?? defaultTheme;
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    document.documentElement.classList.remove(...themeValues);
+    document.documentElement.classList.add(theme);
+  };
+
+  useTheme(document);
+
+  document.addEventListener("astro:before-swap", (event) =>
+    useTheme(event.newDocument)
+  );
+</script>
 
 <html lang="en">
   <head>
@@ -30,16 +57,13 @@ const image =
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-    
+
     <meta name="generator" content={Astro.generator} />
 
     <ViewTransitions />
   </head>
 
   <body>
-    <script
-      src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
-    ></script>
     <slot name="app" />
   </body>
 </html>

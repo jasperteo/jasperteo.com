@@ -1,22 +1,15 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import cloudflare from "@astrojs/cloudflare";
 import UnoCSS from "unocss/astro";
-import { TanStackRouterVite } from "@tanstack/router-vite-plugin";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), UnoCSS({ injectReset: true })],
-  output: "server",
-  adapter: cloudflare({
-    platformProxy: { enabled: true },
-    imageService: "passthrough",
-  }),
   site: "https://jasperteo.com/",
   prefetch: { prefetchAll: true },
+  output: "static",
   vite: {
     css: { transformer: "lightningcss" },
     build: { cssMinify: "lightningcss", minify: false },
-    plugins: [TanStackRouterVite()],
   },
 });
