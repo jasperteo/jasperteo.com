@@ -15,6 +15,29 @@ const description =
   "Hey there! I like crafting cool stuff for the web. Come explore and see what I'm up to!";
 ---
 
+<script is:inline>
+  const themeValues = ["dark", "light", "system"];
+  const defaultTheme = "system";
+  const storageKey = "theme";
+
+  const useTheme = (document) => {
+    let theme = localStorage.getItem(storageKey) ?? defaultTheme;
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    document.documentElement.classList.remove(...themeValues);
+    document.documentElement.classList.add(theme);
+  };
+
+  useTheme(document);
+
+  document.addEventListener("astro:before-swap", (event) =>
+    useTheme(event.newDocument)
+  );
+</script>
+
 <RootLayout title={title} description={description}>
   <AppLayout slot="app">
     {outlet === undefined && <HomepageOutlet slot="outlet" />}
