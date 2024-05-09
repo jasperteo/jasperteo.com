@@ -8,6 +8,29 @@ const image =
   "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/meta-image.png";
 ---
 
+<script is:inline>
+  const themeValues = ["dark", "light", "system"];
+  const defaultTheme = "system";
+  const storageKey = "theme";
+
+  const useTheme = (document) => {
+    let theme = localStorage.getItem(storageKey) ?? defaultTheme;
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    document.documentElement.classList.remove(...themeValues);
+    document.documentElement.classList.add(theme);
+  };
+
+  useTheme(document);
+
+  document.addEventListener("astro:before-swap", (event) =>
+    useTheme(event.newDocument)
+  );
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -39,19 +62,17 @@ const image =
 
   <body>
     <slot name="app" />
-  </body>
+  </body><style is:global>
+    :root {
+      font-synthesis: none;
+      color-scheme: light dark;
+      background-color: light-dark(rgb(250 250 250), rgb(24 24 27));
+    }
+
+    iconify-icon {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+    }
+  </style>
 </html>
-
-<style is:global>
-  :root {
-    font-synthesis: none;
-    color-scheme: light dark;
-    background-color: light-dark(rgb(250 250 250), rgb(24 24 27));
-  }
-
-  iconify-icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-  }
-</style>
