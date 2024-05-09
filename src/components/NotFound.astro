@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 
 import { buttonVariants } from "@/components/ui/button-variants";
 import notFound from "@/images/404NotFound.avif";
@@ -16,13 +16,13 @@ import notFound from "@/images/404NotFound.avif";
     Not Found
   </h1>
   <div>
-    <Picture
+    <Image
       class="mx-auto w-96 sm:w-md"
       src={notFound}
       alt="404 Not Found"
       title="Logo by @sawaratsuki1004"
       loading="eager"
-      formats={["avif", "webp"]}
+      format="avif"
     />
   </div>
   <a href="/" class:list={[buttonVariants(), "font-welcome"]}>cd ~</a>

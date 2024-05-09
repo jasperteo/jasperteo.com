@@ -9,12 +9,13 @@ export const getStaticPaths = () => [
   { params: { outlet: "resume" } },
 ];
 
-export const prerender = true;
-
 const { outlet } = Astro.params;
-// const paths = [{ outlet: undefined }, { outlet: "resume" }];
-// const path = paths.find((path) => path.outlet === outlet);
-// if (!path) return Astro.redirect("/404");
+// const paths: { slug: undefined | string }[] = [
+//   { slug: undefined },
+//   { slug: "resume" },
+// ];
+// const pathExist = paths.find(({ slug }) => slug === outlet);
+// if (!pathExist) return Astro.redirect("/404");
 
 const title = "Jasper Teo";
 const description =
