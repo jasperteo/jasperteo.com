@@ -4,16 +4,17 @@ import AppLayout from "@/layouts/AppLayout.astro";
 import HomepageOutlet from "@/components/HomepageOutlet.astro";
 import ResumeOutlet from "@/components/ResumeOutlet.astro";
 
-// export const getStaticPaths = () => [
-//   { params: { outlet: undefined } },
-//   { params: { outlet: "resume" } },
-// ];
+export const getStaticPaths = () => [
+  { params: { outlet: undefined } },
+  { params: { outlet: "resume" } },
+];
 
-const paths = [{ outlet: undefined }, { outlet: "resume" }];
+export const prerender = true;
 
 const { outlet } = Astro.params;
-const path = paths.find((path) => path.outlet === outlet);
-if (!path) return Astro.redirect("/404");
+// const paths = [{ outlet: undefined }, { outlet: "resume" }];
+// const path = paths.find((path) => path.outlet === outlet);
+// if (!path) return Astro.redirect("/404");
 
 const title = "Jasper Teo";
 const description =
