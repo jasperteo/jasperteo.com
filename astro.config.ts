@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [react(), UnoCSS({ injectReset: true })],
   site: "https://jasperteo.com/",
   prefetch: { prefetchAll: true },
-  output: "hybrid",
+  output: "server",
   adapter: cloudflare({
     platformProxy: { enabled: true },
     imageService: "passthrough",
