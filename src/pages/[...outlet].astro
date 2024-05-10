@@ -10,12 +10,6 @@ export const getStaticPaths = () => [
 ];
 
 const { outlet } = Astro.params;
-// const paths: { slug: undefined | string }[] = [
-//   { slug: undefined },
-//   { slug: "resume" },
-// ];
-// const pathExist = paths.find(({ slug }) => slug === outlet);
-// if (!pathExist) return Astro.redirect("/404");
 
 const title = "Jasper Teo";
 const description =
@@ -23,6 +17,11 @@ const description =
 ---
 
 <RootLayout title={title} description={description}>
+  {
+    outlet === "resume" && (
+      <meta name="robots" content="noindex" slot="noindex" />
+    )
+  }
   <AppLayout slot="app">
     {outlet === undefined && <HomepageOutlet slot="outlet" />}
     {outlet === "resume" && <ResumeOutlet slot="outlet" />}

@@ -7,7 +7,6 @@ import UnoCSS from "unocss/astro";
 export default defineConfig({
   integrations: [react(), UnoCSS({ injectReset: true })],
   site: "https://jasperteo.com/",
-  prefetch: { prefetchAll: true },
   output: "static",
   // adapter: cloudflare({
   //   platformProxy: { enabled: true },
@@ -17,4 +16,5 @@ export default defineConfig({
     css: { transformer: "lightningcss" },
     build: { cssMinify: "lightningcss" },
   },
+  experimental: { clientPrerender: true },
 });
