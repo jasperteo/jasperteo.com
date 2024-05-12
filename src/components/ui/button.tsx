@@ -1,4 +1,5 @@
-import { type ButtonHTMLAttributes, forwardRef } from "react";
+import { forwardRef } from "react";
+import type { ButtonHTMLAttributes } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import type { VariantProps } from "class-variance-authority";
 

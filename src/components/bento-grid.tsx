@@ -54,4 +54,5 @@ const BentoGridItem = ({
   </section>
 );
 
-export { BentoGrid, BentoGridItem, type BentoGridItemProps };
+export { BentoGrid, BentoGridItem };
+export type { BentoGridItemProps };

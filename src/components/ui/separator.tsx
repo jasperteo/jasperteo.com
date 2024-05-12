@@ -1,8 +1,5 @@
-import {
-  type ComponentPropsWithoutRef,
-  type ElementRef,
-  forwardRef,
-} from "react";
+import { forwardRef } from "react";
+import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { Root } from "@radix-ui/react-separator";
 
 import { cn } from "@/lib/utils";

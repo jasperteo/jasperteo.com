@@ -12,7 +12,7 @@ const useWidth = () => {
 
   useLayoutEffect(() => {
     const resizeObserver = new ResizeObserver(() => {
-      setWidth(Math.min(595, ref.current!.offsetWidth));
+      setWidth(ref.current!.offsetWidth);
     });
 
     if (ref.current) {

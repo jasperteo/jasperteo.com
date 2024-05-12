@@ -1,11 +1,8 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { Icon } from "@iconify-icon/react";
 
-import {
-  BentoGrid,
-  BentoGridItem,
-  type BentoGridItemProps,
-} from "@/components/bento-grid";
+import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
+import type { BentoGridItemProps } from "@/components/bento-grid";
 import { TextGenerateEffect } from "@/components/text-generate-effect";
 import { Button } from "@/components/ui/button";
 
