@@ -30,7 +30,7 @@ const navList: NavListType[] = [
           class:list={[
             buttonVariants({ variant: "ghost" }),
             { active: isActive(href) },
-            "[&.active]:animate-swing sm:text-base [&.active]:font-bold",
+            "[&.active]:animate-swing [&.active]:animate-delay-150 sm:text-base [&.active]:font-bold",
           ]}
         >
           <iconify-icon inline icon={icon} class="mr-2" />
