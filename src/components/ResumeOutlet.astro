@@ -1,13 +1,15 @@
 ---
 import { ResumePDF } from "@/components/resume-PDF";
 import { buttonVariants } from "@/components/ui/button-variants";
-import { linkPDF } from "@/lib/utils";
+
+const PDF =
+  "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/jasperCV.pdf";
 ---
 
-<div class="mx-auto my-4 w-fit p-4">
+<div class="mx-auto my-8 w-fit">
   <a
     download="jasperCV.pdf"
-    href={`${linkPDF}?download=`}
+    href={`${PDF}?download=`}
     class:list={[
       buttonVariants({ variant: "outline", size: "lg" }),
       "text-xl hover:animate-rubber-band",
@@ -18,5 +20,5 @@ import { linkPDF } from "@/lib/utils";
   </a>
 </div>
 <article class="mx-auto aspect-[1/sqrt(2)] max-w-[595px]">
-  <ResumePDF client:only="react" />
+  <ResumePDF PDF={PDF} client:only="react" />
 </article>

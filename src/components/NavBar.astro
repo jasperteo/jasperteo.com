@@ -15,12 +15,12 @@ type NavListType = {
 
 const navList: NavListType[] = [
   { href: "/", icon: "carbon:home", label: "Home" },
-  { href: "/resume", icon: "carbon:document-pdf", label: "Resume" },
+  { href: "/resume", icon: "carbon:document-view", label: "Resume" },
 ];
 ---
 
 <nav
-  class="my-10 h-11 flex place-items-center justify-center gap-2 font-mono sm:mr-10 sm:justify-end"
+  class="my-4 h-9 flex place-items-center justify-center gap-2 font-mono sm:my-10 sm:mr-10 sm:justify-end"
 >
   {
     navList.map(({ href, icon, label }) => (

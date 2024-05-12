@@ -1,25 +1,10 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
 import { Icon } from "@iconify-icon/react";
 
 import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
 import type { BentoGridItemProps } from "@/components/bento-grid";
-import { TextGenerateEffect } from "@/components/text-generate-effect";
 import { Button } from "@/components/ui/button";
 
-export const Route = createLazyFileRoute("/")({
-  component: Index,
-});
-
-function Index() {
-  return (
-    <>
-      <OpeningMessage />
-      <Bento />
-    </>
-  );
-}
-
-export const Bento = () => {
+const BentoIntro = () => {
   const cards: BentoGridItemProps[] = [
     {
       className: "md:col-span-2 md:row-span-2",
@@ -63,17 +48,6 @@ export const Bento = () => {
         <BentoGridItem key={i} {...card} />
       ))}
     </BentoGrid>
-  );
-};
-
-export const OpeningMessage = () => {
-  const openingMessage = "Welcome! 你 好!";
-
-  return (
-    <h1 className="mx-auto my-8 w-fit from-indigo-700 to-purple-700 bg-gradient-to-r bg-clip-text p-4 text-center text-3xl font-bold tracking-wide font-welcome transition-colors dark:from-indigo-400 dark:to-purple-400 sm:text-5xl">
-      <TextGenerateEffect words={openingMessage} />
-      <span className="sr-only">{openingMessage}</span>
-    </h1>
   );
 };
 
@@ -169,3 +143,5 @@ const Skills = () => (
     </li>
   </ul>
 );
+
+export { BentoIntro };

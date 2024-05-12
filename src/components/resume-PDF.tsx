@@ -5,7 +5,6 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 
 import { useWidth } from "@/hooks/useWidth";
 import { Skeleton } from "@/components/ui/skeleton";
-import { linkPDF } from "@/lib/utils";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -15,14 +14,14 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 /**
  * Renders a PDF document containing a resume.
  */
-const ResumePDF = () => {
+const ResumePDF = ({ PDF }: { PDF: string }) => {
   const { ref, width } = useWidth();
 
   return (
     <Document
       className="mx-auto max-w-[595px] text-center font-mono"
       inputRef={ref}
-      file={linkPDF}
+      file={PDF}
       loading={<Skeleton className="mx-auto aspect-[1/sqrt(2)] rounded-lg" />}
       error={
         <>
