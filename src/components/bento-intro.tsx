@@ -111,7 +111,8 @@ const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
       className="text-lg text-inherit hover:text-primary"
     >
       <a href={url} target="_blank" rel="noreferrer">
-        {icon} {name}
+        {icon}
+        {name}
       </a>
     </Button>
   </li>

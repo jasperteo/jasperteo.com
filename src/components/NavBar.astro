@@ -15,12 +15,13 @@ type NavListType = {
 
 const navList: NavListType[] = [
   { href: "/", icon: "carbon:home", label: "Home" },
+  { href: "/projects", icon: "carbon:devices-apps", label: "Projects" },
   { href: "/resume", icon: "carbon:document-view", label: "Resume" },
 ];
 ---
 
 <nav
-  class="my-4 h-9 flex place-items-center justify-center gap-2 font-mono sm:my-10 sm:mr-10 sm:justify-end"
+  class="my-5 h-9 flex place-items-center justify-center gap-2 font-mono sm:my-10 sm:mr-10 sm:justify-end"
 >
   {
     navList.map(({ href, icon, label }) => (
@@ -30,10 +31,10 @@ const navList: NavListType[] = [
           class:list={[
             buttonVariants({ variant: "ghost" }),
             { active: isActive(href) },
-            "[&.active]:animate-swing [&.active]:animate-delay-150 sm:text-base [&.active]:font-bold",
+            "[&.active]:animate-swing [&.active]:animate-delay-150 sm:text-base [&.active]:font-semibold",
           ]}
         >
-          <iconify-icon inline icon={icon} class="mr-2" />
+          <iconify-icon icon={icon} class="mr-1.5 text-lg" />
           {label}
         </a>
         <Separator orientation="vertical" />
