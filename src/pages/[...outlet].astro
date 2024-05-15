@@ -21,11 +21,6 @@ const description =
 ---
 
 <RootLayout title={title} description={description}>
-  {
-    outlet === "resume" && (
-      <meta name="robots" content="noindex" slot="noindex" />
-    )
-  }
   <AppLayout slot="app">
     {outlet === undefined && <HomepageOutlet slot="outlet" />}
     {outlet === "projects" && <ProjectsOutlet slot="outlet" />}

@@ -5,8 +5,7 @@ type Props = { title: string; description: string };
 
 const { title, description } = Astro.props;
 const url = import.meta.env.SITE;
-const image =
-  "https://jjjyrvgqspmcyvsrrxzc.supabase.co/storage/v1/object/public/blob/meta-image.png";
+const image = "https://storage.jasperteo.com/meta-image.png";
 ---
 
 <script data-cfasync="false" is:inline>
@@ -64,7 +63,6 @@ const image =
     <meta name="twitter:image" content={image} />
 
     <meta name="generator" content={Astro.generator} />
-    <slot name="noindex" />
 
     <ViewTransitions />
   </head>
