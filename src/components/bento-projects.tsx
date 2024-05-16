@@ -4,7 +4,6 @@ import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
 import type { BentoGridItemProps } from "@/components/bento-grid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { buttonVariants } from "@/components/ui/button-variants";
 
 const BentoProjects = () => {
   const cards: BentoGridItemProps[] = [
@@ -12,28 +11,28 @@ const BentoProjects = () => {
       className: "md:col-span-1 md:row-span-1",
       title: "SheTreks",
       description: <BadgeSheTreks />,
-      header: <Test />,
+      header: <SheTreks />,
       icon: <Icon icon="carbon:mountain" />,
     },
     {
       className: "md:col-span-1 md:row-span-1",
       title: "Watch Out",
       description: <BadgeWatchOut />,
-      header: <Test />,
+      header: <WatchOut />,
       icon: <Icon icon="carbon:time" />,
     },
     {
       className: "md:col-span-1 md:row-span-1",
       title: "SG Buddy",
       description: <BadgeSGBuddy />,
-      header: <Test />,
+      header: <SGBuddy />,
       icon: <Icon icon="carbon:earth-southeast-asia" />,
     },
     {
       className: "md:col-span-1 md:row-span-1",
       title: "priceQuery",
       description: <BadgePriceQuery />,
-      header: <Test />,
+      header: <PriceQuery />,
       icon: <Icon icon="carbon:analytics" />,
     },
   ];
@@ -48,14 +47,147 @@ const BentoProjects = () => {
   );
 };
 
-const Test = () => (
-  <div className="m-auto p-4 leading-7 transition-colors space-y-6">
-    <p>This is a short description of the projects I have worked on.</p>
-    <p>One two</p>
-  </div>
+type LinkButtonProps = { repo: string; app: string };
+
+const LinkButton = ({ repo, app }: LinkButtonProps) => (
+  <>
+    <Button asChild variant="link" className="p-0">
+      <a href={repo} target="_blank" rel="noopener">
+        <Icon className="mr-1 text-base" icon="lucide:external-link" />
+        Repository
+      </a>
+    </Button>
+    <br />
+    <Button asChild variant="link" className="p-0">
+      <a href={app} target="_blank" rel="noopener">
+        <Icon className="mr-1 text-base" icon="lucide:external-link" />
+        Application
+      </a>
+    </Button>
+  </>
 );
 
+const SheTreks = () => {
+  const links: LinkButtonProps = {
+    repo: "https://github.com/jasperteo/SheTreks-frontend",
+    app: "https://shetreks.netlify.app",
+  };
+  return (
+    <div className="m-auto p-4 leading-7 transition-colors space-y-6">
+      <p>
+        A social media app for solo female travelers to connect and share
+        experiences. Users can filter activities by interests, view activity
+        locations on a map, and receive notifications for new or updated
+        activities. They can also create and invite others to activities, and
+        follow other users.
+      </p>
+      <p>
+        As a PWA, it is installable as a native-like app with access to certain
+        native features.
+      </p>
+      <p>{LinkButton(links)}</p>
+      {/* <p>
+      The front-end is built as a React SPA using Vite as the bundler and React
+      Router as the router, TanStack Query for asyncronous state management such
+      as data fetching. <br />
+      The back-end is a Bun server using the Hono web framework, serving RESTful
+      APIs with authentication and querying the Postgres database.
+    </p> */}
+    </div>
+  );
+};
+
+const WatchOut = () => {
+  const links: LinkButtonProps = {
+    repo: "https://github.com/jasperteo/watch-out-frontend",
+    app: "https://watch-outt.netlify.app",
+  };
+  return (
+    <div className="m-auto p-4 leading-7 transition-colors space-y-6">
+      <p>
+        A bidding platform where users can bid and buy Rolex watches. Users can
+        also list their own watches for sale. The app features a chart to show
+        the past few months of watch prices, giving users an idea of the market
+        price.
+      </p>
+      <p>
+        Bids are made in real-time by leveraging Socket.IO, and a Stripe
+        integration is used for payments.
+      </p>
+      <p>{LinkButton(links)}</p>
+      {/* <p>
+      The front-end is built as a React SPA using Vite as the bundler and React
+      Router as the router, and TanStack Query for asyncronous state management
+      such as data fetching. <br />
+      The back-end is a Node server using the Express web framework, serving
+      RESTful APIs with authentication and querying the Postgres database.
+    </p> */}
+    </div>
+  );
+};
+const SGBuddy = () => {
+  const links: LinkButtonProps = {
+    repo: "https://github.com/jasperteo/SG_Buddy",
+    app: "https://ra-project2-b8ed4.web.app/",
+  };
+  return (
+    <div className="m-auto p-4 leading-7 transition-colors space-y-6">
+      <p>
+        An informational travellers app for travellers to Singapore. Users can
+        search for food, attractions, and hotels, and view the location on a
+        map. Users can also save their favourite places and view them later. The
+        app also help users to plan their itinerary with flight and hotel
+        details.
+      </p>
+      <p>{LinkButton(links)}</p>
+      {/* <p>
+      It is a pure front-end React SPA using Vite as the bundler and React
+      Router as the router, SWR for asyncronous state management such as data
+      fetching. The database is Firebase Real-Time Database.
+    </p> */}
+    </div>
+  );
+};
+const PriceQuery = () => {
+  const links: LinkButtonProps = {
+    repo: "https://github.com/jasperteo/priceQuery",
+    app: "https://jasperteo.github.io/priceQuery/",
+  };
+  return (
+    <div className="m-auto p-4 leading-7 transition-colors space-y-6">
+      <p>
+        A simple app to check up the latest prices of different assets in the
+        market. Users can search for the price and details of a stock,
+        cryptocurrency, or foreign exchange currencies. The data is displayed in
+        cards and the number of cards can be adjusted.
+      </p>
+      <p>Market data is from Polygon.io.</p>
+      <p>{LinkButton(links)}</p>
+      {/* <p>
+      It is a pure front-end React SPA using Vite as the bundler and SWR for
+      asyncronous state management such as data fetching.
+    </p> */}
+    </div>
+  );
+};
+
 type BadgeProps = { icon: React.ReactNode; name: string };
+
+const BadgeGenerator = ({ badges, i }: { badges: BadgeProps[]; i: number }) => (
+  <ul className="flex flex-wrap gap-x-1.5 gap-y-2 transition-colors">
+    {badges.map(({ icon, name }, index) => (
+      <li key={name}>
+        <Badge
+          variant={index > i ? "secondary" : "default"}
+          className="gap-1 text-nowrap"
+        >
+          {icon}
+          {name}
+        </Badge>
+      </li>
+    ))}
+  </ul>
+);
 
 const BadgeSheTreks = () => {
   const badges: BadgeProps[] = [
@@ -70,6 +202,7 @@ const BadgeSheTreks = () => {
     { icon: <Icon icon="simple-icons:tailwindcss" />, name: "Tailwind CSS" },
     { icon: <Icon icon="simple-icons:daisyui" />, name: "daisyUI" },
     { icon: <Icon icon="simple-icons:googlemaps" />, name: "Vis.gl" },
+    { icon: <Icon icon="simple-icons:pwa" />, name: "PWA" },
     { icon: <Icon icon="simple-icons:supabase" />, name: "Supabase" },
     { icon: <Icon icon="simple-icons:clerk" />, name: "Clerk" },
     { icon: <Icon icon="simple-icons:bun" />, name: "Bun" },
@@ -77,21 +210,8 @@ const BadgeSheTreks = () => {
     { icon: <Icon icon="simple-icons:sequelize" />, name: "Sequelize" },
     { icon: <Icon icon="simple-icons:postgresql" />, name: "Postgres" },
   ];
-  return (
-    <ul className="flex flex-wrap gap-x-1.5 gap-y-2 transition-colors">
-      {badges.map(({ icon, name }, i) => (
-        <li key={name}>
-          <Badge
-            variant={i > 7 ? "secondary" : "default"}
-            className="gap-1 text-nowrap"
-          >
-            {icon}
-            {name}
-          </Badge>
-        </li>
-      ))}
-    </ul>
-  );
+  const cutoffIndex = 8;
+  return <BadgeGenerator badges={badges} i={cutoffIndex} />;
 };
 
 const BadgeWatchOut = () => {
@@ -114,21 +234,8 @@ const BadgeWatchOut = () => {
     { icon: <Icon icon="simple-icons:sequelize" />, name: "Sequelize" },
     { icon: <Icon icon="simple-icons:postgresql" />, name: "Postgres" },
   ];
-  return (
-    <ul className="flex flex-wrap gap-x-1.5 gap-y-2 transition-colors">
-      {badges.map(({ icon, name }, i) => (
-        <li key={name}>
-          <Badge
-            variant={i > 5 ? "secondary" : "default"}
-            className="gap-1 text-nowrap"
-          >
-            {icon}
-            {name}
-          </Badge>
-        </li>
-      ))}
-    </ul>
-  );
+  const cutoffIndex = 5;
+  return <BadgeGenerator badges={badges} i={cutoffIndex} />;
 };
 
 const BadgeSGBuddy = () => {
@@ -146,21 +253,8 @@ const BadgeSGBuddy = () => {
     { icon: <Icon icon="simple-icons:firebase" />, name: "Firebase" },
     { icon: <Icon icon="simple-icons:nodedotjs" />, name: "Node" },
   ];
-  return (
-    <ul className="flex flex-wrap gap-x-1.5 gap-y-2 transition-colors">
-      {badges.map(({ icon, name }, i) => (
-        <li key={name}>
-          <Badge
-            variant={i > 6 ? "secondary" : "default"}
-            className="gap-1 text-nowrap"
-          >
-            {icon}
-            {name}
-          </Badge>
-        </li>
-      ))}
-    </ul>
-  );
+  const cutoffIndex = 6;
+  return <BadgeGenerator badges={badges} i={cutoffIndex} />;
 };
 
 const BadgePriceQuery = () => {
@@ -171,21 +265,8 @@ const BadgePriceQuery = () => {
     { icon: <Icon icon="simple-icons:mui" />, name: "MUI" },
     { icon: <Icon icon="simple-icons:bun" />, name: "Bun" },
   ];
-  return (
-    <ul className="flex flex-wrap gap-x-1.5 gap-y-2 transition-colors">
-      {badges.map(({ icon, name }, i) => (
-        <li key={name}>
-          <Badge
-            variant={i > 3 ? "secondary" : "default"}
-            className="gap-1 text-nowrap"
-          >
-            {icon}
-            {name}
-          </Badge>
-        </li>
-      ))}
-    </ul>
-  );
+  const cutoffIndex = 3;
+  return <BadgeGenerator badges={badges} i={cutoffIndex} />;
 };
 
 export { BentoProjects };

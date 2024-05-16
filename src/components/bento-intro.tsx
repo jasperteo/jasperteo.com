@@ -96,27 +96,23 @@ const ContactInfo = () => {
 
   return (
     <ul className="m-auto p-4 font-welcome space-y-2.5">
-      {contactInfoItems.map((item) => (
-        <ContactInfoitem key={item.name} {...item} />
+      {contactInfoItems.map(({ name, url, icon }) => (
+        <li key={name}>
+          <Button
+            asChild
+            variant="link"
+            className="text-lg text-inherit hover:text-primary"
+          >
+            <a href={url} target="_blank" rel="noreferrer">
+              {icon}
+              {name}
+            </a>
+          </Button>
+        </li>
       ))}
     </ul>
   );
 };
-
-const ContactInfoitem = ({ name, url, icon }: ContactInfoitemProps) => (
-  <li>
-    <Button
-      asChild
-      variant="link"
-      className="text-lg text-inherit hover:text-primary"
-    >
-      <a href={url} target="_blank" rel="noreferrer">
-        {icon}
-        {name}
-      </a>
-    </Button>
-  </li>
-);
 
 const Skills = () => (
   <ul className="m-auto p-4 font-mono transition-colors space-y-2">
