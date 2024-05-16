@@ -54,14 +54,14 @@ const LinkButton = ({ repo, app }: LinkButtonProps) => (
     <Button asChild variant="link" className="p-0">
       <a href={repo} target="_blank" rel="noopener">
         <Icon className="mr-1 text-base" icon="lucide:external-link" />
-        Repository
+        Browse the Repository
       </a>
     </Button>
     <br />
     <Button asChild variant="link" className="p-0">
       <a href={app} target="_blank" rel="noopener">
         <Icon className="mr-1 text-base" icon="lucide:external-link" />
-        Application
+        Explore the App
       </a>
     </Button>
   </>
