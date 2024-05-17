@@ -1,6 +1,6 @@
 ---
-import { TextGenerateEffect } from "@/components/text-generate-effect";
 import { BentoIntro } from "@/components/bento-intro";
+import { TextGenerateEffect } from "@/components/text-generate-effect";
 
 const openingMessage = "Welcome! 你 好!";
 ---
@@ -11,4 +11,5 @@ const openingMessage = "Welcome! 你 好!";
   <TextGenerateEffect words={openingMessage} client:idle />
   <span class="sr-only">{openingMessage}</span>
 </h1>
+
 <BentoIntro />

@@ -5,17 +5,19 @@ import { buttonVariants } from "@/components/ui/button-variants";
 const PDF = "https://storage.jasperteo.com/jasperCV.pdf";
 ---
 
-<div class="mx-auto my-8 w-fit">
+<div class="mx-auto mb-8 w-fit">
   <a
-    download="jasperCV.pdf"
     href={PDF}
+    target="_blank"
+    rel="noopener"
     class:list={[
-      buttonVariants({ variant: "outline", size: "lg" }),
+      buttonVariants({ variant: "default", size: "lg" }),
       "text-xl hover:animate-rubber-band",
     ]}
   >
-    <iconify-icon inline icon="carbon:generate-pdf" class="mr-3"></iconify-icon>
-    Download
+    <iconify-icon icon="lucide:external-link" class="mr-3 text-2xl"
+    ></iconify-icon>
+    Open PDF
   </a>
 </div>
 <article class="mx-auto aspect-[1/sqrt(2)] max-w-[595px]">

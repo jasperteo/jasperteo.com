@@ -8,29 +8,6 @@ const url = import.meta.env.SITE;
 const image = "https://storage.jasperteo.com/meta-image.png";
 ---
 
-<script data-cfasync="false" is:inline>
-  const themeValues = ["dark", "light", "system"];
-  const defaultTheme = "system";
-  const storageKey = "theme";
-
-  const useTheme = (document) => {
-    let theme = localStorage.getItem(storageKey) ?? defaultTheme;
-    if (theme !== "dark" && theme !== "light") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    document.documentElement.classList.remove(...themeValues);
-    document.documentElement.classList.add(theme);
-  };
-
-  useTheme(document);
-
-  document.addEventListener("astro:before-swap", (event) =>
-    useTheme(event.newDocument)
-  );
-</script>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -71,17 +48,3 @@ const image = "https://storage.jasperteo.com/meta-image.png";
     <slot name="app" />
   </body>
 </html>
-
-<style is:global>
-  :root {
-    font-synthesis: none;
-    color-scheme: light dark;
-    background-color: light-dark(rgb(244 244 245), rgb(24 24 27));
-  }
-
-  iconify-icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-  }
-</style>

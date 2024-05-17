@@ -1,8 +1,9 @@
+import type { ReactNode } from "react";
 import { Icon } from "@iconify-icon/react";
 
-import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
-import type { BentoGridItemProps } from "@/components/bento-grid";
 import { Button } from "@/components/ui/button";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import type { BentoGridItemProps } from "@/components/ui/bento-grid";
 
 const BentoIntro = () => {
   const cards: BentoGridItemProps[] = [
@@ -72,7 +73,7 @@ const Introduction = () => (
 type ContactInfoitemProps = {
   name?: string;
   url?: string;
-  icon?: React.ReactNode | string;
+  icon?: ReactNode;
 };
 
 const ContactInfo = () => {

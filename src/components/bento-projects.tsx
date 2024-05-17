@@ -1,9 +1,9 @@
 import { Icon } from "@iconify-icon/react";
 
-import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
-import type { BentoGridItemProps } from "@/components/bento-grid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import type { BentoGridItemProps } from "@/components/ui/bento-grid";
 
 const BentoProjects = () => {
   const cards: BentoGridItemProps[] = [
@@ -50,21 +50,33 @@ const BentoProjects = () => {
 type LinkButtonProps = { repo: string; app: string };
 
 const LinkButton = ({ repo, app }: LinkButtonProps) => (
-  <>
-    <Button asChild variant="link" className="p-0">
+  <div className="justify-self-end p-4 pb-0 space-x-2">
+    <Button asChild variant="link" className="pl-0">
       <a href={repo} target="_blank" rel="noopener">
-        <Icon className="mr-1 text-base" icon="lucide:external-link" />
+        <Icon className="mr-1.5 text-lg" icon="carbon:repo-source-code" />
         Browse the Repository
       </a>
     </Button>
-    <br />
-    <Button asChild variant="link" className="p-0">
+    <Button asChild variant="link" className="pl-0">
       <a href={app} target="_blank" rel="noopener">
-        <Icon className="mr-1 text-base" icon="lucide:external-link" />
+        <Icon className="mr-1.5 text-lg" icon="carbon:application" />
         Explore the App
       </a>
     </Button>
-  </>
+  </div>
+);
+
+const HeaderWrapper = ({
+  children,
+  links,
+}: {
+  children: React.ReactNode;
+  links: LinkButtonProps;
+}) => (
+  <div className="h-full flex flex-col transition-colors">
+    <div className="m-auto p-4 text-sm leading-6 space-y-5">{children}</div>
+    <LinkButton {...links} />
+  </div>
 );
 
 const SheTreks = () => {
@@ -72,8 +84,9 @@ const SheTreks = () => {
     repo: "https://github.com/jasperteo/SheTreks-frontend",
     app: "https://shetreks.netlify.app",
   };
+
   return (
-    <div className="m-auto p-4 leading-7 transition-colors space-y-6">
+    <HeaderWrapper links={links}>
       <p>
         A social media app for solo female travelers to connect and share
         experiences. Users can filter activities by interests, view activity
@@ -85,15 +98,14 @@ const SheTreks = () => {
         As a PWA, it is installable as a native-like app with access to certain
         native features.
       </p>
-      <p>{LinkButton(links)}</p>
       {/* <p>
-      The front-end is built as a React SPA using Vite as the bundler and React
-      Router as the router, TanStack Query for asyncronous state management such
-      as data fetching. <br />
-      The back-end is a Bun server using the Hono web framework, serving RESTful
-      APIs with authentication and querying the Postgres database.
-    </p> */}
-    </div>
+        The front-end is built as a React SPA using Vite as the bundler and
+        React Router as the router, TanStack Query for asyncronous state
+        management such as data fetching. <br />
+        The back-end is a Bun server using the Hono web framework, serving
+        RESTful APIs with authentication and querying the Postgres database.
+      </p> */}
+    </HeaderWrapper>
   );
 };
 
@@ -102,8 +114,9 @@ const WatchOut = () => {
     repo: "https://github.com/jasperteo/watch-out-frontend",
     app: "https://watch-outt.netlify.app",
   };
+
   return (
-    <div className="m-auto p-4 leading-7 transition-colors space-y-6">
+    <HeaderWrapper links={links}>
       <p>
         A bidding platform where users can bid and buy Rolex watches. Users can
         also list their own watches for sale. The app features a chart to show
@@ -114,24 +127,25 @@ const WatchOut = () => {
         Bids are made in real-time by leveraging Socket.IO, and a Stripe
         integration is used for payments.
       </p>
-      <p>{LinkButton(links)}</p>
       {/* <p>
-      The front-end is built as a React SPA using Vite as the bundler and React
-      Router as the router, and TanStack Query for asyncronous state management
-      such as data fetching. <br />
-      The back-end is a Node server using the Express web framework, serving
-      RESTful APIs with authentication and querying the Postgres database.
-    </p> */}
-    </div>
+        The front-end is built as a React SPA using Vite as the bundler and
+        React Router as the router, and TanStack Query for asyncronous state
+        management such as data fetching. <br />
+        The back-end is a Node server using the Express web framework, serving
+        RESTful APIs with authentication and querying the Postgres database.
+      </p> */}
+    </HeaderWrapper>
   );
 };
+
 const SGBuddy = () => {
   const links: LinkButtonProps = {
     repo: "https://github.com/jasperteo/SG_Buddy",
     app: "https://ra-project2-b8ed4.web.app/",
   };
+
   return (
-    <div className="m-auto p-4 leading-7 transition-colors space-y-6">
+    <HeaderWrapper links={links}>
       <p>
         An informational travellers app for travellers to Singapore. Users can
         search for food, attractions, and hotels, and view the location on a
@@ -139,22 +153,23 @@ const SGBuddy = () => {
         app also help users to plan their itinerary with flight and hotel
         details.
       </p>
-      <p>{LinkButton(links)}</p>
       {/* <p>
-      It is a pure front-end React SPA using Vite as the bundler and React
-      Router as the router, SWR for asyncronous state management such as data
-      fetching. The database is Firebase Real-Time Database.
-    </p> */}
-    </div>
+        It is a pure front-end React SPA using Vite as the bundler and React
+        Router as the router, SWR for asyncronous state management such as data
+        fetching. The database is Firebase Real-Time Database.
+      </p> */}
+    </HeaderWrapper>
   );
 };
+
 const PriceQuery = () => {
   const links: LinkButtonProps = {
     repo: "https://github.com/jasperteo/priceQuery",
     app: "https://jasperteo.github.io/priceQuery/",
   };
+
   return (
-    <div className="m-auto p-4 leading-7 transition-colors space-y-6">
+    <HeaderWrapper links={links}>
       <p>
         A simple app to check up the latest prices of different assets in the
         market. Users can search for the price and details of a stock,
@@ -162,12 +177,11 @@ const PriceQuery = () => {
         cards and the number of cards can be adjusted.
       </p>
       <p>Market data is from Polygon.io.</p>
-      <p>{LinkButton(links)}</p>
       {/* <p>
-      It is a pure front-end React SPA using Vite as the bundler and SWR for
-      asyncronous state management such as data fetching.
-    </p> */}
-    </div>
+        It is a pure front-end React SPA using Vite as the bundler and SWR for
+        asyncronous state management such as data fetching.
+      </p> */}
+    </HeaderWrapper>
   );
 };
 

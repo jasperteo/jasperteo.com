@@ -7,6 +7,11 @@ type FooterLinksType = {
 
 const footerLinksList: FooterLinksType[] = [
   {
+    url: "https://www.cloudflare.com/developer-platform/r2/",
+    icon: "simple-icons:cloudflare",
+    label: "Cloudflare R2",
+  },
+  {
     url: "https://pages.cloudflare.com/",
     icon: "simple-icons:cloudflarepages",
     label: "Cloudflare Pages",
@@ -15,11 +20,6 @@ const footerLinksList: FooterLinksType[] = [
     url: "https://workers.cloudflare.com/",
     icon: "simple-icons:cloudflareworkers",
     label: "Cloudflare Workers",
-  },
-  {
-    url: "https://supabase.com/",
-    icon: "simple-icons:supabase",
-    label: "Supabase",
   },
   {
     url: "https://astro.build/",
@@ -53,7 +53,7 @@ const footerLinksList: FooterLinksType[] = [
   Made With:
 </h2>
 <div
-  class="grid grid-cols-4 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/69 sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-sm sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10"
+  class="grid grid-cols-4 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/25 sm:flex sm:gap-6 sm:bg-stone-900/10 sm:text-xl sm:shadow-lg sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-stone-50/10"
 >
   {
     footerLinksList.map(({ url, label, icon }) => (

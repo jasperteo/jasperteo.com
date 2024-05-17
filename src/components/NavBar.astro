@@ -1,5 +1,5 @@
 ---
-import { DarkModeToggle } from "@/components/dark-mode-toggle";
+import ThemeToggle from "@/components/ThemeToggle.astro";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
 
@@ -16,7 +16,6 @@ type NavListType = {
 const navList: NavListType[] = [
   { href: "/", icon: "carbon:home", label: "Home" },
   { href: "/projects", icon: "carbon:devices-apps", label: "Projects" },
-  { href: "/resume", icon: "carbon:document-view", label: "Resume" },
 ];
 ---
 
@@ -34,7 +33,7 @@ const navList: NavListType[] = [
             "[&.active]:animate-swing [&.active]:animate-delay-150 sm:text-base [&.active]:font-semibold",
           ]}
         >
-          <iconify-icon icon={icon} class="mr-1.5 text-lg" />
+          <iconify-icon icon={icon} class="mr-2 text-xl" />
           {label}
         </a>
         <Separator orientation="vertical" />
@@ -42,6 +41,6 @@ const navList: NavListType[] = [
     ))
   }
   <div class="mx-4 h-9 w-9">
-    <DarkModeToggle client:only="react" transition:persist />
+    <ThemeToggle />
   </div>
 </nav>

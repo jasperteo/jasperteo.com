@@ -1,8 +1,10 @@
+import type { ReactNode } from "react";
+
 import { cn } from "@/lib/utils";
 
 type BentoGridProps = {
   className?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 /**
@@ -21,10 +23,10 @@ const BentoGrid = ({ className, children }: BentoGridProps) => (
 
 type BentoGridItemProps = {
   className?: string;
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  header?: React.ReactNode;
-  icon?: React.ReactNode;
+  title?: string | ReactNode;
+  description?: string | ReactNode;
+  header?: ReactNode;
+  icon?: ReactNode;
 };
 
 /**
@@ -39,7 +41,7 @@ const BentoGridItem = ({
 }: BentoGridItemProps) => (
   <section
     className={cn(
-      "group/bento bg-card text-card-foreground border-border row-span-1 flex flex-col space-y-4 rounded-xl border p-4 shadow transition-all duration-200 hover:shadow-2xl dark:shadow-zinc-500",
+      "group/bento bg-card text-card-foreground border-border row-span-1 flex flex-col justify-between space-y-4 rounded-xl border p-4 shadow transition-all duration-200 hover:shadow-2xl dark:shadow-zinc-500",
       className
     )}
   >

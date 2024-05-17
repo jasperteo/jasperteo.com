@@ -1,5 +1,7 @@
 ---
+import Resume from "@/components/Resume.astro";
 import { BentoProjects } from "@/components/bento-projects";
+import { ProjectTabs } from "@/components/project-tabs";
 ---
 
 <h1
@@ -7,4 +9,8 @@ import { BentoProjects } from "@/components/bento-projects";
 >
   Projects
 </h1>
-<BentoProjects />
+
+<ProjectTabs client:idle>
+  <BentoProjects slot="project" />
+  <Resume slot="resume" />
+</ProjectTabs>

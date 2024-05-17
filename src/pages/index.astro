@@ -1,0 +1,15 @@
+---
+import RootLayout from "@/layouts/RootLayout.astro";
+import AppLayout from "@/layouts/AppLayout.astro";
+import HomepageOutlet from "@/components/HomepageOutlet.astro";
+
+const title = "Jasper Teo";
+const description =
+  "Hey there! I like crafting cool stuff for the web. Come explore and see what I'm up to!";
+---
+
+<RootLayout title={title} description={description}>
+  <AppLayout slot="app">
+    <HomepageOutlet slot="outlet" />
+  </AppLayout>
+</RootLayout>

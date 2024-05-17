@@ -1,0 +1,28 @@
+---
+import { DarkModeToggle } from "@/components/dark-mode-toggle";
+---
+
+<script data-cfasync="false" is:inline>
+  const themeValues = ["dark", "light", "system"];
+  const defaultTheme = "system";
+  const storageKey = "theme";
+
+  const useTheme = (document) => {
+    let theme = localStorage.getItem(storageKey) ?? defaultTheme;
+    if (theme !== "dark" && theme !== "light") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    document.documentElement.classList.remove(...themeValues);
+    document.documentElement.classList.add(theme);
+  };
+
+  useTheme(document);
+
+  document.addEventListener("astro:before-swap", (event) =>
+    useTheme(event.newDocument)
+  );
+</script>
+
+<DarkModeToggle client:only="react" transition:persist />
