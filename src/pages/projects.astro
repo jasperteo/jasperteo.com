@@ -9,6 +9,7 @@ const description =
 ---
 
 <RootLayout title={title} description={description}>
+  <meta name="robots" content="noindex" slot="noindex" />
   <AppLayout slot="app">
     <ProjectsOutlet slot="outlet" />
   </AppLayout>

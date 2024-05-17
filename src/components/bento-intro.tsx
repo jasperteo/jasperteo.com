@@ -96,7 +96,7 @@ const ContactInfo = () => {
   ];
 
   return (
-    <ul className="m-auto p-4 font-welcome space-y-2.5">
+    <ul className="font-title m-auto p-4 space-y-2.5">
       {contactInfoItems.map(({ name, url, icon }) => (
         <li key={name}>
           <Button

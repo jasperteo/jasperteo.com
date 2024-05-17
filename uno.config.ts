@@ -11,8 +11,8 @@ export default defineConfig({
   theme: {
     fontFamily: {
       sans: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif",
-      mono: "Sono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-      welcome: "Playpen Sans, ZCOOL KuaiLe, sans-serif",
+      mono: "IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      title: "Playpen Sans, ZCOOL KuaiLe, sans-serif",
     },
   },
 });
