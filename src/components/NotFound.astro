@@ -23,5 +23,11 @@ import notFound from "@/images/404NotFound.avif";
     loading="eager"
     format="avif"
   />
-  <a href="/" class:list={[buttonVariants(), "font-welcome"]}>cd ~</a>
+  <a
+    href="/"
+    class:list={[
+      buttonVariants({ variant: "default", size: "lg" }),
+      "font-mono md:text-xl font-medium",
+    ]}>cd ~</a
+  >
 </div>

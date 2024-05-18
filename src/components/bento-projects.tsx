@@ -50,8 +50,8 @@ const BentoProjects = () => {
 type LinkButtonProps = { repo: string; app: string };
 
 const LinkButton = ({ repo, app }: LinkButtonProps) => (
-  <div className="justify-self-end p-4 pb-0 space-x-2">
-    <Button asChild variant="link" className="pl-0">
+  <div className="justify-self-end p-4 pb-0">
+    <Button asChild variant="link" className="mr-2 pl-0">
       <a href={repo} target="_blank" rel="noopener">
         <Icon className="mr-1.5 text-lg" icon="carbon:repo-source-code" />
         Browse the Repository

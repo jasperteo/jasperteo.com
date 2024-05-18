@@ -20,7 +20,7 @@ const navList: NavListType[] = [
 ---
 
 <nav
-  class="my-5 h-9 flex place-content-center gap-2 font-mono sm:my-10 sm:mr-10 sm:justify-end"
+  class="my-5 h-9 flex place-content-center gap-2 sm:my-10 sm:mr-10 sm:justify-end"
 >
   {
     navList.map(({ href, icon, label }) => (
@@ -30,7 +30,7 @@ const navList: NavListType[] = [
           class:list={[
             buttonVariants({ variant: "ghost" }),
             { active: isActive(href) },
-            "shadow-primary/15 [&.active]:animate-swing [&.active]:animate-delay-150 sm:text-base [&.active]:font-medium [&.active]:shadow-lg",
+            "shadow-primary/20 [&.active]:animate-swing [&.active]:animate-delay-150 sm:text-base [&.active]:shadow-lg",
           ]}
         >
           <iconify-icon icon={icon} class="mr-2 text-xl" />

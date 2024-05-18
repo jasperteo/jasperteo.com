@@ -8,13 +8,13 @@ import type { BentoGridItemProps } from "@/components/ui/bento-grid";
 const BentoIntro = () => {
   const cards: BentoGridItemProps[] = [
     {
-      className: "md:col-span-2 md:row-span-2",
+      className: "md:col-span-2 md:row-span-4",
       title: "About Me",
       header: <Introduction />,
       icon: <Icon icon="carbon:machine-learning" />,
     },
     {
-      className: "md:col-span-1 md:row-span-1",
+      className: "md:col-span-1 md:row-span-2",
       title: "Contact",
       header: <ContactInfo />,
       description: (
@@ -31,7 +31,7 @@ const BentoIntro = () => {
       icon: <Icon icon="carbon:phone-ip" />,
     },
     {
-      className: "md:col-span-1 md:row-span-1",
+      className: "md:col-span-1 md:row-span-2",
       title: (
         <>
           <Icon inline icon="carbon:favorite" /> Tech I love
@@ -81,17 +81,17 @@ const ContactInfo = () => {
     {
       name: "GitHub",
       url: "https://github.com/jasperteo",
-      icon: <Icon inline icon="line-md:github-loop" className="mr-2" />,
+      icon: <Icon icon="line-md:github-loop" />,
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/jaspertzj/",
-      icon: <Icon inline icon="line-md:linkedin" className="mr-2" />,
+      icon: <Icon icon="line-md:linkedin" />,
     },
     {
       name: "Twitter",
       url: "https://twitter.com/jasper_teo",
-      icon: <Icon inline icon="line-md:twitter-x-alt" className="mr-2" />,
+      icon: <Icon icon="line-md:twitter-x-alt" />,
     },
   ];
 
@@ -102,7 +102,7 @@ const ContactInfo = () => {
           <Button
             asChild
             variant="link"
-            className="text-lg text-inherit hover:text-primary"
+            className="gap-x-2 text-lg text-inherit hover:text-primary"
           >
             <a href={url} target="_blank" rel="noreferrer">
               {icon}
