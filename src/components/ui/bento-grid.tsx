@@ -47,11 +47,11 @@ const BentoGridItem = ({
   >
     {header}
     <div className="transition duration-200 group-hover/bento:translate-x-2">
-      <span className="text-lg text-zinc-400 dark:text-zinc-500 group-hover/bento:text-primary/69">
+      <span className="text-xl text-zinc-400 dark:text-zinc-500 group-hover/bento:text-primary/69">
         {icon}
       </span>
-      <h2 className="mb-3 font-bold">{title}</h2>
-      <p className="text-xs">{description}</p>
+      <h2 className="mb-3 text-lg font-bold">{title}</h2>
+      <p className="text-sm">{description}</p>
     </div>
   </section>
 );
