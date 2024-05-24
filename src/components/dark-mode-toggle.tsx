@@ -6,22 +6,27 @@ import { Button } from "@/components/ui/button";
 import { defaultTheme, storageKey, themeValues } from "@/lib/utils";
 import type { Theme } from "@/lib/utils";
 
-const DarkModeToggle = () => {
-  const [theme, setTheme] = useState<Theme>(
-    () => (Cookies.get(storageKey) as Theme) ?? defaultTheme
-  );
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const rootClass = document.documentElement.classList;
+const metaTheme = document.querySelector(
+  prefersDark
+    ? `meta[name="theme-color"][media="(prefers-color-scheme: dark)"]`
+    : `meta[name="theme-color"][media="(prefers-color-scheme: light)"]`
+);
+
+type DarkModeToggleProps = { storedTheme?: Theme };
+
+const DarkModeToggle = ({ storedTheme }: DarkModeToggleProps) => {
+  const [theme, setTheme] = useState<Theme>(storedTheme ?? defaultTheme);
 
   if (theme !== "dark" && theme !== "light") {
-    setTheme(
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light"
-    );
-  } else {
-    document.documentElement.classList.remove(...themeValues);
-    document.documentElement.classList.add(theme);
-    Cookies.set(storageKey, theme, { expires: 365 });
+    setTheme(prefersDark ? "dark" : "light");
   }
+
+  rootClass.remove(...themeValues);
+  rootClass.add(theme);
+  metaTheme?.setAttribute("content", theme === "dark" ? "#18181b" : "#fafafa");
+  Cookies.set(storageKey, theme, { expires: 365 });
 
   return (
     <Button
@@ -31,10 +36,10 @@ const DarkModeToggle = () => {
       size="icon"
       onMouseDown={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "light" ? (
-        <Icon icon="line-md:moon-to-sunny-outline-loop-transition" />
-      ) : (
+      {theme === "dark" ? (
         <Icon icon="line-md:sunny-outline-to-moon-loop-transition" />
+      ) : (
+        <Icon icon="line-md:moon-to-sunny-outline-loop-transition" />
       )}
     </Button>
   );

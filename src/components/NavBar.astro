@@ -2,6 +2,8 @@
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
 import { buttonVariants } from "@/components/ui/button-variants";
 import { Separator } from "@/components/ui/separator";
+import { storageKey } from "@/lib/utils";
+import type { Theme } from "@/lib/utils";
 
 const { pathname } = Astro.url;
 const isActive = (href: string) =>
@@ -17,6 +19,8 @@ const navList: NavListType[] = [
   { href: "/", icon: "carbon:home", label: "Home" },
   { href: "/projects", icon: "carbon:devices-apps", label: "Projects" },
 ];
+
+const storedTheme: Theme = Astro.cookies.get(storageKey)?.value as Theme;
 ---
 
 <nav
@@ -41,6 +45,10 @@ const navList: NavListType[] = [
     ))
   }
   <div class="mx-4 h-9 w-9">
-    <DarkModeToggle client:only="react" transition:persist="ThemeToggle" />
+    <DarkModeToggle
+      storedTheme={storedTheme}
+      client:only="react"
+      transition:persist="ThemeToggle"
+    />
   </div>
 </nav>
