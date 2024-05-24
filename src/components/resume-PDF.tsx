@@ -1,3 +1,5 @@
+"use client";
+
 import { useLayoutEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { Icon } from "@iconify-icon/react";

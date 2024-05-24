@@ -1,15 +1,11 @@
 ---
 import { BentoIntro } from "@/components/bento-intro";
-import { TextGenerateEffect } from "@/components/text-generate-effect";
-
-const openingMessage = "Welcome! 你 好!";
 ---
 
 <h1
-  class="font-title mx-auto my-10 w-fit from-[#ff5858] to-[#f09819] bg-gradient-to-r bg-clip-text p-2 text-3xl font-bold tracking-wide transition-colors duration-700 dark:from-[#FF8008] dark:to-[#FFC837] sm:text-5xl"
+  class="mx-auto my-10 w-fit animate-fade-in from-[#ff5858] to-[#f09819] bg-gradient-to-r bg-clip-text p-2 text-3xl text-transparent font-650 tracking-wide font-title transition-colors duration-700 dark:from-[#FF8008] dark:to-[#FFC837] sm:text-5xl"
 >
-  <TextGenerateEffect words={openingMessage} client:idle />
-  <span class="sr-only">{openingMessage}</span>
+  Hi, I'm Jasper!
 </h1>
 
 <BentoIntro />

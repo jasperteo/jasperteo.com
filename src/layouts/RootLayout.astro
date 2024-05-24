@@ -1,14 +1,20 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 
+import { defaultTheme, storageKey } from "@/lib/utils";
+import type { Theme } from "@/lib/utils";
+
 type Props = { title: string; description: string };
 
 const { title, description } = Astro.props;
 const url = import.meta.env.SITE;
 const image = "https://storage.jasperteo.com/meta-image.png";
+
+const theme: Theme =
+  (Astro.cookies.get(storageKey)?.value as Theme) ?? defaultTheme;
 ---
 
-<html lang="en">
+<html lang="en" class={theme}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,13 +23,6 @@ const image = "https://storage.jasperteo.com/meta-image.png";
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Playpen+Sans:wght@100..800&family=ZCOOL+KuaiLe&display=swap"
-      rel="stylesheet"
-    />
-
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
@@ -31,13 +30,13 @@ const image = "https://storage.jasperteo.com/meta-image.png";
 
     <meta
       name="theme-color"
-      content="#fafafa"
-      media="(prefers-color-scheme: light)"
+      content="#18181b"
+      media="(prefers-color-scheme: dark)"
     />
     <meta
       name="theme-color"
-      content="#18181b"
-      media="(prefers-color-scheme: dark)"
+      content="#fafafa"
+      media="(prefers-color-scheme: light)"
     />
 
     <ViewTransitions />

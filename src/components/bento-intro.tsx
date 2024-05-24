@@ -8,13 +8,13 @@ import type { BentoGridItemProps } from "@/components/ui/bento-grid";
 const BentoIntro = () => {
   const cards: BentoGridItemProps[] = [
     {
-      className: "md:col-span-2 md:row-span-4",
+      className: "md:col-span-16 md:row-span-4",
       title: "About Me",
       header: <Introduction />,
       icon: <Icon icon="carbon:machine-learning" />,
     },
     {
-      className: "md:col-span-1 md:row-span-2",
+      className: "md:col-span-9 md:row-span-2",
       title: "Contact",
       header: <ContactInfo />,
       description: (
@@ -31,7 +31,7 @@ const BentoIntro = () => {
       icon: <Icon icon="carbon:phone-ip" />,
     },
     {
-      className: "md:col-span-1 md:row-span-2",
+      className: "md:col-span-9 md:row-span-2",
       title: (
         <>
           <Icon inline icon="carbon:favorite" /> Tech I love
@@ -43,7 +43,7 @@ const BentoIntro = () => {
   ];
 
   return (
-    <BentoGrid className="mx-auto max-w-4xl md:auto-rows-fr">
+    <BentoGrid className="mx-auto max-w-4xl md:auto-rows-fr md:grid-cols-25">
       {cards.map((card, i) => (
         // eslint-disable-next-line react/no-array-index-key
         <BentoGridItem key={i} {...card} />
@@ -96,7 +96,7 @@ const ContactInfo = () => {
   ];
 
   return (
-    <ul className="font-title m-auto p-4 space-y-2.5">
+    <ul className="m-auto p-4 font-title space-y-2.5">
       {contactInfoItems.map(({ name, url, icon }) => (
         <li key={name}>
           <Button
