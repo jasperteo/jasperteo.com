@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { Icon } from "@iconify-icon/react";

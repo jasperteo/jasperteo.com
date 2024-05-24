@@ -23,7 +23,6 @@ export default defineConfig({
           font-family: "IBM Plex Sans Var";
           src: url("/fonts/IBMPlexSansVar.woff2") format("woff2");
           font-weight: 100 900;
-          font-display: swap;
           font-style: normal;
         }
 
@@ -31,7 +30,6 @@ export default defineConfig({
           font-family: "Azeret Mono Variable";
           src: url("/fonts/AzeretMonoVariable.woff2") format("woff2");
           font-weight: 100 900;
-          font-display: swap;
           font-style: normal;
         }
 
@@ -39,7 +37,6 @@ export default defineConfig({
           font-family: "Chillax Variable";
           src: url("/fonts/ChillaxVariable.woff2") format("woff2");
           font-weight: 200 700;
-          font-display: swap;
           font-style: normal;
         }
       `,
