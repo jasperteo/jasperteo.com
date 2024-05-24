@@ -2,10 +2,13 @@ name = "jasperteo"
 pages_build_output_dir = "dist"
 compatibility_date = "2024-05-13"
 
-[vars]
-BUN_VERSION = "1.1.6"
-NODE_VERSION = "22.1.0"
+[env.production]
+compatibility_date = "2024-05-13"
 
-[[r2_buckets]]
-binding = "jasperteo"
-bucket_name = "jasperteo"
+  [env.production.vars]
+  BUN_VERSION = "1.1.6"
+  NODE_VERSION = "22.1.0"
+
+  [[env.production.r2_buckets]]
+  bucket_name = "jasperteo"
+  binding = "jasperteo"
