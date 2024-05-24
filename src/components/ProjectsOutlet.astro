@@ -1,7 +1,8 @@
 ---
-import Resume from "@/components/Resume.astro";
 import { BentoProjects } from "@/components/bento-projects";
-import { ProjectTabs } from "@/components/project-tabs";
+import { buttonVariants } from "@/components/ui/button-variants";
+
+const PDF = "https://storage.jasperteo.com/jasperCV.pdf";
 ---
 
 <h1
@@ -10,7 +11,20 @@ import { ProjectTabs } from "@/components/project-tabs";
   Projects
 </h1>
 
-<ProjectTabs client:load>
-  <BentoProjects slot="project" />
-  <Resume slot="resume" />
-</ProjectTabs>
+<div class="mx-auto mb-8 w-fit">
+  <a
+    href={PDF}
+    target="_blank"
+    rel="noopener"
+    class:list={[
+      buttonVariants({ variant: "default", size: "lg" }),
+      "md:text-xl hover:animate-rubber-band",
+    ]}
+  >
+    <iconify-icon icon="lucide:external-link" class="mr-3 md:text-2xl"
+    ></iconify-icon>
+    View Resume
+  </a>
+</div>
+
+<BentoProjects />
