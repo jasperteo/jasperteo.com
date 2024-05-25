@@ -28,25 +28,20 @@ const BentoIntro = () => {
           </a>
         </>
       ),
-      icon: <Icon icon="carbon:phone-ip" />,
+      icon: <Icon icon="carbon:at" />,
     },
     {
       className: "md:col-span-9 md:row-span-2",
-      title: (
-        <>
-          <Icon inline icon="carbon:favorite" /> Tech I love
-        </>
-      ),
+      title: "Tech I Love",
       header: <Skills />,
-      icon: <Icon icon="carbon:code" />,
+      icon: <Icon icon="carbon:terminal" />,
     },
   ];
 
   return (
     <BentoGrid className="mx-auto max-w-4xl md:auto-rows-fr md:grid-cols-25">
-      {cards.map((card, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <BentoGridItem key={i} {...card} />
+      {cards.map((card) => (
+        <BentoGridItem key={card.title} {...card} />
       ))}
     </BentoGrid>
   );
@@ -56,7 +51,7 @@ const Introduction = () => (
   <div className="m-auto p-4 leading-7 transition-colors space-y-6">
     <p>
       My name is{" "}
-      <span className="from-blue-200 to-indigo-200 bg-gradient-to-r font-bold transition-colors dark:from-blue-500 dark:to-indigo-500">
+      <span className="from-blue-200 to-indigo-200 bg-gradient-to-r font-semibold transition-colors dark:from-blue-500 dark:to-indigo-500">
         Jasper Teo
       </span>
       , and I focus on full stack development and web technologies. I am mainly

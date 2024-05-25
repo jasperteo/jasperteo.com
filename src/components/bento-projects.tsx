@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Icon } from "@iconify-icon/react";
 
 import { Badge } from "@/components/ui/badge";
@@ -19,7 +20,7 @@ const BentoProjects = () => {
       title: "Watch Out",
       description: <BadgeWatchOut />,
       header: <WatchOut />,
-      icon: <Icon icon="carbon:time" />,
+      icon: <Icon icon="carbon:watch" />,
     },
     {
       className: "md:col-span-1 md:row-span-1",
@@ -39,9 +40,8 @@ const BentoProjects = () => {
 
   return (
     <BentoGrid className="mx-auto max-w-4xl md:auto-rows-fr md:grid-cols-2">
-      {cards.map((card, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <BentoGridItem key={i} {...card} />
+      {cards.map((card) => (
+        <BentoGridItem key={card.title} {...card} />
       ))}
     </BentoGrid>
   );
@@ -66,13 +66,9 @@ const LinkButton = ({ repo, app }: LinkButtonProps) => (
   </div>
 );
 
-const HeaderWrapper = ({
-  children,
-  links,
-}: {
-  children: React.ReactNode;
-  links: LinkButtonProps;
-}) => (
+type HeaderWrapperProps = { children: ReactNode; links: LinkButtonProps };
+
+const HeaderWrapper = ({ children, links }: HeaderWrapperProps) => (
   <div className="h-full flex flex-col transition-colors">
     <div className="m-auto p-4 text-sm leading-6 space-y-5">{children}</div>
     <LinkButton {...links} />
@@ -185,7 +181,7 @@ const PriceQuery = () => {
   );
 };
 
-type BadgeProps = { icon: React.ReactNode; name: string };
+type BadgeProps = { icon: ReactNode; name: string };
 
 const BadgeGenerator = ({ badges, i }: { badges: BadgeProps[]; i: number }) => (
   <ul className="flex flex-wrap gap-x-1.5 gap-y-2 transition-colors">
