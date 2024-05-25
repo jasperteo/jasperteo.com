@@ -26,7 +26,11 @@ const DarkModeToggle = ({ storedTheme }: DarkModeToggleProps) => {
   rootClass.remove(...themeValues);
   rootClass.add(theme);
   metaTheme?.setAttribute("content", theme === "dark" ? "#18181b" : "#fafafa");
-  Cookies.set(storageKey, theme, { expires: 365 });
+  Cookies.set(storageKey, theme, {
+    expires: 365,
+    sameSite: "strict",
+    secure: true,
+  });
 
   return (
     <Button
