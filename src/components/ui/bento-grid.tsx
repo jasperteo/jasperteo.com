@@ -24,7 +24,7 @@ const BentoGrid = ({ className, children }: BentoGridProps) => (
 type BentoGridItemProps = {
   className?: string;
   title?: string;
-  description?: string | ReactNode;
+  description?: ReactNode;
   header?: ReactNode;
   icon?: ReactNode;
 };
