@@ -8,11 +8,7 @@ import type { Theme } from "@/lib/utils";
 
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const rootClass = document.documentElement.classList;
-const metaTheme = document.querySelector(
-  prefersDark
-    ? `meta[name="theme-color"][media="(prefers-color-scheme: dark)"]`
-    : `meta[name="theme-color"][media="(prefers-color-scheme: light)"]`
-);
+const metaTheme = document.querySelector(`meta[name="theme-color"]`);
 
 type DarkModeToggleProps = { storedTheme?: Theme };
 
