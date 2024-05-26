@@ -51,7 +51,7 @@ const Introduction = () => (
   <div className="m-auto p-4 leading-7 transition-colors space-y-6">
     <p>
       My name is{" "}
-      <span className="from-blue-200 to-indigo-200 bg-gradient-to-r font-semibold transition-colors dark:from-blue-500 dark:to-indigo-500">
+      <span className="from-blue-200 to-indigo-200 bg-gradient-to-r font-semibold dark:from-blue-500 dark:to-indigo-500">
         Jasper Teo
       </span>
       , and I focus on full stack development and web technologies. I am mainly

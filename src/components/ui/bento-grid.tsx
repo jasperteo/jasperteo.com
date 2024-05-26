@@ -41,7 +41,7 @@ const BentoGridItem = ({
 }: BentoGridItemProps) => (
   <section
     className={cn(
-      "group/bento bg-card text-card-foreground border-border row-span-1 flex flex-col justify-between space-y-4 rounded-xl border p-4 shadow transition-all duration-200 hover:shadow-2xl dark:shadow-zinc-500",
+      "group/bento row-span-1 flex flex-col justify-between border border-border rounded-xl bg-card p-4 text-card-foreground shadow shadow-zinc-400 transition-all duration-200 space-y-4 dark:shadow-zinc-500 hover:shadow-2xl",
       className
     )}
   >
