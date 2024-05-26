@@ -1,12 +1,13 @@
 ---
 import { BentoProjects } from "@/components/bento-projects";
 import { buttonVariants } from "@/components/ui/button-variants";
+import { cn } from "@/lib/utils";
 
 const PDF = "https://storage.jasperteo.com/jasperCV.pdf";
 ---
 
 <h1
-  class="mx-auto my-10 w-fit animate-fade-in from-[#242424] to-[#7a6c67] bg-gradient-to-r bg-clip-text p-2 text-3xl text-transparent font-650 tracking-wide font-title transition-colors duration-700 dark:from-[#859398] dark:to-[#DBDBDB] sm:text-5xl"
+  class="mx-auto my-10 w-fit animate-fade-in from-[#242424] to-[#7a6c67] bg-gradient-to-r bg-clip-text p-2 text-4xl text-transparent font-650 tracking-wide font-title transition-colors duration-700 dark:from-[#859398] dark:to-[#DBDBDB] sm:text-5xl"
 >
   Projects
 </h1>
@@ -16,13 +17,9 @@ const PDF = "https://storage.jasperteo.com/jasperCV.pdf";
     href={PDF}
     target="_blank"
     rel="noopener"
-    class:list={[
-      buttonVariants({ variant: "default", size: "default" }),
-      "md:text-base hover:animate-rubber-band",
-    ]}
+    class={cn(buttonVariants(), "md:text-base")}
   >
-    <iconify-icon icon="carbon:launch" class="mr-2 text-base md:text-xl"
-    ></iconify-icon>
+    {(<iconify-icon icon="carbon:launch" class="mr-2 text-base md:text-xl" />)}
     View Resume
   </a>
 </div>
