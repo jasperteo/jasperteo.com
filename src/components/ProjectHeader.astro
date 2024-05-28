@@ -1,0 +1,34 @@
+---
+import { buttonVariants } from "@/components/ui/button-variants";
+import { cn } from "@/lib/utils";
+
+type LinkProps = { repo: string; app: string };
+type Props = { links: LinkProps };
+
+const { links } = Astro.props;
+---
+
+<div class="h-full flex flex-col transition-colors">
+  <div class="m-auto p-4 text-sm leading-6 space-y-5"><slot /></div>
+  <div class="justify-self-end p-4 pb-0">
+    <a
+      href={links.repo}
+      class={cn(buttonVariants({ variant: "link" }), "mr-2 pl-0")}
+      target="_blank"
+      rel="noopener"
+    >
+      <iconify-icon className="mr-1.5 text-lg" icon="carbon:repo-source-code"
+      ></iconify-icon>
+      Browse the Repository
+    </a>
+    <a
+      href={links.app}
+      class={cn(buttonVariants({ variant: "link" }), "pl-0")}
+      target="_blank"
+      rel="noopener"
+    >
+      {(<iconify-icon className="mr-1.5 text-lg" icon="carbon:application" />)}
+      Explore the App
+    </a>
+  </div>
+</div>

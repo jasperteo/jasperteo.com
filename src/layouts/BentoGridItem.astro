@@ -1,0 +1,28 @@
+---
+import { cn } from "@/lib/utils";
+
+type Props = {
+  className?: string;
+  title: string;
+  icon: string;
+};
+
+const { className, title, icon } = Astro.props;
+---
+
+<section
+  class={cn(
+    "group/bento row-span-1 flex flex-col justify-between border border-border rounded-xl bg-card p-4 text-card-foreground shadow shadow-zinc-400 transition-all duration-200 space-y-4 dark:shadow-zinc-500 hover:shadow-2xl",
+    className
+  )}
+>
+  <slot name="header" />
+
+  <div class="transition duration-200 group-hover/bento:translate-x-2">
+    <iconify-icon
+      class="text-xl text-zinc-400 dark:text-zinc-500 group-hover/bento:text-primary/69"
+      icon={icon}></iconify-icon>
+    <h2 class="mb-3 text-lg font-bold">{title}</h2>
+    <slot name="description" />
+  </div>
+</section>

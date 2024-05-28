@@ -9,13 +9,7 @@ const { pathname } = Astro.url;
 const isActive = (href: string) =>
   href === pathname || href === pathname.replace(/\/$/, "");
 
-type NavListType = {
-  href: string;
-  icon: string;
-  label: string;
-};
-
-const navList: NavListType[] = [
+const navList = [
   { href: "/", icon: "carbon:home", label: "Home" },
   { href: "/projects", icon: "carbon:devices-apps", label: "Projects" },
 ];

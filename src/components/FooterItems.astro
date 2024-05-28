@@ -1,25 +1,9 @@
 ---
-type FooterLinksType = {
-  url: string;
-  icon: string;
-  label: string;
-};
-
-const footerLinksList: FooterLinksType[] = [
+const footerList = [
   {
-    url: "https://www.cloudflare.com/developer-platform/r2/",
+    url: "https://www.cloudflare.com/",
     icon: "simple-icons:cloudflare",
-    label: "Cloudflare R2",
-  },
-  {
-    url: "https://pages.cloudflare.com/",
-    icon: "simple-icons:cloudflarepages",
-    label: "Cloudflare Pages",
-  },
-  {
-    url: "https://workers.cloudflare.com/",
-    icon: "simple-icons:cloudflareworkers",
-    label: "Cloudflare Workers",
+    label: "Cloudflare",
   },
   {
     url: "https://astro.build/",
@@ -55,10 +39,10 @@ const footerLinksList: FooterLinksType[] = [
   Made With:
 </h2>
 <div
-  class="grid grid-cols-4 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/25 sm:flex sm:gap-6 sm:bg-zinc-900/10 sm:text-xl sm:shadow-lg sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-zinc-50/10"
+  class="grid grid-cols-3 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/25 sm:flex sm:gap-6 sm:bg-zinc-900/10 sm:text-xl sm:shadow-lg sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-zinc-50/10"
 >
   {
-    footerLinksList.map(({ url, label, icon }) => (
+    footerList.map(({ url, label, icon }) => (
       <a
         href={url}
         target="_blank"

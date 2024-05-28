@@ -6,34 +6,30 @@ import notFound from "@/images/404NotFound.png";
 import { cn } from "@/lib/utils";
 ---
 
-{
-  (
-    <div class="m-auto w-full place-content-center text-center space-y-8">
-      <h1 class="text-2xl font-mono sm:text-3xl">
-        <span class="text-3xl sm:text-5xl">
-          <iconify-icon icon="carbon:number-4" />
-          <iconify-icon icon="carbon:number-0" />
-          <iconify-icon icon="carbon:number-4" />
-        </span>
-        <br />
-        Not Found
-      </h1>
+<div class="m-auto w-full place-content-center text-center space-y-8">
+  <h1 class="text-2xl font-mono sm:text-3xl">
+    <span class="text-3xl sm:text-5xl">
+      {(<iconify-icon icon="carbon:number-4" />)}{
+        (<iconify-icon icon="carbon:number-0" />)
+      }{(<iconify-icon icon="carbon:number-4" />)}
+    </span>
+    <br />
+    Not Found
+  </h1>
 
-      <Image
-        class="mx-auto w-96 sm:w-md"
-        src={notFound}
-        alt="404 Not Found"
-        title="Logo by @sawaratsuki1004"
-        loading="eager"
-        format="avif"
-      />
+  <Image
+    class="mx-auto w-96 sm:w-md"
+    src={notFound}
+    alt="404 Not Found"
+    title="Logo by @sawaratsuki1004"
+    loading="eager"
+    format="avif"
+  />
 
-      <a
-        href="/"
-        class={cn(buttonVariants({ size: "lg" }), "font-mono md:text-xl")}
-      >
-        cd ~
-      </a>
-    </div>
-  )
-}
+  <a
+    href="/"
+    class={cn(buttonVariants({ size: "lg" }), "font-mono md:text-xl")}
+  >
+    cd ~
+  </a>
+</div>
