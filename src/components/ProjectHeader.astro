@@ -8,8 +8,11 @@ type Props = { links: LinkProps };
 const { links } = Astro.props;
 ---
 
-<div class="h-full flex flex-col transition-colors">
-  <div class="m-auto p-4 text-sm leading-6 space-y-5"><slot /></div>
+<div class="h-full flex flex-col">
+  <div class="m-auto p-4 text-sm leading-6 space-y-5">
+    <slot />
+  </div>
+
   <div class="justify-self-end p-4 pb-0">
     <a
       href={links.repo}

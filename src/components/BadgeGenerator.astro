@@ -7,7 +7,7 @@ type Props = { badges: BadgeProps[]; i: number };
 const { badges, i } = Astro.props;
 ---
 
-<ul class="flex flex-wrap gap-x-1.5 gap-y-2 transition-colors">
+<ul class="flex flex-wrap gap-x-1.5 gap-y-2">
   {
     badges.map(({ icon, name }, index) => (
       <li>
