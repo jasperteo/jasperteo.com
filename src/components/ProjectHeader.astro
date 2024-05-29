@@ -1,11 +1,25 @@
 ---
-import { buttonVariants } from "@/components/ui/button-variants";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 type LinkProps = { repo: string; app: string };
 type Props = { links: LinkProps };
 
 const { links } = Astro.props;
+
+const linksArray = [
+  {
+    href: links.repo,
+    icon: "carbon:repo-source-code",
+    label: "Browse the Repository",
+    className: "mr-2 pl-0",
+  },
+  {
+    href: links.app,
+    icon: "carbon:application",
+    label: "Explore the App",
+    className: "pl-0",
+  },
+];
 ---
 
 <div class="h-full flex flex-col">
@@ -14,24 +28,20 @@ const { links } = Astro.props;
   </div>
 
   <div class="justify-self-end p-4 pb-0">
-    <a
-      href={links.repo}
-      class={cn(buttonVariants({ variant: "link" }), "mr-2 pl-0")}
-      target="_blank"
-      rel="noopener"
-    >
-      <iconify-icon className="mr-1.5 text-lg" icon="carbon:repo-source-code"
-      ></iconify-icon>
-      Browse the Repository
-    </a>
-    <a
-      href={links.app}
-      class={cn(buttonVariants({ variant: "link" }), "pl-0")}
-      target="_blank"
-      rel="noopener"
-    >
-      {(<iconify-icon className="mr-1.5 text-lg" icon="carbon:application" />)}
-      Explore the App
-    </a>
+    {
+      linksArray.map(({ href, icon, label, className }) => (
+        <Button
+          as="a"
+          href={href}
+          target="_blank"
+          rel="noopener"
+          variant="link"
+          class={className}
+        >
+          <iconify-icon className="mr-1.5 text-lg" icon={icon} />
+          {label}
+        </Button>
+      ))
+    }
   </div>
 </div>

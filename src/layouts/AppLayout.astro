@@ -5,14 +5,14 @@ import { Separator } from "@/components/ui/separator";
 ---
 
 <div
-  class="relative min-w-dvw scroll-smooth bg-zinc-100 p-8 font-sans antialiased transition-colors min-h-dvh dark:bg-zinc-900"
+  class="relative min-w-dvw bg-zinc-100 p-8 transition-colors min-h-dvh dark:bg-zinc-900"
 >
   <div class="mx-auto min-w-80 lg:max-w-5xl">
     <header>
       <NavBar />
     </header>
 
-    <Separator className="my-4" />
+    <Separator class="my-4" />
 
     <main class="mb-40">
       <slot name="outlet" />
@@ -27,6 +27,8 @@ import { Separator } from "@/components/ui/separator";
 <style is:global>
   :root {
     font-synthesis: none;
+    scroll-behavior: smooth;
+    --uno: font-sans antialiased;
   }
 
   iconify-icon {
@@ -36,12 +38,11 @@ import { Separator } from "@/components/ui/separator";
   }
 
   /* * {
-    border-color: hsl(var(--border));
+    --uno: border-border;
   }
 
   body {
-    color: hsl(var(--foreground));
-    background: hsl(var(--background));
+    --uno: bg-background text-foreground;
   }
 
   @layer base {

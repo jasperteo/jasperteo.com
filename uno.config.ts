@@ -1,4 +1,10 @@
-import { defineConfig, presetUno, presetWebFonts } from "unocss";
+import {
+  defineConfig,
+  presetUno,
+  presetWebFonts,
+  transformerDirectives,
+  transformerVariantGroup,
+} from "unocss";
 import { presetShadcn } from "unocss-preset-shadcn";
 
 export default defineConfig({
@@ -14,6 +20,7 @@ export default defineConfig({
       },
     }),
   ],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
   preflights: [
     {
       getCSS: () => `

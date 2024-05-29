@@ -1,9 +1,9 @@
 ---
-import { DarkModeToggle } from "@/components/dark-mode-toggle";
-import { buttonVariants } from "@/components/ui/button-variants";
+import { DarkModeToggle, storageKey } from "@/components/dark-mode-toggle";
+import type { Theme } from "@/components/dark-mode-toggle";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { cn, storageKey } from "@/lib/utils";
-import type { Theme } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const { pathname } = Astro.url;
 const isActive = (href: string) =>
@@ -18,22 +18,23 @@ const storedTheme: Theme = Astro.cookies.get(storageKey)?.value as Theme;
 ---
 
 <nav
-  class="my-5 h-9 flex place-content-center gap-2 font-title sm:my-10 sm:mr-10 sm:justify-end"
+  class="my-5 h-9 flex place-content-center gap-2 font-title sm:(my-10 mr-10 justify-end)"
 >
   {
     navList.map(({ href, icon, label }) => (
       <>
-        <a
+        <Button
+          as="a"
           href={href}
+          variant="ghost"
           class={cn(
-            buttonVariants({ variant: "ghost" }),
             { active: isActive(href) },
-            "shadow-primary/20 [&.active]:animate-swing [&.active]:animate-delay-150 sm:text-base [&.active]:shadow-lg"
+            "shadow-primary/20 [&.active]:(animate-swing animate-delay-150 shadow-lg) sm:text-base"
           )}
         >
           <iconify-icon icon={icon} class="mr-2 text-xl" />
           {label}
-        </a>
+        </Button>
         <Separator orientation="vertical" />
       </>
     ))
@@ -41,8 +42,9 @@ const storedTheme: Theme = Astro.cookies.get(storageKey)?.value as Theme;
   <div class="mx-4 h-9 w-9">
     <DarkModeToggle
       storedTheme={storedTheme}
-      client:only="react"
+      client:only="solid-js"
       transition:persist="ThemeToggle"
+      transition:persist-props
     />
   </div>
 </nav>

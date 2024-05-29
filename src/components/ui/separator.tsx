@@ -1,30 +1,27 @@
-import { forwardRef } from "react";
-import type { ComponentPropsWithoutRef, ElementRef } from "react";
-import { Root } from "@radix-ui/react-separator";
+import { splitProps } from "solid-js";
+import type { ValidComponent } from "solid-js";
+import type { PolymorphicProps } from "@kobalte/core/polymorphic";
+import { Root } from "@kobalte/core/separator";
+import type { SeparatorRootProps } from "@kobalte/core/separator";
 
 import { cn } from "@/lib/utils";
 
-const Separator = forwardRef<
-  ElementRef<typeof Root>,
-  ComponentPropsWithoutRef<typeof Root>
->(
-  (
-    { className, orientation = "horizontal", decorative = true, ...props },
-    ref
-  ) => (
+type SeparatorProps = SeparatorRootProps & { class?: string };
+
+const Separator = <T extends ValidComponent = "hr">(
+  props: PolymorphicProps<T, SeparatorProps>
+) => {
+  const [local, rest] = splitProps(props as SeparatorProps, ["class"]);
+
+  return (
     <Root
-      ref={ref}
-      decorative={decorative}
-      orientation={orientation}
-      className={cn(
-        "shrink-0 bg-zinc-300 dark:bg-zinc-700",
-        orientation === "horizontal" ? "h-px w-full" : "h-full w-px",
-        className
+      class={cn(
+        "shrink-0 border-transparent bg-zinc-300 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px dark:bg-zinc-700",
+        local.class
       )}
-      {...props}
+      {...rest}
     />
-  )
-);
-Separator.displayName = Root.displayName;
+  );
+};
 
 export { Separator };

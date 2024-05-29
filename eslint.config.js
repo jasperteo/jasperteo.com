@@ -4,7 +4,7 @@ export default antfu(
   {
     typescript: { tsconfigPath: "tsconfig.json" },
     astro: true,
-    react: true,
+    solid: true,
     unocss: true,
     lessOpinionated: true,
     stylistic: false,

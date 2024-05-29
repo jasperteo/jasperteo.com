@@ -1,11 +1,11 @@
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
-import UnoCSS from "unocss/astro";
 import cloudflare from "@astrojs/cloudflare";
+import solidJs from "@astrojs/solid-js";
+import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), UnoCSS({ injectReset: true })],
+  integrations: [solidJs(), UnoCSS({ injectReset: true })],
   site: "https://jasperteo.com/",
   output: "server",
   adapter: cloudflare({

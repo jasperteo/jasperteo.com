@@ -11,9 +11,9 @@ const footerList = [
     label: "Astro",
   },
   {
-    url: "https://react.dev/",
-    icon: "simple-icons:react",
-    label: "React",
+    url: "https://www.solidjs.com/",
+    icon: "simple-icons:solid",
+    label: "Solid",
   },
   {
     url: "https://www.radix-ui.com/",
@@ -39,7 +39,7 @@ const footerList = [
   Made With:
 </h2>
 <div
-  class="grid grid-cols-3 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/25 sm:flex sm:gap-6 sm:bg-zinc-900/10 sm:text-xl sm:shadow-lg sm:backdrop-blur-sm sm:backdrop-opacity-90 sm:dark:bg-zinc-50/10"
+  class="grid grid-cols-3 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/25 sm:(flex gap-6 bg-zinc-900/10 text-xl shadow-lg backdrop-blur-sm backdrop-opacity-90 dark:bg-zinc-50/10)"
 >
   {
     footerList.map(({ url, label, icon }) => (
@@ -48,7 +48,7 @@ const footerList = [
         target="_blank"
         rel="noreferrer"
         aria-label={label}
-        class="place-self-center transition-all duration-300 hover:scale-150 sm:hover:mx-2"
+        class="place-self-center transition-all duration-300 hover:(scale-150 sm:mx-2)"
       >
         <iconify-icon icon={icon} />
       </a>

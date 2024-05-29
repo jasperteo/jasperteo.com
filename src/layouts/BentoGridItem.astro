@@ -18,7 +18,9 @@ const { className, title, icon } = Astro.props;
 >
   <slot name="header" />
 
-  <div class="transition duration-200 group-hover/bento:translate-x-2">
+  <div
+    class="transition-transform duration-200 group-hover/bento:translate-x-2"
+  >
     <iconify-icon
       class="text-xl text-zinc-400 dark:text-zinc-500 group-hover/bento:text-primary/69"
       icon={icon}></iconify-icon>

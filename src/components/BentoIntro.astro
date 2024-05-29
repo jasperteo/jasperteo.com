@@ -1,8 +1,7 @@
 ---
 import BentoGrid from "@/layouts/BentoGrid.astro";
 import BentoGridItem from "@/layouts/BentoGridItem.astro";
-import { buttonVariants } from "@/components/ui/button-variants";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const contactInfo = [
   {
@@ -25,7 +24,7 @@ const contactInfo = [
 
 <BentoGrid className="md:grid-cols-25">
   <BentoGridItem
-    className="md:col-span-16 md:row-span-2"
+    className="md:(col-span-16 row-span-2)"
     title="About Me"
     icon="carbon:machine-learning"
   >
@@ -44,7 +43,7 @@ const contactInfo = [
   </BentoGridItem>
 
   <BentoGridItem
-    className="md:col-span-9 md:row-span-1"
+    className="md:(col-span-9 row-span-1)"
     title="Contact"
     icon="carbon:at"
   >
@@ -52,18 +51,17 @@ const contactInfo = [
       {
         contactInfo.map(({ name, url, icon }) => (
           <li>
-            <a
+            <Button
+              as="a"
               href={url}
               target="_blank"
               rel="noreferrer"
-              class={cn(
-                buttonVariants({ variant: "link" }),
-                "gap-x-2 text-lg text-inherit hover:text-primary"
-              )}
+              variant="link"
+              class="gap-x-2 text-lg text-inherit hover:text-primary"
             >
-              <iconify-icon icon={icon} slot="icon" />
+              <iconify-icon icon={icon} />
               {name}
-            </a>
+            </Button>
           </li>
         ))
       }
@@ -80,7 +78,7 @@ const contactInfo = [
   </BentoGridItem>
 
   <BentoGridItem
-    className="md:col-span-9 md:row-span-1"
+    className="md:(col-span-9 row-span-1)"
     title="Tech I Love"
     icon="carbon:terminal"
   >
