@@ -16,11 +16,14 @@ const DarkModeToggle = (props: DarkModeToggleProps) => {
   const [theme, setTheme] = createSignal<Theme>(storedTheme() ?? defaultTheme);
 
   const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
-  const mediaTheme = () => setTheme(prefersLight.matches ? "light" : "dark");
+  const setMediaTheme = () => setTheme(prefersLight.matches ? "light" : "dark");
+
+  prefersLight.addEventListener("change", setMediaTheme);
+  onCleanup(() => prefersLight.removeEventListener("change", setMediaTheme));
 
   createEffect(() => {
     if (theme() !== "light" && theme() !== "dark") {
-      mediaTheme();
+      setMediaTheme();
     }
 
     const themeColor =
@@ -33,9 +36,6 @@ const DarkModeToggle = (props: DarkModeToggleProps) => {
       sameSite: "strict",
       secure: true,
     });
-
-    prefersLight.addEventListener("change", mediaTheme);
-    onCleanup(() => prefersLight.removeEventListener("change", mediaTheme));
   });
 
   return (
@@ -44,7 +44,7 @@ const DarkModeToggle = (props: DarkModeToggleProps) => {
       aria-label="Toggle dark mode"
       variant="outline"
       size="icon"
-      onMouseDown={() => setTheme(theme() === "dark" ? "light" : "dark")}
+      onMouseDown={[setTheme, theme() === "dark" ? "light" : "dark"]}
     >
       <Switch fallback={<Icon icon="line-md:light-dark-loop" />}>
         <Match when={theme() === "dark"}>
