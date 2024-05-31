@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import { Button } from "@/components/ui/button";
+import { Link } from "@/components/ui/link";
 import notFound from "@/images/404NotFound.png";
 ---
 
@@ -25,5 +26,6 @@ import notFound from "@/images/404NotFound.png";
     format="avif"
   />
 
-  <Button as="a" href="/" size="lg" class="font-mono md:text-xl">cd ~</Button>
+  <Button as={Link} href="/" size="lg" class="font-mono md:text-xl">cd ~</Button
+  >
 </div>

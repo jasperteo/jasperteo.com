@@ -1,4 +1,6 @@
 ---
+import { Link } from "@/components/ui/link";
+
 const footerList = [
   {
     url: "https://www.cloudflare.com/",
@@ -33,17 +35,17 @@ const footerList = [
 ];
 ---
 
-<h2
+<h3
   class="mx-auto my-4 w-fit text-center text-lg font-medium font-title transition-colors"
 >
   Made With:
-</h2>
+</h3>
 <div
   class="grid grid-cols-3 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-2xl px-5 py-3 shadow-primary/25 sm:(flex gap-6 bg-zinc-900/10 text-xl shadow-lg backdrop-blur-sm backdrop-opacity-90 dark:bg-zinc-50/10)"
 >
   {
     footerList.map(({ url, label, icon }) => (
-      <a
+      <Link
         href={url}
         target="_blank"
         rel="noreferrer"
@@ -51,7 +53,7 @@ const footerList = [
         class="place-self-center transition-all duration-300 hover:(scale-150 sm:mx-2)"
       >
         <iconify-icon icon={icon} />
-      </a>
+      </Link>
     ))
   }
 </div>

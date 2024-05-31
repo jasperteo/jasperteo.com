@@ -1,6 +1,7 @@
 ---
 import BentoProjects from "@/components/BentoProjects.astro";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/components/ui/link";
 
 const pdf = "https://storage.jasperteo.com/jasperCV.pdf";
 ---
@@ -12,7 +13,13 @@ const pdf = "https://storage.jasperteo.com/jasperCV.pdf";
 </h1>
 
 <div class="mx-auto mb-8 w-fit">
-  <Button as="a" href={pdf} target="_blank" rel="noopener" class="md:text-base">
+  <Button
+    as={Link}
+    href={pdf}
+    target="_blank"
+    rel="noopener"
+    class="md:text-base"
+  >
     {(<iconify-icon icon="carbon:launch" class="mr-2 text-base md:text-xl" />)}
     View Resume
   </Button>

@@ -1,7 +1,8 @@
 ---
+import { Button } from "@/components/ui/button";
+import { Link } from "@/components/ui/link";
 import BentoGrid from "@/layouts/BentoGrid.astro";
 import BentoGridItem from "@/layouts/BentoGridItem.astro";
-import { Button } from "@/components/ui/button";
 
 const contactInfo = [
   {
@@ -52,7 +53,7 @@ const contactInfo = [
         contactInfo.map(({ name, url, icon }) => (
           <li>
             <Button
-              as="a"
+              as={Link}
               href={url}
               target="_blank"
               rel="noreferrer"
@@ -68,12 +69,12 @@ const contactInfo = [
     </ul>
     <p class="text-sm" slot="description">
       Drop me an email at{" "}
-      <a
+      <Link
         class="decoration-dashed hover:underline"
         href="mailto:jaspertzj@outlook.sg"
       >
         jaspertzj@outlook.sg
-      </a>
+      </Link>
     </p>
   </BentoGridItem>
 
