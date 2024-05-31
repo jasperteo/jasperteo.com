@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 
-import { defaultTheme, storageKey } from "@/components/dark-mode-toggle";
+import { color, defaultTheme, storageKey } from "@/components/dark-mode-toggle";
 import type { Theme } from "@/components/dark-mode-toggle";
 
 type Props = { title: string; description: string };
@@ -12,7 +12,7 @@ const image = "https://storage.jasperteo.com/meta-image.png";
 
 const theme: Theme =
   (Astro.cookies.get(storageKey)?.value as Theme) ?? defaultTheme;
-const themeColor = theme === "light" ? "hsl(0, 0%, 98%)" : "hsl(240, 6%, 10%)";
+const themeColor = theme === "light" ? color.light : color.dark;
 ---
 
 <html lang="en" class={theme}>
@@ -26,12 +26,8 @@ const themeColor = theme === "light" ? "hsl(0, 0%, 98%)" : "hsl(240, 6%, 10%)";
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content={themeColor} id="tc" />
     <meta name="generator" content={Astro.generator} />
-    <slot name="noindex" />
-
-    <meta name="theme-color" content={themeColor} id="theme-color" />
-
-    <ViewTransitions />
 
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
@@ -45,6 +41,9 @@ const themeColor = theme === "light" ? "hsl(0, 0%, 98%)" : "hsl(240, 6%, 10%)";
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+
+    <slot name="noindex" />
+    <ViewTransitions />
   </head>
 
   <body>
