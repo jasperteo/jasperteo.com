@@ -19,8 +19,7 @@
     "clsx": "^2.1.1",
     "js-cookie": "^3.0.5",
     "solid-js": "^1.8.17",
-    "tailwind-merge": "^2.3.0",
-    "unocss-preset-animations": "^1.0.2"
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.19.1",
@@ -35,7 +34,7 @@
     "lightningcss": "^1.25.1",
     "typescript": "^5.4.5",
     "unocss": "^0.60.3",
-    "unocss-preset-shadcn": "^0.3.0",
+    "unocss-preset-animations": "^1.0.2",
     "wrangler": "^3.57.2"
   }
 }

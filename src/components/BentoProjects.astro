@@ -1,6 +1,6 @@
 ---
 import BadgeGenerator from "@/components/BadgeGenerator.astro";
-import ProjectHeader from "@/components/ProjectHeader.astro";
+import ProjectContent from "@/components/ProjectContent.astro";
 import BentoGrid from "@/layouts/BentoGrid.astro";
 import BentoGridItem from "@/layouts/BentoGridItem.astro";
 
@@ -100,7 +100,7 @@ const priceQuery: Project = {
     title="SheTreks"
     icon="carbon:mountain"
   >
-    <ProjectHeader links={sheTreks.links} slot="header">
+    <ProjectContent links={sheTreks.links} slot="content">
       <p>
         A social media app for solo female travelers to connect and share
         experiences. Users can filter activities by interests, view activity
@@ -112,7 +112,7 @@ const priceQuery: Project = {
         As a PWA, it is installable as a native-like app with access to certain
         native features.
       </p>
-    </ProjectHeader>
+    </ProjectContent>
     <BadgeGenerator
       badges={sheTreks.badges}
       i={sheTreks.cutoff}
@@ -125,7 +125,7 @@ const priceQuery: Project = {
     title="Watch Out"
     icon="carbon:watch"
   >
-    <ProjectHeader links={watchOut.links} slot="header">
+    <ProjectContent links={watchOut.links} slot="content">
       <p>
         A bidding platform where users can bid and buy Rolex watches. Users can
         also list their own watches for sale. The app features a chart to show
@@ -136,7 +136,7 @@ const priceQuery: Project = {
         Bids are made in real-time by leveraging Socket.IO, and a Stripe
         integration is used for payments.
       </p>
-    </ProjectHeader>
+    </ProjectContent>
     <BadgeGenerator
       badges={watchOut.badges}
       i={watchOut.cutoff}
@@ -149,7 +149,7 @@ const priceQuery: Project = {
     title="SG Buddy"
     icon="carbon:earth-southeast-asia"
   >
-    <ProjectHeader links={sgBuddy.links} slot="header">
+    <ProjectContent links={sgBuddy.links} slot="content">
       <p>
         An informational travellers app for travellers to Singapore. Users can
         search for food, attractions, and hotels, and view the location on a
@@ -157,7 +157,7 @@ const priceQuery: Project = {
         app also help users to plan their itinerary with flight and hotel
         details.
       </p>
-    </ProjectHeader>
+    </ProjectContent>
     <BadgeGenerator
       badges={sgBuddy.badges}
       i={sgBuddy.cutoff}
@@ -170,7 +170,7 @@ const priceQuery: Project = {
     title="priceQuery"
     icon="carbon:analytics"
   >
-    <ProjectHeader links={priceQuery.links} slot="header">
+    <ProjectContent links={priceQuery.links} slot="content">
       <p>
         A simple app to check up the latest prices of different assets in the
         market. Users can search for the price and details of a stock,
@@ -178,7 +178,7 @@ const priceQuery: Project = {
         cards and the number of cards can be adjusted.
       </p>
       <p>Market data is from Polygon.io.</p>
-    </ProjectHeader>
+    </ProjectContent>
     <BadgeGenerator
       badges={priceQuery.badges}
       i={priceQuery.cutoff}

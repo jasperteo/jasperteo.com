@@ -16,7 +16,7 @@ const Separator = <T extends ValidComponent = "hr">(
   return (
     <Root
       class={cn(
-        "shrink-0 border-none bg-zinc-300 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px dark:bg-zinc-700",
+        "shrink-0 border-none bg-border data-[orientation=horizontal]:h-0.25 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-0.25",
         local.class
       )}
       {...rest}

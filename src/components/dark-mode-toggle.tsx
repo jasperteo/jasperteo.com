@@ -16,18 +16,17 @@ type Theme = (typeof themeValues)[number];
 const defaultTheme: Theme = "dark";
 
 const storageKey = "theme";
-const color = { light: "hsl(0, 0%, 98%)", dark: "hsl(240, 6%, 10%)" };
+const color = { light: "hsl(60 8% 97%)", dark: "hsl(60 2% 10%)" };
 
 type DarkModeToggleProps = { storedTheme?: Theme };
 
 const DarkModeToggle = (props: DarkModeToggleProps) => {
-  const storedTheme = () => props.storedTheme;
-  const [theme, setTheme] = createSignal<Theme>(storedTheme() ?? defaultTheme);
-
-  const themeColor = () => (theme() === "light" ? color.light : color.dark);
-
   const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
   const setMediaTheme = () => setTheme(prefersLight.matches ? "light" : "dark");
+  const themeColor = () => (theme() === "light" ? color.light : color.dark);
+
+  const storedTheme = () => props.storedTheme;
+  const [theme, setTheme] = createSignal<Theme>(storedTheme() ?? defaultTheme);
 
   createEffect(() => {
     if (theme() !== "light" && theme() !== "dark") {

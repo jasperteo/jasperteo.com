@@ -4,10 +4,8 @@ import NavBar from "@/components/NavBar.astro";
 import { Separator } from "@/components/ui/separator";
 ---
 
-<div
-  class="relative min-w-dvw bg-zinc-100 p-8 transition-colors min-h-dvh dark:bg-zinc-900"
->
-  <div class="mx-auto min-w-80 lg:max-w-5xl">
+<div class="relative min-w-dvw p-8 transition-colors min-h-dvh">
+  <div class="mx-auto max-w-5xl min-w-xs">
     <header>
       <NavBar />
     </header>
@@ -18,17 +16,61 @@ import { Separator } from "@/components/ui/separator";
       <slot name="outlet" />
     </main>
 
-    <footer class="absolute inset-x-8 bottom-8 mx-auto min-w-80 lg:max-w-5xl">
+    <footer class="absolute inset-x-8 bottom-8 mx-auto max-w-5xl min-w-xs">
       <FooterItems />
     </footer>
   </div>
 </div>
+<div class="inline-block min-w-xs"></div>
 
 <style is:global>
   :root {
-    font-synthesis: none;
-    scroll-behavior: smooth;
-    --uno: font-sans antialiased;
+    --uno: scroll-smooth font-synthesis-none font-sans antialiased;
+
+    --background: 60 8% 97%;
+    --foreground: 48 8% 12%;
+    --card: 60 20% 99%;
+    --card-foreground: 48 8% 12%;
+    --popover: 60 8% 97%;
+    --popover-foreground: 48 8% 12%;
+    --primary: 23 93% 53%;
+    --primary-foreground: 0 0% 93%;
+    --secondary: 44 26% 89%;
+    --secondary-foreground: 38 16% 20%;
+    --muted: 45 6% 88%;
+    --muted-foreground: 45 5% 69%;
+    --accent: 30 7% 94%;
+    --accent-foreground: 48 8% 12%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 48 5% 80%;
+    --input: 48 5% 80%;
+    --ring: 23 93% 53%;
+    --shadow: 45 5% 69%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 60 2% 10%;
+    --foreground: 60 6% 93%;
+    --card: 60 3% 6%;
+    --card-foreground: 60 6% 93%;
+    --popover: 60 2% 10%;
+    --popover-foreground: 60 6% 93%;
+    --primary: 23 93% 53%;
+    --primary-foreground: 0 0% 93%;
+    --secondary: 43 8% 16%;
+    --secondary-foreground: 6 25% 88%;
+    --muted: 60 3% 19%;
+    --muted-foreground: 43 4% 37%;
+    --accent: 60 1% 13%;
+    --accent-foreground: 60 6% 93%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 48 4% 28%;
+    --input: 48 4% 28%;
+    --ring: 23 93% 53%;
+    --shadow: 47 4% 42%;
   }
 
   iconify-icon {
@@ -37,58 +79,11 @@ import { Separator } from "@/components/ui/separator";
     height: 1em;
   }
 
-  /* * {
+  * {
     --uno: border-border;
   }
 
   body {
     --uno: bg-background text-foreground;
   }
-
-  @layer base {
-    :root {
-      --background: 60 20% 99%;
-      --foreground: 48 8% 12%;
-      --card: 60 8% 97%;
-      --card-foreground: 48 8% 12%;
-      --popover: 60 8% 97%;
-      --popover-foreground: 48 8% 12%;
-      --primary: 23 93% 53%;
-      --primary-foreground: 0 0% 93%;
-      --secondary: 34 100% 85%;
-      --secondary-foreground: 16 50% 23%;
-      --muted: 45 6% 88%;
-      --muted-foreground: 48 8% 12%;
-      --accent: 30 7% 94%;
-      --accent-foreground: 48 8% 12%;
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 0 0% 98%;
-      --border: 48 5% 80%;
-      --input: 48 5% 80%;
-      --ring: 23 93% 53%;
-      --radius: 0.75rem;
-    }
-
-    .dark {
-      --background: 60 3% 6%;
-      --foreground: 60 6% 93%;
-      --card: 60 2% 10%;
-      --card-foreground: 60 6% 93%;
-      --popover: 60 2% 10%;
-      --popover-foreground: 60 6% 93%;
-      --primary: 23 93% 53%;
-      --primary-foreground: 0 0% 93%;
-      --secondary: 28 100% 14%;
-      --secondary-foreground: 30 100% 88%;
-      --muted: 60 3% 19%;
-      --muted-foreground: 60 6% 93%;
-      --accent: 60 1% 13%;
-      --accent-foreground: 60 6% 93%;
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 0 0% 98%;
-      --border: 48 4% 28%;
-      --input: 48 4% 28%;
-      --ring: 23 93% 53%;
-    }
-  } */
 </style>
