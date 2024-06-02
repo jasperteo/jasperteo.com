@@ -4,7 +4,7 @@ import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 import { Root } from "@kobalte/core/separator";
 import type { SeparatorRootProps } from "@kobalte/core/separator";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/utils";
 
 type SeparatorProps = SeparatorRootProps & { class?: string };
 

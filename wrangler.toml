@@ -6,8 +6,8 @@ compatibility_date = "2024-05-13"
 compatibility_date = "2024-05-13"
 
   [env.production.vars]
-  BUN_VERSION = "1.1.6"
-  NODE_VERSION = "22.1.0"
+  BUN_VERSION = "1.1.12"
+  NODE_VERSION = "22.2.0"
 
   [[env.production.r2_buckets]]
   bucket_name = "jasperteo"

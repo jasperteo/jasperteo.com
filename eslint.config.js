@@ -12,7 +12,6 @@ export default antfu(
   },
   {
     rules: {
-      "ts/no-use-before-define": "off",
       "ts/consistent-type-definitions": "off",
     },
   }

@@ -8,7 +8,9 @@ import {
 import presetAnimations from "unocss-preset-animations";
 
 export default defineConfig({
+  transformers: [transformerDirectives(), transformerVariantGroup()],
   presets: [
+    presetAnimations(),
     presetUno({ dark: "class" }),
     presetWebFonts({
       provider: "none",
@@ -19,7 +21,6 @@ export default defineConfig({
       },
     }),
   ],
-  transformers: [transformerDirectives(), transformerVariantGroup()],
   preflights: [
     {
       getCSS: () => `
@@ -48,39 +49,52 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      border: "hsl(var(--border))",
-      input: "hsl(var(--input))",
-      ring: "hsl(var(--ring))",
-      background: "hsl(var(--background))",
-      foreground: "hsl(var(--foreground))",
-      shadow: "hsl(var(--shadow))",
+      border: "color(display-p3 var(--border))",
+      input: "color(display-p3 var(--input))",
+      ring: {
+        DEFAULT: "color(display-p3 var(--ring))",
+        alt: "color(display-p3 var(--ring-alt))",
+      },
+      background: "color(display-p3 var(--background))",
+      foreground: "color(display-p3 var(--foreground))",
+      shadow: "color(display-p3 var(--shadow))",
       primary: {
-        DEFAULT: "hsl(var(--primary))",
-        foreground: "hsl(var(--primary-foreground))",
+        DEFAULT: "color(display-p3 var(--primary))",
+        hover: "color(display-p3 var(--primary-hover))",
+        foreground: "color(display-p3 var(--primary-foreground))",
       },
       secondary: {
-        DEFAULT: "hsl(var(--secondary))",
-        foreground: "hsl(var(--secondary-foreground))",
+        DEFAULT: "color(display-p3 var(--secondary))",
+        hover: "color(display-p3 var(--secondary-hover))",
+        foreground: "color(display-p3 var(--secondary-foreground))",
       },
       destructive: {
-        DEFAULT: "hsl(var(--destructive))",
-        foreground: "hsl(var(--destructive-foreground))",
+        DEFAULT: "color(display-p3 var(--destructive))",
+        hover: "color(display-p3 var(--destructive-hover))",
+        foreground: "color(display-p3 var(--destructive-foreground))",
       },
       muted: {
-        DEFAULT: "hsl(var(--muted))",
-        foreground: "hsl(var(--muted-foreground))",
+        DEFAULT: "color(display-p3 var(--muted))",
+        foreground: "color(display-p3 var(--muted-foreground))",
       },
       accent: {
-        DEFAULT: "hsl(var(--accent))",
-        foreground: "hsl(var(--accent-foreground))",
+        DEFAULT: "color(display-p3 var(--accent))",
+        foreground: "color(display-p3 var(--accent-foreground))",
       },
       popover: {
-        DEFAULT: "hsl(var(--popover))",
-        foreground: "hsl(var(--popover-foreground))",
+        DEFAULT: "color(display-p3 var(--popover))",
+        foreground: "color(display-p3 var(--popover-foreground))",
       },
       card: {
-        DEFAULT: "hsl(var(--card))",
-        foreground: "hsl(var(--card-foreground))",
+        DEFAULT: "color(display-p3 var(--card))",
+        foreground: "color(display-p3 var(--card-foreground))",
+      },
+      amber: {
+        10: "color(display-p3 var(--amber-10))",
+      },
+      orange: {
+        11: "color(display-p3 var(--orange-11))",
+        12: "color(display-p3 var(--orange-12))",
       },
     },
     borderRadius: {

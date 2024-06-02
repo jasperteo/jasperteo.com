@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator";
 
     <Separator class="my-4" />
 
-    <main class="mb-40">
+    <main class="mb-64">
       <slot name="outlet" />
     </main>
 
@@ -21,62 +21,16 @@ import { Separator } from "@/components/ui/separator";
     </footer>
   </div>
 </div>
-<div class="inline-block min-w-xs"></div>
 
 <style is:global>
   :root {
     --uno: scroll-smooth font-synthesis-none font-sans antialiased;
 
-    --background: 60 8% 97%;
-    --foreground: 48 8% 12%;
-    --card: 60 20% 99%;
-    --card-foreground: 48 8% 12%;
-    --popover: 60 8% 97%;
-    --popover-foreground: 48 8% 12%;
-    --primary: 23 93% 53%;
-    --primary-foreground: 0 0% 93%;
-    --secondary: 44 26% 89%;
-    --secondary-foreground: 38 16% 20%;
-    --muted: 45 6% 88%;
-    --muted-foreground: 45 5% 69%;
-    --accent: 30 7% 94%;
-    --accent-foreground: 48 8% 12%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 48 5% 80%;
-    --input: 48 5% 80%;
-    --ring: 23 93% 53%;
-    --shadow: 45 5% 69%;
     --radius: 0.75rem;
   }
 
-  .dark {
-    --background: 60 2% 10%;
-    --foreground: 60 6% 93%;
-    --card: 60 3% 6%;
-    --card-foreground: 60 6% 93%;
-    --popover: 60 2% 10%;
-    --popover-foreground: 60 6% 93%;
-    --primary: 23 93% 53%;
-    --primary-foreground: 0 0% 93%;
-    --secondary: 43 8% 16%;
-    --secondary-foreground: 6 25% 88%;
-    --muted: 60 3% 19%;
-    --muted-foreground: 43 4% 37%;
-    --accent: 60 1% 13%;
-    --accent-foreground: 60 6% 93%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 48 4% 28%;
-    --input: 48 4% 28%;
-    --ring: 23 93% 53%;
-    --shadow: 47 4% 42%;
-  }
-
   iconify-icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
+    --uno: inline-block h-1em w-1em;
   }
 
   * {
@@ -85,5 +39,83 @@ import { Separator } from "@/components/ui/separator";
 
   body {
     --uno: bg-background text-foreground;
+  }
+
+  .light {
+    --background: 0.977 0.977 0.973; /* sand2 */
+    --foreground: 0.129 0.126 0.111; /*sand12 */
+
+    --card: 0.992 0.992 0.989; /* sand1 */
+    --card-foreground: 0.129 0.126 0.111; /* sand12 */
+
+    --popover: 0.943 0.942 0.936; /* sand3 */
+    --popover-foreground: 0.129 0.126 0.111; /* sand12 */
+
+    --accent: 0.913 0.912 0.903; /* sand4 */
+    --accent-foreground: 0.129 0.126 0.111; /* sand12 */
+
+    --muted: 0.885 0.883 0.873; /* sand5 */
+    --muted-foreground: 0.388 0.388 0.37; /* sand11 */
+
+    --border: 0.854 0.852 0.839; /* sand6 */
+    --input: 0.813 0.81 0.794; /* sand7 */
+    --ring: 0.877 0.597 0.379; /* orange8 */
+    --ring-alt: 0.738 0.734 0.713; /* sand8 */
+    --shadow: 0.553 0.553 0.528; /* sand9 */
+
+    --primary: 0.9 0.45 0.2; /* orange9 */
+    --primary-hover: 0.87 0.409 0.164; /* orange10 */
+    --primary-foreground: 0.933 0.933 0.933; /* gray12(dark) */
+
+    --secondary: 0.947 0.94 0.909; /* gold3 */
+    --secondary-hover: 0.914 0.904 0.865; /* gold4 */
+    --secondary-foreground: 0.227 0.209 0.173; /* gold12 */
+
+    --destructive: 0.83 0.329 0.324; /* red9 */
+    --destructive-hover: 0.798 0.294 0.285; /* red10 */
+    --destructive-foreground: 0.933 0.933 0.94; /* mauve12(dark) */
+
+    --amber-10: 0.959 0.741 0.274;
+    --orange-11: 0.87 0.409 0.164;
+    --orange-12: 0.323 0.185 0.127;
+  }
+
+  .dark {
+    --background: 0.098 0.098 0.094; /* sand2 */
+    --foreground: 0.933 0.933 0.926; /* sand12 */
+
+    --card: 0.067 0.067 0.063; /* sand1 */
+    --card-foreground: 0.933 0.933 0.926; /* sand12 */
+
+    --popover: 0.135 0.135 0.129; /* sand3 */
+    --popover-foreground: 0.933 0.933 0.926; /* sand12 */
+
+    --accent: 0.164 0.163 0.156; /* sand4 */
+    --accent-foreground: 0.933 0.933 0.926; /* sand12 */
+
+    --muted: 0.193 0.192 0.183; /* sand5 */
+    --muted-foreground: 0.707 0.703 0.68; /* sand11 */
+
+    --border: 0.23 0.229 0.217; /* sand6 */
+    --input: 0.285 0.282 0.267; /* sand7 */
+    --ring: 0.601 0.359 0.201; /* orange8 */
+    --ring-alt: 0.384 0.378 0.357; /* sand8 */
+    --shadow: 0.434 0.428 0.403; /* sand9 */
+
+    --primary: 0.9 0.45 0.2; /* orange9 */
+    --primary-hover: 0.98 0.51 0.23; /* orange10 */
+    --primary-foreground: 0.933 0.933 0.933; /* gray12(dark) */
+
+    --secondary: 0.141 0.136 0.122; /* gold3 */
+    --secondary-hover: 0.177 0.17 0.152; /* gold4 */
+    --secondary-foreground: 0.906 0.887 0.855; /* gold12 */
+
+    --destructive: 0.83 0.329 0.324; /* red9 */
+    --destructive-hover: 0.861 0.403 0.387; /* red10 */
+    --destructive-foreground: 0.933 0.933 0.94; /* mauve12(dark) */
+
+    --amber-10: 1 0.87 0.15;
+    --orange-11: 1 0.63 0.38;
+    --orange-12: 0.98 0.883 0.775;
   }
 </style>

@@ -6,7 +6,7 @@ import type { PolymorphicProps } from "@kobalte/core/polymorphic";
 import { cva } from "class-variance-authority";
 import type { VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium transition focus-visible:(outline-none ring-1.5 ring-ring) disabled:(pointer-events-none opacity-50) bg-inherit",
@@ -14,13 +14,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow shadow-shadow hover:bg-primary/90",
+          "bg-primary text-primary-foreground shadow shadow-shadow hover:bg-primary-hover",
         destructive:
-          "bg-destructive text-destructive-foreground shadow shadow-shadow hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground shadow shadow-shadow hover:bg-destructive-hover",
         outline:
           "border border-input bg-background shadow shadow-shadow hover:(bg-accent text-accent-foreground)",
         secondary:
-          "bg-secondary text-secondary-foreground shadow shadow-shadow hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground shadow shadow-shadow hover:bg-secondary-hover",
         ghost: "hover:(bg-accent text-accent-foreground)",
         link: "text-primary underline-offset-4 hover:underline",
       },

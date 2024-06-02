@@ -1,5 +1,5 @@
 ---
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/utils";
 
 type Props = {
   className?: string;
@@ -22,7 +22,7 @@ const { className, title, icon } = Astro.props;
     class="transition-transform duration-200 group-hover/bento:translate-x-2"
   >
     <iconify-icon
-      class="text-xl text-muted-foreground group-hover/bento:text-[#FF801F]"
+      class="text-xl text-ring-alt group-hover/bento:text-primary-hover"
       icon={icon}></iconify-icon>
     <h2 class="mb-3 text-lg font-bold">{title}</h2>
     <slot name="description" />

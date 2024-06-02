@@ -8,20 +8,14 @@ const pdf = "https://storage.jasperteo.com/jasperCV.pdf";
 ---
 
 <h1
-  class="mx-auto my-10 w-fit animate-fade-in from-[hsl(0,0%,14%)] to-[hsl(16,8%,44%)] bg-gradient-to-r bg-clip-text p-2 text-4xl text-transparent font-650 tracking-wide font-title transition-colors duration-700 dark:(from-[hsl(196,8%,56%)] to-[hsl(0,0%,86%)]) sm:text-5xl"
+  class="mx-auto my-10 w-fit animate-fade-in from-shadow to-foreground bg-gradient-to-r bg-clip-text p-2 text-4xl text-transparent font-650 tracking-wide font-title transition-colors duration-700 sm:text-5xl"
 >
   Projects
 </h1>
 
 <div class="mx-auto mb-8 w-fit">
-  <Button
-    as={Link}
-    href={pdf}
-    target="_blank"
-    rel="noopener"
-    class="md:text-base"
-  >
-    {(<iconify-icon icon="carbon:launch" class="mr-2 text-base md:text-xl" />)}
+  <Button as={Link} href={pdf} target="_blank" rel="noopener" class="text-base">
+    <iconify-icon icon="carbon:launch" class="mr-2 text-xl"></iconify-icon>
     View Resume
   </Button>
 </div>

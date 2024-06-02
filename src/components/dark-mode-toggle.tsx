@@ -16,34 +16,37 @@ type Theme = (typeof themeValues)[number];
 const defaultTheme: Theme = "dark";
 
 const storageKey = "theme";
-const color = { light: "hsl(60 8% 97%)", dark: "hsl(60 2% 10%)" };
+const color = {
+  light: "color(display-p3 0.977 0.977 0.973)",
+  dark: "color(display-p3 0.098 0.098 0.094)",
+};
 
 type DarkModeToggleProps = { storedTheme?: Theme };
 
 const DarkModeToggle = (props: DarkModeToggleProps) => {
-  const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
-  const setMediaTheme = () => setTheme(prefersLight.matches ? "light" : "dark");
-  const themeColor = () => (theme() === "light" ? color.light : color.dark);
-
   const storedTheme = () => props.storedTheme;
   const [theme, setTheme] = createSignal<Theme>(storedTheme() ?? defaultTheme);
 
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
+  const setSysTheme = () => setTheme(prefersLight.matches ? "light" : "dark");
+  const themeColor = () => (theme() === "light" ? color.light : color.dark);
+
   createEffect(() => {
     if (theme() !== "light" && theme() !== "dark") {
-      setMediaTheme();
+      setSysTheme();
     }
     document.documentElement.classList.remove(...themeValues);
     document.documentElement.classList.add(theme());
     document.getElementById("tc")?.setAttribute("content", themeColor());
     Cookies.set(storageKey, theme(), {
       expires: 365,
-      sameSite: "strict",
+      sameSite: "none",
       secure: true,
     });
   });
 
-  onMount(() => prefersLight.addEventListener("change", setMediaTheme));
-  onCleanup(() => prefersLight.removeEventListener("change", setMediaTheme));
+  onMount(() => prefersLight.addEventListener("change", setSysTheme));
+  onCleanup(() => prefersLight.removeEventListener("change", setSysTheme));
 
   return (
     <Button

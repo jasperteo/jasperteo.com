@@ -1,15 +1,13 @@
 import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
-// import vercel from "@astrojs/vercel/serverless";
 import solidJs from "@astrojs/solid-js";
 import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [solidJs(), UnoCSS({ injectReset: true })],
-  site: "https://jasperteo.com/",
+  site: "https://jasperteo.com",
   output: "server",
-  // adapter: vercel(),
   adapter: cloudflare({
     platformProxy: { enabled: true },
     imageService: "passthrough",

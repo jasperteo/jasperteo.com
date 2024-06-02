@@ -39,7 +39,7 @@ const footerList = [
   Made With:
 </h3>
 <div
-  class="grid grid-cols-3 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-3xl px-6 py-3 text-xl shadow-primary/25 transition sm:(flex gap-6 bg-[#1B1A17]/10 shadow-lg backdrop-blur-sm backdrop-opacity-90 dark:bg-[#E8E2D9]/10)"
+  class="grid grid-cols-3 mx-auto w-fit gap-x-5 gap-y-3 border border-transparent rounded-3xl px-6 py-3 text-xl transition sm:(flex gap-6 bg-secondary-foreground/10 shadow-lg shadow-primary/25 backdrop-blur-sm backdrop-opacity-90)"
 >
   {
     footerList.map(({ url, label, icon }) => (
@@ -48,7 +48,7 @@ const footerList = [
         target="_blank"
         rel="noreferrer"
         aria-label={label}
-        class="text-[#462100] transition-all duration-300 hover:(scale-150 sm:mx-2) dark:text-[#FFE0C2]"
+        class="text-orange-12 transition-all duration-300 hover:(scale-150 sm:mx-2)"
       >
         <iconify-icon icon={icon} />
       </Link>
