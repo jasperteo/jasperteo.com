@@ -1,7 +1,11 @@
 ---
 import { Link } from "@kobalte/core/link";
 
-import { DarkModeToggle, storageKey } from "@/components/dark-mode-toggle";
+import {
+  DarkModeToggle,
+  defaultTheme,
+  storageKey,
+} from "@/components/dark-mode-toggle";
 import type { Theme } from "@/components/dark-mode-toggle";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -17,7 +21,10 @@ const navList = [
   { href: "/projects", icon: "carbon:devices-apps", label: "Projects" },
 ];
 
-const storedTheme: Theme = Astro.cookies.get(storageKey)?.value as Theme;
+const storedTheme: Theme =
+  (Astro.cookies.get(storageKey)?.value as Theme) ??
+  Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme") ??
+  defaultTheme;
 ---
 
 <nav

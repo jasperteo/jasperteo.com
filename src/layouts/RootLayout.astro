@@ -11,7 +11,10 @@ const url = import.meta.env.SITE;
 const image = "https://storage.jasperteo.com/meta-image.png";
 
 const theme: Theme =
-  (Astro.cookies.get(storageKey)?.value as Theme) ?? defaultTheme;
+  (Astro.cookies.get(storageKey)?.value as Theme) ??
+  Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme") ??
+  defaultTheme;
+
 const themeColor = theme === "light" ? color.light : color.dark;
 ---
 
