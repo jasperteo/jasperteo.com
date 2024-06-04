@@ -12,7 +12,13 @@ export default defineConfig({
     platformProxy: { enabled: true },
     imageService: "passthrough",
   }),
-  server: { headers: { "Accept-CH": "Sec-CH-Prefers-Color-Scheme" } },
+  server: {
+    headers: {
+      "Accept-CH": "Sec-CH-Prefers-Color-Scheme",
+      "Critical-CH": "Sec-CH-Prefers-Color-Scheme",
+      Vary: "Sec-CH-Prefers-Color-Scheme",
+    },
+  },
   vite: {
     css: { transformer: "lightningcss" },
     build: { cssMinify: "lightningcss" },

@@ -5,12 +5,16 @@ import BentoGrid from "@/layouts/BentoGrid.astro";
 import BentoGridItem from "@/layouts/BentoGridItem.astro";
 
 type Project = {
+  title: string;
+  icon: string;
   links: { repo: string; app: string };
   badges: { icon: string; name: string }[];
   cutoff: number;
 };
 
 const sheTreks: Project = {
+  title: "SheTreks",
+  icon: "carbon:mountain",
   links: {
     repo: "https://github.com/jasperteo/SheTreks-frontend",
     app: "https://shetreks.netlify.app",
@@ -36,6 +40,8 @@ const sheTreks: Project = {
 };
 
 const watchOut: Project = {
+  title: "Watch Out",
+  icon: "carbon:watch",
   links: {
     repo: "https://github.com/jasperteo/watch-out-frontend",
     app: "https://watch-outt.netlify.app",
@@ -60,6 +66,8 @@ const watchOut: Project = {
 };
 
 const sgBuddy: Project = {
+  title: "SG Buddy",
+  icon: "carbon:earth-southeast-asia",
   links: {
     repo: "https://github.com/jasperteo/SG_Buddy",
     app: "https://ra-project2-b8ed4.web.app/",
@@ -79,6 +87,8 @@ const sgBuddy: Project = {
 };
 
 const priceQuery: Project = {
+  title: "priceQuery",
+  icon: "carbon:analytics",
   links: {
     repo: "https://github.com/jasperteo/priceQuery",
     app: "https://jasperteo.github.io/priceQuery/",
@@ -97,8 +107,8 @@ const priceQuery: Project = {
 <BentoGrid className="md:grid-cols-2">
   <BentoGridItem
     className="md:(col-span-1 row-span-1)"
-    title="SheTreks"
-    icon="carbon:mountain"
+    title={sheTreks.title}
+    icon={sheTreks.icon}
   >
     <ProjectContent links={sheTreks.links} slot="content">
       <p>
@@ -122,8 +132,8 @@ const priceQuery: Project = {
 
   <BentoGridItem
     className="md:(col-span-1 row-span-1)"
-    title="Watch Out"
-    icon="carbon:watch"
+    title={watchOut.title}
+    icon={watchOut.icon}
   >
     <ProjectContent links={watchOut.links} slot="content">
       <p>
@@ -146,8 +156,8 @@ const priceQuery: Project = {
 
   <BentoGridItem
     className="md:(col-span-1 row-span-1)"
-    title="SG Buddy"
-    icon="carbon:earth-southeast-asia"
+    title={sgBuddy.title}
+    icon={sgBuddy.icon}
   >
     <ProjectContent links={sgBuddy.links} slot="content">
       <p>
@@ -167,8 +177,8 @@ const priceQuery: Project = {
 
   <BentoGridItem
     className="md:(col-span-1 row-span-1)"
-    title="priceQuery"
-    icon="carbon:analytics"
+    title={priceQuery.title}
+    icon={priceQuery.icon}
   >
     <ProjectContent links={priceQuery.links} slot="content">
       <p>
