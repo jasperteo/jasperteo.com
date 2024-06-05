@@ -52,12 +52,12 @@ const contactInfo = [
         contactInfo.map(({ name, url, icon }) => (
           <li>
             <Button
+              class="gap-x-2 text-lg text-inherit hover:text-primary"
+              variant="link"
               as={Link}
               href={url}
               target="_blank"
               rel="noreferrer"
-              variant="link"
-              class="gap-x-2 text-lg text-inherit hover:text-primary"
             >
               <iconify-icon icon={icon} />
               {name}

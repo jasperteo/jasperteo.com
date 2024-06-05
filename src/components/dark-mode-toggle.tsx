@@ -50,10 +50,10 @@ const DarkModeToggle = (props: DarkModeToggleProps) => {
 
   return (
     <Button
-      aria-label="Dark Mode Toggle"
+      class="text-lg"
       variant="outline"
       size="icon"
-      class="text-lg"
+      aria-label="Dark Mode Toggle"
       onClick={[setTheme, theme() === "dark" ? "light" : "dark"]}
     >
       <Switch fallback={<Icon icon="line-md:light-dark-loop" />}>

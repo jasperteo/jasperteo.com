@@ -12,8 +12,8 @@ const { badges, i } = Astro.props;
     badges.map(({ icon, name }, index) => (
       <li>
         <Badge
-          variant={index > i ? "secondary" : "default"}
           class="gap-1 text-nowrap"
+          variant={index > i ? "secondary" : "default"}
         >
           <iconify-icon icon={icon} />
           {name}

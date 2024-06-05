@@ -44,11 +44,11 @@ const footerList = [
   {
     footerList.map(({ url, label, icon }) => (
       <Link
+        class="text-orange-12 transition-all duration-300 hover:(scale-150 sm:mx-2)"
         href={url}
         target="_blank"
         rel="noreferrer"
         aria-label={label}
-        class="text-orange-12 transition-all duration-300 hover:(scale-150 sm:mx-2)"
       >
         <iconify-icon icon={icon} />
       </Link>

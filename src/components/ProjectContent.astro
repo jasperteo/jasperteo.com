@@ -13,34 +13,32 @@ const linksArray = [
     href: links.repo,
     icon: "carbon:repo-source-code",
     label: "Browse the Repository",
-    className: "mr-2 pl-0",
   },
   {
     href: links.app,
     icon: "carbon:application",
     label: "Explore the App",
-    className: "pl-0",
   },
 ];
 ---
 
-<div class="h-full flex flex-col">
-  <div class="m-auto p-4 text-sm leading-6 space-y-5">
+<div class="h-full flex flex-col p-4 pb-0">
+  <div class="m-auto text-sm leading-6 space-y-5">
     <slot />
   </div>
 
-  <div class="justify-self-end p-4 pb-0">
+  <div class="justify-self-end pt-8 space-x-2">
     {
-      linksArray.map(({ href, icon, label, className }) => (
+      linksArray.map(({ href, icon, label }) => (
         <Button
+          class="gap-x-2 pl-0"
+          variant="link"
           as={Link}
           href={href}
           target="_blank"
           rel="noopener"
-          variant="link"
-          class={className}
         >
-          <iconify-icon className="mr-1.5 text-lg" icon={icon} />
+          <iconify-icon class="text-lg" icon={icon} />
           {label}
         </Button>
       ))

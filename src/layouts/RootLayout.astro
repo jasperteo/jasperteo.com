@@ -31,6 +31,7 @@ const themeColor = theme === "light" ? color.light : color.dark;
     <meta name="description" content={description} />
     <meta name="theme-color" content={themeColor} id="tc" />
     <meta name="generator" content={Astro.generator} />
+    <slot name="noindex" />
 
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
@@ -45,7 +46,6 @@ const themeColor = theme === "light" ? color.light : color.dark;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
 
-    <slot name="noindex" />
     <ViewTransitions />
   </head>
 

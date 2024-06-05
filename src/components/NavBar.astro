@@ -34,15 +34,15 @@ const storedTheme: Theme =
     navList.map(({ href, icon, label }) => (
       <>
         <Button
-          as={Link}
-          href={href}
-          variant="ghost"
           class={cn(
             { active: isActive(href) },
-            "shadow-primary/20 [&.active]:(animate-swing animate-delay-150 shadow-lg) sm:text-base"
+            "gap-x-2 [&.active]:(animate-swing animate-delay-150 shadow-lg shadow-primary/20) sm:text-base"
           )}
+          variant="ghost"
+          as={Link}
+          href={href}
         >
-          <iconify-icon icon={icon} class="mr-2 text-xl" />
+          <iconify-icon class="text-xl" icon={icon} />
           {label}
         </Button>
         <Separator orientation="vertical" />
@@ -53,7 +53,7 @@ const storedTheme: Theme =
     <DarkModeToggle
       storedTheme={storedTheme}
       client:only="solid-js"
-      transition:persist="ThemeToggle"
+      transition:persist="Dark Mode Toggle"
       transition:persist-props
     />
   </div>
