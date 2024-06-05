@@ -10,8 +10,6 @@ import type { Theme } from "@/components/dark-mode-toggle";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
-import { cn } from "@/utils/utils";
-
 const { pathname } = Astro.url;
 const isActive = (href: string) =>
   href === pathname || href === pathname.replace(/\/$/, "");
@@ -34,10 +32,10 @@ const storedTheme: Theme =
     navList.map(({ href, icon, label }) => (
       <>
         <Button
-          class={cn(
+          class:list={[
             { active: isActive(href) },
-            "gap-x-2 [&.active]:(animate-swing animate-delay-150 shadow-lg shadow-primary/20) sm:text-base"
-          )}
+            "gap-x-2 [&.active]:(animate-swing animate-delay-150 shadow-lg shadow-primary/20) sm:text-base",
+          ]}
           variant="ghost"
           as={Link}
           href={href}

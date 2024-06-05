@@ -8,6 +8,7 @@ type Project = {
   title: string;
   icon: string;
   links: { repo: string; app: string };
+  content?: string;
   badges: { icon: string; name: string }[];
   cutoff: number;
 };
@@ -19,6 +20,17 @@ const sheTreks: Project = {
     repo: "https://github.com/jasperteo/SheTreks-frontend",
     app: "https://shetreks.netlify.app",
   },
+  content: `<p>
+        A social media app for solo female travelers to connect and share
+        experiences. Users can filter activities by interests, view activity
+        locations on a map, and receive notifications for new or updated
+        activities. They can also create and invite others to activities, and
+        follow other users.
+      </p>
+      <p>
+        As a PWA, it is installable as a native-like app with access to certain
+        native features.
+      </p>`,
   badges: [
     { icon: "simple-icons:reactrouter", name: "React Router" },
     { icon: "simple-icons:react", name: "React" },
@@ -46,6 +58,16 @@ const watchOut: Project = {
     repo: "https://github.com/jasperteo/watch-out-frontend",
     app: "https://watch-outt.netlify.app",
   },
+  content: `<p>
+        A bidding platform where users can bid and buy Rolex watches. Users can
+        also list their own watches for sale. The app features a chart to show
+        the past few months of watch prices, giving users an idea of the market
+        price.
+      </p>
+      <p>
+        Bids are made in real-time by leveraging Socket.IO, and a Stripe
+        integration is used for payments.
+      </p>`,
   badges: [
     { icon: "simple-icons:reactrouter", name: "React Router" },
     { icon: "simple-icons:react", name: "React" },
@@ -62,7 +84,7 @@ const watchOut: Project = {
     { icon: "simple-icons:sequelize", name: "Sequelize" },
     { icon: "simple-icons:postgresql", name: "Postgres" },
   ],
-  cutoff: 8,
+  cutoff: 5,
 };
 
 const sgBuddy: Project = {
@@ -72,6 +94,13 @@ const sgBuddy: Project = {
     repo: "https://github.com/jasperteo/SG_Buddy",
     app: "https://ra-project2-b8ed4.web.app/",
   },
+  content: `<p>
+        An informational travellers app for travellers to Singapore. Users can
+        search for food, attractions, and hotels, and view the location on a
+        map. Users can also save their favourite places and view them later. The
+        app also help users to plan their itinerary with flight and hotel
+        details.
+      </p>`,
   badges: [
     { icon: "simple-icons:reactrouter", name: "React Router" },
     { icon: "simple-icons:react", name: "React" },
@@ -93,6 +122,13 @@ const priceQuery: Project = {
     repo: "https://github.com/jasperteo/priceQuery",
     app: "https://jasperteo.github.io/priceQuery/",
   },
+  content: `<p>
+        A simple app to check up the latest prices of different assets in the
+        market. Users can search for the price and details of a stock,
+        cryptocurrency, or foreign exchange currencies. The data is displayed in
+        cards and the number of cards can be adjusted.
+      </p>
+      <p>Market data is from Polygon.io.</p>`,
   badges: [
     { icon: "simple-icons:react", name: "React" },
     { icon: "simple-icons:vite", name: "Vite" },
@@ -102,97 +138,19 @@ const priceQuery: Project = {
   ],
   cutoff: 3,
 };
+
+const projects = [sheTreks, watchOut, sgBuddy, priceQuery];
 ---
 
 <BentoGrid className="md:grid-cols-2">
-  <BentoGridItem
-    className="md:(col-span-1 row-span-1)"
-    title={sheTreks.title}
-    icon={sheTreks.icon}
-  >
-    <ProjectContent links={sheTreks.links} slot="content">
-      <p>
-        A social media app for solo female travelers to connect and share
-        experiences. Users can filter activities by interests, view activity
-        locations on a map, and receive notifications for new or updated
-        activities. They can also create and invite others to activities, and
-        follow other users.
-      </p>
-      <p>
-        As a PWA, it is installable as a native-like app with access to certain
-        native features.
-      </p>
-    </ProjectContent>
-    <BadgeGenerator
-      badges={sheTreks.badges}
-      i={sheTreks.cutoff}
-      slot="description"
-    />
-  </BentoGridItem>
-
-  <BentoGridItem
-    className="md:(col-span-1 row-span-1)"
-    title={watchOut.title}
-    icon={watchOut.icon}
-  >
-    <ProjectContent links={watchOut.links} slot="content">
-      <p>
-        A bidding platform where users can bid and buy Rolex watches. Users can
-        also list their own watches for sale. The app features a chart to show
-        the past few months of watch prices, giving users an idea of the market
-        price.
-      </p>
-      <p>
-        Bids are made in real-time by leveraging Socket.IO, and a Stripe
-        integration is used for payments.
-      </p>
-    </ProjectContent>
-    <BadgeGenerator
-      badges={watchOut.badges}
-      i={watchOut.cutoff}
-      slot="description"
-    />
-  </BentoGridItem>
-
-  <BentoGridItem
-    className="md:(col-span-1 row-span-1)"
-    title={sgBuddy.title}
-    icon={sgBuddy.icon}
-  >
-    <ProjectContent links={sgBuddy.links} slot="content">
-      <p>
-        An informational travellers app for travellers to Singapore. Users can
-        search for food, attractions, and hotels, and view the location on a
-        map. Users can also save their favourite places and view them later. The
-        app also help users to plan their itinerary with flight and hotel
-        details.
-      </p>
-    </ProjectContent>
-    <BadgeGenerator
-      badges={sgBuddy.badges}
-      i={sgBuddy.cutoff}
-      slot="description"
-    />
-  </BentoGridItem>
-
-  <BentoGridItem
-    className="md:(col-span-1 row-span-1)"
-    title={priceQuery.title}
-    icon={priceQuery.icon}
-  >
-    <ProjectContent links={priceQuery.links} slot="content">
-      <p>
-        A simple app to check up the latest prices of different assets in the
-        market. Users can search for the price and details of a stock,
-        cryptocurrency, or foreign exchange currencies. The data is displayed in
-        cards and the number of cards can be adjusted.
-      </p>
-      <p>Market data is from Polygon.io.</p>
-    </ProjectContent>
-    <BadgeGenerator
-      badges={priceQuery.badges}
-      i={priceQuery.cutoff}
-      slot="description"
-    />
-  </BentoGridItem>
+  {
+    projects.map(({ title, icon, links, content, badges, cutoff }) => (
+      <BentoGridItem title={title} icon={icon}>
+        <ProjectContent links={links} slot="content">
+          <Fragment set:html={content} />
+        </ProjectContent>
+        <BadgeGenerator badges={badges} i={cutoff} slot="description" />
+      </BentoGridItem>
+    ))
+  }
 </BentoGrid>
