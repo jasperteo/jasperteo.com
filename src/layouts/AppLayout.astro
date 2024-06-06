@@ -4,19 +4,21 @@ import NavBar from "@/components/NavBar.astro";
 import { Separator } from "@/components/ui/separator";
 ---
 
-<div class="relative min-w-dvw p-8 transition-colors min-h-dvh">
+<div class="relative min-w-dvw p-8 min-h-dvh">
   <div class="mx-auto max-w-5xl min-w-xs">
     <header>
       <NavBar />
     </header>
 
-    <Separator class="my-4" />
+    <Separator class="my-4" orientation="horizontal" />
 
     <main class="mb-64">
       <slot name="outlet" />
     </main>
 
-    <footer class="absolute inset-x-8 bottom-8 mx-auto max-w-5xl min-w-xs">
+    <footer
+      class="group/footer absolute inset-x-0 bottom-8 mx-auto max-w-5xl min-w-xs"
+    >
       <FooterItems />
     </footer>
   </div>

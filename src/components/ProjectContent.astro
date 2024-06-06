@@ -27,12 +27,13 @@ const linksArray = [
     <slot />
   </div>
 
-  <div class="justify-self-end pt-8 space-x-2">
+  <div class="justify-self-end pt-8">
     {
       linksArray.map(({ href, icon, label }) => (
         <Button
-          class="gap-x-2 pl-0"
+          class="gap-x-1 pl-0"
           variant="link"
+          size="lg"
           as={Link}
           href={href}
           target="_blank"
