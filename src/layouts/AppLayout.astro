@@ -4,7 +4,9 @@ import NavBar from "@/components/NavBar.astro";
 import { Separator } from "@/components/ui/separator";
 ---
 
-<div class="relative min-w-dvw p-8 min-h-dvh">
+<div
+  class="relative min-w-dvw bg-background p-8 text-foreground transition-colors min-h-dvh"
+>
   <div class="mx-auto max-w-5xl min-w-xs">
     <header>
       <NavBar />
@@ -17,7 +19,7 @@ import { Separator } from "@/components/ui/separator";
     </main>
 
     <footer
-      class="group/footer absolute inset-x-0 bottom-8 mx-auto max-w-5xl min-w-xs"
+      class="group/footer absolute inset-x-0 bottom-8 isolate mx-auto max-w-5xl min-w-xs"
     >
       <FooterItems />
     </footer>
@@ -69,8 +71,8 @@ import { Separator } from "@/components/ui/separator";
     --primary-hover: 0.87 0.409 0.164; /* orange10 */
     --primary-foreground: 0.933 0.933 0.933; /* gray12(dark) */
 
-    --secondary: 0.947 0.94 0.909; /* gold3 */
-    --secondary-hover: 0.914 0.904 0.865; /* gold4 */
+    --secondary: 0.914 0.904 0.865; /* gold4 */
+    --secondary-hover: 0.88 0.865 0.816; /* gold5 */
     --secondary-foreground: 0.227 0.209 0.173; /* gold12 */
 
     --destructive: 0.83 0.329 0.324; /* red9 */
@@ -108,8 +110,8 @@ import { Separator } from "@/components/ui/separator";
     --primary-hover: 0.98 0.51 0.23; /* orange10 */
     --primary-foreground: 0.933 0.933 0.933; /* gray12(dark) */
 
-    --secondary: 0.141 0.136 0.122; /* gold3 */
-    --secondary-hover: 0.177 0.17 0.152; /* gold4 */
+    --secondary: 0.177 0.17 0.152; /* gold4 */
+    --secondary-hover: 0.217 0.207 0.185; /* gold5 */
     --secondary-foreground: 0.906 0.887 0.855; /* gold12 */
 
     --destructive: 0.83 0.329 0.324; /* red9 */
