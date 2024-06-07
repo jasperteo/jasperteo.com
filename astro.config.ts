@@ -5,7 +5,10 @@ import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [solidJs(), UnoCSS({ injectReset: true })],
+  integrations: [
+    solidJs(),
+    UnoCSS({ injectReset: "@unocss/reset/tailwind-compat.css" }),
+  ],
   site: "https://jasperteo.com",
   output: "server",
   adapter: cloudflare({
