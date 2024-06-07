@@ -9,7 +9,7 @@ import type { VariantProps } from "class-variance-authority";
 import { cn } from "@/utils/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition focus-visible:(outline-none ring-1.5 ring-ring) disabled:(pointer-events-none opacity-50) bg-inherit",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition focus-visible:(outline-none ring-1 ring-ring) disabled:(pointer-events-none opacity-50)",
   {
     variants: {
       variant: {
@@ -38,13 +38,11 @@ const buttonVariants = cva(
   }
 );
 
-type ButtonProps = ButtonRootProps &
-  VariantProps<typeof buttonVariants> & {
-    class?: string;
-  };
+type ButtonProps<T extends ValidComponent = "button"> = ButtonRootProps<T> &
+  VariantProps<typeof buttonVariants> & { class?: string };
 
 const Button = <T extends ValidComponent = "button">(
-  props: PolymorphicProps<T, ButtonProps>
+  props: PolymorphicProps<T, ButtonProps<T>>
 ) => {
   const [local, rest] = splitProps(props as ButtonProps, [
     "class",

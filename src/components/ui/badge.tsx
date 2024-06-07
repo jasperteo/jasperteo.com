@@ -6,17 +6,17 @@ import type { VariantProps } from "class-variance-authority";
 import { cn } from "@/utils/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold transition focus-visible:(outline-none ring-1.5 ring-ring)",
+  "inline-flex items-center border rounded-md px-2.5 py-0.5 text-xs font-semibold transition-colors focus:(outline-none ring-2 ring-offset-2 ring-ring)",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow shadow-shadow hover:bg-primary-hover",
+          "border-transparent bg-primary text-primary-foreground shadow shadow-shadow hover:bg-primary-hover",
         secondary:
-          "bg-secondary text-secondary-foreground shadow shadow-shadow hover:bg-secondary-hover",
+          "border-transparent bg-secondary text-secondary-foreground shadow shadow-shadow hover:bg-secondary-hover",
         destructive:
-          "bg-destructive text-destructive-foreground shadow shadow-shadow hover:bg-destructive-hover",
-        outline: "border text-foreground",
+          "border-transparent bg-destructive text-destructive-foreground shadow shadow-shadow hover:bg-destructive-hover",
+        outline: "text-foreground",
       },
     },
     defaultVariants: {
@@ -25,9 +25,9 @@ const badgeVariants = cva(
   }
 );
 
-const Badge = (
-  props: ComponentProps<"div"> & VariantProps<typeof badgeVariants>
-) => {
+type BadgeProps = ComponentProps<"div"> & VariantProps<typeof badgeVariants>;
+
+const Badge = (props: BadgeProps) => {
   const [local, rest] = splitProps(props, ["class", "variant"]);
 
   return (
