@@ -8,17 +8,17 @@ const { badges, i } = Astro.props;
 ---
 
 <ul class="flex flex-wrap gap-x-1.5 gap-y-2">
-  {
-    badges.map(({ icon, name }, index) => (
-      <li>
-        <Badge
-          class="gap-1 text-nowrap"
-          variant={index > i ? "secondary" : "default"}
-        >
-          <iconify-icon icon={icon} />
-          {name}
-        </Badge>
-      </li>
-    ))
-  }
+	{
+		badges.map(({ icon, name }, index) => (
+			<li>
+				<Badge
+					class="gap-1 text-nowrap"
+					variant={index > i ? "secondary" : "default"}
+				>
+					<iconify-icon icon={icon} />
+					{name}
+				</Badge>
+			</li>
+		))
+	}
 </ul>

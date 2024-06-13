@@ -2,62 +2,66 @@
 import { Link } from "@kobalte/core/link";
 
 const footerList = [
-  {
-    url: "https://astro.build/",
-    icon: "simple-icons:astro",
-    label: "Astro",
-  },
-  {
-    url: "https://www.solidjs.com/",
-    icon: "simple-icons:solid",
-    label: "Solid",
-  },
-  {
-    url: "https://unocss.dev/",
-    icon: "simple-icons:unocss",
-    label: "UnoCSS",
-  },
-  {
-    url: "https://ui.shadcn.com/",
-    icon: "simple-icons:shadcnui",
-    label: "Shadcn UI",
-  },
+	{
+		url: "https://astro.build/",
+		icon: "simple-icons:astro",
+		label: "Astro",
+	},
+	{
+		url: "https://www.solidjs.com/",
+		icon: "simple-icons:solid",
+		label: "Solid",
+	},
+	{
+		url: "https://unocss.dev/",
+		icon: "simple-icons:unocss",
+		label: "UnoCSS",
+	},
+	{
+		url: "https://ui.shadcn.com/",
+		icon: "simple-icons:shadcnui",
+		label: "Shadcn UI",
+	},
 ];
 ---
 
 <h3 class="mx-auto my-3 w-fit font-semibold font-title">Made With:</h3>
 
 <div
-  class="mx-auto w-fit flex gap-6 rounded-3xl bg-secondary-foreground/12.5 px-8 py-3 text-2xl shadow-lg shadow-primary/25 backdrop-blur-sm backdrop-opacity-90"
+	class="mx-auto w-fit flex gap-6 rounded-3xl bg-secondary-foreground/12.5 px-8 py-3 text-2xl shadow-lg shadow-primary/25 backdrop-blur-sm backdrop-opacity-90"
 >
-  {
-    footerList.map(({ url, label, icon }) => (
-      <Link
-        class="text-orange-12 transition-all duration-300 hover:(scale-150 sm:mx-2)"
-        href={url}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={label}
-      >
-        <iconify-icon icon={icon} />
-      </Link>
-    ))
-  }
+	{
+		footerList.map(({ url, label, icon }) => (
+			<Link
+				class="text-orange-12 transition-all duration-300 hover:(scale-150 sm:mx-2)"
+				href={url}
+				target="_blank"
+				rel="noreferrer"
+				aria-label={label}
+			>
+				<iconify-icon icon={icon} />
+			</Link>
+		))
+	}
 </div>
 
 <div class="absolute inset-x-0 bottom-8 mx-auto w-fit flex gap-6 -z-10">
-  <span
-    class="border-x-[3rem] border-x-transparent border-b-[#D7B418] border-b-[calc(3rem*sqrt(3))] transition-transform duration-500 -group-hover/footer:(translate-x-6 rotate-12)"
-  >
-  </span>
-  <span class="aspect-square w-24 rounded-full bg-[#154084]"></span>
-  <span
-    class="aspect-square w-24 bg-[#9D2719] transition-transform duration-500 group-hover/footer:(translate-x-6 rotate-12)"
-  ></span>
+	<span
+		class="triangle aspect-square w-24 bg-[#D7B418] transition-transform duration-500 -group-hover/footer:(translate-x-6 rotate-12)"
+	>
+	</span>
+	<span class="aspect-square w-24 rounded-full bg-[#154084]"></span>
+	<span
+		class="aspect-square w-24 bg-[#9D2719] transition-transform duration-500 group-hover/footer:(translate-x-6 rotate-12)"
+	></span>
 </div>
 
 <style>
-  h3 {
-    color: color(display-p3 0.988 0.992 1 / 0.937);
-  }
+	h3 {
+		color: color(display-p3 0.988 0.992 1 / 0.937);
+	}
+
+	.triangle {
+		clip-path: polygon(0% 100%, 50% calc(100% * (1 - sin(60deg))), 100% 100%);
+	}
 </style>

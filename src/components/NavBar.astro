@@ -2,9 +2,9 @@
 import { Link } from "@kobalte/core/link";
 
 import {
-  DarkModeToggle,
-  defaultTheme,
-  storageKey,
+	DarkModeToggle,
+	defaultTheme,
+	storageKey,
 } from "@/components/dark-mode-toggle";
 import type { Theme } from "@/components/dark-mode-toggle";
 import { Button } from "@/components/ui/button";
@@ -12,48 +12,48 @@ import { Separator } from "@/components/ui/separator";
 
 const { pathname } = Astro.url;
 const isActive = (href: string) =>
-  href === pathname || href === pathname.replace(/\/$/, "");
+	href === pathname || href === pathname.replace(/\/$/, "");
 
 const navList = [
-  { href: "/", icon: "carbon:home", label: "Home" },
-  { href: "/projects", icon: "carbon:devices-apps", label: "Projects" },
+	{ href: "/", icon: "carbon:home", label: "Home" },
+	{ href: "/projects", icon: "carbon:devices-apps", label: "Projects" },
 ];
 
 const storedTheme: Theme =
-  (Astro.cookies.get(storageKey)?.value as Theme) ??
-  Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme") ??
-  defaultTheme;
+	(Astro.cookies.get(storageKey)?.value as Theme) ??
+	Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme") ??
+	defaultTheme;
 ---
 
 <nav
-  class="my-5 h-9 flex place-content-center gap-2 font-title sm:(my-10 mr-10 justify-end)"
+	class="my-5 h-9 flex place-content-center gap-2 font-title sm:(my-10 mr-10 justify-end)"
 >
-  {
-    navList.map(({ href, icon, label }) => (
-      <>
-        <Button
-          class:list={[
-            { active: isActive(href) },
-            "gap-x-2 [&.active]:(animate-swing animate-delay-150 shadow-lg shadow-primary/20) sm:text-base",
-          ]}
-          variant="ghost"
-          as={Link}
-          href={href}
-        >
-          <iconify-icon class="text-xl" icon={icon} />
-          {label}
-        </Button>
-        <Separator orientation="vertical" />
-      </>
-    ))
-  }
+	{
+		navList.map(({ href, icon, label }) => (
+			<>
+				<Button
+					class:list={[
+						{ active: isActive(href) },
+						"gap-x-2 [&.active]:(animate-swing animate-delay-150 shadow-lg shadow-primary/20) sm:text-base",
+					]}
+					variant="ghost"
+					as={Link}
+					href={href}
+				>
+					<iconify-icon class="text-xl" icon={icon} />
+					{label}
+				</Button>
+				<Separator orientation="vertical" />
+			</>
+		))
+	}
 
-  <div class="mx-4 h-9 w-9">
-    <DarkModeToggle
-      storedTheme={storedTheme}
-      client:only="solid-js"
-      transition:persist="Dark Mode Toggle"
-      transition:persist-props
-    />
-  </div>
+	<div class="mx-4 h-9 w-9">
+		<DarkModeToggle
+			storedTheme={storedTheme}
+			client:only="solid-js"
+			transition:persist="Dark Mode Toggle"
+			transition:persist-props
+		/>
+	</div>
 </nav>

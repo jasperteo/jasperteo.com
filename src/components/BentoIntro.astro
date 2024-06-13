@@ -1,113 +1,113 @@
 ---
 import { Link } from "@kobalte/core/link";
 
+import BentoCard from "@/components/ui/BentoCard.astro";
 import { Button } from "@/components/ui/button";
 import BentoGrid from "@/layouts/BentoGrid.astro";
-import BentoGridItem from "@/layouts/BentoGridItem.astro";
 
 const contactInfo = [
-  {
-    name: "GitHub",
-    url: "https://github.com/jasperteo",
-    icon: "line-md:github-loop",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/jaspertzj/",
-    icon: "line-md:linkedin",
-  },
-  {
-    name: "Twitter",
-    url: "https://x.com/jasper_teo",
-    icon: "line-md:twitter-x-alt",
-  },
+	{
+		name: "GitHub",
+		url: "https://github.com/jasperteo",
+		icon: "line-md:github-loop",
+	},
+	{
+		name: "LinkedIn",
+		url: "https://www.linkedin.com/in/jaspertzj/",
+		icon: "line-md:linkedin",
+	},
+	{
+		name: "Twitter",
+		url: "https://x.com/jasper_teo",
+		icon: "line-md:twitter-x-alt",
+	},
 ];
 ---
 
 <BentoGrid className="md:grid-cols-25">
-  <BentoGridItem
-    className="md:(col-span-16 row-span-2)"
-    title="About Me"
-    icon="carbon:machine-learning"
-  >
-    <div class="m-auto p-4 leading-7 space-y-6" slot="content">
-      <p>
-        My name is <span class="text-orange-11 font-semibold">Jasper Teo</span>,
-        and I focus on full stack development and web technologies. I am mainly
-        interested building products that deliver a good user experience,
-        leveraging on modern tools and technologies to improve productivity and
-        developer experience. Always looking for opportunities to learn and
-        grow.
-      </p>
-      <p>Currently looking for a full-time position as a software engineer.</p>
-    </div>
-  </BentoGridItem>
+	<BentoCard
+		className="md:(col-span-16 row-span-2)"
+		title="About Me"
+		icon="carbon:machine-learning"
+	>
+		<div class="m-auto p-4 leading-7 space-y-6" slot="content">
+			<p>
+				My name is <span class="text-orange-11 font-semibold">Jasper Teo</span>,
+				and I focus on full stack development and web technologies. I am mainly
+				interested building products that deliver a good user experience,
+				leveraging on modern tools and technologies to improve productivity and
+				developer experience. Always looking for opportunities to learn and
+				grow.
+			</p>
+			<p>Currently looking for a full-time position as a software engineer.</p>
+		</div>
+	</BentoCard>
 
-  <BentoGridItem
-    className="md:(col-span-9 row-span-1)"
-    title="Contact"
-    icon="carbon:at"
-  >
-    <ul class="m-auto p-4 font-title space-y-2.5" slot="content">
-      {
-        contactInfo.map(({ name, url, icon }) => (
-          <li>
-            <Button
-              class="gap-x-2 text-lg text-inherit hover:text-primary"
-              variant="link"
-              as={Link}
-              href={url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <iconify-icon icon={icon} />
-              {name}
-            </Button>
-          </li>
-        ))
-      }
-    </ul>
-    <div class="text-balance text-sm" slot="description">
-      <span>Drop me an email at</span>
-      <Link
-        class="decoration-dotted hover:underline"
-        href="mailto:hey@jasperteo.com"
-      >
-        <iconify-icon inline icon="carbon:email"></iconify-icon>
-        hey@jasperteo.com
-      </Link>
-    </div>
-  </BentoGridItem>
+	<BentoCard
+		className="md:(col-span-9 row-span-1)"
+		title="Contact"
+		icon="carbon:at"
+	>
+		<ul class="m-auto p-4 font-title space-y-2.5" slot="content">
+			{
+				contactInfo.map(({ name, url, icon }) => (
+					<li>
+						<Button
+							class="gap-x-2 text-lg text-inherit hover:text-primary"
+							variant="link"
+							as={Link}
+							href={url}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<iconify-icon icon={icon} />
+							{name}
+						</Button>
+					</li>
+				))
+			}
+		</ul>
+		<div class="text-balance text-sm" slot="description">
+			<span>Drop me an email at</span>
+			<Link
+				class="decoration-dotted hover:underline"
+				href="mailto:hey@jasperteo.com"
+			>
+				<iconify-icon inline icon="carbon:email"></iconify-icon>
+				hey@jasperteo.com
+			</Link>
+		</div>
+	</BentoCard>
 
-  <BentoGridItem
-    className="md:(col-span-9 row-span-1)"
-    title="Tech I Love"
-    icon="carbon:terminal"
-  >
-    <ul class="m-auto p-4 font-mono space-y-2" slot="content">
-      <li>
-        <iconify-icon inline icon="logos:javascript"></iconify-icon>{" "}
-        <iconify-icon inline icon="logos:typescript-icon"></iconify-icon> TypeScript
-      </li>
-      <li>
-        <iconify-icon inline icon="logos:nodejs-icon"></iconify-icon>
-        <iconify-icon inline icon="logos:bun"></iconify-icon>{" "}
-        Node.js/Bun
-      </li>
-      <li>
-        <iconify-icon inline icon="logos:react"></iconify-icon>{" "}
-        <iconify-icon inline icon="logos:nextjs-icon"></iconify-icon> Next.js
-      </li>
-      <li>
-        <iconify-icon inline icon="logos:postgresql"></iconify-icon>{" "}
-        <iconify-icon inline icon="logos:supabase-icon"></iconify-icon> Supabase
-      </li>
-      <li>
-        <iconify-icon inline icon="logos:hono"></iconify-icon> Hono
-      </li>
-      <li>
-        <iconify-icon inline icon="logos:vitejs"></iconify-icon> Vite
-      </li>
-    </ul>
-  </BentoGridItem>
+	<BentoCard
+		className="md:(col-span-9 row-span-1)"
+		title="Tech I Love"
+		icon="carbon:terminal"
+	>
+		<ul class="m-auto p-4 font-mono space-y-2" slot="content">
+			<li>
+				<iconify-icon inline icon="logos:javascript"></iconify-icon>{" "}
+				<iconify-icon inline icon="logos:typescript-icon"></iconify-icon> TypeScript
+			</li>
+			<li>
+				<iconify-icon inline icon="logos:nodejs-icon"></iconify-icon>
+				<iconify-icon inline icon="logos:bun"></iconify-icon>{" "}
+				Node.js/Bun
+			</li>
+			<li>
+				<iconify-icon inline icon="logos:react"></iconify-icon>{" "}
+				<iconify-icon inline icon="logos:nextjs-icon"></iconify-icon> Next.js
+			</li>
+			<li>
+				<iconify-icon inline icon="logos:postgresql"></iconify-icon>{" "}
+				<iconify-icon inline icon="logos:supabase-icon"></iconify-icon> Supabase
+			</li>
+			<li>
+				<iconify-icon inline icon="logos:hono"></iconify-icon> Hono
+			</li>
+			<li>
+				<iconify-icon inline icon="logos:vitejs"></iconify-icon> Vite
+			</li>
+		</ul>
+	</BentoCard>
 </BentoGrid>
