@@ -16,34 +16,29 @@ export default defineConfig({
 			provider: "none",
 			fonts: {
 				sans: "IBM Plex Sans",
-				mono: "Azeret Mono",
-				title: ["Chillax", "system-ui", "sans-serif"],
+				mono: "Fragment Mono",
+				title: ["Chillax", "IBM Plex Sans", "system-ui", "sans-serif"],
 			},
 		}),
 	],
 	preflights: [
 		{
 			getCSS: () => `
-        @font-face {
-          font-family: "IBM Plex Sans";
-          src: url("/fonts/IBMPlexSansVar.woff2") format("woff2");
-          font-weight: 100 900;
-          font-style: normal;
-        }
+				@font-face {
+					font-family: "IBM Plex Sans";
+					src: url("/fonts/IBMPlexSansVar.woff2") format("woff2");
+					font-weight: 100 900;
+					font-display: swap;
+					font-style: normal;
+				}
 
-        @font-face {
-          font-family: "Azeret Mono";
-          src: url("/fonts/AzeretMonoVariable.woff2") format("woff2");
-          font-weight: 100 900;
-          font-style: normal;
-        }
-
-        @font-face {
-          font-family: "Chillax";
-          src: url("/fonts/ChillaxVariable.woff2") format("woff2");
-          font-weight: 200 700;
-          font-style: normal;
-        }
+				@font-face {
+					font-family: "Chillax";
+					src: url("/fonts/ChillaxVariable.woff2") format("woff2");
+					font-weight: 200 700;
+					font-display: swap;
+					font-style: normal;
+				}
       `,
 		},
 	],

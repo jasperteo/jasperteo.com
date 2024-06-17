@@ -1,6 +1,7 @@
 ---
 import { Link } from "@kobalte/core/link";
 
+import { MyTime } from "@/components/my-time";
 import BentoCard from "@/components/ui/BentoCard.astro";
 import { Button } from "@/components/ui/button";
 import BentoGrid from "@/layouts/BentoGrid.astro";
@@ -22,6 +23,29 @@ const contactInfo = [
 		icon: "line-md:twitter-x-alt",
 	},
 ];
+
+const myLocation = { lat: 1.287022, long: 103.854689 };
+
+const yourLocation = {
+	lat: Number(Astro.locals.runtime.cf?.latitude),
+	long: Number(Astro.locals.runtime.cf?.longitude),
+};
+
+// Average radius of Earth in km
+const R = 6371;
+
+// φ = latitude in radians, λ = longitude in radians, Δ = delta (difference)
+const φ1 = myLocation.lat * (Math.PI / 180);
+const φ2 = yourLocation.lat * (Math.PI / 180);
+const Δφ = φ2 - φ1;
+const Δλ = (yourLocation.long - myLocation.long) * (Math.PI / 180);
+
+const a =
+	Math.sin(Δφ / 2) ** 2 + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) ** 2;
+
+const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+const distance = Math.round(R * c).toLocaleString("en-US");
 ---
 
 <BentoGrid className="md:grid-cols-25">
@@ -30,16 +54,40 @@ const contactInfo = [
 		title="About Me"
 		icon="carbon:machine-learning"
 	>
-		<div class="m-auto p-4 leading-7 space-y-6" slot="content">
-			<p>
-				My name is <span class="text-orange-11 font-semibold">Jasper Teo</span>,
-				and I focus on full stack development and web technologies. I am mainly
-				interested building products that deliver a good user experience,
-				leveraging on modern tools and technologies to improve productivity and
-				developer experience. Always looking for opportunities to learn and
-				grow.
-			</p>
-			<p>Currently looking for a full-time position as a software engineer.</p>
+		<div class="h-full flex flex-col" slot="content">
+			<div class="m-auto p-4 leading-7 space-y-6">
+				<p>
+					My name is <span class="text-orange-11 font-semibold">Jasper Teo</span
+					>, and I focus on full stack development and web technologies. I am
+					mainly interested building products that deliver a good user
+					experience, leveraging on modern tools and technologies to improve
+					productivity and developer experience. Always looking for
+					opportunities to learn and grow.
+				</p>
+				<p>
+					Currently looking for a full-time position as a software engineer.
+				</p>
+			</div>
+			<div class="p-4 font-medium space-y-1">
+				<p class="flex gap-2">
+					<span class="text-orange-12">
+						<iconify-icon inline icon="carbon:location"></iconify-icon>
+						Singapore
+					</span>
+					<span>|</span>
+					<span class="text-muted-foreground font-title">
+						you are {distance} km away!
+					</span>
+				</p>
+				<p class="flex gap-2">
+					<span class="text-orange-12">
+						<iconify-icon inline icon="carbon:time"></iconify-icon>
+						<MyTime client:load />
+					</span>
+					<span>|</span>
+					<span class="text-muted-foreground font-title">gmt +8</span>
+				</p>
+			</div>
 		</div>
 	</BentoCard>
 

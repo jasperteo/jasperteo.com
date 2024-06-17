@@ -1,11 +1,4 @@
-import {
-	Match,
-	Switch,
-	createEffect,
-	createSignal,
-	onCleanup,
-	onMount,
-} from "solid-js";
+import { Match, Switch, createEffect, createSignal, onCleanup } from "solid-js";
 import Cookies from "js-cookie";
 import { Icon } from "@iconify-icon/solid";
 
@@ -45,7 +38,7 @@ const DarkModeToggle = (props: DarkModeToggleProps) => {
 		});
 	});
 
-	onMount(() => prefersLight.addEventListener("change", setSysTheme));
+	prefersLight.addEventListener("change", setSysTheme);
 	onCleanup(() => prefersLight.removeEventListener("change", setSysTheme));
 
 	return (
