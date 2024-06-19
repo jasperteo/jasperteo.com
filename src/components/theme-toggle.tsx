@@ -1,11 +1,14 @@
 import { Match, Switch, createEffect, createSignal, onCleanup } from "solid-js";
+import { picklist } from "@valibot/valibot";
+import type { InferInput } from "@valibot/valibot";
 import Cookies from "js-cookie";
 import { Icon } from "@iconify-icon/solid";
 
 import { Button } from "@/components/ui/button";
 
 const themeValues = ["light", "dark", "system"] as const;
-type Theme = (typeof themeValues)[number];
+const themeEnum = picklist(themeValues);
+type Theme = InferInput<typeof themeEnum>;
 const defaultTheme: Theme = "dark";
 
 const storageKey = "theme";
@@ -14,9 +17,9 @@ const color = {
 	dark: "color(display-p3 0.098 0.098 0.094)",
 };
 
-type DarkModeToggleProps = { storedTheme?: Theme };
+type ThemeToggleProps = { storedTheme?: Theme };
 
-const DarkModeToggle = (props: DarkModeToggleProps) => {
+const ThemeToggle = (props: ThemeToggleProps) => {
 	const storedTheme = () => props.storedTheme;
 	const [theme, setTheme] = createSignal<Theme>(storedTheme() ?? defaultTheme);
 
@@ -61,5 +64,5 @@ const DarkModeToggle = (props: DarkModeToggleProps) => {
 	);
 };
 
-export { DarkModeToggle, color, defaultTheme, storageKey };
+export { ThemeToggle, color, defaultTheme, storageKey, themeEnum };
 export type { Theme };

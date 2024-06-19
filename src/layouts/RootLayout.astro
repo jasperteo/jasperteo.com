@@ -1,18 +1,28 @@
 ---
+import { safeParse } from "@valibot/valibot";
 import { ViewTransitions } from "astro:transitions";
 
-import { color, defaultTheme, storageKey } from "@/components/dark-mode-toggle";
-import type { Theme } from "@/components/dark-mode-toggle";
+import {
+	color,
+	defaultTheme,
+	storageKey,
+	themeEnum,
+} from "@/components/theme-toggle";
+import type { Theme } from "@/components/theme-toggle";
 
 type Props = { title: string; description: string };
 
 const { title, description } = Astro.props;
 const image = "https://storage.jasperteo.com/meta-image.png";
 
-const theme: Theme =
-	(Astro.cookies.get(storageKey)?.value as Theme) ??
-	Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme") ??
-	defaultTheme;
+const cookieTheme = Astro.cookies.get(storageKey)?.value;
+const prefersTheme = Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme");
+
+const theme: Theme = safeParse(themeEnum, cookieTheme).success
+	? (cookieTheme as Theme)
+	: safeParse(themeEnum, prefersTheme).success
+		? (prefersTheme as Theme)
+		: defaultTheme;
 
 const themeColor = theme === "light" ? color.light : color.dark;
 ---

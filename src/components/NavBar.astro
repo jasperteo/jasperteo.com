@@ -1,12 +1,14 @@
 ---
+import { safeParse } from "@valibot/valibot";
 import { Link } from "@kobalte/core/link";
 
 import {
-	DarkModeToggle,
+	ThemeToggle,
 	defaultTheme,
 	storageKey,
-} from "@/components/dark-mode-toggle";
-import type { Theme } from "@/components/dark-mode-toggle";
+	themeEnum,
+} from "@/components/theme-toggle";
+import type { Theme } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
@@ -19,10 +21,14 @@ const navList = [
 	{ href: "/projects", icon: "carbon:devices-apps", label: "projects" },
 ];
 
-const storedTheme: Theme =
-	(Astro.cookies.get(storageKey)?.value as Theme) ??
-	Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme") ??
-	defaultTheme;
+const cookieTheme = Astro.cookies.get(storageKey)?.value;
+const prefersTheme = Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme");
+
+const storedTheme: Theme = safeParse(themeEnum, cookieTheme).success
+	? (cookieTheme as Theme)
+	: safeParse(themeEnum, prefersTheme).success
+		? (prefersTheme as Theme)
+		: defaultTheme;
 ---
 
 <nav
@@ -49,10 +55,10 @@ const storedTheme: Theme =
 	}
 
 	<div class="mx-4 h-9 w-9">
-		<DarkModeToggle
+		<ThemeToggle
 			storedTheme={storedTheme}
 			client:only="solid-js"
-			transition:persist="Dark Mode Toggle"
+			transition:persist="Theme Toggle"
 			transition:persist-props
 		/>
 	</div>
