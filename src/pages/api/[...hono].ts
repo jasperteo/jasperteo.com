@@ -10,6 +10,9 @@ type Bindings = { runtime: Runtime["runtime"] };
  */
 const app = new Hono<{ Bindings: Bindings }>().basePath("/api");
 
+app.notFound((c) => c.text("Not Found", 404));
+app.onError((error, c) => c.text(String(error), 500));
+
 app.get("/hello", (c) => c.json({ hello: "world" }));
 
 app.get("/city", (c) => {
