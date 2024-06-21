@@ -27,9 +27,6 @@ const theme: Theme = safeParse(themeEnum, cookieTheme).success
 const themeColor = theme === "light" ? color.light : color.dark;
 ---
 
-<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"
-></script>
-
 <html lang="en" class={theme}>
 	<head>
 		<meta charset="UTF-8" />
@@ -45,7 +42,7 @@ const themeColor = theme === "light" ? color.light : color.dark;
 		<meta name="generator" content={Astro.generator} />
 		<slot name="noindex" />
 
-		<meta property="og:url" content={Astro.site.origin} />
+		<meta property="og:url" content={Astro.site?.origin} />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -53,17 +50,10 @@ const themeColor = theme === "light" ? color.light : color.dark;
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta property="twitter:domain" content="jasperteo.com" />
-		<meta property="twitter:url" content={Astro.site.origin} />
+		<meta property="twitter:url" content={Astro.site?.origin} />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={image} />
-
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap"
-			rel="stylesheet"
-		/>
 
 		<ViewTransitions />
 	</head>

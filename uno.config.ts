@@ -16,7 +16,7 @@ export default defineConfig({
 			provider: "none",
 			fonts: {
 				sans: "IBM Plex Sans",
-				mono: "Fragment Mono",
+				mono: "IBM Plex Mono",
 				title: ["Chillax", "system-ui", "sans-serif"],
 			},
 		}),
