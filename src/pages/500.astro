@@ -1,0 +1,18 @@
+---
+import RootLayout from "@/layouts/RootLayout.astro";
+import AppLayout from "@/layouts/AppLayout.astro";
+import ServerError from "@/components/ServerError.astro";
+
+type Props = { error: unknown };
+
+const { error } = Astro.props;
+const errorMessage = error instanceof Error ? error.message : "Unknown error";
+
+const title = "500 Internal Server Error";
+---
+
+<RootLayout title={title} description={title}>
+	<AppLayout slot="app">
+		<ServerError errorMessage={errorMessage} slot="outlet" />
+	</AppLayout>
+</RootLayout>
