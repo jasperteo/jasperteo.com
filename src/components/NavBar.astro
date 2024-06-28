@@ -2,6 +2,7 @@
 import { safeParse } from "@valibot/valibot";
 import { Link } from "@kobalte/core/link";
 
+import { Menu, navList } from "@/components/menu";
 import {
 	ThemeToggle,
 	defaultTheme,
@@ -16,11 +17,6 @@ const { pathname } = Astro.url;
 const isActive = (href: string) =>
 	href === pathname || href === pathname.replace(/\/$/, "");
 
-const navList = [
-	{ href: "/", icon: "carbon:home", label: "home" },
-	{ href: "/projects", icon: "carbon:devices-apps", label: "projects" },
-];
-
 const cookieTheme = Astro.cookies.get(storageKey)?.value;
 const prefersTheme = Astro.request.headers.get("Sec-CH-Prefers-Color-Scheme");
 
@@ -32,29 +28,31 @@ const storedTheme: Theme = safeParse(themeEnum, cookieTheme).success
 ---
 
 <nav
-	class="my-5 h-9 flex place-content-center gap-2 font-title sm:(my-10 mr-10 justify-end)"
+	class="my-5 h-fit place-content-center gap-2 font-title sm:(my-10 mr-10 h-9 flex justify-end)"
 >
-	{
-		navList.map(({ href, icon, label }) => (
-			<>
-				<Button
-					class:list={[
-						{ active: isActive(href) },
-						"gap-x-2 [&.active]:(animate-swing animate-delay-150 shadow-lg shadow-primary/20) sm:text-base",
-					]}
-					variant="ghost"
-					as={Link}
-					href={href}
-				>
-					<iconify-icon class="text-xl" icon={icon} />
-					{label}
-				</Button>
-				<Separator orientation="vertical" />
-			</>
-		))
-	}
+	<div class="hidden sm:flex">
+		{
+			navList.map(({ href, icon, label }) => (
+				<>
+					<Button
+						class:list={[
+							{ active: isActive(href) },
+							"gap-x-2 text-base [&.active]:(animate-swing animate-delay-150 shadow-lg shadow-primary/20)",
+						]}
+						variant="ghost"
+						as={Link}
+						href={href}
+					>
+						<iconify-icon class="text-xl" icon={icon} />
+						{label}
+					</Button>
+					<Separator orientation="vertical" />
+				</>
+			))
+		}
+	</div>
 
-	<div class="mx-4 h-9 w-9">
+	<div class="mx-auto mb-6 h-9 w-9 sm:(mx-4 mb-0)">
 		<ThemeToggle
 			storedTheme={storedTheme}
 			client:only="solid-js"
@@ -62,4 +60,6 @@ const storedTheme: Theme = safeParse(themeEnum, cookieTheme).success
 			transition:persist-props
 		/>
 	</div>
+
+	<Menu client:load />
 </nav>

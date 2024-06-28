@@ -96,8 +96,8 @@ export default defineConfig({
 			durations: {
 				"accordion-down": "0.2s",
 				"accordion-up": "0.2s",
-				"collapsible-down": "0.2s",
-				"collapsible-up": "0.2s",
+				"collapsible-down": "0.4s",
+				"collapsible-up": "0.4s",
 			},
 		},
 	},
