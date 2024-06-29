@@ -1,4 +1,4 @@
-import { For, Match, Switch, createSignal } from "solid-js";
+import { For, Show, createSignal } from "solid-js";
 import { Link } from "@kobalte/core/link";
 import { Icon } from "@iconify-icon/solid";
 
@@ -25,14 +25,12 @@ const Menu = () => {
 			class="mx-auto w-28 text-center font-title sm:hidden"
 		>
 			<CollapsibleTrigger class="bg-transparent text-3xl">
-				<Switch>
-					<Match when={isOpen()}>
-						<Icon icon="line-md:menu-to-close-transition" />
-					</Match>
-					<Match when={!isOpen()}>
-						<Icon icon="line-md:close-to-menu-transition" />
-					</Match>
-				</Switch>
+				<Show
+					when={isOpen()}
+					fallback={<Icon icon="line-md:close-to-menu-transition" />}
+				>
+					<Icon icon="line-md:menu-to-close-transition" />
+				</Show>
 			</CollapsibleTrigger>
 			<CollapsibleContent class="overflow-clip text-left">
 				<For each={navList}>
