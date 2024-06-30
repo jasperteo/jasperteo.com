@@ -24,7 +24,10 @@ const Menu = () => {
 			onOpenChange={setIsOpen}
 			class="mx-auto w-28 text-center font-title sm:hidden"
 		>
-			<CollapsibleTrigger class="bg-transparent text-3xl">
+			<CollapsibleTrigger
+				class="bg-transparent text-3xl"
+				aria-label="Menu Trigger"
+			>
 				<Show
 					when={isOpen()}
 					fallback={<Icon icon="line-md:close-to-menu-transition" />}
@@ -35,8 +38,13 @@ const Menu = () => {
 			<CollapsibleContent class="overflow-clip text-left">
 				<For each={navList}>
 					{({ href, icon, label }) => (
-						<Button class="gap-x-2" variant="ghost" as={Link} href={href}>
-							<Icon class="text-lg" icon={icon} />
+						<Button
+							class="gap-x-2 text-base"
+							variant="ghost"
+							as={Link}
+							href={href}
+						>
+							<Icon class="text-xl" icon={icon} />
 							{label}
 						</Button>
 					)}
