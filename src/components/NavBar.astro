@@ -30,7 +30,7 @@ const storedTheme: Theme = safeParse(themeEnum, cookieTheme).success
 <nav
 	class="my-5 h-fit place-content-center gap-2 font-title sm:(my-10 mr-10 h-9 flex justify-end)"
 >
-	<div class="hidden sm:flex">
+	<div class="hidden gap-2 sm:flex">
 		{
 			navList.map(({ href, icon, label }) => (
 				<>
