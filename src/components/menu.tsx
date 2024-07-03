@@ -22,7 +22,7 @@ const Menu = () => {
 		<Collapsible
 			open={isOpen()}
 			onOpenChange={setIsOpen}
-			class="mx-auto w-28 text-center font-title sm:hidden"
+			class="mx-auto w-fit text-center"
 		>
 			<CollapsibleTrigger
 				class="bg-transparent text-3xl"
@@ -35,18 +35,23 @@ const Menu = () => {
 					<Icon icon="line-md:menu-to-close-transition" />
 				</Show>
 			</CollapsibleTrigger>
+
 			<CollapsibleContent class="overflow-clip text-left">
 				<For each={navList}>
 					{({ href, icon, label }) => (
-						<Button
-							class="gap-x-2 text-base"
-							variant="ghost"
-							as={Link}
-							href={href}
-						>
-							<Icon class="text-xl" icon={icon} />
-							{label}
-						</Button>
+						<>
+							<Button
+								class="gap-x-2 text-base"
+								variant="ghost"
+								as={Link}
+								href={href}
+								role="menuitem"
+							>
+								<Icon class="text-xl" icon={icon} />
+								{label}
+							</Button>
+							<br />
+						</>
 					)}
 				</For>
 			</CollapsibleContent>

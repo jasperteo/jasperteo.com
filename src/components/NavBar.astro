@@ -28,7 +28,7 @@ const storedTheme: Theme = safeParse(themeEnum, cookieTheme).success
 ---
 
 <nav
-	class="my-5 h-fit place-content-center gap-2 font-title sm:(my-10 mr-10 h-9 flex justify-end)"
+	class="my-5 h-fit flex flex-col place-content-center gap-x-2 gap-y-6 font-title sm:(my-10 mr-10 h-9 flex-row justify-end)"
 >
 	<div class="hidden gap-2 sm:flex">
 		{
@@ -52,7 +52,7 @@ const storedTheme: Theme = safeParse(themeEnum, cookieTheme).success
 		}
 	</div>
 
-	<div class="mx-auto mb-6 h-9 w-9 sm:(mx-4 mb-0)">
+	<div class="mx-auto h-9 w-9 sm:mx-4">
 		<ThemeToggle
 			storedTheme={storedTheme}
 			client:only="solid-js"
@@ -61,5 +61,7 @@ const storedTheme: Theme = safeParse(themeEnum, cookieTheme).success
 		/>
 	</div>
 
-	<Menu client:load />
+	<div class="sm:hidden">
+		<Menu client:load />
+	</div>
 </nav>
