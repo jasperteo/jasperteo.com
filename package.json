@@ -9,13 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "0.7.0",
-    "@astrojs/cloudflare": "10.4.2",
+    "@astrojs/check": "0.8.3",
+    "@astrojs/cloudflare": "11.0.1",
     "@astrojs/solid-js": "4.4.0",
     "@hono/hono": "npm:@jsr/hono__hono",
     "@kobalte/core": "^0.13.3",
     "@valibot/valibot": "npm:@jsr/valibot__valibot",
-    "astro": "4.11.0",
+    "astro": "4.12.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
