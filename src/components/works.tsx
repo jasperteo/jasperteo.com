@@ -22,7 +22,7 @@ const WORKS_ARRAY: CardShellProps[] = [
 			</>
 		),
 		link: linkOptions({ to: "/works/liquid-glass" }).to,
-		disabled: false,
+		disabled: true,
 	},
 ];
 
