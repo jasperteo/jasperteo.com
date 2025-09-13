@@ -74,7 +74,7 @@ src/components/
 - **Component Variants**: CVA (class-variance-authority) for systematic styling
 - **Accessible Components**: Base UI primitives with `useRender` patterns
 
-## � Getting Started
+## 🎬 Getting Started
 
 ### Prerequisites
 - **Node.js**: v24+ (enforced via `engines` field)
