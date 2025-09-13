@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "migration",
+	"name": "jasperteo",
 	"main": ".output/server/index.mjs",
 	"compatibility_date": "2025-09-01",
 	"compatibility_flags": ["nodejs_compat"],
