@@ -1,0 +1,19 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "migration",
+	"main": ".output/server/index.mjs",
+	"compatibility_date": "2025-09-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"assets": {
+		"directory": ".output/public",
+	},
+	"observability": {
+		"enabled": true,
+	},
+	"kv_namespaces": [
+		{
+			"binding": "CACHE",
+			"id": "f3e5579b77094f679c7bd4f1f948d77d",
+		},
+	],
+}

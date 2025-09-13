@@ -1,68 +1,85 @@
-import { Match, Switch, createEffect, createSignal, onCleanup } from "solid-js";
-import { picklist } from "@valibot/valibot";
-import type { InferInput } from "@valibot/valibot";
-import Cookies from "js-cookie";
-import { Icon } from "@iconify-icon/solid";
+import { motion, MotionConfig } from "motion/react";
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
+import { DarkMode } from "@/components/icons/dark-mode";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/utils/utils";
 
-const themeValues = ["light", "dark", "system"] as const;
-const themeEnum = picklist(themeValues);
-type Theme = InferInput<typeof themeEnum>;
-const defaultTheme: Theme = "dark";
+const LIGHT_BG = "oklch(0.9809 0.0086 97.34)";
+const DARK_BG = "oklch(0.2165 0.0061 92.49)";
 
-const storageKey = "theme";
-const color = {
-	light: "color(display-p3 0.977 0.977 0.973)",
-	dark: "color(display-p3 0.098 0.098 0.094)",
-};
+type ThemeToggleProps = { className?: string };
 
-type ThemeToggleProps = { storedTheme?: Theme };
+function ThemeToggle({ className }: ThemeToggleProps) {
+	const { theme, setTheme } = useTheme();
 
-const ThemeToggle = (props: ThemeToggleProps) => {
-	const storedTheme = () => props.storedTheme;
-	const [theme, setTheme] = createSignal<Theme>(storedTheme() ?? defaultTheme);
+	if (theme === "system") {
+		const prefersDark = globalThis.matchMedia(
+			"(prefers-color-scheme: dark)"
+		).matches;
+		setTheme(prefersDark ? "dark" : "light");
+	}
 
-	const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
-	const setSysTheme = () => setTheme(prefersLight.matches ? "light" : "dark");
-	const themeColor = () => (theme() === "light" ? color.light : color.dark);
+	useEffect(() => {
+		const metaThemeColor = document.querySelector<HTMLMetaElement>(
+			'meta[name="theme-color"]'
+		);
 
-	createEffect(() => {
-		if (theme() !== "light" && theme() !== "dark") {
-			setSysTheme();
+		if (!metaThemeColor) {
+			return;
 		}
-		document.documentElement.classList.remove(...themeValues);
-		document.documentElement.classList.add(theme());
-		document.getElementById("tc")?.setAttribute("content", themeColor());
-		Cookies.set(storageKey, theme(), {
-			expires: 365,
-			sameSite: "none",
-			secure: true,
-		});
-	});
 
-	prefersLight.addEventListener("change", setSysTheme);
-	onCleanup(() => prefersLight.removeEventListener("change", setSysTheme));
+		switch (theme) {
+			case "light": {
+				metaThemeColor.content = LIGHT_BG;
+				break;
+			}
+			case "dark": {
+				metaThemeColor.content = DARK_BG;
+				break;
+			}
+			default: {
+				return;
+			}
+		}
+	}, [theme]);
 
 	return (
-		<Button
-			class="text-lg"
-			variant="outline"
-			size="icon"
-			aria-label="Dark Mode Toggle"
-			onClick={[setTheme, theme() === "dark" ? "light" : "dark"]}
-		>
-			<Switch fallback={<Icon icon="line-md:light-dark-loop" />}>
-				<Match when={theme() === "dark"}>
-					<Icon icon="line-md:sunny-outline-to-moon-loop-transition" />
-				</Match>
-				<Match when={theme() === "light"}>
-					<Icon icon="line-md:moon-to-sunny-outline-loop-transition" />
-				</Match>
-			</Switch>
-		</Button>
+		<MotionConfig transition={{ type: "spring", duration: 0.7, bounce: 0 }}>
+			<Button
+				variant="default"
+				size="icon"
+				type="button"
+				className={cn(
+					"bg-foreground hover:bg-foreground min-h-9 min-w-9 duration-[0]",
+					className
+				)}
+				onClick={() => {
+					setTheme((previous) => (previous === "dark" ? "light" : "dark"));
+				}}
+				aria-label="Toggle theme"
+				render={
+					<motion.button
+						animate={{ backgroundColor: theme === "dark" ? LIGHT_BG : DARK_BG }}
+					/>
+				}
+			>
+				{!!theme && <DarkMode theme={theme} />}
+			</Button>
+		</MotionConfig>
 	);
-};
+}
 
-export { ThemeToggle, color, defaultTheme, storageKey, themeEnum };
-export type { Theme };
+function ThemeToggleFallback() {
+	return (
+		<Button
+			variant="default"
+			size="icon"
+			className="bg-foreground hover:bg-foreground min-h-9 min-w-9 duration-[0]"
+			render={<div />}
+		/>
+	);
+}
+
+export { ThemeToggle, ThemeToggleFallback };

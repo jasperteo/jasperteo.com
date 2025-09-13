@@ -1,12 +1,15 @@
-import { twMerge } from "tailwind-merge";
-import { clsx } from "clsx";
 import type { ClassValue } from "clsx";
+import { clsx } from "clsx";
+import type { SVGProps } from "react";
+import { twMerge } from "tailwind-merge";
 
-/**
- * Merges multiple class names using Tailwind CSS and clsx.
- * @param inputs - The class names to merge.
- * @returns The merged class names.
- */
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
+type IconProps = SVGProps<SVGSVGElement> & {
+	secondaryfill?: string;
+	strokewidth?: number;
+	title?: string;
+};
+
 export { cn };
+export type { IconProps };

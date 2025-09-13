@@ -1,0 +1,24 @@
+import { TanStackDevtools } from "@tanstack/react-devtools";
+import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+
+const isProduction = import.meta.env.PROD;
+
+function Devtools() {
+	if (isProduction) {
+		// oxlint-disable-next-line no-null
+		return null;
+	}
+
+	return (
+		<TanStackDevtools
+			plugins={[
+				{
+					name: "TanStack Router",
+					render: <TanStackRouterDevtoolsPanel />,
+				},
+			]}
+		/>
+	);
+}
+
+export { Devtools };

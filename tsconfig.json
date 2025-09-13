@@ -1,11 +1,32 @@
 {
-	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
-		"jsx": "preserve",
-		"jsxImportSource": "solid-js",
-		"baseUrl": ".",
-		"paths": { "@/*": ["./src/*"] },
-		"verbatimModuleSyntax": true
+		"target": "ESNext",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"allowJs": true,
+		"resolveJsonModule": true,
+
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"verbatimModuleSyntax": true,
+		"moduleDetection": "force",
+		"noEmit": true,
+		"jsx": "react-jsx",
+
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"erasableSyntaxOnly": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noUncheckedIndexedAccess": true,
+		"noUncheckedSideEffectImports": true,
+
+		"paths": { "@/*": ["./src/*"] }
 	},
-	"include": ["src", "astro.config.ts", "uno.config.ts"]
+	"include": ["**/*.ts", "**/*.tsx", "**/*.js"],
+	"exclude": ["node_modules", "**/routeTree.gen.ts"]
 }

@@ -1,22 +1,23 @@
-import { splitProps } from "solid-js";
-import type { ComponentProps } from "solid-js";
-import { cva } from "class-variance-authority";
+import { useRender } from "@base-ui-components/react/use-render";
 import type { VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
+import type { ComponentProps } from "react";
 
 import { cn } from "@/utils/utils";
 
 const badgeVariants = cva(
-	"inline-flex items-center border rounded-md px-2.5 py-0.5 text-xs font-semibold transition-colors focus:(outline-none ring-2 ring-offset-2 ring-ring)",
+	"focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-md border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] [&>svg]:pointer-events-none [&>svg]:size-3",
 	{
 		variants: {
 			variant: {
 				default:
-					"border-transparent bg-primary text-primary-foreground shadow shadow-shadow hover:bg-primary-hover",
+					"bg-primary text-primary-foreground [a&]:hover:bg-primary-hover border-transparent",
 				secondary:
-					"border-transparent bg-secondary text-secondary-foreground shadow shadow-shadow hover:bg-secondary-hover",
+					"bg-secondary text-secondary-foreground [a&]:hover:bg-secondary-hover border-transparent",
 				destructive:
-					"border-transparent bg-destructive text-destructive-foreground shadow shadow-shadow hover:bg-destructive-hover",
-				outline: "text-foreground",
+					"bg-destructive [a&]:hover:bg-destructive-hover focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 border-transparent text-white",
+				outline:
+					"text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
 			},
 		},
 		defaultVariants: {
@@ -25,17 +26,23 @@ const badgeVariants = cva(
 	}
 );
 
-type BadgeProps = ComponentProps<"div"> & VariantProps<typeof badgeVariants>;
+type BadgeProps = ComponentProps<"span"> &
+	VariantProps<typeof badgeVariants> & { render?: useRender.RenderProp };
 
-const Badge = (props: BadgeProps) => {
-	const [local, rest] = splitProps(props, ["class", "variant"]);
+function Badge({
+	className,
+	variant,
+	render = <span />,
+	...props
+}: BadgeProps) {
+	return useRender({
+		render,
+		props: {
+			"data-slot": "badge",
+			className: cn(badgeVariants({ variant }), className),
+			...props,
+		},
+	});
+}
 
-	return (
-		<div
-			class={cn(badgeVariants({ variant: local.variant }), local.class)}
-			{...rest}
-		/>
-	);
-};
-
-export { Badge, badgeVariants };
+export { Badge };

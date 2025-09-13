@@ -1,0 +1,12 @@
+# Ignore all markdown files
+*.md
+README
+LICENSE
+
+# Ignore all YAML files
+*.yaml
+*.yml
+
+# Ignore generated files
+**/routeTree.gen.ts
+**/worker-configuration.d.ts
