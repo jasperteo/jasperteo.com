@@ -13,7 +13,8 @@ A modern, performance-focused personal portfolio website built with cutting-edge
 - **[TypeScript](https://typescriptlang.org/)** - Strict type safety throughout
 
 ### Build & Performance
-- **[Rolldown Vite](https://rolldown.rs/)** - Next-generation bundler (Rust-based Rollup successor)
+- **[Vite](https://vitejs.dev/)** (dev server + build tooling)
+- **[Rolldown](https://rolldown.rs/)** - Next‑gen Rust bundler (Rollup successor)
 - **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first styling with CSS variables
 - **[Motion](https://motion.dev/)** - Performant animations library by Framer Motion creators
 - **[Rough Notation](https://roughnotation.com/)** - Hand-drawn style annotations
@@ -38,7 +39,7 @@ A modern, performance-focused personal portfolio website built with cutting-edge
 ## 🏗️ Architecture
 
 ### File-Based Routing with TanStack Router
-```
+```text
 src/routes/
 ├── __root.tsx     # Root layout with HTML shell and SEO
 ├── index.tsx      # Home page route
@@ -48,7 +49,7 @@ src/routes/
 ```
 
 ### Component Organization
-```
+```text
 src/components/
 ├── ui/              # Reusable UI primitives
 │   ├── button.tsx
@@ -133,7 +134,7 @@ function HomeComponent() {
 
 ## 📁 Project Structure
 
-```
+```text
 jasperteo.com/
 ├── public/                 # Static assets
 │   ├── favicon.ico
@@ -179,21 +180,6 @@ jasperteo.com/
 - **Font Loading**: `fontless` plugin for optimized web font delivery
 - **Bundle Splitting**: Rolldown's intelligent code splitting
 - **Tree Shaking**: Dead code elimination for minimal bundle size
-
-## 🌍 Deployment & Performance
-
-### Cloudflare Workers Architecture
-- **Global Edge Network**: 275+ data centers worldwide
-- **V8 Isolates**: Zero cold starts with instant response
-- **Server-Side Rendering**: TanStack Start SSR at the edge
-- **KV Storage**: Distributed caching for optimal performance
-- **Auto-Scaling**: Traffic-based scaling with no configuration
-
-### Performance Metrics
-- **Core Web Vitals**: Optimized for excellent user experience
-- **Response Times**: Sub-100ms globally via edge computing
-- **Bundle Size**: Minimal JavaScript with efficient tree shaking
-- **Lighthouse Score**: 95+ across all categories
 
 ## 📞 Connect
 
