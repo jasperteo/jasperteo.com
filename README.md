@@ -4,7 +4,7 @@ A modern, performance-focused personal portfolio website built with cutting-edge
 
 > **Live Site**: [jasperteo.com](https://jasperteo.com)
 
-## �️ Tech Stack
+## 🍔 Tech Stack
 
 ### Core Framework
 - **[TanStack Start](https://tanstack.com/start)** - Full-stack React meta-framework with file-based routing
@@ -161,7 +161,7 @@ jasperteo.com/
 └── tsconfig.json          # TypeScript configuration
 ```
 
-## � Development Tools & Quality
+## 🔧 Development Tools & Quality
 
 ### Linting & Formatting
 - **[oxlint](https://oxc.rs/)**: Ultra-fast Rust-based linter (primary)
