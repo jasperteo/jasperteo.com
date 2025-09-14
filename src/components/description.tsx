@@ -26,17 +26,13 @@ function Description() {
 				<TabsTrigger value={ABOUT}>About</TabsTrigger>
 				<TabsTrigger value={RECRUITER}>For Recruiters</TabsTrigger>
 			</TabsList>
-			<TabsContentList value={tab} className="overflow-x-visible">
+			<TabsContentList value={tab} className="overflow-x-visible px-2 py-4">
 				<TabsContent value={ABOUT}>
-					<div className="flex flex-col gap-y-4 px-1 py-3 text-pretty">
+					<div className="flex flex-col gap-y-4 text-pretty">
 						<p>
 							A full-stack software engineer focused on building intuitive and
 							user-friendly web experiences to improve how people interact with
 							digital products and make them enjoyable to use.
-						</p>
-						<p>
-							Occasionally, I find myself exploring new open source projects and
-							contribute features that I would love to be implemented.
 						</p>
 						<p>
 							When I am not coding, I enjoy brewing tea and coffee, reading
@@ -44,16 +40,16 @@ function Description() {
 							esports.
 						</p>
 						<p>
-							I currently live in{" "}
-							<span className="text-primary-highlight inline-flex shrink-0 place-items-baseline gap-x-1 px-1 font-medium">
+							Currently living in{" "}
+							<span className="inline-flex shrink-0 place-items-baseline gap-x-1 px-1 font-medium">
 								<Singapore height="1rem" width="1rem" /> Singapore
 							</span>{" "}
-							and love trying out new cafes and restaurants in the city.
+							and love exploring the city for new cafes and restaurants.
 						</p>
 					</div>
 				</TabsContent>
 				<TabsContent value={RECRUITER}>
-					<div className="flex flex-col gap-y-4 px-1 py-4 text-pretty">
+					<div className="flex flex-col gap-y-4 text-pretty">
 						<p>
 							I am currently open to new employment opportunities and
 							collaborations.

@@ -10,9 +10,9 @@ import { Navbar } from "@/components/navbar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import globalsCss from "@/styles/globals.css?url";
 
-const NAME = "Jasper Teo";
+const NAME = "Jasper Teo ‧ 張";
 const DESCRIPTION =
-	"I'm Jasper & I engineer design aspirations into functional reality";
+	"Software Engineer crafting intuitive and delightful interfaces";
 const URL = "https://jasperteo.com";
 const OG_IMAGE = "/opengraph-image.png";
 const TWITTER_HANDLE = "@jasper_teo";

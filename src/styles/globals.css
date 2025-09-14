@@ -88,8 +88,8 @@
 	--accent: oklch(0.9257 0.014973 93.1764); /* Gold 4 */
 	--accent-foreground: oklch(0.2434 0.0079 96.31); /* Sand 12 */
 
-	--muted: oklch(0.8958 0.0192 90.73); /* Gold 5 */
-	--muted-foreground: oklch(0.5039 0.0393 78.1); /* Gold 11 */
+	--muted: oklch(0.9099 0.0038 95.91); /* Sand 5 */
+	--muted-foreground: oklch(0.4979 0.0079 106.68); /* Sand 11 */
 
 	--border: oklch(0.8596 0.0247 88.38); /* Gold 6 */
 	--input: oklch(0.8101 0.0317 83.41); /* Gold 7 */
@@ -139,8 +139,8 @@
 	--accent: oklch(0.2908 0.0095 86.76); /* Gold 4 */
 	--accent-foreground: oklch(0.9483 0.0026 106.45); /* Sand 12 */
 
-	--muted: oklch(0.3289 0.0115 83.66); /* Gold 5 */
-	--muted-foreground: oklch(0.794 0.041 77.18); /* Gold 11 */
+	--muted: oklch(0.3124 0.0044 100.73); /* Sand 5 */
+	--muted-foreground: oklch(0.7666 0.009135 97.3831); /* Sand 11 */
 
 	--border: oklch(0.3736 0.0138 82.43); /* Gold 6 */
 	--input: oklch(0.4294 0.0165 80.92); /* Gold 7 */
