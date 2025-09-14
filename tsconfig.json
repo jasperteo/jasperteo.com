@@ -10,7 +10,11 @@
 		/* Bundler mode */
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
-		"verbatimModuleSyntax": true,
+		/**
+		 * Enabling verbatimModuleSyntax can result in server bundles leaking into client bundles
+		 * It is recommended to keep this option disabled for TanStack Start for now
+		 */
+		"verbatimModuleSyntax": false,
 		"moduleDetection": "force",
 		"noEmit": true,
 		"jsx": "react-jsx",
