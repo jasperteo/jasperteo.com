@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { FileDownload } from "@/components/icons/file-download";
-import { Singapore } from "@/components/icons/singapore";
 import { Button } from "@/components/ui/button";
 import { Highlighter } from "@/components/ui/highlighter";
 import {
@@ -41,10 +40,8 @@ function Description() {
 						</p>
 						<p>
 							Currently living in{" "}
-							<span className="inline-flex shrink-0 place-items-baseline gap-x-1 px-1 font-medium">
-								<Singapore height="1rem" width="1rem" /> Singapore
-							</span>{" "}
-							and love exploring the city for new cafes and restaurants.
+							<span className="font-medium">🇸🇬 Singapore</span> and love
+							exploring the city for new cafes and restaurants.
 						</p>
 					</div>
 				</TabsContent>
