@@ -2,18 +2,9 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "jasperteo",
 	"main": ".output/server/index.mjs",
+	"assets": { "directory": ".output/public" },
 	"compatibility_date": "2025-09-01",
-	"compatibility_flags": ["nodejs_compat"],
-	"assets": {
-		"directory": ".output/public",
-	},
-	"observability": {
-		"enabled": true,
-	},
-	"kv_namespaces": [
-		{
-			"binding": "CACHE",
-			"id": "f3e5579b77094f679c7bd4f1f948d77d",
-		},
-	],
+	"compatibility_flags": ["nodejs_compat", "no_nodejs_compat_v2"],
+	"placement": { "mode": "smart" },
+	"observability": { "enabled": true, "head_sampling_rate": 1 },
 }
