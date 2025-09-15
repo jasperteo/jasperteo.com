@@ -12,16 +12,13 @@ const DARK_BG = "oklch(0.2165 0.0061 92.49)";
 type ThemeToggleProps = { className?: string };
 
 function ThemeToggle({ className }: ThemeToggleProps) {
-	const { theme, setTheme } = useTheme();
-
-	if (theme === "system") {
-		const prefersDark = globalThis.matchMedia(
-			"(prefers-color-scheme: dark)"
-		).matches;
-		setTheme(prefersDark ? "dark" : "light");
-	}
+	const { resolvedTheme, setTheme } = useTheme();
 
 	useEffect(() => {
+		if (!resolvedTheme) {
+			return;
+		}
+
 		const metaThemeColor = document.querySelector<HTMLMetaElement>(
 			'meta[name="theme-color"]'
 		);
@@ -30,7 +27,7 @@ function ThemeToggle({ className }: ThemeToggleProps) {
 			return;
 		}
 
-		switch (theme) {
+		switch (resolvedTheme) {
 			case "light": {
 				metaThemeColor.content = LIGHT_BG;
 				break;
@@ -40,10 +37,10 @@ function ThemeToggle({ className }: ThemeToggleProps) {
 				break;
 			}
 			default: {
-				return;
+				break;
 			}
 		}
-	}, [theme]);
+	}, [resolvedTheme]);
 
 	return (
 		<MotionConfig transition={{ type: "spring", duration: 0.7, bounce: 0 }}>
@@ -56,16 +53,18 @@ function ThemeToggle({ className }: ThemeToggleProps) {
 					className
 				)}
 				onClick={() => {
-					setTheme((previous) => (previous === "dark" ? "light" : "dark"));
+					setTheme(resolvedTheme === "dark" ? "light" : "dark");
 				}}
 				aria-label="Toggle theme"
 				render={
 					<motion.button
-						animate={{ backgroundColor: theme === "dark" ? LIGHT_BG : DARK_BG }}
+						animate={{
+							backgroundColor: resolvedTheme === "dark" ? LIGHT_BG : DARK_BG,
+						}}
 					/>
 				}
 			>
-				{!!theme && <DarkMode theme={theme} />}
+				{!!resolvedTheme && <DarkMode theme={resolvedTheme} />}
 			</Button>
 		</MotionConfig>
 	);
