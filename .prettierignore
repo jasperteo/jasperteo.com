@@ -3,9 +3,9 @@
 README
 LICENSE
 
-# Ignore all YAML files
-*.yaml
-*.yml
+# Ignore pnpm lock file
+pnpm-lock.yaml
+
 
 # Ignore generated files
 **/routeTree.gen.ts
