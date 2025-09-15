@@ -8,7 +8,10 @@
 	"compatibility_date": "2025-09-01",
 	"compatibility_flags": ["nodejs_compat", "no_nodejs_compat_v2"],
 
-	"route": { "custom_domain": true, "pattern": "jasperteo.com" },
+	"routes": [
+		{ "pattern": "jasperteo.com", "custom_domain": true },
+		{ "pattern": "www.jasperteo.com", "custom_domain": true },
+	],
 	"preview_urls": false,
 	"workers_dev": false,
 
