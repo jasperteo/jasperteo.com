@@ -6,7 +6,7 @@ import { EnvelopeOpenHeart } from "@/components/icons/envelope-open-heart";
 import { Github } from "@/components/icons/github";
 import { Linkedin } from "@/components/icons/linkedin";
 import { XTwitter } from "@/components/icons/x-twitter";
-import { ThemeToggleFallback } from "@/components/theme-toggle";
+import { ThemeToggleFallback } from "@/components/theme-toggle-fallback";
 import { Button } from "@/components/ui/button";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Separator } from "@/components/ui/separator";
@@ -78,6 +78,7 @@ function Navbar() {
 				</DockIcon>
 
 				<Separator orientation="vertical" />
+
 				<DockIcon>
 					<Suspense fallback={<ThemeToggleFallback />}>
 						<ThemeToggle className="size-full" />
