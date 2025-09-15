@@ -3,8 +3,8 @@ autoInstallPeers: true
 nodeLinker: hoisted
 
 onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
+  - "@parcel/watcher"
+  - "@tailwindcss/oxide"
   - esbuild
   - sharp
   - workerd
