@@ -9,6 +9,9 @@ import { cn } from "@/utils/utils";
 const LIGHT_BG = "oklch(0.9809 0.0086 97.34)";
 const DARK_BG = "oklch(0.2165 0.0061 92.49)";
 
+const BUTTON_BG_LIGHT = "oklch(0.9483 0.0026 106.45)";
+const BUTTON_BG_DARK = "oklch(0.2434 0.0079 96.31)";
+
 type ThemeToggleProps = { className?: string };
 
 function ThemeToggle({ className }: ThemeToggleProps) {
@@ -59,7 +62,8 @@ function ThemeToggle({ className }: ThemeToggleProps) {
 				render={
 					<motion.button
 						animate={{
-							backgroundColor: resolvedTheme === "dark" ? LIGHT_BG : DARK_BG,
+							backgroundColor:
+								resolvedTheme === "dark" ? BUTTON_BG_LIGHT : BUTTON_BG_DARK,
 						}}
 					/>
 				}
@@ -70,15 +74,4 @@ function ThemeToggle({ className }: ThemeToggleProps) {
 	);
 }
 
-function ThemeToggleFallback() {
-	return (
-		<Button
-			variant="default"
-			size="icon"
-			className="bg-foreground hover:bg-foreground min-h-9 min-w-9 duration-[0]"
-			render={<div />}
-		/>
-	);
-}
-
-export { ThemeToggle, ThemeToggleFallback };
+export { ThemeToggle };
