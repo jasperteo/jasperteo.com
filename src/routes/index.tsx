@@ -6,7 +6,7 @@ import { Description } from "@/components/description";
 import { Experience } from "@/components/experience";
 import { Hero } from "@/components/hero";
 import { Socials } from "@/components/socials";
-import { ThemeToggleFallback } from "@/components/theme-toggle";
+import { ThemeToggleFallback } from "@/components/theme-toggle-fallback";
 import { Works } from "@/components/works";
 
 export const Route = createFileRoute("/")({

@@ -6,7 +6,7 @@ import {
 } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 
-import { ThemeToggleFallback } from "@/components/theme-toggle";
+import { ThemeToggleFallback } from "@/components/theme-toggle-fallback";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/works")({
