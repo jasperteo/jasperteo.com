@@ -1,7 +1,7 @@
 # Copilot Instructions
 
 ## Project Overview
-This is a **personal portfolio website** built with modern React stack, designed for deployment on Cloudflare Pages. The architecture emphasizes performance, type safety, and developer experience.
+This is a **personal portfolio website** built with modern React stack, designed for deployment on Cloudflare Workers. The architecture emphasizes performance, type safety, and developer experience.
 
 **Key Stack**: TanStack Start (React meta-framework) + Rolldown Vite + TypeScript + Tailwind CSS v4 + Cloudflare Workers + Motion
 
@@ -28,15 +28,12 @@ This is a **personal portfolio website** built with modern React stack, designed
 
 ### Styling System & Animation Patterns
 - **Tailwind CSS v4** with CSS variables for theming (`--primary`, `--secondary`, etc.)
-- Dark mode enabled by default (`dark` class on body)
 - **Hover Effects**: Complex CSS-only animations using `after:` pseudo-elements for underlines
 - **Group Interactions**: `group/name` pattern for coordinated hover states (e.g., `group/cv`, `group-hover/cv:`)
 - **Motion Library**: Used for layout animations and page transitions (`motion.main`, `LayoutGroup`) - Motion is a fast animation library by the creators of Framer Motion
-- **Rough Notation**: Custom `Highlighter` component with scroll-triggered annotations
-- **Transition Consistency**: 300ms duration with `ease-in-out` for most interactions
 
 ### Component Data Patterns
-- **Typed Constants**: Use TypeScript unions for component state (e.g., `type TabValues = "personal" | "recruiter"`)
+- **Typed Constants**: Use TypeScript unions for component state (e.g., `type TabValues = "about" | "recruiter"`)
 - **Configuration Objects**: Centralized data arrays (e.g., `SOCIALS_ARRAY`, `EXPERIENCES`)
 - **Variant Systems**: CVA (class-variance-authority) for component variants in UI components
 
@@ -55,7 +52,6 @@ pnpm lint         # oxlint + ESLint (type-aware)
 - **Target**: `cloudflare-module` (configured in `vite.config.ts`)
 - **Wrangler**: Used for preview and deployment (`wrangler.jsonc`)
 - **Assets**: Built to `.output/public`, server to `.output/server/index.mjs`
-- **KV Storage**: Configured binding named `CACHE`
 
 ### Code Quality Tools
 - **Linting**: oxlint (primary) + ESLint with strict TypeScript rules
@@ -77,7 +73,7 @@ pnpm lint         # oxlint + ESLint (type-aware)
 
 ### Dependencies Notes
 - **Node Version**: Pinned to Node 24 (see `engines` in package.json)
-- **Package Manager**: pnpm 10.15.1+ required
+- **Package Manager**: pnpm 10.16+ required
 - **Base UI**: Uses @base-ui-components/react for accessible primitives
 - **Animation**: rough-notation + motion for interactive elements
 
@@ -111,7 +107,6 @@ When adding new components:
 2. Export interface types for props when needed  
 3. Implement `cn()` for conditional styling
 4. Follow naming convention: PascalCase for components, kebab-case for files
-5. Use consistent 300ms transitions with `ease-in-out`
 
 When adding new routes:
 1. Use `createFileRoute()` pattern
