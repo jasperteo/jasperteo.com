@@ -58,36 +58,33 @@ function TabsTrigger({
 type TabsContentProps = ComponentProps<typeof TabsPrimitive.Panel> &
 	HTMLMotionProps<"div">;
 
-function TabsContent({
-	className,
-	value,
-	keepMounted,
-	...props
-}: TabsContentProps) {
+function TabsContent({ className, value, ...props }: TabsContentProps) {
 	return (
 		<AnimatePresence mode="wait">
 			<TabsPrimitive.Panel
+				data-slot="tabs-content"
+				value={value as string}
+				className={cn("flex-1 outline-none", className)}
 				render={
 					<motion.div
-						data-slot="tabs-content"
 						layout
 						layoutDependency={value as string}
 						initial={{ opacity: 0, filter: "blur(4px)" }}
 						animate={{ opacity: 1, filter: "blur(0px)" }}
 						exit={{ opacity: 0, filter: "blur(4px)" }}
 						transition={{ duration: 0.3, ease: "easeOut" }}
-						className={cn("flex-1 outline-none", className)}
-						{...props}
 					/>
 				}
-				value={value as string}
-				keepMounted={keepMounted}
+				{...props}
 			/>
 		</AnimatePresence>
 	);
 }
 
-type TabsContentListProps = { value: string } & HTMLMotionProps<"div">;
+type TabsContentListProps = Omit<HTMLMotionProps<"div">, "children"> & {
+	value: string;
+	children: ReactNode;
+};
 
 function TabsContentList({
 	className,
@@ -103,7 +100,7 @@ function TabsContentList({
 			className={cn("overflow-clip", className)}
 			{...props}
 		>
-			<Fragment key={value}>{children as ReactNode}</Fragment>
+			<Fragment key={value}>{children}</Fragment>
 		</motion.div>
 	);
 }
