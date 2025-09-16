@@ -25,7 +25,7 @@ function Description() {
 				<TabsTrigger value={ABOUT}>About</TabsTrigger>
 				<TabsTrigger value={RECRUITER}>For Recruiters</TabsTrigger>
 			</TabsList>
-			<TabsContentList value={tab} className="overflow-x-visible px-2 py-4">
+			<TabsContentList className="overflow-x-visible px-2 py-4">
 				<TabsContent value={ABOUT}>
 					<div className="flex flex-col gap-y-4 text-pretty">
 						<p>
@@ -71,7 +71,7 @@ function Description() {
 							color="var(--secondary)"
 							className="text-card-foreground flex w-fit items-center-safe gap-x-2 font-semibold"
 							animationDuration={700}
-							delay={300}
+							delay={325}
 						>
 							<span>My Resume</span>
 							<span>{"->"}</span>
