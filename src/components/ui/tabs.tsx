@@ -54,10 +54,10 @@ function TabsTrigger({
 	);
 }
 
-type TabsContentProps = ComponentProps<typeof TabsPrimitive.Panel> &
-	HTMLMotionProps<"div">;
-
-function TabsContent({ className, ...props }: TabsContentProps) {
+function TabsContent({
+	className,
+	...props
+}: ComponentProps<typeof TabsPrimitive.Panel>) {
 	return (
 		<AnimatePresence mode="wait">
 			<TabsPrimitive.Panel
