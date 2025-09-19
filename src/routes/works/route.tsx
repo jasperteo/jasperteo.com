@@ -4,9 +4,7 @@ import {
 	notFound,
 	Outlet,
 } from "@tanstack/react-router";
-import { lazy, Suspense } from "react";
 
-import { ThemeToggleFallback } from "@/components/theme-toggle-fallback";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/works")({
@@ -26,11 +24,6 @@ const matchingRoutes = new Set([
 	"/works/liquid-glass/",
 ]);
 
-const ThemeToggle = lazy(async () => {
-	const { ThemeToggle } = await import("@/components/theme-toggle");
-	return { default: ThemeToggle };
-});
-
 function WorksLayout() {
 	return (
 		<div className="flex flex-col gap-y-20">
@@ -44,10 +37,6 @@ function WorksLayout() {
 				>
 					{"<-"}
 				</Button>
-
-				<Suspense fallback={<ThemeToggleFallback />}>
-					<ThemeToggle className="sm:hidden" />
-				</Suspense>
 			</header>
 			<Outlet />
 		</div>
