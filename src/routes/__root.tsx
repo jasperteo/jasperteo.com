@@ -3,11 +3,8 @@
 /// <reference types="vite/client" />
 
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import { ThemeProvider } from "next-themes";
 
 import { Devtools } from "@/components/devtools";
-import { Navbar } from "@/components/navbar";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import globalsCss from "@/styles/globals.css?url";
 
 const NAME = "Jasper Teo ‧ 張";
@@ -77,20 +74,7 @@ export const Route = createRootRoute({
 				<HeadContent />
 			</head>
 			<body className="bg-background text-foreground scroll-smooth antialiased">
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-					scriptProps={{ "data-cfasync": "false" }}
-				>
-					<ScrollArea className="min-h-dvh min-w-dvw">
-						<div className="mx-auto max-w-3xl min-w-xs px-6 py-12 sm:mb-24">
-							{children}
-							<Navbar />
-						</div>
-					</ScrollArea>
-				</ThemeProvider>
+				<div className="mx-auto max-w-3xl min-w-xs px-6 py-12">{children}</div>
 				<Scripts />
 				<Devtools />
 			</body>
