@@ -1,7 +1,6 @@
 import { useRender } from "@base-ui-components/react/use-render";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
-import type { ComponentProps } from "react";
 
 import { cn } from "@/utils/utils";
 
@@ -36,8 +35,8 @@ const buttonVariants = cva(
 	}
 );
 
-type ButtonProps = ComponentProps<"button"> &
-	VariantProps<typeof buttonVariants> & { render?: useRender.RenderProp };
+type ButtonProps = useRender.ComponentProps<"button"> &
+	VariantProps<typeof buttonVariants>;
 
 function Button({
 	className,

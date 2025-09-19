@@ -1,7 +1,6 @@
 import { useRender } from "@base-ui-components/react/use-render";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
-import type { ComponentProps } from "react";
 
 import { cn } from "@/utils/utils";
 
@@ -26,8 +25,8 @@ const badgeVariants = cva(
 	}
 );
 
-type BadgeProps = ComponentProps<"span"> &
-	VariantProps<typeof badgeVariants> & { render?: useRender.RenderProp };
+type BadgeProps = useRender.ComponentProps<"span"> &
+	VariantProps<typeof badgeVariants>;
 
 function Badge({
 	className,
