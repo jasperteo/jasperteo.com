@@ -13,9 +13,10 @@ function NotFound() {
 			/>
 
 			<div className="flex flex-col items-center-safe justify-center-safe gap-y-8 py-24">
-				<h1 className="text-primary-accent-foreground text-5xl font-bold tabular-nums">
+				<h1 className="text-primary-accent-foreground text-6xl font-bold tracking-widest tabular-nums">
 					404
 				</h1>
+
 				<h2 className="text-primary-accent-foreground text-5xl font-bold">
 					Nott -- ffound
 				</h2>
@@ -26,14 +27,9 @@ function NotFound() {
 					variant="outline"
 					size="lg"
 					className="text-base"
-					aria-label="Go back home"
 					render={<Link to="/" />}
 				>
-					<House
-						className="size-5 invert dark:invert-0"
-						width="1.25rem"
-						height="1.25rem"
-					/>
+					<House className="size-5 invert" width="1.25rem" height="1.25rem" />
 					Go back home
 				</Button>
 			</div>

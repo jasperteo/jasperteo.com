@@ -74,9 +74,9 @@ export const Route = createRootRoute({
 				<HeadContent />
 			</head>
 			<body className="bg-background text-foreground scroll-smooth antialiased">
-				<div className="mx-auto max-w-3xl min-w-xs px-6 py-12">{children}</div>
+				<div className="mx-auto max-w-2xl min-w-xs px-6 py-12">{children}</div>
 				<Scripts />
-				<Devtools />
+				<Devtools enabled />
 			</body>
 		</html>
 	),
