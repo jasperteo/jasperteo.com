@@ -5,13 +5,10 @@ import react from "@vitejs/plugin-react";
 import { fontless } from "fontless";
 import { defineConfig } from "vite";
 
-// https://vite.dev/config/
 const viteConfig = defineConfig({
 	plugins: [
 		devtools(),
-		react(),
 		fontless(),
-		tailwindcss(),
 		tanstackStart({
 			customViteReactPlugin: true,
 			prerender: {
@@ -24,10 +21,11 @@ const viteConfig = defineConfig({
 				/* Delay between retries in milliseconds */
 				retryDelay: 1000,
 			},
-			sitemap: { host: "https://jasperteo.com" },
 			target: "cloudflare-module",
 			spa: { enabled: false },
 		}),
+		react(),
+		tailwindcss(),
 	],
 	resolve: { alias: { "@": "/src" } },
 });
