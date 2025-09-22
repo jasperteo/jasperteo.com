@@ -5,6 +5,7 @@ import { Description } from "@/components/description";
 import { Experience } from "@/components/experience";
 import { Hero } from "@/components/hero";
 import { Socials } from "@/components/socials";
+import { Separator } from "@/components/ui/separator";
 import { Works } from "@/components/works";
 
 export const Route = createFileRoute("/")({
@@ -13,27 +14,19 @@ export const Route = createFileRoute("/")({
 
 function Home() {
 	return (
-		<div className="flex flex-col gap-y-12">
+		<main className="flex flex-col gap-y-8">
 			<LayoutGroup>
-				<main className="flex flex-col gap-y-8">
-					<div className="flex flex-col gap-8 sm:flex-row">
-						<div className="w-fit">
-							<Hero />
-						</div>
+				<Hero />
 
-						<div className="w-fit">
-							<Experience />
-						</div>
-					</div>
+				<Description />
 
-					<Description />
-
-					<motion.div layout className="flex flex-col gap-y-8">
-						<Socials />
-						<Works />
-					</motion.div>
-				</main>
+				<motion.div layout className="flex flex-col gap-y-8">
+					<Socials />
+					<Experience />
+					<Separator className="-mx-1 my-1" />
+					<Works />
+				</motion.div>
 			</LayoutGroup>
-		</div>
+		</main>
 	);
 }
