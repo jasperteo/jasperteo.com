@@ -1,3 +1,4 @@
+import type { LinkOptions } from "@tanstack/react-router";
 import { Link, linkOptions } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
@@ -21,26 +22,24 @@ const WORKS_ARRAY: CardShellProps[] = [
 				<p className="font-mono tracking-wider">COMING SOON</p>
 			</>
 		),
-		link: linkOptions({ to: "/works/liquid-glass" }).to,
-		disabled: true,
+		linkProps: linkOptions({ to: "/works/liquid-glass", disabled: true }),
 	},
 ];
 
 function Works() {
 	return (
-		<div className="flex flex-col items-center-safe gap-y-6">
+		<div className="flex flex-col items-center-safe gap-y-8">
 			<h2 className="text-2xl font-bold">Works</h2>
-			<article className="grid grid-cols-1 gap-4 px-6 sm:grid-cols-2">
+			<article className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 				{WORKS_ARRAY.map(
-					({ imageSrc, imageAlt, title, description, link, disabled }) => (
+					({ imageSrc, imageAlt, title, description, linkProps }) => (
 						<CardShell
 							key={title}
 							imageSrc={imageSrc}
 							imageAlt={imageAlt}
 							title={title}
 							description={description}
-							link={link}
-							disabled={disabled}
+							linkProps={linkProps}
 						/>
 					)
 				)}
@@ -54,8 +53,7 @@ type CardShellProps = {
 	imageAlt: string;
 	title: string;
 	description: ReactNode;
-	link: string;
-	disabled: boolean;
+	linkProps: LinkOptions;
 };
 
 function CardShell({
@@ -63,14 +61,13 @@ function CardShell({
 	imageAlt,
 	title,
 	description,
-	link,
-	disabled,
+	linkProps,
 }: CardShellProps) {
 	return (
-		<Link to={link} disabled={disabled}>
-			<Card className="size-full py-4 transition-colors">
-				<CardContent className="px-4">
-					<div className="size-full overflow-clip rounded-lg border">
+		<Link {...linkProps}>
+			<Card className="size-full px-0 py-4 transition-colors">
+				<CardContent className="px-4 py-0">
+					<div className="border-muted size-full overflow-clip rounded-lg border">
 						<img
 							src={imageSrc}
 							alt={imageAlt}

@@ -1,17 +1,17 @@
 import {
 	createFileRoute,
 	Link,
+	linkOptions,
 	notFound,
 	Outlet,
 } from "@tanstack/react-router";
-import { lazy, Suspense } from "react";
 
-import { ThemeToggleFallback } from "@/components/theme-toggle-fallback";
+import { ChevronLeft } from "@/components/icons/chevron-left";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/works")({
 	loader: ({ location }) => {
-		if (matchingRoutes.has(location.pathname)) {
+		if (disallowedRoutes.has(location.pathname)) {
 			notFound({ throw: true });
 		}
 	},
@@ -19,17 +19,10 @@ export const Route = createFileRoute("/works")({
 	component: WorksLayout,
 });
 
-const matchingRoutes = new Set([
-	"/works",
-	"/works/",
-	"/works/liquid-glass",
-	"/works/liquid-glass/",
+const disallowedRoutes = new Set<string>([
+	linkOptions({ to: "/works" }).to,
+	linkOptions({ to: "/works/liquid-glass" }).to,
 ]);
-
-const ThemeToggle = lazy(async () => {
-	const { ThemeToggle } = await import("@/components/theme-toggle");
-	return { default: ThemeToggle };
-});
 
 function WorksLayout() {
 	return (
@@ -38,16 +31,12 @@ function WorksLayout() {
 				<Button
 					variant="outline"
 					size="icon"
-					className="text-primary-highlight rounded-xl text-base font-black"
-					aria-label="Go back to home"
+					className="text-muted-foreground rounded-full shadow-sm duration-200"
+					aria-label="Go Back"
 					render={<Link to="/" />}
 				>
-					{"<-"}
+					<ChevronLeft />
 				</Button>
-
-				<Suspense fallback={<ThemeToggleFallback />}>
-					<ThemeToggle className="sm:hidden" />
-				</Suspense>
 			</header>
 			<Outlet />
 		</div>
