@@ -25,13 +25,14 @@ function Description() {
 				<TabsTrigger value={ABOUT}>About</TabsTrigger>
 				<TabsTrigger value={RECRUITER}>For Recruiters</TabsTrigger>
 			</TabsList>
-			<TabsContentList className="overflow-x-visible px-2 py-4">
+			<TabsContentList className="overflow-x-visible px-2 py-3">
 				<TabsContent value={ABOUT}>
-					<div className="flex flex-col gap-y-4 text-pretty">
+					<div className="flex flex-col gap-y-3 text-pretty">
 						<p>
-							A full-stack software engineer focused on building intuitive and
-							user-friendly web experiences to improve how people interact with
-							digital products and make them enjoyable to use.
+							A design-minded engineer focused on building intuitive and
+							user-friendly web experiences across the stack to improve how
+							people interact with digital products and make them enjoyable to
+							use.
 						</p>
 						<p>
 							When I am not coding, I enjoy brewing tea and coffee, reading
@@ -40,13 +41,15 @@ function Description() {
 						</p>
 						<p>
 							Currently living in{" "}
-							<span className="font-medium">🇸🇬 Singapore</span> and love
-							exploring the city for new cafes and restaurants.
+							<span className="text-primary-highlight font-medium">
+								🇸🇬 Singapore
+							</span>{" "}
+							and love exploring the city for new cafes and restaurants.
 						</p>
 					</div>
 				</TabsContent>
 				<TabsContent value={RECRUITER}>
-					<div className="flex flex-col gap-y-4 text-pretty">
+					<div className="flex flex-col gap-y-3 text-pretty">
 						<p>
 							I am currently open to new employment opportunities and
 							collaborations.
@@ -68,10 +71,10 @@ function Description() {
 						<Highlighter
 							isView
 							action="box"
-							color="var(--secondary)"
+							color="var(--primary)"
 							className="text-card-foreground flex w-fit items-center-safe gap-x-2 font-semibold"
-							animationDuration={700}
 							delay={325}
+							strokeWidth={2}
 						>
 							<span>My Resume</span>
 							<span>{"->"}</span>
@@ -95,7 +98,6 @@ function CVButton() {
 				"text-muted-foreground group/cv hover:text-card-foreground relative text-base font-semibold hover:no-underline has-[>svg]:px-2",
 				"after:border-b-primary-hover after:absolute after:bottom-2 after:left-2 after:w-0 after:border-b-[1px] after:border-dashed after:bg-transparent after:transition-[width] after:duration-300 hover:after:w-[calc(100%-1rem)]"
 			)}
-			aria-label="CV"
 			render={<a href={CV} target="_blank" rel="noopener noreferrer" />}
 		>
 			<FileDownload
