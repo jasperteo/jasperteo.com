@@ -26,7 +26,7 @@ const eslintConfig = defineConfig(
 		eslintReact.configs["recommended-type-checked"],
 		pluginRouter.configs["flat/recommended"],
 		oxlint.buildFromOxlintConfigFile("./.oxlintrc.json"),
-		globalIgnores(["**/routeTree.gen.ts", "**/worker-configuration.d.ts"]),
+		globalIgnores(["**/routeTree.gen.ts"]),
 		includeIgnoreFile(gitignorePath),
 	],
 	{

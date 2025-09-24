@@ -282,7 +282,6 @@
 	},
 	"ignorePatterns": [
 		"**/routeTree.gen.ts",
-		"**/worker-configuration.d.ts",
 		"**/logs",
 		"**/*.log",
 		"**/npm-debug.log*",
@@ -302,9 +301,6 @@
 		"**/*.njsproj",
 		"**/*.sln",
 		"**/*.sw?",
-		"**/.nitro",
-		"**/.output",
-		"**/.tanstack",
 		"**/.wrangler"
 	],
 	"overrides": [
