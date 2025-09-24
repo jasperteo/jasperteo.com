@@ -2,16 +2,7 @@ autoInstallPeers: true
 
 nodeLinker: hoisted
 
-minimumReleaseAge: 1440
-minimumReleaseAgeExclude:
-  - vite
-  - rolldown
-  - "@rolldown/*"
-  - rolldown-vite
-  - "@tanstack/*"
-
 onlyBuiltDependencies:
-  - "@parcel/watcher"
   - "@tailwindcss/oxide"
   - esbuild
   - sharp
