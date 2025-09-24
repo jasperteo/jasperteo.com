@@ -1,13 +1,10 @@
-import {
-	createRouter as createTanStackRouter,
-	ErrorComponent,
-} from "@tanstack/react-router";
+import { createRouter, ErrorComponent } from "@tanstack/react-router";
 
 import { NotFound } from "@/components/not-found";
 import { routeTree } from "@/routeTree.gen";
 
-export function createRouter() {
-	const router = createTanStackRouter({
+export function getRouter() {
+	const router = createRouter({
 		routeTree,
 		scrollRestoration: false,
 		defaultNotFoundComponent: NotFound,
@@ -19,11 +16,4 @@ export function createRouter() {
 	});
 
 	return router;
-}
-
-declare module "@tanstack/react-router" {
-	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-	interface Register {
-		router: ReturnType<typeof createRouter>;
-	}
 }
