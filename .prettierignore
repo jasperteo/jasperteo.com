@@ -9,4 +9,3 @@ pnpm-lock.yaml
 
 # Ignore generated files
 **/routeTree.gen.ts
-**/worker-configuration.d.ts

@@ -32,5 +32,5 @@
 		"paths": { "@/*": ["./src/*"] }
 	},
 	"include": ["**/*.ts", "**/*.tsx", "**/*.js"],
-	"exclude": ["node_modules", "**/routeTree.gen.ts"]
+	"exclude": ["node_modules", "dist", "**/routeTree.gen.ts"]
 }
