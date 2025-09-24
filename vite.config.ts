@@ -1,3 +1,4 @@
+import { cloudflare } from "@cloudflare/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -8,9 +9,7 @@ import { defineConfig } from "vite";
 const viteConfig = defineConfig({
 	plugins: [
 		devtools(),
-		fontless(),
 		tanstackStart({
-			customViteReactPlugin: true,
 			prerender: {
 				/* Enable prerendering */
 				enabled: true,
@@ -21,10 +20,10 @@ const viteConfig = defineConfig({
 				/* Delay between retries in milliseconds */
 				retryDelay: 1000,
 			},
-			target: "cloudflare-module",
-			spa: { enabled: false },
 		}),
 		react(),
+		cloudflare(),
+		fontless(),
 		tailwindcss(),
 	],
 	resolve: { alias: { "@": "/src" } },
