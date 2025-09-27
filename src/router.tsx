@@ -1,5 +1,6 @@
-import { createRouter, ErrorComponent } from "@tanstack/react-router";
+import { createRouter } from "@tanstack/react-router";
 
+import { Error } from "@/components/error";
 import { NotFound } from "@/components/not-found";
 import { routeTree } from "@/routeTree.gen";
 
@@ -9,10 +10,7 @@ export function getRouter() {
 		scrollRestoration: false,
 		defaultNotFoundComponent: NotFound,
 		notFoundMode: "root",
-		defaultErrorComponent: ({ error }) => {
-			console.error("DefaultCatchBoundary Error:", error);
-			return <ErrorComponent error={error} />;
-		},
+		defaultErrorComponent: Error,
 	});
 
 	return router;
