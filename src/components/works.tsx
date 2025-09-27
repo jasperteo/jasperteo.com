@@ -28,7 +28,7 @@ const WORKS_ARRAY: CardShellProps[] = [
 
 function Works() {
 	return (
-		<div className="flex flex-col items-center-safe gap-y-8">
+		<div className="flex flex-col items-center-safe gap-y-8 px-4 sm:px-0">
 			<h2 className="text-2xl font-bold">Works</h2>
 			<article className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 				{WORKS_ARRAY.map(
