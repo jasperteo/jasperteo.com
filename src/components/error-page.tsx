@@ -5,7 +5,7 @@ import { House } from "@/components/icons/house";
 import { Refresh } from "@/components/icons/refresh";
 import { Button } from "@/components/ui/button";
 
-function Error({ error, reset }: ErrorComponentProps) {
+function ErrorPage({ error, reset }: ErrorComponentProps) {
 	return (
 		<div className="flex flex-col items-center-safe justify-center-safe gap-y-8 py-24">
 			<h1 className="text-primary-accent-foreground text-6xl font-bold tracking-widest tabular-nums">
@@ -13,7 +13,7 @@ function Error({ error, reset }: ErrorComponentProps) {
 			</h1>
 
 			<h2 className="text-primary-accent-foreground max-w-full text-5xl font-bold">
-				Opps!
+				Oops!
 			</h2>
 
 			<div className="w-full">
@@ -52,4 +52,4 @@ function Error({ error, reset }: ErrorComponentProps) {
 	);
 }
 
-export { Error };
+export { ErrorPage };
