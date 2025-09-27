@@ -4,7 +4,9 @@
 	"name": "jasperteo",
 
 	"compatibility_date": "2025-09-15",
-	"compatibility_flags": ["nodejs_compat", "no_nodejs_compat_v2"],
+	"compatibility_flags": ["nodejs_compat"],
+
+	"main": "./src/server.ts",
 
 	"routes": [
 		{ "custom_domain": true, "pattern": "jasperteo.com" },

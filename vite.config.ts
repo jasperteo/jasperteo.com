@@ -19,6 +19,11 @@ const viteConfig = defineConfig({
 		tailwindcss(),
 	],
 	resolve: { alias: { "@": "/src" } },
+	/* @todo (@jasperteo): remove this when Cloudflare can build properly without this flag */
+	define: {
+		"globalThis.Cloudflare.compatibilityFlags":
+			"{enable_nodejs_process_v2: true}",
+	},
 });
 
 export default viteConfig;
