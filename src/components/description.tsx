@@ -17,7 +17,7 @@ const ABOUT: TabValues = "about";
 const RECRUITER: TabValues = "recruiter";
 
 function Description() {
-	const [tab, setTab] = useState<TabValues>("about");
+	const [tab, setTab] = useState<TabValues>(ABOUT);
 
 	return (
 		<Tabs value={tab} onValueChange={setTab}>
@@ -25,7 +25,7 @@ function Description() {
 				<TabsTrigger value={ABOUT}>About</TabsTrigger>
 				<TabsTrigger value={RECRUITER}>For Recruiters</TabsTrigger>
 			</TabsList>
-			<TabsContentList className="overflow-x-visible px-2 py-3">
+			<TabsContentList className="overflow-x-visible px-1 py-3">
 				<TabsContent value={ABOUT}>
 					<div className="flex flex-col gap-y-3 text-pretty">
 						<p>
