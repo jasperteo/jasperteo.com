@@ -1,5 +1,5 @@
-import { TanStackDevtools } from "@tanstack/react-devtools";
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+// import { TanStackDevtools } from "@tanstack/react-devtools";
+// import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 /**
  * @todo (@jasperteo): remove this when Cloudflare can build properly without this flag
@@ -15,14 +15,16 @@ function Devtools({ enabled = false }: DevtoolsProps) {
 	}
 
 	return (
-		<TanStackDevtools
-			plugins={[
-				{
-					name: "TanStack Router",
-					render: <TanStackRouterDevtoolsPanel />,
-				},
-			]}
-		/>
+		// <TanStackDevtools
+		// 	plugins={[
+		// 		{
+		// 			name: "TanStack Router",
+		// 			render: <TanStackRouterDevtoolsPanel />,
+		// 		},
+		// 	]}
+		// />
+		// oxlint-disable-next-line no-null
+		null
 	);
 }
 
