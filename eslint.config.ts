@@ -22,25 +22,47 @@ const eslintConfig = defineConfig(
 		tseslint.configs.stylisticTypeChecked,
 		eslintPluginUnicorn.configs.recommended,
 		reactRefresh.configs.vite,
-		reactHooks.configs["recommended-latest"],
 		eslintReact.configs["recommended-type-checked"],
 		pluginRouter.configs["flat/recommended"],
 		oxlint.buildFromOxlintConfigFile("./.oxlintrc.json"),
 		globalIgnores(["**/routeTree.gen.ts"]),
 		includeIgnoreFile(gitignorePath),
+		{
+			files: ["src/**/*.{js,jsx,ts,tsx}"],
+			plugins: { "react-hooks": reactHooks },
+			extends: ["react-hooks/flat/recommended"],
+			rules: {
+				"react-hooks/component-hook-factories": "error",
+				"react-hooks/globals": "error",
+				"react-hooks/immutability": "error",
+				"react-hooks/incompatible-library": "error",
+				"react-hooks/preserve-manual-memoization": "warn",
+				"react-hooks/purity": "error",
+				"react-hooks/refs": "error",
+				"react-hooks/set-state-in-effect": "error",
+				"react-hooks/set-state-in-render": "error",
+				"react-hooks/static-components": "error",
+				"react-hooks/unsupported-syntax": "error",
+				"react-hooks/use-memo": "error",
+			},
+		},
+		{
+			plugins: { "simple-import-sort": simpleImportSort },
+			rules: {
+				"simple-import-sort/imports": "warn",
+				"simple-import-sort/exports": "warn",
+			},
+		},
 	],
 	{
-		plugins: { "simple-import-sort": simpleImportSort },
 		rules: {
-			"simple-import-sort/imports": "error",
-			"simple-import-sort/exports": "error",
 			"@typescript-eslint/no-import-type-side-effects": "error",
 			"@typescript-eslint/consistent-type-imports": "error",
 			"@typescript-eslint/consistent-type-exports": "error",
 			"@typescript-eslint/consistent-type-definitions": ["error", "type"],
 			"unicorn/better-regex": "warn",
 			"unicorn/prevent-abbreviations": [
-				"error",
+				"warn",
 				{
 					allowList: {
 						Env: true,
