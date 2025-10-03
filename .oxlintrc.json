@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/oxlint/configuration_schema.json",
-	"plugins": ["typescript", "unicorn", "react"],
+	"plugins": ["typescript", "unicorn"],
 	"categories": {
 		"correctness": "off"
 	},
@@ -186,10 +186,12 @@
 		"unicorn/no-abusive-eslint-disable": "error",
 		"unicorn/no-accessor-recursion": "error",
 		"unicorn/no-anonymous-default-export": "error",
+		"unicorn/no-array-callback-reference": "error",
 		"unicorn/no-array-for-each": "error",
 		"unicorn/no-array-method-this-argument": "error",
 		"unicorn/no-array-reduce": "error",
 		"unicorn/no-array-reverse": "error",
+		"unicorn/no-array-sort": "error",
 		"unicorn/no-await-expression-member": "error",
 		"unicorn/no-await-in-promise-methods": "error",
 		"unicorn/no-console-spaces": "error",
@@ -275,8 +277,6 @@
 		"unicorn/switch-case-braces": "error",
 		"unicorn/text-encoding-identifier-case": "error",
 		"unicorn/throw-new-error": "error",
-		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn",
 		"@typescript-eslint/no-import-type-side-effects": "error",
 		"@typescript-eslint/consistent-type-imports": "error"
 	},
@@ -345,6 +345,14 @@
 				"prefer-rest-params": "error",
 				"prefer-spread": "error"
 			}
+		},
+		{
+			"files": ["src/**/*.{js,jsx,ts,tsx}"],
+			"rules": {
+				"react-hooks/rules-of-hooks": "error",
+				"react-hooks/exhaustive-deps": "warn"
+			},
+			"plugins": ["react"]
 		}
 	]
 }
