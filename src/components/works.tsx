@@ -17,10 +17,10 @@ const WORKS_ARRAY: CardShellProps[] = [
 		imageAlt: "Liquid Glass",
 		title: "Liquid Glass",
 		description: (
-			<>
-				<p>Recreate the effect with CSS</p>
-				<p className="font-mono tracking-wider">COMING SOON</p>
-			</>
+			<p className="flex flex-col gap-y-1">
+				<span>Recreate the effect with CSS</span>
+				<span className="font-mono tracking-wider">COMING SOON</span>
+			</p>
 		),
 		linkProps: linkOptions({ to: "/works/liquid-glass", disabled: true }),
 	},
@@ -65,9 +65,9 @@ function CardShell({
 }: CardShellProps) {
 	return (
 		<Link {...linkProps}>
-			<Card className="size-full px-0 py-4 transition-colors">
+			<Card className="hover:border-input size-full rounded-3xl px-0 py-4 transition duration-200 hover:shadow-xl active:scale-[0.99]">
 				<CardContent className="px-4 py-0">
-					<div className="border-muted size-full overflow-clip rounded-lg border">
+					<div className="border-muted size-full overflow-clip rounded-[1.125rem] border">
 						<img
 							src={imageSrc}
 							alt={imageAlt}
@@ -77,9 +77,7 @@ function CardShell({
 				</CardContent>
 				<CardFooter className="flex-col items-start gap-y-2">
 					<CardTitle className="font-bold">{title}</CardTitle>
-					<CardDescription className="flex flex-col gap-y-1">
-						{description}
-					</CardDescription>
+					<CardDescription>{description}</CardDescription>
 				</CardFooter>
 			</Card>
 		</Link>

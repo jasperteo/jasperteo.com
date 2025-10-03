@@ -26,7 +26,7 @@ function NotFound() {
 				<Button
 					variant="outline"
 					size="lg"
-					className="text-base"
+					className="text-base active:scale-[0.97]"
 					render={<Link to="/" />}
 				>
 					<House className="size-5 invert" width="1.25rem" height="1.25rem" />
