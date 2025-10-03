@@ -1,31 +1,14 @@
-// import { TanStackDevtools } from "@tanstack/react-devtools";
-// import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-
-/**
- * @todo (@jasperteo): remove this when Cloudflare can build properly without this flag
- */
-const isProduction = import.meta.env.PROD;
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 type DevtoolsProps = { enabled?: boolean };
 
 function Devtools({ enabled = false }: DevtoolsProps) {
-	if (!enabled || isProduction) {
+	if (!enabled) {
 		// oxlint-disable-next-line no-null
 		return null;
 	}
 
-	return (
-		// <TanStackDevtools
-		// 	plugins={[
-		// 		{
-		// 			name: "TanStack Router",
-		// 			render: <TanStackRouterDevtoolsPanel />,
-		// 		},
-		// 	]}
-		// />
-		// oxlint-disable-next-line no-null
-		null
-	);
+	return <TanStackRouterDevtools />;
 }
 
 export { Devtools };
