@@ -7,10 +7,11 @@ import { routeTree } from "@/routeTree.gen";
 export function getRouter() {
 	const router = createRouter({
 		routeTree,
-		scrollRestoration: false,
-		defaultNotFoundComponent: NotFound,
+		scrollRestoration: true,
 		notFoundMode: "root",
+
 		defaultErrorComponent: ErrorPage,
+		defaultNotFoundComponent: NotFound,
 	});
 
 	return router;
