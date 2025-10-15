@@ -1,7 +1,3 @@
-/* eslint-disable @eslint-react/naming-convention/filename */
-
-/// <reference types="vite/client" />
-
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import { Devtools } from "@/components/devtools";
