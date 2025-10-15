@@ -7,7 +7,7 @@ function Card({ className, ...props }: ComponentProps<"div">) {
 		<div
 			data-slot="card"
 			className={cn(
-				"bg-card text-card-foreground hover:bg-card-hover flex flex-col gap-6 rounded-xl border py-6 shadow-sm transition-colors",
+				"bg-card text-card-foreground hover:bg-card-hover relative flex flex-col gap-6 rounded-2xl border bg-clip-padding py-6 before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-2xl)-1px)] before:shadow-sm dark:bg-clip-border dark:shadow-sm dark:shadow-black/24 dark:before:shadow-[0_-1px_--theme(--color-white/8%)]",
 				className
 			)}
 			{...props}
@@ -33,7 +33,7 @@ function CardTitle({ className, ...props }: ComponentProps<"div">) {
 		<div
 			data-slot="card-title"
 			className={cn(
-				"text-card-foreground leading-none font-semibold",
+				"text-card-foreground text-lg leading-none font-semibold",
 				className
 			)}
 			{...props}
@@ -64,7 +64,7 @@ function CardAction({ className, ...props }: ComponentProps<"div">) {
 	);
 }
 
-function CardContent({ className, ...props }: ComponentProps<"div">) {
+function CardPanel({ className, ...props }: ComponentProps<"div">) {
 	return (
 		<div
 			data-slot="card-content"
@@ -87,9 +87,9 @@ function CardFooter({ className, ...props }: ComponentProps<"div">) {
 export {
 	Card,
 	CardAction,
-	CardContent,
 	CardDescription,
 	CardFooter,
 	CardHeader,
+	CardPanel,
 	CardTitle,
 };

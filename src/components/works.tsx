@@ -4,9 +4,9 @@ import type { ReactNode } from "react";
 
 import {
 	Card,
-	CardContent,
 	CardDescription,
 	CardFooter,
+	CardPanel,
 	CardTitle,
 } from "@/components/ui/card";
 import LiquidGlass from "@/images/liquid-glass.webp";
@@ -66,7 +66,7 @@ function CardShell({
 	return (
 		<Link {...linkProps}>
 			<Card className="hover:border-input size-full rounded-3xl px-0 py-4 transition duration-200 hover:shadow-xl active:scale-[0.99]">
-				<CardContent className="px-4 py-0">
+				<CardPanel className="px-4 py-0">
 					<div className="border-muted size-full overflow-clip rounded-[1.125rem] border">
 						<img
 							src={imageSrc}
@@ -74,7 +74,7 @@ function CardShell({
 							className="aspect-4/3 size-full"
 						/>
 					</div>
-				</CardContent>
+				</CardPanel>
 				<CardFooter className="flex-col items-start gap-y-2">
 					<CardTitle className="font-bold">{title}</CardTitle>
 					<CardDescription>{description}</CardDescription>
