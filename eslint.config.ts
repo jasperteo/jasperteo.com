@@ -22,30 +22,10 @@ const eslintConfig = defineConfig(
 		tseslint.configs.stylisticTypeChecked,
 		eslintPluginUnicorn.configs.recommended,
 		reactRefresh.configs.vite,
+		// oxlint-disable-next-line no-non-null-assertion
+		reactHooks.configs.flat.recommended!,
 		eslintReact.configs["recommended-type-checked"],
 		pluginRouter.configs["flat/recommended"],
-		oxlint.buildFromOxlintConfigFile("./.oxlintrc.json"),
-		globalIgnores(["**/routeTree.gen.ts"]),
-		includeIgnoreFile(gitignorePath),
-		{
-			files: ["src/**/*.{js,jsx,ts,tsx}"],
-			plugins: { "react-hooks": reactHooks },
-			extends: ["react-hooks/flat/recommended"],
-			rules: {
-				"react-hooks/component-hook-factories": "error",
-				"react-hooks/globals": "error",
-				"react-hooks/immutability": "error",
-				"react-hooks/incompatible-library": "error",
-				"react-hooks/preserve-manual-memoization": "warn",
-				"react-hooks/purity": "error",
-				"react-hooks/refs": "error",
-				"react-hooks/set-state-in-effect": "error",
-				"react-hooks/set-state-in-render": "error",
-				"react-hooks/static-components": "error",
-				"react-hooks/unsupported-syntax": "error",
-				"react-hooks/use-memo": "error",
-			},
-		},
 		{
 			plugins: { "simple-import-sort": simpleImportSort },
 			rules: {
@@ -53,6 +33,9 @@ const eslintConfig = defineConfig(
 				"simple-import-sort/exports": "warn",
 			},
 		},
+		oxlint.buildFromOxlintConfigFile("./.oxlintrc.json"),
+		globalIgnores(["**/routeTree.gen.ts"]),
+		includeIgnoreFile(gitignorePath),
 	],
 	{
 		rules: {
@@ -87,7 +70,6 @@ const eslintConfig = defineConfig(
 			"@eslint-react/prefer-destructuring-assignment": "warn",
 			"@eslint-react/prefer-namespace-import": "error",
 			"@eslint-react/naming-convention/component-name": ["error", "PascalCase"],
-			"@eslint-react/naming-convention/filename": ["error", "kebab-case"],
 			"@eslint-react/naming-convention/use-state": "warn",
 		},
 		languageOptions: {

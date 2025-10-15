@@ -9,19 +9,24 @@
 	font-weight: 200 800;
 }
 
+@font-face {
+	font-family: "Paper Mono";
+	src: url("./fonts/paper-mono.woff2") format("woff2");
+	font-weight: 400;
+}
+
 @theme {
 	--font-sans:
 		"Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-sans--font-feature-settings: "liga", "calt";
+
+	--font-mono:
+		"Paper Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Liberation Mono", "Courier New", monospace;
 }
 
 @theme inline {
-	--radius-sm: calc(var(--radius) - 4px);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-lg: var(--radius);
-	--radius-xl: calc(var(--radius) + 4px);
-
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 
@@ -85,8 +90,6 @@
 }
 
 :root {
-	--radius: 0.625rem;
-
 	--background: oklch(0.9809 0.0086 97.34); /* Gold 2 */
 	--foreground: oklch(0.2434 0.0079 96.31); /* Sand 12 */
 

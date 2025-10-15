@@ -7,10 +7,7 @@ import { defineConfig } from "vite";
 
 const viteConfig = defineConfig({
 	plugins: [
-		tanstackStart({
-			prerender: { enabled: true, crawlLinks: true },
-			sitemap: { enabled: true, host: "https://jasperteo.com" },
-		}),
+		tanstackStart(),
 		viteReact(),
 		cloudflare({ viteEnvironment: { name: "ssr" } }),
 		fontless(),

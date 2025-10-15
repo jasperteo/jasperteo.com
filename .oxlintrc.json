@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/oxlint/configuration_schema.json",
-	"plugins": ["typescript", "unicorn"],
+	"plugins": ["typescript", "unicorn", "react"],
 	"categories": {
 		"correctness": "off"
 	},
@@ -217,10 +217,12 @@
 		"unicorn/no-this-assignment": "error",
 		"unicorn/no-typeof-undefined": "error",
 		"unicorn/no-unnecessary-array-flat-depth": "error",
+		"unicorn/no-unnecessary-array-splice-count": "error",
 		"unicorn/no-unnecessary-await": "error",
 		"unicorn/no-unnecessary-slice-end": "error",
 		"unicorn/no-unreadable-array-destructuring": "error",
 		"unicorn/no-unreadable-iife": "error",
+		"unicorn/no-useless-error-capture-stack-trace": "error",
 		"unicorn/no-useless-fallback-in-spread": "error",
 		"unicorn/no-useless-length-check": "error",
 		"unicorn/no-useless-promise-resolve-reject": "error",
@@ -236,7 +238,10 @@
 		"unicorn/prefer-array-flat-map": "error",
 		"unicorn/prefer-array-index-of": "error",
 		"unicorn/prefer-array-some": "error",
+		"unicorn/prefer-at": "error",
 		"unicorn/prefer-blob-reading-methods": "error",
+		"unicorn/prefer-class-fields": "error",
+		"unicorn/prefer-classlist-toggle": "error",
 		"unicorn/prefer-code-point": "error",
 		"unicorn/prefer-date-now": "error",
 		"unicorn/prefer-dom-node-append": "error",
@@ -270,13 +275,17 @@
 		"unicorn/prefer-string-starts-ends-with": "error",
 		"unicorn/prefer-string-trim-start-end": "error",
 		"unicorn/prefer-structured-clone": "error",
+		"unicorn/prefer-top-level-await": "error",
 		"unicorn/prefer-type-error": "error",
 		"unicorn/require-array-join-separator": "error",
+		"unicorn/require-module-specifiers": "error",
 		"unicorn/require-number-to-fixed-digits-argument": "error",
 		"unicorn/require-post-message-target-origin": "off",
 		"unicorn/switch-case-braces": "error",
 		"unicorn/text-encoding-identifier-case": "error",
 		"unicorn/throw-new-error": "error",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
 		"@typescript-eslint/no-import-type-side-effects": "error",
 		"@typescript-eslint/consistent-type-imports": "error"
 	},
@@ -345,14 +354,6 @@
 				"prefer-rest-params": "error",
 				"prefer-spread": "error"
 			}
-		},
-		{
-			"files": ["src/**/*.{js,jsx,ts,tsx}"],
-			"rules": {
-				"react-hooks/rules-of-hooks": "error",
-				"react-hooks/exhaustive-deps": "warn"
-			},
-			"plugins": ["react"]
 		}
 	]
 }
