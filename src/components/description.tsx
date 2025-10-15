@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Highlighter } from "@/components/ui/highlighter";
 import {
 	Tabs,
-	TabsContent,
-	TabsContentList,
 	TabsList,
-	TabsTrigger,
+	TabsPanel,
+	TabsPanelList,
+	TabsTab,
 } from "@/components/ui/tabs";
 import { cn } from "@/utils/utils";
 
@@ -22,11 +22,11 @@ function Description() {
 	return (
 		<Tabs value={tab} onValueChange={setTab}>
 			<TabsList className="gap-x-1">
-				<TabsTrigger value={ABOUT}>About</TabsTrigger>
-				<TabsTrigger value={RECRUITER}>For Recruiters</TabsTrigger>
+				<TabsTab value={ABOUT}>About</TabsTab>
+				<TabsTab value={RECRUITER}>For Recruiters</TabsTab>
 			</TabsList>
-			<TabsContentList className="overflow-x-visible px-1 py-3">
-				<TabsContent value={ABOUT}>
+			<TabsPanelList className="px-1 py-3">
+				<TabsPanel value={ABOUT}>
 					<div className="flex flex-col gap-y-3 text-pretty">
 						<p>
 							A design-minded engineer focused on building intuitive and
@@ -47,8 +47,8 @@ function Description() {
 							and love exploring the city for new cafes and restaurants.
 						</p>
 					</div>
-				</TabsContent>
-				<TabsContent value={RECRUITER}>
+				</TabsPanel>
+				<TabsPanel value={RECRUITER}>
 					<div className="flex flex-col gap-y-3 text-pretty">
 						<p>
 							I am currently open to new employment opportunities and
@@ -81,8 +81,8 @@ function Description() {
 							<CVButton />
 						</Highlighter>
 					</div>
-				</TabsContent>
-			</TabsContentList>
+				</TabsPanel>
+			</TabsPanelList>
 		</Tabs>
 	);
 }
