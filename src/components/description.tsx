@@ -1,15 +1,10 @@
+import { motion } from "motion/react";
 import { useState } from "react";
 
 import { FileDownload } from "@/components/icons/file-download";
 import { Button } from "@/components/ui/button";
 import { Highlighter } from "@/components/ui/highlighter";
-import {
-	Tabs,
-	TabsList,
-	TabsPanel,
-	TabsPanelList,
-	TabsTab,
-} from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/tabs";
 import { cn } from "@/utils/utils";
 
 type TabValues = "about" | "recruiter";
@@ -17,6 +12,8 @@ const ABOUT: TabValues = "about";
 const RECRUITER: TabValues = "recruiter";
 
 function Description() {
+	"use no memo";
+
 	const [tab, setTab] = useState<TabValues>(ABOUT);
 
 	return (
@@ -25,9 +22,15 @@ function Description() {
 				<TabsTab value={ABOUT}>About</TabsTab>
 				<TabsTab value={RECRUITER}>For Recruiters</TabsTab>
 			</TabsList>
-			<TabsPanelList className="px-1 py-3">
-				<TabsPanel value={ABOUT}>
-					<div className="flex flex-col gap-y-3 text-pretty">
+			<motion.div layout="size" className="overflow-clip">
+				<TabsPanel value={ABOUT} className="px-1 py-3">
+					<motion.div
+						layout
+						initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
+						animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
+						transition={{ duration: 0.3, ease: "easeOut" }}
+						className="flex flex-col gap-y-3 text-pretty"
+					>
 						<p>
 							A design-minded engineer focused on building intuitive and
 							user-friendly web experiences across the stack to improve how
@@ -46,10 +49,16 @@ function Description() {
 							</span>{" "}
 							and love exploring the city for new cafes and restaurants.
 						</p>
-					</div>
+					</motion.div>
 				</TabsPanel>
-				<TabsPanel value={RECRUITER}>
-					<div className="flex flex-col gap-y-3 text-pretty">
+				<TabsPanel value={RECRUITER} className="px-1 py-3">
+					<motion.div
+						layout
+						initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
+						animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
+						transition={{ duration: 0.3, ease: "easeOut" }}
+						className="flex flex-col gap-y-3 text-pretty"
+					>
 						<p>
 							I am currently open to new employment opportunities and
 							collaborations.
@@ -80,9 +89,9 @@ function Description() {
 							<span>{"->"}</span>
 							<CVButton />
 						</Highlighter>
-					</div>
+					</motion.div>
 				</TabsPanel>
-			</TabsPanelList>
+			</motion.div>
 		</Tabs>
 	);
 }

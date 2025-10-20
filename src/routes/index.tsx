@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { LayoutGroup, motion } from "motion/react";
+import { LayoutGroup, motion, MotionConfig } from "motion/react";
 
 import { Description } from "@/components/description";
 import { Experience } from "@/components/experience";
@@ -16,16 +16,20 @@ function Home() {
 	return (
 		<main className="flex flex-col gap-y-8">
 			<LayoutGroup>
-				<Hero />
+				<MotionConfig
+					transition={{ layout: { duration: 0.3, ease: "easeOut" } }}
+				>
+					<Hero />
 
-				<Description />
+					<Description />
 
-				<motion.div layout className="flex flex-col gap-y-8">
-					<Socials />
-					<Experience />
-					<Separator className="-mx-1 my-1" />
-					<Works />
-				</motion.div>
+					<motion.div layout="position" className="flex flex-col gap-y-8">
+						<Socials />
+						<Experience />
+						<Separator className="-mx-1 my-1" />
+						<Works />
+					</motion.div>
+				</MotionConfig>
 			</LayoutGroup>
 		</main>
 	);

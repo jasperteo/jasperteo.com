@@ -1,30 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { WorksPage } from "@/components/works-page";
+
+const TITLE = "Liquid Glass";
+const DESCRIPTION = "Recreate the liquid glass effect using CSS";
+
 export const Route = createFileRoute("/works/liquid-glass")({
 	head: () => ({
-		meta: [
-			{ title: "Liquid Glass" },
-			{
-				name: "description",
-				content: "Recreate the liquid glass effect using CSS",
-			},
-		],
+		meta: [{ title: TITLE }, { name: "description", content: DESCRIPTION }],
 	}),
 
-	component: LiquidGlassPage,
+	component: Page,
 });
 
-function LiquidGlassPage() {
+function Page() {
 	return (
-		<main className="flex flex-col gap-y-8">
-			<div className="flex w-fit flex-col gap-y-2">
-				<h1 className="text-xl font-semibold">Liquid Glass</h1>
-				<h2 className="text-muted-foreground font-medium">
-					Recreate the liquid glass effect using CSS
-				</h2>
-			</div>
-
-			<p className="font-mono tracking-wider">COMING SOON</p>
-		</main>
+		<WorksPage title={TITLE} description={DESCRIPTION}>
+			<p className="font-mono">COMING SOON</p>
+		</WorksPage>
 	);
 }

@@ -1,4 +1,5 @@
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
+import { TanStackDevtools } from "@tanstack/react-devtools";
+import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 type DevtoolsProps = { enabled?: boolean };
 
@@ -8,7 +9,16 @@ function Devtools({ enabled = false }: DevtoolsProps) {
 		return null;
 	}
 
-	return <TanStackRouterDevtools />;
+	return (
+		<TanStackDevtools
+			plugins={[
+				{
+					name: "TanStack Router",
+					render: <TanStackRouterDevtoolsPanel />,
+				},
+			]}
+		/>
+	);
 }
 
 export { Devtools };
