@@ -56,7 +56,7 @@ function TabsList({
 function TabsTab({ className, ...props }: TabsPrimitive.Tab.Props) {
 	return (
 		<TabsPrimitive.Tab
-			data-slot="tabs-trigger"
+			data-slot="tabs-tab"
 			className={cn(
 				"focus-visible:ring-ring flex flex-1 shrink-0 items-center justify-center rounded-md border border-transparent text-sm font-medium whitespace-nowrap transition-[color,background-color,box-shadow] outline-none focus-visible:ring-2 data-disabled:pointer-events-none data-disabled:opacity-64 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 				"hover:text-muted-foreground data-selected:text-foreground",
