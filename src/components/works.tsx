@@ -19,7 +19,7 @@ const WORKS_ARRAY: CardShellProps[] = [
 		description: (
 			<p className="flex flex-col gap-y-1">
 				<span>Recreate the effect with CSS</span>
-				<span className="font-mono tracking-wider">COMING SOON</span>
+				<span className="font-mono">COMING SOON</span>
 			</p>
 		),
 		linkProps: linkOptions({ to: "/works/liquid-glass", disabled: true }),
@@ -65,7 +65,7 @@ function CardShell({
 }: CardShellProps) {
 	return (
 		<Link {...linkProps}>
-			<Card className="hover:border-input size-full rounded-3xl px-0 py-4 transition duration-200 hover:shadow-xl active:scale-[0.99]">
+			<Card className="hover:border-input size-full px-0 py-4 transition-colors duration-200 active:scale-[0.99]">
 				<CardPanel className="px-4 py-0">
 					<div className="border-muted size-full overflow-clip rounded-[1.125rem] border">
 						<img
