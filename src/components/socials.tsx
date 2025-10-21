@@ -44,10 +44,7 @@ function Socials() {
 				<div className="flex flex-wrap items-center-safe gap-x-1">
 					{SOCIALS_ARRAY.map(({ icon, label, href }) => (
 						<Fragment key={label}>
-							<Separator
-								orientation="vertical"
-								className="first:hidden data-[orientation=vertical]:h-6"
-							/>
+							<Separator orientation="vertical" className="h-6 first:hidden" />
 							<Button
 								variant="link"
 								size="default"
