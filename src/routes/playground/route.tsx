@@ -9,22 +9,22 @@ import {
 import { ChevronLeft } from "@/components/icons/chevron-left";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/works")({
+export const Route = createFileRoute("/playground")({
 	loader: ({ location }) => {
 		if (disallowedRoutes.has(location.pathname)) {
 			notFound({ throw: true });
 		}
 	},
 
-	component: WorksLayout,
+	component: PlaygroundLayout,
 });
 
 const disallowedRoutes = new Set<string>([
-	linkOptions({ to: "/works" }).to,
-	linkOptions({ to: "/works/liquid-glass" }).to,
+	linkOptions({ to: "/playground" }).to,
+	linkOptions({ to: "/playground/liquid-glass" }).to,
 ]);
 
-function WorksLayout() {
+function PlaygroundLayout() {
 	return (
 		<div className="flex flex-col gap-y-20">
 			<header className="flex w-full justify-between">

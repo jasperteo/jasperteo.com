@@ -4,9 +4,9 @@ import { LayoutGroup, motion, MotionConfig } from "motion/react";
 import { Description } from "@/components/description";
 import { Experience } from "@/components/experience";
 import { Hero } from "@/components/hero";
+import { Playground } from "@/components/playground";
 import { Socials } from "@/components/socials";
 import { Separator } from "@/components/ui/separator";
-import { Works } from "@/components/works";
 
 export const Route = createFileRoute("/")({
 	component: Home,
@@ -27,7 +27,7 @@ function Home() {
 						<Socials />
 						<Experience />
 						<Separator className="-mx-1 my-1" />
-						<Works />
+						<Playground />
 					</motion.div>
 				</MotionConfig>
 			</LayoutGroup>
