@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import LiquidGlass from "@/images/liquid-glass.webp";
 
-const WORKS_ARRAY: CardShellProps[] = [
+const PLAYGROUND_ARRAY: CardShellProps[] = [
 	{
 		imageSrc: LiquidGlass,
 		imageAlt: "Liquid Glass",
@@ -22,16 +22,16 @@ const WORKS_ARRAY: CardShellProps[] = [
 				<span className="font-mono">COMING SOON</span>
 			</p>
 		),
-		linkProps: linkOptions({ to: "/works/liquid-glass", disabled: true }),
+		linkProps: linkOptions({ to: "/playground/liquid-glass", disabled: true }),
 	},
 ];
 
-function Works() {
+function Playground() {
 	return (
 		<div className="flex flex-col items-center-safe gap-y-8 px-4 sm:px-0">
-			<h2 className="text-2xl font-bold">Works</h2>
+			<h2 className="text-2xl font-bold">Playground</h2>
 			<article className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-				{WORKS_ARRAY.map(
+				{PLAYGROUND_ARRAY.map(
 					({ imageSrc, imageAlt, title, description, linkProps }) => (
 						<CardShell
 							key={title}
@@ -84,4 +84,4 @@ function CardShell({
 	);
 }
 
-export { Works };
+export { Playground };

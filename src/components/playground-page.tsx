@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 
-type WorksPageProps = {
+type PlaygroundPageProps = {
 	title: string;
 	description: string;
 	children: ReactNode;
 };
 
-function WorksPage({ title, description, children }: WorksPageProps) {
+function PlaygroundPage({ title, description, children }: PlaygroundPageProps) {
 	return (
 		<main className="flex flex-col gap-y-8">
 			<div className="flex w-fit flex-col gap-y-2">
@@ -19,4 +19,4 @@ function WorksPage({ title, description, children }: WorksPageProps) {
 	);
 }
 
-export { WorksPage };
+export { PlaygroundPage };

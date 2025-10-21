@@ -9,13 +9,13 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WorksRouteRouteImport } from './routes/works/route'
+import { Route as PlaygroundRouteRouteImport } from './routes/playground/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as WorksLiquidGlassRouteImport } from './routes/works/liquid-glass'
+import { Route as PlaygroundLiquidGlassRouteImport } from './routes/playground/liquid-glass'
 
-const WorksRouteRoute = WorksRouteRouteImport.update({
-  id: '/works',
-  path: '/works',
+const PlaygroundRouteRoute = PlaygroundRouteRouteImport.update({
+  id: '/playground',
+  path: '/playground',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -23,48 +23,48 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WorksLiquidGlassRoute = WorksLiquidGlassRouteImport.update({
+const PlaygroundLiquidGlassRoute = PlaygroundLiquidGlassRouteImport.update({
   id: '/liquid-glass',
   path: '/liquid-glass',
-  getParentRoute: () => WorksRouteRoute,
+  getParentRoute: () => PlaygroundRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/works': typeof WorksRouteRouteWithChildren
-  '/works/liquid-glass': typeof WorksLiquidGlassRoute
+  '/playground': typeof PlaygroundRouteRouteWithChildren
+  '/playground/liquid-glass': typeof PlaygroundLiquidGlassRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/works': typeof WorksRouteRouteWithChildren
-  '/works/liquid-glass': typeof WorksLiquidGlassRoute
+  '/playground': typeof PlaygroundRouteRouteWithChildren
+  '/playground/liquid-glass': typeof PlaygroundLiquidGlassRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/works': typeof WorksRouteRouteWithChildren
-  '/works/liquid-glass': typeof WorksLiquidGlassRoute
+  '/playground': typeof PlaygroundRouteRouteWithChildren
+  '/playground/liquid-glass': typeof PlaygroundLiquidGlassRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/works' | '/works/liquid-glass'
+  fullPaths: '/' | '/playground' | '/playground/liquid-glass'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/works' | '/works/liquid-glass'
-  id: '__root__' | '/' | '/works' | '/works/liquid-glass'
+  to: '/' | '/playground' | '/playground/liquid-glass'
+  id: '__root__' | '/' | '/playground' | '/playground/liquid-glass'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  WorksRouteRoute: typeof WorksRouteRouteWithChildren
+  PlaygroundRouteRoute: typeof PlaygroundRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/works': {
-      id: '/works'
-      path: '/works'
-      fullPath: '/works'
-      preLoaderRoute: typeof WorksRouteRouteImport
+    '/playground': {
+      id: '/playground'
+      path: '/playground'
+      fullPath: '/playground'
+      preLoaderRoute: typeof PlaygroundRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -74,31 +74,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/works/liquid-glass': {
-      id: '/works/liquid-glass'
+    '/playground/liquid-glass': {
+      id: '/playground/liquid-glass'
       path: '/liquid-glass'
-      fullPath: '/works/liquid-glass'
-      preLoaderRoute: typeof WorksLiquidGlassRouteImport
-      parentRoute: typeof WorksRouteRoute
+      fullPath: '/playground/liquid-glass'
+      preLoaderRoute: typeof PlaygroundLiquidGlassRouteImport
+      parentRoute: typeof PlaygroundRouteRoute
     }
   }
 }
 
-interface WorksRouteRouteChildren {
-  WorksLiquidGlassRoute: typeof WorksLiquidGlassRoute
+interface PlaygroundRouteRouteChildren {
+  PlaygroundLiquidGlassRoute: typeof PlaygroundLiquidGlassRoute
 }
 
-const WorksRouteRouteChildren: WorksRouteRouteChildren = {
-  WorksLiquidGlassRoute: WorksLiquidGlassRoute,
+const PlaygroundRouteRouteChildren: PlaygroundRouteRouteChildren = {
+  PlaygroundLiquidGlassRoute: PlaygroundLiquidGlassRoute,
 }
 
-const WorksRouteRouteWithChildren = WorksRouteRoute._addFileChildren(
-  WorksRouteRouteChildren,
+const PlaygroundRouteRouteWithChildren = PlaygroundRouteRoute._addFileChildren(
+  PlaygroundRouteRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  WorksRouteRoute: WorksRouteRouteWithChildren,
+  PlaygroundRouteRoute: PlaygroundRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
