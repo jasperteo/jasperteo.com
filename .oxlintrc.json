@@ -6,11 +6,7 @@
 	},
 	"env": {
 		"builtin": true,
-		"browser": true,
-		"commonjs": true,
-		"es2026": true,
-		"node": true,
-		"shared-node-browser": true
+		"es2026": true
 	},
 	"rules": {
 		"for-direction": "error",
