@@ -18,7 +18,7 @@ function Description() {
 
 	return (
 		<Tabs value={tab} onValueChange={setTab}>
-			<TabsList className="gap-x-1">
+			<TabsList>
 				<TabsTab value={ABOUT}>About</TabsTab>
 				<TabsTab value={RECRUITER}>For Recruiters</TabsTab>
 			</TabsList>
@@ -28,7 +28,6 @@ function Description() {
 						layout
 						initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
 						animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
-						transition={{ duration: 0.3, ease: "easeOut" }}
 						className="flex flex-col gap-y-3 text-pretty"
 					>
 						<p>
@@ -56,7 +55,6 @@ function Description() {
 						layout
 						initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
 						animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
-						transition={{ duration: 0.3, ease: "easeOut" }}
 						className="flex flex-col gap-y-3 text-pretty"
 					>
 						<p>
@@ -82,7 +80,7 @@ function Description() {
 							action="box"
 							color="var(--primary)"
 							className="text-card-foreground flex w-fit items-center-safe gap-x-2 font-semibold"
-							delay={325}
+							delay={300}
 							strokeWidth={2}
 						>
 							<span>My Resume</span>
@@ -102,10 +100,10 @@ function CVButton() {
 	return (
 		<Button
 			variant="link"
-			size="lg"
+			size="xl"
 			className={cn(
-				"text-muted-foreground group/cv hover:text-card-foreground relative text-base font-semibold hover:no-underline has-[>svg]:px-2",
-				"after:border-b-primary-hover after:absolute after:bottom-[8.5px] after:left-2 after:w-0 after:border-b-[1px] after:border-dashed after:bg-transparent after:transition-[width] after:duration-300 hover:after:w-[calc(100%-1rem)]"
+				"text-muted-foreground group/cv hover:text-card-foreground px-2 font-semibold hover:no-underline",
+				"after:border-b-primary-hover after:absolute after:bottom-2 after:left-2 after:w-0 after:border-b after:border-dashed after:bg-transparent after:transition-[width] after:duration-300 hover:after:w-[calc(100%-1rem)]"
 			)}
 			render={<a href={CV} target="_blank" rel="noopener noreferrer" />}
 		>
