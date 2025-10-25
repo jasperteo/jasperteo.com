@@ -16,9 +16,7 @@ function Home() {
 	return (
 		<main className="flex flex-col gap-y-8">
 			<LayoutGroup>
-				<MotionConfig
-					transition={{ layout: { duration: 0.3, ease: "easeOut" } }}
-				>
+				<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
 					<Hero />
 
 					<Description />

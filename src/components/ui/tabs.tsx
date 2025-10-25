@@ -33,7 +33,7 @@ function TabsList({
 				"data-[orientation=vertical]:flex-col",
 				variant === "default"
 					? "bg-muted text-muted-foreground/64 rounded-full p-1"
-					: "*:data-[slot=tabs-trigger]:hover:bg-accent data-[orientation=horizontal]:py-1 data-[orientation=vertical]:px-1",
+					: "*:data-[slot=tabs-tab]:hover:bg-accent data-[orientation=horizontal]:py-1 data-[orientation=vertical]:px-1",
 				className
 			)}
 			{...props}
@@ -58,7 +58,7 @@ function TabsTab({ className, ...props }: TabsPrimitive.Tab.Props) {
 		<TabsPrimitive.Tab
 			data-slot="tabs-tab"
 			className={cn(
-				"focus-visible:ring-ring flex flex-1 shrink-0 items-center justify-center rounded-md border border-transparent text-sm font-medium whitespace-nowrap transition-[color,background-color,box-shadow] outline-none focus-visible:ring-2 data-disabled:pointer-events-none data-disabled:opacity-64 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+				"focus-visible:ring-ring flex flex-1 shrink-0 items-center justify-center rounded-full border border-transparent text-sm font-medium whitespace-nowrap transition-[color,background-color,box-shadow] outline-none focus-visible:ring-2 data-disabled:pointer-events-none data-disabled:opacity-64 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 				"hover:text-muted-foreground data-selected:text-foreground",
 				"gap-1.5 px-2 py-1",
 				"data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start",

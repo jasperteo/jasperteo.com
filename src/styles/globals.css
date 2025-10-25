@@ -60,6 +60,7 @@
 	--color-destructive: var(--destructive);
 	--color-destructive-hover: var(--destructive-hover);
 	--color-destructive-foreground: var(--destructive-foreground);
+	--color-destructive-white: var(--destructive-white);
 
 	--color-chart-1: var(--chart-1);
 	--color-chart-2: var(--chart-2);
@@ -122,7 +123,8 @@
 
 	--destructive: oklch(0.6256 0.2524 23.03); /* Red 700 */
 	--destructive-hover: oklch(0.5819 0.2482 25.15); /* Red 800 */
-	--destructive-foreground: oklch(0.9494 0.0026 286.35); /* Mauve 12 (dark) */
+	--destructive-foreground: oklch(0.5499 0.232 25.29); /* Red 900 */
+	--destructive-white: oklch(0.9494 0.0026 286.35); /* Mauve 12 (dark) */
 
 	--sidebar: oklch(0.985 0 0);
 	--sidebar-foreground: oklch(0.145 0 0);

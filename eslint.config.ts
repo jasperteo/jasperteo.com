@@ -5,12 +5,12 @@ import eslint from "@eslint/js";
 import eslintReact from "@eslint-react/eslint-plugin";
 import pluginRouter from "@tanstack/eslint-plugin-router";
 import { defineConfig, globalIgnores } from "eslint/config";
+// @ts-expect-error: Missing TypeScript declaration file in oxlint 1.24.0
 import oxlint from "eslint-plugin-oxlint";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
-import globals from "globals";
 import tseslint from "typescript-eslint";
 
 const gitignorePath = path.join(import.meta.dirname, ".gitignore");
@@ -22,8 +22,7 @@ const eslintConfig = defineConfig(
 		tseslint.configs.stylisticTypeChecked,
 		eslintPluginUnicorn.configs.recommended,
 		reactRefresh.configs.vite,
-		// oxlint-disable-next-line no-non-null-assertion
-		reactHooks.configs.flat.recommended!,
+		reactHooks.configs.flat.recommended,
 		eslintReact.configs["recommended-type-checked"],
 		pluginRouter.configs["flat/recommended"],
 		{
@@ -33,6 +32,7 @@ const eslintConfig = defineConfig(
 				"simple-import-sort/exports": "warn",
 			},
 		},
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 		oxlint.buildFromOxlintConfigFile("./.oxlintrc.json"),
 		globalIgnores(["**/routeTree.gen.ts"]),
 		includeIgnoreFile(gitignorePath),
@@ -77,7 +77,6 @@ const eslintConfig = defineConfig(
 				projectService: true,
 				tsconfigRootDir: import.meta.dirname,
 			},
-			globals: { ...globals.browser, ...globals.node },
 		},
 	}
 );

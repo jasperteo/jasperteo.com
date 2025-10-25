@@ -1,28 +1,36 @@
 # jasperteo.com
 
-Personal portfolio website built with React and deployed on Cloudflare.
+Personal website
 
-[![Built with Cloudflare](https://workers.cloudflare.com/built-with-cloudflare.svg)](https://cloudflare.com)
+[![Built with Cloudflare](https://workers.cloudflare.com/built-with-cloudflare.svg)](https://workers.cloudflare.com/)
 
-> **Live Site**  [jasperteo.com](https://jasperteo.com)
+> **Live Site:** [jasperteo.com](https://jasperteo.com)
 
-## 🎬 Getting Started
+## Development
 
-### Prerequisites
-- **Node.js**: v24+ (enforced via `engines` field)
-- **pnpm**: v10.17+ (required package manager)
-
-### Available Scripts
 ```bash
-# Development
-pnpm dev          # Start dev server with Vite
-pnpm check        # TypeScript type checking (fast with tsgo)
-pnpm lint         # Run oxlint + ESLint
-pnpm format       # Format code with Prettier
-
-# Production
-pnpm build        # Full production build (includes type check + lint)
-pnpm preview      # Preview build
+bun install                 # Install dependencies
+bun run dev                 # Start development server with hot reload
+bun run build               # Build for production (runs type check + linting first)
+bun run preview             # Preview production build locally
+bun run check               # Run TypeScript type checking without emitting files
+bun run lint                # Lint code with oxlint (type-aware) and ESLint
+bun run format              # Format code with Prettier
+bun run migrate-oxlint      # Migrate ESLint config to oxlint
 ```
+
+## Project Structure
+
+```text
+src/
+├── routes/         # File-based routing
+├── components/     # Reusable UI components
+│   ├── ui/         # Base UI components
+│   └── icons/      # Icon components
+├── styles/         # Global styles and fonts
+└── utils/          # Utility functions
+```
+
 ---
+
 **Built with ❤️ by Jasper** 

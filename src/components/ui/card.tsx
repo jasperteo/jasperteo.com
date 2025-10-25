@@ -66,11 +66,7 @@ function CardAction({ className, ...props }: ComponentProps<"div">) {
 
 function CardPanel({ className, ...props }: ComponentProps<"div">) {
 	return (
-		<div
-			data-slot="card-content"
-			className={cn("px-6", className)}
-			{...props}
-		/>
+		<div data-slot="card-panel" className={cn("px-6", className)} {...props} />
 	);
 }
 

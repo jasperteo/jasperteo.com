@@ -1,6 +1,6 @@
 import { useInView } from "motion/react";
 import type { ComponentProps } from "react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { annotate } from "rough-notation";
 
 import { cn } from "@/utils/utils";
@@ -39,58 +39,40 @@ function Highlighter({
 	delay = 0,
 	className,
 }: HighlighterProps) {
-	const elementRef = useRef<HTMLDivElement | null>(null);
-	const isInView = useInView(elementRef, {
-		once: true,
-		margin: "-10%",
-	});
+	const viewRef = useRef<HTMLDivElement | null>(null);
+	const isInView = useInView(viewRef, { once: true });
 
 	// If isView is false, always show. If isView is true, wait for inView
 	const shouldShow = !isView || isInView;
 
-	useEffect(() => {
-		if (!shouldShow) {
-			return;
-		}
-
-		const element = elementRef.current;
-		if (!element) {
-			return;
-		}
-
-		const timeoutId = setTimeout(() => {
-			const annotation = annotate(element, {
-				type: action,
-				color,
-				strokeWidth,
-				animationDuration,
-				iterations,
-				padding,
-				multiline,
-			});
-
-			annotation.show();
-		}, delay);
-
-		return () => {
-			clearTimeout(timeoutId);
-			annotate(element, { type: action }).remove();
-		};
-	}, [
-		shouldShow,
-		action,
-		color,
-		strokeWidth,
-		animationDuration,
-		iterations,
-		padding,
-		multiline,
-		delay,
-	]);
-
 	return (
 		<div
-			ref={elementRef}
+			ref={(element) => {
+				viewRef.current = element;
+
+				if (!element || !shouldShow) {
+					return;
+				}
+
+				const timeoutId = setTimeout(() => {
+					const annotation = annotate(element, {
+						type: action,
+						color,
+						strokeWidth,
+						animationDuration,
+						iterations,
+						padding,
+						multiline,
+					});
+
+					annotation.show();
+				}, delay);
+
+				return () => {
+					clearTimeout(timeoutId);
+					annotate(element, { type: action }).remove();
+				};
+			}}
 			className={cn("relative inline-block bg-transparent", className)}
 		>
 			{children}

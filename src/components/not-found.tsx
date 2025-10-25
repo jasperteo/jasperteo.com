@@ -24,12 +24,12 @@ function NotFound() {
 				<p>The page you are looking for does not exist</p>
 
 				<Button
-					variant="outline"
+					variant="secondary"
 					size="lg"
-					className="text-base active:scale-[0.97]"
+					className="active:scale-[0.97]"
 					render={<Link to="/" />}
 				>
-					<House className="size-5 invert" width="1.25rem" height="1.25rem" />
+					<House className="invert" />
 					Go back home
 				</Button>
 			</div>

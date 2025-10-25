@@ -20,34 +20,33 @@ function ErrorPage({ error, reset }: ErrorComponentProps) {
 				<ErrorComponent error={error} />
 			</div>
 
-			<Button
-				variant="outline"
-				size="lg"
-				className="text-base active:scale-[0.97]"
-				type="button"
-				onClick={() => {
-					reset();
-				}}
-			>
-				<Refresh
-					className="animate-spin-delay size-5"
-					fill="var(--primary)"
-					secondaryfill="var(--secondary)"
-					width="1.25rem"
-					height="1.25rem"
-				/>
-				Try again
-			</Button>
-
-			<Button
-				variant="outline"
-				size="lg"
-				className="text-base active:scale-[0.97]"
-				render={<Link to="/" />}
-			>
-				<House className="size-5 invert" width="1.25rem" height="1.25rem" />
-				Go back home
-			</Button>
+			<div className="flex gap-x-4">
+				<Button
+					variant="outline"
+					size="lg"
+					className="active:scale-[0.97]"
+					type="button"
+					onClick={() => {
+						reset();
+					}}
+				>
+					<Refresh
+						className="animate-spin-delay"
+						fill="var(--primary)"
+						secondaryfill="var(--secondary)"
+					/>
+					Try again
+				</Button>
+				<Button
+					variant="secondary"
+					size="lg"
+					className="active:scale-[0.97]"
+					render={<Link to="/" />}
+				>
+					<House className="invert" />
+					Go back home
+				</Button>
+			</div>
 		</div>
 	);
 }
