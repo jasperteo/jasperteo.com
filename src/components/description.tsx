@@ -5,7 +5,6 @@ import { FileDownload } from "@/components/icons/file-download";
 import { Button } from "@/components/ui/button";
 import { Highlighter } from "@/components/ui/highlighter";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/tabs";
-import { cn } from "@/utils/utils";
 
 type TabValues = "about" | "recruiter";
 const ABOUT: TabValues = "about";
@@ -101,17 +100,15 @@ function CVButton() {
 		<Button
 			variant="link"
 			size="xl"
-			className={cn(
-				"text-muted-foreground group/cv hover:text-card-foreground px-2 font-semibold hover:no-underline",
-				"after:border-b-primary-hover after:absolute after:bottom-2 after:left-2 after:w-0 after:border-b after:border-dashed after:bg-transparent after:transition-[width] after:duration-300 hover:after:w-[calc(100%-1rem)]"
-			)}
+			className="text-muted-foreground group/cv hover:text-card-foreground px-2 font-semibold hover:no-underline"
 			render={<a href={CV} target="_blank" rel="noopener noreferrer" />}
 		>
 			<FileDownload
-				className="size-5 group-hover/cv:[--secondary-fill:var(--primary)]"
+				className="group-hover/cv:[--secondary-fill:var(--primary)]"
 				secondaryfill="var(--secondary-fill, currentColor)"
 			/>
 			CV
+			<span className="border-b-primary-hover absolute bottom-2 left-2 w-0 border-b border-dashed bg-transparent transition-[width] duration-300 group-hover/cv:w-[calc(100%-1rem)]" />
 		</Button>
 	);
 }

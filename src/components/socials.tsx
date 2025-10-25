@@ -8,7 +8,6 @@ import { Linkedin } from "@/components/icons/linkedin";
 import { XTwitter } from "@/components/icons/x-twitter";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/utils/utils";
 
 type Social = { icon: ReactNode; label: string; href: string };
 const SOCIALS_ARRAY: Social[] = [
@@ -48,16 +47,14 @@ function Socials() {
 							<Button
 								variant="link"
 								size="sm"
-								className={cn(
-									"text-muted-foreground hover:text-card-foreground px-2 font-semibold hover:no-underline",
-									"after:bg-primary-hover after:absolute after:bottom-[2.5px] after:left-2 after:h-px after:w-0 after:transition-[width] after:duration-300 hover:after:w-[calc(100%-1rem)]"
-								)}
+								className="text-muted-foreground hover:text-card-foreground group/social px-2 font-semibold hover:no-underline"
 								render={
 									<a href={href} target="_blank" rel="noopener noreferrer" />
 								}
 							>
 								{icon}
 								{label}
+								<span className="bg-primary-hover absolute bottom-[2.5px] left-2 h-px w-0 transition-[width] duration-300 group-hover/social:w-[calc(100%-1rem)]" />
 							</Button>
 						</Fragment>
 					))}
@@ -69,10 +66,7 @@ function Socials() {
 				<Button
 					variant="link"
 					size="sm"
-					className={cn(
-						"text-muted-foreground group/email hover:text-card-foreground px-2 font-semibold hover:no-underline",
-						"after:border-b-primary-hover after:absolute after:bottom-[2.5px] after:left-2 after:w-0 after:border-b after:border-dashed after:bg-transparent after:transition-[width] after:duration-300 hover:after:w-[calc(100%-1rem)]"
-					)}
+					className="text-muted-foreground group/email hover:text-card-foreground px-2 font-semibold hover:no-underline"
 					render={<a href={`mailto:${EMAIL}`} />}
 				>
 					<EnvelopeOpenHeart
@@ -80,6 +74,7 @@ function Socials() {
 						secondaryfill="var(--secondary-fill)"
 					/>
 					{EMAIL}
+					<span className="border-b-primary-hover absolute bottom-[2.5px] left-2 w-0 border-b border-dashed bg-transparent transition-[width] duration-300 group-hover/email:w-[calc(100%-1rem)]" />
 				</Button>
 			</div>
 		</section>
