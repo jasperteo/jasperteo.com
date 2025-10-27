@@ -23,11 +23,10 @@ type HighlighterProps = ComponentProps<"div"> & {
 	padding?: number;
 	multiline?: boolean;
 	isView?: boolean;
-	delay?: number;
+	shouldHighlight?: boolean;
 };
 
 function Highlighter({
-	children,
 	action = "highlight",
 	color = "#ffd1dc",
 	strokeWidth = 1.5,
@@ -36,11 +35,12 @@ function Highlighter({
 	padding = 2,
 	multiline = true,
 	isView = false,
-	delay = 0,
+	shouldHighlight = true,
 	className,
+	...props
 }: HighlighterProps) {
 	const viewRef = useRef<HTMLDivElement | null>(null);
-	const isInView = useInView(viewRef, { once: true });
+	const isInView = useInView(viewRef, { amount: "all", once: true });
 
 	// If isView is false, always show. If isView is true, wait for inView
 	const shouldShow = !isView || isInView;
@@ -50,33 +50,29 @@ function Highlighter({
 			ref={(element) => {
 				viewRef.current = element;
 
-				if (!element || !shouldShow) {
+				if (!shouldHighlight || !element || !shouldShow) {
 					return;
 				}
 
-				const timeoutId = setTimeout(() => {
-					const annotation = annotate(element, {
-						type: action,
-						color,
-						strokeWidth,
-						animationDuration,
-						iterations,
-						padding,
-						multiline,
-					});
+				const annotation = annotate(element, {
+					type: action,
+					color,
+					strokeWidth,
+					animationDuration,
+					iterations,
+					padding,
+					multiline,
+				});
 
-					annotation.show();
-				}, delay);
+				annotation.show();
 
 				return () => {
-					clearTimeout(timeoutId);
-					annotate(element, { type: action }).remove();
+					annotation.remove();
 				};
 			}}
 			className={cn("relative inline-block bg-transparent", className)}
-		>
-			{children}
-		</div>
+			{...props}
+		/>
 	);
 }
 
