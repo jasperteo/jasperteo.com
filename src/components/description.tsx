@@ -23,73 +23,84 @@ function Description() {
 			</TabsList>
 			<motion.div layout="size" className="overflow-clip">
 				<TabsPanel value={ABOUT} className="px-1 py-3">
-					<motion.div
-						layout
-						initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
-						animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
-						className="flex flex-col gap-y-3 text-pretty"
-					>
-						<p>
-							A design-minded engineer focused on building intuitive and
-							user-friendly web experiences across the stack to improve how
-							people interact with digital products and make them enjoyable to
-							use.
-						</p>
-						<p>
-							When I am not coding, I enjoy brewing tea and coffee, reading
-							about technology, geopolitics and history, as well as spectating
-							esports.
-						</p>
-						<p>
-							Currently living in{" "}
-							<span className="text-primary-highlight font-medium">
-								🇸🇬 Singapore
-							</span>{" "}
-							and love exploring the city for new cafes and restaurants.
-						</p>
-					</motion.div>
+					<AboutTab />
 				</TabsPanel>
 				<TabsPanel value={RECRUITER} className="px-1 py-3">
-					<motion.div
-						layout
-						initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
-						animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
-						className="flex flex-col gap-y-3 text-pretty"
-					>
-						<p>
-							I am currently open to new employment opportunities and
-							collaborations.
-						</p>
-						<p>
-							As a design-minded engineer, I gravitate towards product-oriented
-							engineering roles. My expertise includes{" "}
-							<span className="text-primary-highlight font-medium">
-								TypeScript, Node.js, React, Next.js, PostgreSQL,
-							</span>{" "}
-							and many other technologies. I am also familiar with newer
-							technologies within the JavaScript ecosystem such as Bun, Astro,
-							and Solid.js.
-						</p>
-						<p>
-							Feel free to reach out to me via email or slide me a DM on social
-							media if you have any questions or opportunities.
-						</p>
-						<Highlighter
-							isView
-							action="box"
-							color="var(--primary)"
-							className="text-card-foreground flex w-fit items-center-safe gap-x-2 font-semibold"
-							delay={300}
-							strokeWidth={2}
-						>
-							<span>My Resume</span>
-							<span>{"->"}</span>
-							<CVButton />
-						</Highlighter>
-					</motion.div>
+					<RecruiterTab />
 				</TabsPanel>
 			</motion.div>
 		</Tabs>
+	);
+}
+
+function AboutTab() {
+	return (
+		<motion.div
+			layout
+			initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
+			animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
+			className="flex flex-col gap-y-3 text-pretty"
+		>
+			<p>
+				A design-minded engineer focused on building intuitive and user-friendly
+				web experiences across the stack to improve how people interact with
+				digital products and make them enjoyable to use.
+			</p>
+			<p>
+				When I am not coding, I enjoy brewing tea and coffee, reading about
+				technology, geopolitics and history, as well as spectating esports.
+			</p>
+			<p>
+				Currently living in{" "}
+				<span className="text-primary-highlight font-medium">🇸🇬 Singapore</span>{" "}
+				and love exploring the city for new cafes and restaurants.
+			</p>
+		</motion.div>
+	);
+}
+
+function RecruiterTab() {
+	const [shouldHighlight, setShouldHighlight] = useState(false);
+
+	return (
+		<motion.div
+			layout
+			initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
+			animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
+			onAnimationComplete={() => {
+				setShouldHighlight(true);
+			}}
+			className="flex flex-col gap-y-3 text-pretty"
+		>
+			<p>
+				I am currently open to new employment opportunities and collaborations.
+			</p>
+			<p>
+				As a design-minded engineer, I gravitate towards product-oriented
+				engineering roles. My expertise includes{" "}
+				<span className="text-primary-highlight font-medium">
+					TypeScript, Node.js, React, Next.js, PostgreSQL,
+				</span>{" "}
+				and many other technologies. I am also familiar with newer technologies
+				within the JavaScript ecosystem such as Bun, Astro, and Solid.js.
+			</p>
+			<p>
+				Feel free to reach out to me via email or slide me a DM on social media
+				if you have any questions or opportunities.
+			</p>
+			<Highlighter
+				isView
+				action="box"
+				strokeWidth={2}
+				color="var(--primary)"
+				shouldHighlight={shouldHighlight}
+				className="text-card-foreground flex w-fit items-center-safe gap-x-2 font-semibold"
+			>
+				<span>My Resume</span>
+				<span>{"->"}</span>
+				<CVButton />
+			</Highlighter>
+		</motion.div>
 	);
 }
 

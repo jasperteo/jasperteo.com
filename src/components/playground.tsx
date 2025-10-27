@@ -65,7 +65,7 @@ function CardShell({
 }: CardShellProps) {
 	return (
 		<Link {...linkProps}>
-			<Card className="hover:border-input px-0 py-4 transition-colors duration-200 active:scale-[0.99]">
+			<Card className="hover:border-input px-0 py-4 transition active:scale-[0.99]">
 				<CardPanel className="px-4 py-0">
 					<div className="border-muted overflow-clip rounded-[1.125rem] border">
 						<img src={imageSrc} alt={imageAlt} className="aspect-4/3" />

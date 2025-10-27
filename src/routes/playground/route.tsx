@@ -31,7 +31,7 @@ function PlaygroundLayout() {
 				<Button
 					variant="outline"
 					size="icon"
-					className="text-muted-foreground rounded-full shadow-sm duration-200"
+					className="text-muted-foreground rounded-full"
 					aria-label="Go Back"
 					render={<Link to="/" />}
 				>

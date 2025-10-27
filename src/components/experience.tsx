@@ -1,17 +1,19 @@
 import { Fragment } from "react";
 
 type Current = { company: string; role: string; isCurrent: true };
-type Past = { company: string; role: string; isCurrent?: false };
+type Past = { company: string; role: string; isCurrent: false };
 type ExperienceType = [Current, ...Past[]] | Past[];
 
 const EXPERIENCES: ExperienceType = [
 	{
 		company: "Mobbin",
 		role: "Product Engineer",
+		isCurrent: false,
 	},
 	{
 		company: "CYS",
 		role: "Software Engineer",
+		isCurrent: false,
 	},
 ];
 
