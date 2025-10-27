@@ -45,15 +45,15 @@ const buttonVariants = cva(
 type ButtonProps = useRender.ComponentProps<"button"> &
 	VariantProps<typeof buttonVariants>;
 
-function Button({ className, variant, size, render, ...props }: ButtonProps) {
-	const typeValue: useRender.ComponentProps<"button">["type"] = render
-		? undefined
-		: "button";
+type DefaultProps = useRender.ElementProps<"button"> & {
+	"data-slot"?: string;
+};
 
-	const defaultProps = {
+function Button({ className, variant, size, render, ...props }: ButtonProps) {
+	const defaultProps: DefaultProps = {
 		"data-slot": "button",
 		className: cn(buttonVariants({ variant, size, className })),
-		type: typeValue,
+		type: render ? undefined : "button",
 	};
 
 	return useRender({
