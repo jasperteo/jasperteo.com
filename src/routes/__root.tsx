@@ -65,7 +65,7 @@ export const Route = createRootRoute({
 	}),
 
 	shellComponent: ({ children }) => (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en">
 			<head>
 				<HeadContent />
 			</head>
