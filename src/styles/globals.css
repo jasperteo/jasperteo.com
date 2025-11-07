@@ -10,6 +10,12 @@
 }
 
 @font-face {
+	font-family: "Mona Sans";
+	src: url("./fonts/mona-sans.woff2") format("woff2");
+	font-weight: 200 900;
+	font-stretch: 75% 125%;
+}
+@font-face {
 	font-family: "Paper Mono";
 	src: url("./fonts/paper-mono.woff2") format("woff2");
 	font-weight: 400;
@@ -20,6 +26,11 @@
 		"Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-sans--font-feature-settings: "liga", "calt";
+
+	--font-mona:
+		"Mona Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-mona--font-feature-settings: "ss03", "ss05", "ss07";
 
 	--font-mono:
 		"Paper Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
