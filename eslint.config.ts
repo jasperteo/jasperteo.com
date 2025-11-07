@@ -5,7 +5,6 @@ import eslint from "@eslint/js";
 import eslintReact from "@eslint-react/eslint-plugin";
 import pluginRouter from "@tanstack/eslint-plugin-router";
 import { defineConfig, globalIgnores } from "eslint/config";
-// @ts-expect-error: Missing TypeScript declaration file in oxlint 1.24.0
 import oxlint from "eslint-plugin-oxlint";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
@@ -32,7 +31,6 @@ const eslintConfig = defineConfig(
 				"simple-import-sort/exports": "warn",
 			},
 		},
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 		oxlint.buildFromOxlintConfigFile("./.oxlintrc.json"),
 		globalIgnores(["**/routeTree.gen.ts"]),
 		includeIgnoreFile(gitignorePath),
@@ -60,6 +58,7 @@ const eslintConfig = defineConfig(
 					},
 				},
 			],
+			"unicorn/text-encoding-identifier-case": ["error", { withDash: true }],
 			"@eslint-react/jsx-shorthand-boolean": "warn",
 			"@eslint-react/jsx-shorthand-fragment": "warn",
 			"@eslint-react/no-children-prop": "warn",
