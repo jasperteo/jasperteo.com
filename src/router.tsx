@@ -10,6 +10,8 @@ export function getRouter() {
 		scrollRestoration: true,
 		notFoundMode: "root",
 
+		defaultPreload: "viewport",
+
 		defaultErrorComponent: ErrorPage,
 		defaultNotFoundComponent: NotFound,
 	});

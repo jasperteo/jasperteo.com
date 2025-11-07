@@ -14,16 +14,24 @@ function Description() {
 	"use no memo";
 
 	const [tab, setTab] = useState<TabValues>(ABOUT);
+	const [hasInteracted, setHasInteracted] = useState(false);
 
 	return (
-		<Tabs value={tab} onValueChange={setTab}>
+		<Tabs
+			defaultValue={ABOUT}
+			value={tab}
+			onValueChange={(value: TabValues) => {
+				setHasInteracted(true);
+				setTab(value);
+			}}
+		>
 			<TabsList>
 				<TabsTab value={ABOUT}>About</TabsTab>
 				<TabsTab value={RECRUITER}>For Recruiters</TabsTab>
 			</TabsList>
 			<motion.div layout="size" className="overflow-clip">
 				<TabsPanel value={ABOUT} className="px-1 py-3">
-					<AboutTab />
+					<AboutTab hasInteracted={hasInteracted} />
 				</TabsPanel>
 				<TabsPanel value={RECRUITER} className="px-1 py-3">
 					<RecruiterTab />
@@ -33,13 +41,13 @@ function Description() {
 	);
 }
 
-function AboutTab() {
+function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
 	return (
 		<motion.div
 			layout
-			initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
+			initial={hasInteracted && { opacity: 0, filter: "blur(var(--blur-xs))" }}
 			animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
-			className="flex flex-col gap-y-3 text-pretty"
+			className="font-mona flex flex-col gap-y-3 text-sm text-pretty sm:text-base"
 		>
 			<p>
 				A design-minded engineer focused on building intuitive and user-friendly
@@ -52,7 +60,7 @@ function AboutTab() {
 			</p>
 			<p>
 				Currently living in{" "}
-				<span className="text-primary-highlight font-medium">🇸🇬 Singapore</span>{" "}
+				<span className="text-primary-highlight font-[450]">🇸🇬 Singapore</span>{" "}
 				and love exploring the city for new cafes and restaurants.
 			</p>
 		</motion.div>
@@ -70,7 +78,7 @@ function RecruiterTab() {
 			onAnimationComplete={() => {
 				setShouldHighlight(true);
 			}}
-			className="flex flex-col gap-y-3 text-pretty"
+			className="font-mona flex flex-col gap-y-3 text-sm text-pretty sm:text-base"
 		>
 			<p>
 				I am currently open to new employment opportunities and collaborations.
@@ -78,7 +86,7 @@ function RecruiterTab() {
 			<p>
 				As a design-minded engineer, I gravitate towards product-oriented
 				engineering roles. My expertise includes{" "}
-				<span className="text-primary-highlight font-medium">
+				<span className="text-primary-highlight font-[450]">
 					TypeScript, Node.js, React, Next.js, PostgreSQL,
 				</span>{" "}
 				and many other technologies. I am also familiar with newer technologies
@@ -94,7 +102,7 @@ function RecruiterTab() {
 				strokeWidth={2}
 				color="var(--primary)"
 				shouldHighlight={shouldHighlight}
-				className="text-card-foreground flex w-fit items-center-safe gap-x-2 font-semibold"
+				className="text-card-foreground flex w-fit items-center-safe gap-x-2 font-sans font-semibold"
 			>
 				<span>My Resume</span>
 				<span>{"->"}</span>

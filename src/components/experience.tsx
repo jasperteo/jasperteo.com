@@ -1,3 +1,4 @@
+import type { ComponentProps } from "react";
 import { Fragment } from "react";
 
 type Current = { company: string; role: string; isCurrent: true };
@@ -17,9 +18,9 @@ const EXPERIENCES: ExperienceType = [
 	},
 ];
 
-function Experience() {
+function Experience({ ref }: Pick<ComponentProps<"div">, "ref">) {
 	return (
-		<div className="flex flex-col gap-y-2">
+		<div ref={ref} className="flex flex-col gap-y-2">
 			<h2 className="text-lg font-semibold">Experience</h2>
 			<div className="grid max-w-md grid-cols-12 gap-y-1">
 				{EXPERIENCES.map(({ company, role }) => (

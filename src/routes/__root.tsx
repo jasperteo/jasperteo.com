@@ -16,7 +16,7 @@ export const Route = createRootRoute({
 	head: () => ({
 		meta: [
 			/* Standard Meta Tags */
-			{ charSet: "utf-8" }, // oxlint-disable-line text-encoding-identifier-case
+			{ charSet: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1.0" },
 			/* Primary Meta Tags */
 			{ title: NAME },

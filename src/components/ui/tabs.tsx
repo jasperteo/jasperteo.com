@@ -38,8 +38,8 @@ function TabsList({
 			)}
 			{...props}
 		>
-			{children}
 			<TabsPrimitive.Indicator
+				renderBeforeHydration
 				data-slot="tab-indicator"
 				className={cn(
 					"absolute bottom-0 left-0 h-(--active-tab-height) w-(--active-tab-width) translate-x-(--active-tab-left) -translate-y-(--active-tab-bottom) transition-[width,translate] duration-300 ease-out",
@@ -47,8 +47,8 @@ function TabsList({
 						? "bg-primary z-10 data-[orientation=horizontal]:-bottom-[calc(--spacing(1)+1px)] data-[orientation=horizontal]:h-0.5 data-[orientation=vertical]:-start-[calc(--spacing(1)+1px)] data-[orientation=vertical]:w-0.5"
 						: "bg-background dark:bg-accent -z-1 rounded-full shadow-sm"
 				)}
-				renderBeforeHydration
 			/>
+			{children}
 		</TabsPrimitive.List>
 	);
 }
