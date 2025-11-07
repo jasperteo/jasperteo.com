@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { Fragment } from "react";
 
 import { Bluesky } from "@/components/icons/bluesky";
@@ -35,9 +35,9 @@ const SOCIALS_ARRAY: Social[] = [
 
 const EMAIL = "hey@jasperteo.com";
 
-function Socials() {
+function Socials({ ref }: Pick<ComponentProps<"section">, "ref">) {
 	return (
-		<section className="-mx-2 flex flex-col gap-y-4">
+		<section ref={ref} className="-mx-2 flex flex-col gap-y-4">
 			<div className="flex w-fit flex-col gap-y-0.5">
 				<p className="px-2 font-medium">Find me on</p>
 				<div className="flex flex-wrap items-center-safe gap-x-0.5">

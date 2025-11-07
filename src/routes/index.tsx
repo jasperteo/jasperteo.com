@@ -12,23 +12,24 @@ export const Route = createFileRoute("/")({
 	component: Home,
 });
 
+const MotionSocials = motion.create(Socials);
+const MotionExperience = motion.create(Experience);
+const MotionPlayground = motion.create(Playground);
+const MotionSeparator = motion.create(Separator);
+
 function Home() {
 	return (
-		<main className="flex flex-col gap-y-8">
-			<LayoutGroup>
-				<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
+		<LayoutGroup>
+			<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
+				<main className="flex flex-col gap-y-8">
 					<Hero />
-
 					<Description />
-
-					<motion.div layout="position" className="flex flex-col gap-y-8">
-						<Socials />
-						<Experience />
-						<Separator className="-mx-1 my-1" />
-						<Playground />
-					</motion.div>
-				</MotionConfig>
-			</LayoutGroup>
-		</main>
+					<MotionSocials layout="position" />
+					<MotionExperience layout="position" />
+					<MotionSeparator layout="position" className="-mx-1 my-1" />
+					<MotionPlayground layout="position" />
+				</main>
+			</MotionConfig>
+		</LayoutGroup>
 	);
 }
