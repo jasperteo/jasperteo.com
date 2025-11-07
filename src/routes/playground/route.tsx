@@ -1,43 +1,47 @@
 import {
 	createFileRoute,
-	Link,
 	linkOptions,
 	notFound,
 	Outlet,
+	rootRouteId,
 } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 
 import { ChevronLeft } from "@/components/icons/chevron-left";
 import { Button } from "@/components/ui/button";
 
+const allowedRoutes = new Set<string>(
+	linkOptions([
+		/* Playground Routes */
+		// { to: "/playground/liquid-glass" },
+	]).map(({ to }) => to)
+);
+
 export const Route = createFileRoute("/playground")({
-	loader: ({ location }) => {
-		if (disallowedRoutes.has(location.pathname)) {
-			notFound({ throw: true });
+	loader: ({ location: { pathname } }) => {
+		if (!allowedRoutes.has(pathname)) {
+			notFound({ routeId: rootRouteId, throw: true });
 		}
 	},
 
-	component: PlaygroundLayout,
+	component: Layout,
 });
 
-const disallowedRoutes = new Set<string>([
-	linkOptions({ to: "/playground" }).to,
-	linkOptions({ to: "/playground/liquid-glass" }).to,
-]);
-
-function PlaygroundLayout() {
+function Layout() {
 	return (
 		<div className="flex flex-col gap-y-20">
 			<header className="flex w-full justify-between">
 				<Button
 					variant="outline"
 					size="icon"
-					className="text-muted-foreground rounded-full"
+					className="text-muted-foreground rounded-full active:scale-125"
 					aria-label="Go Back"
 					render={<Link to="/" />}
 				>
 					<ChevronLeft />
 				</Button>
 			</header>
+
 			<Outlet />
 		</div>
 	);
