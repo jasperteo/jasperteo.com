@@ -7,20 +7,9 @@ import { fontless } from "fontless";
 import { defineConfig } from "vite";
 
 const viteConfig = defineConfig({
-	/** Temporary fix for Cloudflare compatibility when prerendering */
-	define: {
-		"globalThis.Cloudflare.compatibilityFlags": { nodejs_compat: true },
-	},
 	plugins: [
 		devtools(),
-		tanstackStart({
-			prerender: {
-				enabled: true,
-				crawlLinks: true,
-				filter: ({ path }) =>
-					path !== "/playground" && path !== "/playground/liquid-glass",
-			},
-		}),
+		tanstackStart(),
 		viteReact({ babel: { plugins: ["babel-plugin-react-compiler"] } }),
 		cloudflare({ viteEnvironment: { name: "ssr" } }),
 		fontless(),

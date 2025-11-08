@@ -16,5 +16,8 @@
 
 	"preview_urls": false,
 
-	"observability": { "enabled": true },
+	"observability": {
+		"logs": { "enabled": true },
+		"traces": { "enabled": true },
+	},
 }
