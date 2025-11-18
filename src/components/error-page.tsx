@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 function ErrorPage({ error, reset }: ErrorComponentProps) {
 	return (
-		<div className="flex flex-col items-center-safe justify-center-safe gap-y-8 py-24">
+		<div className="flex size-full max-w-2xl min-w-xs flex-col items-center-safe gap-y-8 justify-self-center-safe px-6 py-24">
 			<h1 className="text-primary-accent-foreground text-6xl font-bold tracking-widest tabular-nums">
 				500
 			</h1>
@@ -38,7 +38,7 @@ function ErrorPage({ error, reset }: ErrorComponentProps) {
 					Try again
 				</Button>
 				<Button
-					variant="secondary"
+					variant="outline"
 					size="lg"
 					className="active:scale-[0.97]"
 					render={<Link to="/" />}

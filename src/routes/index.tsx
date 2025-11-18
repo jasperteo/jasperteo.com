@@ -21,14 +21,18 @@ function Home() {
 	return (
 		<LayoutGroup>
 			<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
-				<main className="flex flex-col gap-y-8">
-					<Hero />
-					<Description />
-					<MotionSocials layout="position" />
-					<MotionExperience layout="position" />
-					<MotionSeparator layout="position" className="-mx-1 my-1" />
-					<MotionPlayground layout="position" />
-				</main>
+				<div className="grid size-full max-w-2xl min-w-xs gap-y-12 justify-self-center-safe px-6 py-12">
+					<header>
+						<Hero />
+					</header>
+					<main className="flex flex-col gap-y-8">
+						<Description />
+						<MotionSocials layout="position" />
+						<MotionExperience layout="position" />
+						<MotionSeparator layout="position" className="-mx-1 my-1" />
+						<MotionPlayground layout="position" />
+					</main>
+				</div>
 			</MotionConfig>
 		</LayoutGroup>
 	);
