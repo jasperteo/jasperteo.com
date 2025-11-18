@@ -44,7 +44,7 @@ function TabsList({
 				className={cn(
 					"absolute bottom-0 left-0 h-(--active-tab-height) w-(--active-tab-width) translate-x-(--active-tab-left) -translate-y-(--active-tab-bottom) transition-[width,translate] duration-300 ease-out",
 					variant === "underline"
-						? "bg-primary z-10 data-[orientation=horizontal]:-bottom-[calc(--spacing(1)+1px)] data-[orientation=horizontal]:h-0.5 data-[orientation=vertical]:-start-[calc(--spacing(1)+1px)] data-[orientation=vertical]:w-0.5"
+						? "bg-primary z-10 data-[orientation=horizontal]:-bottom-1 data-[orientation=horizontal]:h-0.5 data-[orientation=vertical]:-start-1 data-[orientation=vertical]:w-0.5"
 						: "bg-background dark:bg-accent -z-1 rounded-full shadow-sm"
 				)}
 			/>
@@ -59,7 +59,7 @@ function TabsTab({ className, ...props }: TabsPrimitive.Tab.Props) {
 			data-slot="tabs-tab"
 			className={cn(
 				"focus-visible:ring-ring flex flex-1 shrink-0 items-center justify-center rounded-full border border-transparent text-sm font-medium whitespace-nowrap transition-[color,background-color,box-shadow] outline-none focus-visible:ring-2 data-disabled:pointer-events-none data-disabled:opacity-64 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-				"hover:text-muted-foreground data-selected:text-foreground",
+				"hover:text-muted-foreground data-active:text-foreground",
 				"gap-1.5 px-2 py-1",
 				"data-[orientation=vertical]:w-full data-[orientation=vertical]:justify-start",
 				className
