@@ -35,9 +35,9 @@ const SOCIALS_ARRAY: Social[] = [
 
 const EMAIL = "hey@jasperteo.com";
 
-function Socials({ ref }: Pick<ComponentProps<"section">, "ref">) {
+function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 	return (
-		<section ref={ref} className="-mx-2 flex flex-col gap-y-4">
+		<div ref={ref} className="-mx-2 flex flex-col gap-y-4">
 			<div className="flex w-fit flex-col gap-y-0.5">
 				<p className="px-2 font-medium">Find me on</p>
 				<div className="flex flex-wrap items-center-safe gap-x-0.5">
@@ -77,7 +77,7 @@ function Socials({ ref }: Pick<ComponentProps<"section">, "ref">) {
 					<span className="border-b-primary-hover absolute bottom-[2.5px] left-2 w-0 border-b border-dashed bg-transparent transition-[width] duration-300 group-hover/email:w-[calc(100%-1rem)]" />
 				</Button>
 			</div>
-		</section>
+		</div>
 	);
 }
 

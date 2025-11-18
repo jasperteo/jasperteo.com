@@ -21,7 +21,7 @@ const EXPERIENCES: ExperienceType = [
 function Experience({ ref }: Pick<ComponentProps<"div">, "ref">) {
 	return (
 		<div ref={ref} className="flex flex-col gap-y-2">
-			<h2 className="text-lg font-semibold">Experience</h2>
+			<h3 className="text-lg font-semibold">Experience</h3>
 			<div className="grid max-w-md grid-cols-12 gap-y-1">
 				{EXPERIENCES.map(({ company, role }) => (
 					<Fragment key={`${company}${role}`}>
