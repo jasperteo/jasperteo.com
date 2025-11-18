@@ -5,20 +5,23 @@
 
 @font-face {
 	font-family: "Manrope";
+	font-optical-sizing: auto;
 	src: url("./fonts/manrope.woff2") format("woff2");
 	font-weight: 200 800;
 }
 
 @font-face {
-	font-family: "Mona Sans";
-	src: url("./fonts/mona-sans.woff2") format("woff2");
-	font-weight: 200 900;
-	font-stretch: 75% 125%;
+	font-family: "Geist";
+	font-optical-sizing: auto;
+	src: url("./fonts/geist.woff2") format("woff2");
+	font-weight: 100 900;
 }
+
 @font-face {
-	font-family: "Paper Mono";
-	src: url("./fonts/paper-mono.woff2") format("woff2");
-	font-weight: 400;
+	font-family: "Geist Mono";
+	font-optical-sizing: auto;
+	src: url("./fonts/geist-mono.woff2") format("woff2");
+	font-weight: 100 900;
 }
 
 @theme {
@@ -27,14 +30,15 @@
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-sans--font-feature-settings: "liga", "calt";
 
-	--font-mona:
-		"Mona Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+	--font-geist:
+		"Geist", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	--font-mona--font-feature-settings: "ss03", "ss05", "ss07";
+	--font-geist--font-feature-settings: "ss06", "ss08";
 
 	--font-mono:
-		"Paper Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
 		"Liberation Mono", "Courier New", monospace;
+	--font-mono--font-feature-settings: "ss06", "ss08";
 }
 
 @theme inline {
@@ -186,7 +190,8 @@
 
 	--destructive: oklch(0.6256 0.2234 23.03); /* Red 700 */
 	--destructive-hover: oklch(0.5801 0.227 25.12); /* Red 800 */
-	--destructive-foreground: oklch(0.9494 0.0026 286.35); /* Mauve 12 (dark) */
+	--destructive-foreground: oklch(0.6996 0.2136 22.03); /* Red 900 */
+	--destructive-white: oklch(0.9494 0.0026 286.35); /* Mauve 12 (dark) */
 
 	--sidebar: oklch(0.205 0 0);
 	--sidebar-foreground: oklch(0.985 0 0);
@@ -207,5 +212,43 @@
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
+	}
+}
+
+@layer utilities {
+	@supports (corner-shape: squircle) {
+		.squircle-xs {
+			corner-shape: squircle;
+			border-radius: calc(var(--radius-xs) * 2);
+		}
+		.squircle-sm {
+			corner-shape: squircle;
+			border-radius: calc(var(--radius-sm) * 2);
+		}
+		.squircle-md {
+			corner-shape: squircle;
+			border-radius: calc(var(--radius-md) * 2);
+		}
+		.squircle-lg {
+			corner-shape: squircle;
+			border-radius: calc(var(--radius-lg) * 2);
+		}
+		.squircle-xl {
+			corner-shape: squircle;
+			border-radius: calc(var(--radius-xl) * 2);
+		}
+		.squircle-2xl {
+			corner-shape: squircle;
+			border-radius: calc(var(--radius-2xl) * 2);
+		}
+		.squircle-3xl {
+			corner-shape: squircle;
+			border-radius: calc(var(--radius-3xl) * 2);
+		}
+
+		.squircle-4xl {
+			corner-shape: squircle;
+			border-radius: calc(var(--radius-4xl) * 2);
+		}
 	}
 }

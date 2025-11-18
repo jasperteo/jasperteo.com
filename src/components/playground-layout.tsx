@@ -23,7 +23,7 @@ function PlaygroundLayout({
 
 			<Separator />
 
-			<div className="font-mona flex flex-col gap-y-4 text-pretty">
+			<div className="font-geist flex flex-col gap-y-4 text-pretty">
 				{children}
 			</div>
 		</main>

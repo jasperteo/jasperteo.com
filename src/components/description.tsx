@@ -25,7 +25,7 @@ function Description() {
 				setTab(value);
 			}}
 		>
-			<TabsList>
+			<TabsList variant="default" activateOnFocus>
 				<TabsTab value={ABOUT}>About</TabsTab>
 				<TabsTab value={RECRUITER}>For Recruiters</TabsTab>
 			</TabsList>
@@ -45,9 +45,9 @@ function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
 	return (
 		<motion.div
 			layout
-			initial={hasInteracted && { opacity: 0, filter: "blur(var(--blur-xs))" }}
-			animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
-			className="font-mona flex flex-col gap-y-3 text-sm text-pretty sm:text-base"
+			initial={hasInteracted && { opacity: 0.25, filter: "blur(4px)" }}
+			animate={{ opacity: 1, filter: "blur(0px)" }}
+			className="font-geist flex flex-col gap-y-3 text-sm text-pretty sm:text-base"
 		>
 			<p>
 				A design-minded engineer focused on building intuitive and user-friendly
@@ -60,7 +60,9 @@ function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
 			</p>
 			<p>
 				Currently living in{" "}
-				<span className="text-primary-highlight font-[450]">🇸🇬 Singapore</span>{" "}
+				<strong className="text-primary-highlight font-[450]">
+					🇸🇬 Singapore
+				</strong>{" "}
 				and love exploring the city for new cafes and restaurants.
 			</p>
 		</motion.div>
@@ -73,12 +75,12 @@ function RecruiterTab() {
 	return (
 		<motion.div
 			layout
-			initial={{ opacity: 0, filter: "blur(var(--blur-xs))" }}
-			animate={{ opacity: 1, filter: "blur(var(--blur-none))" }}
+			initial={{ opacity: 0.25, filter: "blur(4px)" }}
+			animate={{ opacity: 1, filter: "blur(0px)" }}
 			onAnimationComplete={() => {
 				setShouldHighlight(true);
 			}}
-			className="font-mona flex flex-col gap-y-3 text-sm text-pretty sm:text-base"
+			className="font-geist flex flex-col gap-y-3 text-sm text-pretty sm:text-base"
 		>
 			<p>
 				I am currently open to new employment opportunities and collaborations.
@@ -86,9 +88,9 @@ function RecruiterTab() {
 			<p>
 				As a design-minded engineer, I gravitate towards product-oriented
 				engineering roles. My expertise includes{" "}
-				<span className="text-primary-highlight font-[450]">
+				<strong className="text-primary-highlight font-[450]">
 					TypeScript, Node.js, React, Next.js, PostgreSQL,
-				</span>{" "}
+				</strong>{" "}
 				and many other technologies. I am also familiar with newer technologies
 				within the JavaScript ecosystem such as Bun, Astro, and Solid.js.
 			</p>
