@@ -25,6 +25,7 @@ function ErrorPage({ error, reset }: ErrorComponentProps) {
 					variant="outline"
 					size="lg"
 					className="active:scale-[0.97]"
+					nativeButton
 					type="button"
 					onClick={() => {
 						reset();
@@ -41,6 +42,7 @@ function ErrorPage({ error, reset }: ErrorComponentProps) {
 					variant="outline"
 					size="lg"
 					className="active:scale-[0.97]"
+					nativeButton={false}
 					render={<Link to="/" />}
 				>
 					<House className="invert" />
