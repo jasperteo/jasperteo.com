@@ -48,6 +48,7 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 								variant="link"
 								size="sm"
 								className="text-muted-foreground hover:text-card-foreground group/social px-2 font-semibold hover:no-underline"
+								nativeButton={false}
 								render={
 									<a href={href} target="_blank" rel="noopener noreferrer" />
 								}
@@ -67,6 +68,7 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 					variant="link"
 					size="sm"
 					className="text-muted-foreground group/email hover:text-card-foreground px-2 font-semibold hover:no-underline"
+					nativeButton={false}
 					render={<a href={`mailto:${EMAIL}`} />}
 				>
 					<EnvelopeOpenHeart

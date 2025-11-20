@@ -36,6 +36,7 @@ function Layout() {
 					size="icon"
 					className="text-muted-foreground rounded-full active:scale-125"
 					aria-label="Go Back"
+					nativeButton={false}
 					render={<Link to="/" />}
 				>
 					<ChevronLeft />

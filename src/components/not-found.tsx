@@ -27,6 +27,7 @@ function NotFound() {
 					variant="outline"
 					size="lg"
 					className="active:scale-[0.97]"
+					nativeButton={false}
 					render={<Link to="/" />}
 				>
 					<House className="invert" />

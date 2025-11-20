@@ -122,6 +122,7 @@ function CVButton() {
 			variant="link"
 			size="xl"
 			className="text-muted-foreground group/cv hover:text-card-foreground px-2 font-semibold hover:no-underline"
+			nativeButton={false}
 			render={<a href={CV} target="_blank" rel="noopener noreferrer" />}
 		>
 			<FileDownload
