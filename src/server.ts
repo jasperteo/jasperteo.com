@@ -1,6 +1,5 @@
-import type { ServerEntry } from "@tanstack/react-start/server-entry";
-import handler from "@tanstack/react-start/server-entry";
+import handler, { createServerEntry } from "@tanstack/react-start/server-entry";
 
-const server: ServerEntry = { fetch: handler.fetch };
+const server = createServerEntry({ fetch: handler.fetch });
 
 export default server;
