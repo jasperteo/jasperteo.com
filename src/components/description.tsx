@@ -47,7 +47,7 @@ function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
 			layout
 			initial={hasInteracted && { opacity: 0.25, filter: "blur(4px)" }}
 			animate={{ opacity: 1, filter: "blur(0px)" }}
-			className="font-geist flex flex-col gap-y-3 text-sm text-pretty sm:text-base"
+			className="font-geist flex flex-col gap-y-3 text-sm sm:text-base"
 		>
 			<p>
 				A design-minded engineer focused on building intuitive and user-friendly
@@ -80,7 +80,7 @@ function RecruiterTab() {
 			onAnimationComplete={() => {
 				setShouldHighlight(true);
 			}}
-			className="font-geist flex flex-col gap-y-3 text-sm text-pretty sm:text-base"
+			className="font-geist flex flex-col gap-y-3 text-sm sm:text-base"
 		>
 			<p>
 				I am currently open to new employment opportunities and collaborations.
