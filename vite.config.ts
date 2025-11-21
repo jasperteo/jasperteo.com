@@ -9,7 +9,12 @@ import { defineConfig } from "vite";
 const viteConfig = defineConfig({
 	plugins: [
 		devtools(),
-		tanstackStart(),
+		tanstackStart({
+			prerender: {
+				enabled: true,
+				failOnError: false,
+			},
+		}),
 		viteReact({ babel: { plugins: ["babel-plugin-react-compiler"] } }),
 		cloudflare({ viteEnvironment: { name: "ssr" } }),
 		fontless(),
