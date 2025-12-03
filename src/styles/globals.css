@@ -40,7 +40,7 @@
 		"Liberation Mono", "Courier New", monospace;
 	--font-mono--font-feature-settings: "ss06", "ss08";
 
-	--squircle-factor: calc(pi / log(4));
+	--squircle-factor: calc(log(5) / log(2));
 }
 
 @theme inline {
@@ -217,40 +217,15 @@
 	}
 }
 
-@layer utilities {
-	@supports (corner-shape: superellipse(var(--squircle-factor))) {
-		.squircle-xs {
-			corner-shape: superellipse(var(--squircle-factor));
-			border-radius: calc(var(--radius-xs) * var(--squircle-factor));
-		}
-		.squircle-sm {
-			corner-shape: superellipse(var(--squircle-factor));
-			border-radius: calc(var(--radius-sm) * var(--squircle-factor));
-		}
-		.squircle-md {
-			corner-shape: superellipse(var(--squircle-factor));
-			border-radius: calc(var(--radius-md) * var(--squircle-factor));
-		}
-		.squircle-lg {
-			corner-shape: superellipse(var(--squircle-factor));
-			border-radius: calc(var(--radius-lg) * var(--squircle-factor));
-		}
-		.squircle-xl {
-			corner-shape: superellipse(var(--squircle-factor));
-			border-radius: calc(var(--radius-xl) * var(--squircle-factor));
-		}
-		.squircle-2xl {
-			corner-shape: superellipse(var(--squircle-factor));
-			border-radius: calc(var(--radius-2xl) * var(--squircle-factor));
-		}
-		.squircle-3xl {
-			corner-shape: superellipse(var(--squircle-factor));
-			border-radius: calc(var(--radius-3xl) * var(--squircle-factor));
-		}
+@utility squircle-* {
+	border-radius: --value(--radius-*);
+	border-radius: --value([*]);
 
-		.squircle-4xl {
-			corner-shape: superellipse(var(--squircle-factor));
-			border-radius: calc(var(--radius-4xl) * var(--squircle-factor));
-		}
+	@supports (corner-shape: superellipse(var(--squircle-factor))) {
+		corner-shape: superellipse(var(--squircle-factor));
+		border-radius: calc(
+			(--value(--radius- *)) * pow(2, (var(--squircle-factor) - 1))
+		);
+		border-radius: calc((--value([ *])) * pow(2, (var(--squircle-factor) - 1)));
 	}
 }

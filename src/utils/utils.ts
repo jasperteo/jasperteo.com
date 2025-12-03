@@ -1,7 +1,15 @@
 import type { ClassValue } from "clsx";
 import { clsx } from "clsx";
 import type { SVGProps } from "react";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+
+const twMerge = extendTailwindMerge({
+	extend: {
+		classGroups: {
+			rounded: [{ squircle: [(value: string) => value !== ""] }],
+		},
+	},
+});
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
