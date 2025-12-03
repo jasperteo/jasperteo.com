@@ -10,8 +10,16 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import LiquidGlass from "@/images/liquid-glass.webp";
+// import Superellipse from "@/images/superellipse.svg";
 
 const PLAYGROUND_ARRAY: CardShellProps[] = [
+	// {
+	// 	imageSrc: Superellipse,
+	// 	imageAlt: "Superellipse",
+	// 	title: "Squircle",
+	// 	description: "New corner shapes with superellipses",
+	// 	linkProps: linkOptions({ to: "/playground/squircle", disabled: true }),
+	// },
 	{
 		imageSrc: LiquidGlass,
 		imageAlt: "Liquid Glass",
@@ -68,14 +76,14 @@ function CardShell({
 }: CardShellProps) {
 	return (
 		<Link {...linkProps}>
-			<Card className="hover:border-input squircle-3xl px-0 py-4 transition active:scale-[0.99]">
+			<Card className="hover:border-input squircle-3xl before:squircle-[calc(var(--radius-3xl)-1px)] size-full px-0 py-4 transition active:scale-[0.99]">
 				<CardPanel className="px-4 py-0">
-					<div className="border-muted overflow-clip rounded-[1.125rem] border">
+					<div className="border-muted grid place-items-center-safe overflow-clip rounded-[1.125rem] border">
 						<img
 							src={imageSrc}
 							alt={imageAlt}
 							draggable={false}
-							className="aspect-4/3 object-cover"
+							className="aspect-4/3 size-full object-contain"
 						/>
 					</div>
 				</CardPanel>

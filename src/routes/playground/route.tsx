@@ -14,6 +14,7 @@ const allowedRoutes = new Set<string>(
 	linkOptions([
 		/* Playground Routes */
 		// { to: "/playground/liquid-glass" },
+		// { to: "/playground/squircle" },
 	]).map(({ to }) => to)
 );
 
