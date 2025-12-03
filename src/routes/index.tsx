@@ -9,7 +9,7 @@ import { Socials } from "@/components/socials";
 import { Separator } from "@/components/ui/separator";
 
 export const Route = createFileRoute("/")({
-	component: Home,
+	component: Page,
 });
 
 const MotionSocials = motion.create(Socials);
@@ -17,7 +17,7 @@ const MotionExperience = motion.create(Experience);
 const MotionPlayground = motion.create(Playground);
 const MotionSeparator = motion.create(Separator);
 
-function Home() {
+function Page() {
 	return (
 		<LayoutGroup>
 			<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
