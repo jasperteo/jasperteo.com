@@ -233,6 +233,7 @@
 		"unicorn/prefer-array-index-of": "error",
 		"unicorn/prefer-array-some": "error",
 		"unicorn/prefer-at": "error",
+		"unicorn/prefer-bigint-literals": "error",
 		"unicorn/prefer-blob-reading-methods": "error",
 		"unicorn/prefer-class-fields": "error",
 		"unicorn/prefer-classlist-toggle": "error",
@@ -307,27 +308,6 @@
 		"**/.tanstack"
 	],
 	"overrides": [
-		{
-			"files": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
-			"rules": {
-				"no-class-assign": "off",
-				"no-const-assign": "off",
-				"no-dupe-class-members": "off",
-				"no-dupe-keys": "off",
-				"no-func-assign": "off",
-				"no-import-assign": "off",
-				"no-new-native-nonconstructor": "off",
-				"no-obj-calls": "off",
-				"no-redeclare": "off",
-				"no-setter-return": "off",
-				"no-this-before-super": "off",
-				"no-unsafe-negation": "off",
-				"no-var": "error",
-				"no-with": "off",
-				"prefer-rest-params": "error",
-				"prefer-spread": "error"
-			}
-		},
 		{
 			"files": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
 			"rules": {
