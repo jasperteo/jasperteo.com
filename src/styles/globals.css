@@ -108,6 +108,8 @@
 }
 
 :root {
+	--radius: 0.625rem;
+
 	--background: oklch(0.9809 0.0086 97.34); /* Gold 2 */
 	--foreground: oklch(0.2434 0.0079 96.31); /* Sand 12 */
 
