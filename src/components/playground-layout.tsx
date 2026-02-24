@@ -1,5 +1,6 @@
-import { Separator } from "@base-ui-components/react";
 import type { ReactNode } from "react";
+
+import { Separator } from "@/components/ui/separator";
 
 type PlaygroundLayoutProps = {
 	title?: string;
