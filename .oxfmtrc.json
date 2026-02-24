@@ -7,5 +7,16 @@
 	"singleQuote": false,
 	"useTabs": true,
 	"bracketSpacing": true,
-	"printWidth": 80
+	"printWidth": 80,
+
+	"sortTailwindcss": { "functions": ["cn", "cva"] },
+
+	"ignorePatterns": [
+		// Ignore all markdown files
+		"*.md",
+		"README",
+		"LICENSE",
+		// Ignore generated files
+		"**/routeTree.gen.ts"
+	]
 }
