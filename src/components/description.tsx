@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useState } from "react";
+import { Activity, useLayoutEffect, useState } from "react";
 
 import { FileDownload } from "@/components/icons/file-download";
 import { Button } from "@/components/ui/button";
@@ -11,8 +11,6 @@ const ABOUT: TabValues = "about";
 const RECRUITER: TabValues = "recruiter";
 
 function Description() {
-	"use no memo";
-
 	const [tab, setTab] = useState<TabValues>(ABOUT);
 	const [hasInteracted, setHasInteracted] = useState(false);
 
@@ -29,17 +27,19 @@ function Description() {
 				<TabsTab value={ABOUT}>About</TabsTab>
 				<TabsTab value={RECRUITER}>For Recruiters</TabsTab>
 			</TabsList>
-			{/* Base UI 1.0 keeps inactive panels in the DOM during a transition
-			    period, causing both panels to briefly coexist and break layout="size".
-			    [[inert]]:hidden collapses the inactive panel immediately when Base UI
-			    sets the inert attribute (on tab switch), before the transition resolves. */}
+
 			<motion.div layout="size" className="overflow-clip">
-				<TabsPanel value={ABOUT} className="px-1 py-3 [[inert]]:hidden">
-					<AboutTab hasInteracted={hasInteracted} />
-				</TabsPanel>
-				<TabsPanel value={RECRUITER} className="px-1 py-3 [[inert]]:hidden">
-					<RecruiterTab />
-				</TabsPanel>
+				<Activity mode={tab === ABOUT ? "visible" : "hidden"}>
+					<TabsPanel value={ABOUT} className="px-1 py-3" keepMounted>
+						<AboutTab hasInteracted={hasInteracted} />
+					</TabsPanel>
+				</Activity>
+
+				<Activity mode={tab === RECRUITER ? "visible" : "hidden"}>
+					<TabsPanel value={RECRUITER} className="px-1 py-3" keepMounted>
+						<RecruiterTab />
+					</TabsPanel>
+				</Activity>
 			</motion.div>
 		</Tabs>
 	);
@@ -52,6 +52,7 @@ function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
 			initial={hasInteracted && { opacity: 0.25, filter: "blur(4px)" }}
 			animate={{ opacity: 1, filter: "blur(0px)" }}
 			className="font-geist flex flex-col gap-y-3 text-sm sm:text-base"
+			key={String(hasInteracted)}
 		>
 			<p>
 				A design-minded engineer focused on building intuitive and user-friendly
@@ -75,6 +76,12 @@ function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
 
 function RecruiterTab() {
 	const [shouldHighlight, setShouldHighlight] = useState(false);
+
+	useLayoutEffect(() => {
+		return () => {
+			setShouldHighlight(false);
+		};
+	}, []);
 
 	return (
 		<motion.div
