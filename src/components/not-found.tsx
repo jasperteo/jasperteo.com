@@ -12,7 +12,7 @@ function NotFound() {
 				content="The page you are looking for does not exist"
 			/>
 
-			<div className="flex size-full max-w-2xl min-w-xs flex-col items-center-safe gap-y-8 justify-self-center-safe px-6 py-24">
+			<div className="isolate flex size-full max-w-2xl min-w-xs flex-col items-center-safe gap-y-8 justify-self-center-safe px-6 py-24">
 				<h1 className="text-primary-accent-foreground text-6xl font-bold tracking-widest tabular-nums">
 					404
 				</h1>

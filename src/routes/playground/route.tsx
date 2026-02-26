@@ -30,7 +30,7 @@ export const Route = createFileRoute("/playground")({
 
 function Layout() {
 	return (
-		<div className="grid size-full max-w-2xl min-w-xs gap-y-20 justify-self-center-safe px-6 py-12">
+		<div className="isolate grid size-full max-w-2xl min-w-xs gap-y-20 justify-self-center-safe px-6 py-12">
 			<header className="flex w-full justify-between">
 				<Button
 					variant="outline"
