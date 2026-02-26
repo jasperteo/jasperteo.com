@@ -29,11 +29,15 @@ function Description() {
 				<TabsTab value={ABOUT}>About</TabsTab>
 				<TabsTab value={RECRUITER}>For Recruiters</TabsTab>
 			</TabsList>
+			{/* Base UI 1.0 keeps inactive panels in the DOM during a transition
+			    period, causing both panels to briefly coexist and break layout="size".
+			    [[inert]]:hidden collapses the inactive panel immediately when Base UI
+			    sets the inert attribute (on tab switch), before the transition resolves. */}
 			<motion.div layout="size" className="overflow-clip">
-				<TabsPanel value={ABOUT} className="px-1 py-3">
+				<TabsPanel value={ABOUT} className="px-1 py-3 [[inert]]:hidden">
 					<AboutTab hasInteracted={hasInteracted} />
 				</TabsPanel>
-				<TabsPanel value={RECRUITER} className="px-1 py-3">
+				<TabsPanel value={RECRUITER} className="px-1 py-3 [[inert]]:hidden">
 					<RecruiterTab />
 				</TabsPanel>
 			</motion.div>
