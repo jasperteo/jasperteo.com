@@ -47,7 +47,7 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 							<Button
 								variant="link"
 								size="sm"
-								className="text-muted-foreground hover:text-card-foreground group/social px-2 font-semibold [:hover,[data-pressed]]:no-underline"
+								className="text-muted-foreground hover:text-card-foreground group/social h-7 px-2 text-sm font-semibold max-sm:gap-1 max-sm:rounded-md max-sm:px-[calc(--spacing(2)-1px)] [:hover,[data-pressed]]:no-underline"
 								nativeButton={false}
 								render={
 									<a href={href} target="_blank" rel="noopener noreferrer" />
@@ -55,7 +55,7 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 							>
 								{icon}
 								{label}
-								<span className="bg-primary-hover absolute bottom-[2.5px] left-2 h-px w-0 transition-[width] duration-300 group-hover/social:w-[calc(100%-1rem)]" />
+								<span className="bg-primary-hover absolute bottom-[2.5px] left-2 h-px w-0 transition-[width] duration-300 group-hover/social:w-[calc(100%-1rem)] group-data-pressed/social:w-[calc(100%-1rem)]" />
 							</Button>
 						</Fragment>
 					))}
@@ -67,16 +67,16 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 				<Button
 					variant="link"
 					size="sm"
-					className="text-muted-foreground group/email hover:text-card-foreground px-2 font-semibold [:hover,[data-pressed]]:no-underline"
+					className="text-muted-foreground group/email hover:text-card-foreground h-7 px-2 text-sm font-semibold max-sm:gap-1 max-sm:rounded-md max-sm:px-[calc(--spacing(2)-1px)] [:hover,[data-pressed]]:no-underline"
 					nativeButton={false}
 					render={<a href={`mailto:${EMAIL}`} />}
 				>
 					<EnvelopeOpenHeart
-						className="group-hover/email:[--secondary-fill:var(--primary)]"
+						className="group-hover/email:[--secondary-fill:var(--primary)] group-data-pressed/email:[--secondary-fill:var(--primary)]"
 						secondaryfill="var(--secondary-fill)"
 					/>
 					{EMAIL}
-					<span className="border-b-primary-hover absolute bottom-[2.5px] left-2 w-0 border-b border-dashed bg-transparent transition-[width] duration-300 group-hover/email:w-[calc(100%-1rem)]" />
+					<span className="border-b-primary-hover absolute bottom-[2.5px] left-2 w-0 border-b border-dashed bg-transparent transition-[width] duration-300 group-hover/email:w-[calc(100%-1rem)] group-data-pressed/email:w-[calc(100%-1rem)]" />
 				</Button>
 			</div>
 		</div>

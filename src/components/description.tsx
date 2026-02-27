@@ -24,8 +24,12 @@ function Description() {
 			}}
 		>
 			<TabsList variant="default" activateOnFocus>
-				<TabsTab value={ABOUT}>About</TabsTab>
-				<TabsTab value={RECRUITER}>For Recruiters</TabsTab>
+				<TabsTab value={ABOUT} className="h-8 text-sm">
+					About
+				</TabsTab>
+				<TabsTab value={RECRUITER} className="h-8 text-sm">
+					For Recruiters
+				</TabsTab>
 			</TabsList>
 
 			<motion.div layout="size" className="overflow-clip">
@@ -132,16 +136,16 @@ function CVButton() {
 		<Button
 			variant="link"
 			size="xl"
-			className="text-muted-foreground group/cv hover:text-card-foreground px-2 font-semibold hover:no-underline"
+			className="text-muted-foreground group/cv hover:text-card-foreground h-10 px-2 text-base font-semibold max-sm:[&_svg:not([class*='size-'])]:size-4.5 [:hover,[data-pressed]]:no-underline"
 			nativeButton={false}
 			render={<a href={CV} target="_blank" rel="noopener noreferrer" />}
 		>
 			<FileDownload
-				className="group-hover/cv:[--secondary-fill:var(--primary)]"
+				className="group-hover/cv:[--secondary-fill:var(--primary)] group-data-pressed/cv:[--secondary-fill:var(--primary)]"
 				secondaryfill="var(--secondary-fill, currentColor)"
 			/>
 			CV
-			<span className="border-b-primary-hover absolute bottom-2 left-2 w-0 border-b border-dashed bg-transparent transition-[width] duration-300 group-hover/cv:w-[calc(100%-1rem)]" />
+			<span className="border-b-primary-hover absolute bottom-2 left-2 w-0 border-b border-dashed bg-transparent transition-[width] duration-300 group-hover/cv:w-[calc(100%-1rem)] group-data-pressed/cv:w-[calc(100%-1rem)]" />
 		</Button>
 	);
 }
