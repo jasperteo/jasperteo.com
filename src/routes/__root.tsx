@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import { Devtools } from "@/components/devtools";
+
 import globalsCss from "@/styles/globals.css?url";
 
 const NAME = "Jasper Teo ‧ 張";
