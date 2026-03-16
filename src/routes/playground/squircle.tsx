@@ -51,11 +51,8 @@ function Page() {
 			<Switch checked={checked} onCheckedChange={setChecked} />
 			<ClientOnly>
 				<p className="font-mono">
-					Your browser{" "}
-					{CSS.supports("corner-shape: initial")
-						? "supports"
-						: "does not support"}{" "}
-					the corner-shape CSS property.
+					Your browser {CSS.supports("corner-shape: initial") ? "supports" : "does not support"} the
+					corner-shape CSS property.
 				</p>
 				<div className={boxVariants({ variant })} />
 			</ClientOnly>
