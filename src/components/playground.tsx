@@ -2,13 +2,7 @@ import type { LinkOptions } from "@tanstack/react-router";
 import { Link, linkOptions } from "@tanstack/react-router";
 import type { ComponentProps, ReactNode } from "react";
 
-import {
-	Card,
-	CardDescription,
-	CardFooter,
-	CardPanel,
-	CardTitle,
-} from "@/components/ui/card";
+import { Card, CardDescription, CardFooter, CardPanel, CardTitle } from "@/components/ui/card";
 import LiquidGlass from "@/images/liquid-glass.webp";
 // import Superellipse from "@/images/superellipse.svg";
 
@@ -36,24 +30,19 @@ const PLAYGROUND_ARRAY: CardShellProps[] = [
 
 function Playground({ ref }: Pick<ComponentProps<"section">, "ref">) {
 	return (
-		<section
-			ref={ref}
-			className="flex flex-col items-center-safe gap-y-8 px-4 sm:px-0"
-		>
+		<section ref={ref} className="flex flex-col items-center-safe gap-y-8 px-4 sm:px-0">
 			<h2 className="text-2xl font-bold">Playground</h2>
 			<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-				{PLAYGROUND_ARRAY.map(
-					({ imageSrc, imageAlt, title, description, linkProps }) => (
-						<CardShell
-							key={title}
-							imageSrc={imageSrc}
-							imageAlt={imageAlt}
-							title={title}
-							description={description}
-							linkProps={linkProps}
-						/>
-					)
-				)}
+				{PLAYGROUND_ARRAY.map(({ imageSrc, imageAlt, title, description, linkProps }) => (
+					<CardShell
+						key={title}
+						imageSrc={imageSrc}
+						imageAlt={imageAlt}
+						title={title}
+						description={description}
+						linkProps={linkProps}
+					/>
+				))}
 			</div>
 		</section>
 	);
@@ -67,18 +56,12 @@ type CardShellProps = {
 	linkProps: LinkOptions;
 };
 
-function CardShell({
-	imageSrc,
-	imageAlt,
-	title,
-	description,
-	linkProps,
-}: CardShellProps) {
+function CardShell({ imageSrc, imageAlt, title, description, linkProps }: CardShellProps) {
 	return (
 		<Link {...linkProps}>
-			<Card className="hover:border-input squircle-3xl before:squircle-[calc(var(--radius-3xl)-1px)] size-full px-0 py-4 transition active:scale-[0.99]">
+			<Card className="size-full squircle-3xl px-0 py-4 transition before:squircle-[calc(var(--radius-3xl)-1px)] hover:border-input active:scale-[0.99]">
 				<CardPanel className="px-4 py-0">
-					<div className="border-muted grid place-items-center-safe overflow-clip rounded-[1.125rem] border">
+					<div className="grid place-items-center-safe overflow-clip rounded-[1.125rem] border border-muted">
 						<img
 							src={imageSrc}
 							alt={imageAlt}

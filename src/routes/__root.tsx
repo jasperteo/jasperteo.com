@@ -1,11 +1,11 @@
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import { Devtools } from "@/components/devtools";
+
 import globalsCss from "@/styles/globals.css?url";
 
 const NAME = "Jasper Teo ‧ 張";
-const DESCRIPTION =
-	"Software Engineer crafting intuitive and delightful interfaces";
+const DESCRIPTION = "Software Engineer crafting intuitive and delightful interfaces";
 const URL = "https://jasperteo.com";
 const OG_IMAGE = "/opengraph-image.png";
 const TWITTER_HANDLE = "@jasper_teo";
@@ -69,7 +69,7 @@ export const Route = createRootRoute({
 			<head>
 				<HeadContent />
 			</head>
-			<body className="bg-background text-foreground relative grid scroll-smooth antialiased">
+			<body className="relative grid scroll-smooth bg-background text-foreground antialiased">
 				{children}
 				<Scripts />
 				<Devtools enabled />

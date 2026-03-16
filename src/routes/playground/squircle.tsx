@@ -27,7 +27,7 @@ const TITLE = "Squircle";
 const DESCRIPTION = "New corner shapes with superellipses";
 
 const boxVariants = cva(
-	"bg-secondary border-primary size-[20rem] border transition-all duration-1000 [--squircle-factor:calc(log(5)/log(2))]",
+	"size-[20rem] border border-primary bg-secondary transition-all duration-1000 [--squircle-factor:calc(log(5)/log(2))]",
 	{
 		variants: {
 			variant: {
@@ -51,11 +51,8 @@ function Page() {
 			<Switch checked={checked} onCheckedChange={setChecked} />
 			<ClientOnly>
 				<p className="font-mono">
-					Your browser{" "}
-					{CSS.supports("corner-shape: initial")
-						? "supports"
-						: "does not support"}{" "}
-					the corner-shape CSS property.
+					Your browser {CSS.supports("corner-shape: initial") ? "supports" : "does not support"} the
+					corner-shape CSS property.
 				</p>
 				<div className={boxVariants({ variant })} />
 			</ClientOnly>

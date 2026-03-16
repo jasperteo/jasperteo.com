@@ -8,13 +8,11 @@ import { Button } from "@/components/ui/button";
 function ErrorPage({ error, reset }: ErrorComponentProps) {
 	return (
 		<div className="isolate flex size-full max-w-2xl min-w-xs flex-col items-center-safe gap-y-8 justify-self-center-safe px-6 py-24">
-			<h1 className="text-primary-accent-foreground text-6xl font-bold tracking-widest tabular-nums">
+			<h1 className="text-6xl font-bold tracking-widest text-primary-accent-foreground tabular-nums">
 				500
 			</h1>
 
-			<h2 className="text-primary-accent-foreground max-w-full text-5xl font-bold">
-				Oops!
-			</h2>
+			<h2 className="max-w-full text-5xl font-bold text-primary-accent-foreground">Oops!</h2>
 
 			<div className="w-full">
 				<ErrorComponent error={error} />
