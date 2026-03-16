@@ -7,7 +7,7 @@ function Card({ className, ...props }: ComponentProps<"div">) {
 		<div
 			data-slot="card"
 			className={cn(
-				"bg-card text-card-foreground hover:bg-card-hover relative flex flex-col gap-6 rounded-3xl border bg-clip-padding py-6 before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-3xl)-1px)] before:shadow-sm dark:bg-clip-border dark:shadow-sm dark:shadow-black/24 dark:before:shadow-[0_-1px_--theme(--color-white/8%)]",
+				"relative flex flex-col gap-6 rounded-3xl border bg-card bg-clip-padding py-6 text-card-foreground before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-3xl)-1px)] before:shadow-sm hover:bg-card-hover dark:bg-clip-border dark:shadow-sm dark:shadow-black/24 dark:before:shadow-[0_-1px_--theme(--color-white/8%)]",
 				className
 			)}
 			{...props}
@@ -33,7 +33,7 @@ function CardTitle({ className, ...props }: ComponentProps<"div">) {
 		<div
 			data-slot="card-title"
 			className={cn(
-				"text-card-foreground text-lg leading-none font-semibold",
+				"text-lg leading-none font-semibold text-card-foreground",
 				className
 			)}
 			{...props}
@@ -45,7 +45,7 @@ function CardDescription({ className, ...props }: ComponentProps<"div">) {
 	return (
 		<div
 			data-slot="card-description"
-			className={cn("text-muted-foreground text-sm", className)}
+			className={cn("text-sm text-muted-foreground", className)}
 			{...props}
 		/>
 	);

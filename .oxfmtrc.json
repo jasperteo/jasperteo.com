@@ -9,7 +9,10 @@
 	"bracketSpacing": true,
 	"printWidth": 80,
 
-	"sortTailwindcss": { "functions": ["cn", "cva"] },
+	"sortTailwindcss": {
+		"functions": ["cn", "cva"],
+		"stylesheet": "./src/styles/globals.css"
+	},
 
 	"ignorePatterns": [
 		// Ignore all markdown files

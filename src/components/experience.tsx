@@ -25,10 +25,10 @@ function Experience({ ref }: Pick<ComponentProps<"div">, "ref">) {
 			<div className="grid max-w-md grid-cols-12 gap-y-1">
 				{EXPERIENCES.map(({ company, role }) => (
 					<Fragment key={`${company}${role}`}>
-						<span className="text-primary-highlight col-span-4 font-semibold tracking-wide">
+						<span className="col-span-4 font-semibold tracking-wide text-primary-highlight">
 							{company}
 						</span>
-						<span className="text-muted-foreground col-span-8">{role}</span>
+						<span className="col-span-8 text-muted-foreground">{role}</span>
 					</Fragment>
 				))}
 			</div>

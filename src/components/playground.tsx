@@ -76,9 +76,9 @@ function CardShell({
 }: CardShellProps) {
 	return (
 		<Link {...linkProps}>
-			<Card className="hover:border-input squircle-3xl before:squircle-[calc(var(--radius-3xl)-1px)] size-full px-0 py-4 transition active:scale-[0.99]">
+			<Card className="size-full squircle-3xl px-0 py-4 transition before:squircle-[calc(var(--radius-3xl)-1px)] hover:border-input active:scale-[0.99]">
 				<CardPanel className="px-4 py-0">
-					<div className="border-muted grid place-items-center-safe overflow-clip rounded-[1.125rem] border">
+					<div className="grid place-items-center-safe overflow-clip rounded-[1.125rem] border border-muted">
 						<img
 							src={imageSrc}
 							alt={imageAlt}

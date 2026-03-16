@@ -69,7 +69,7 @@ export const Route = createRootRoute({
 			<head>
 				<HeadContent />
 			</head>
-			<body className="bg-background text-foreground relative grid scroll-smooth antialiased">
+			<body className="relative grid scroll-smooth bg-background text-foreground antialiased">
 				{children}
 				<Scripts />
 				<Devtools enabled />

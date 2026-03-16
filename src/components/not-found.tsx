@@ -13,11 +13,11 @@ function NotFound() {
 			/>
 
 			<div className="isolate flex size-full max-w-2xl min-w-xs flex-col items-center-safe gap-y-8 justify-self-center-safe px-6 py-24">
-				<h1 className="text-primary-accent-foreground text-6xl font-bold tracking-widest tabular-nums">
+				<h1 className="text-6xl font-bold tracking-widest text-primary-accent-foreground tabular-nums">
 					404
 				</h1>
 
-				<h2 className="text-primary-accent-foreground text-5xl font-bold">
+				<h2 className="text-5xl font-bold text-primary-accent-foreground">
 					Nott -- ffound
 				</h2>
 

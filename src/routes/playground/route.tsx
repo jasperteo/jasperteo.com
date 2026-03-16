@@ -35,7 +35,7 @@ function Layout() {
 				<Button
 					variant="outline"
 					size="icon"
-					className="text-muted-foreground rounded-full active:scale-125"
+					className="rounded-full text-muted-foreground active:scale-125"
 					aria-label="Go Back"
 					nativeButton={false}
 					render={<Link to="/" />}
