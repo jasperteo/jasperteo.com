@@ -5,7 +5,6 @@ import { FileDownload } from "@/components/icons/file-download";
 import { Button } from "@/components/ui/button";
 import { Highlighter } from "@/components/ui/highlighter";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/tabs";
-import { cn } from "@/utils/utils";
 
 type TabValues = "about" | "recruiter";
 const ABOUT: TabValues = "about";
@@ -34,19 +33,11 @@ function Description() {
 			</TabsList>
 
 			<motion.div layout="size" className="overflow-clip">
-				<TabsPanel
-					value={ABOUT}
-					className={cn("px-1 py-3", tab !== ABOUT && "hidden")}
-					key={`${ABOUT}-${tab}`}
-				>
+				<TabsPanel value={ABOUT} className="px-1 py-3" key={`${ABOUT}-${tab}`}>
 					<AboutTab hasInteracted={hasInteracted} />
 				</TabsPanel>
 
-				<TabsPanel
-					value={RECRUITER}
-					className={cn("px-1 py-3", tab !== RECRUITER && "hidden")}
-					key={`${RECRUITER}-${tab}`}
-				>
+				<TabsPanel value={RECRUITER} className="px-1 py-3" key={`${RECRUITER}-${tab}`}>
 					<RecruiterTab />
 				</TabsPanel>
 			</motion.div>
@@ -63,20 +54,18 @@ function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
 			className="flex flex-col gap-y-3 font-geist text-sm sm:text-base"
 		>
 			<p>
-				A design-minded engineer focused on building intuitive and user-friendly
-				web experiences across the stack to improve how people interact with
-				digital products and make them enjoyable to use.
+				A design-minded engineer focused on building intuitive and user-friendly web experiences
+				across the stack to improve how people interact with digital products and make them
+				enjoyable to use.
 			</p>
 			<p>
-				When I am not coding, I enjoy brewing tea and coffee, reading about
-				technology, geopolitics and history, as well as spectating esports.
+				When I am not coding, I enjoy brewing tea and coffee, reading about technology, geopolitics
+				and history, as well as spectating esports.
 			</p>
 			<p>
 				Currently living in{" "}
-				<strong className="font-[450] text-primary-highlight">
-					🇸🇬 Singapore
-				</strong>{" "}
-				and love exploring the city for new cafes and restaurants.
+				<strong className="font-[450] text-primary-highlight">🇸🇬 Singapore</strong> and love
+				exploring the city for new cafes and restaurants.
 			</p>
 		</motion.div>
 	);
@@ -95,21 +84,19 @@ function RecruiterTab() {
 			}}
 			className="flex flex-col gap-y-3 font-geist text-sm sm:text-base"
 		>
+			<p>I am currently open to new employment opportunities and collaborations.</p>
 			<p>
-				I am currently open to new employment opportunities and collaborations.
-			</p>
-			<p>
-				As a design-minded engineer, I gravitate towards product-oriented
-				engineering roles. My expertise includes{" "}
+				As a design-minded engineer, I gravitate towards product-oriented engineering roles. My
+				expertise includes{" "}
 				<strong className="font-[450] text-primary-highlight">
 					TypeScript, Node.js, React, Next.js, PostgreSQL,
 				</strong>{" "}
-				and many other technologies. I am also familiar with newer technologies
-				within the JavaScript ecosystem such as Bun, Astro, and Solid.js.
+				and many other technologies. I am also familiar with newer technologies within the
+				JavaScript ecosystem such as Bun, Astro, and Solid.js.
 			</p>
 			<p>
-				Feel free to reach out to me via email or slide me a DM on social media
-				if you have any questions or opportunities.
+				Feel free to reach out to me via email or slide me a DM on social media if you have any
+				questions or opportunities.
 			</p>
 			<Highlighter
 				isView
