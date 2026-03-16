@@ -49,9 +49,7 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 								size="sm"
 								className="group/social h-7 px-2 text-sm font-semibold text-muted-foreground hover:text-card-foreground max-sm:gap-1 max-sm:rounded-md max-sm:px-[calc(--spacing(2)-1px)] [:hover,[data-pressed]]:no-underline"
 								nativeButton={false}
-								render={
-									<a href={href} target="_blank" rel="noopener noreferrer" />
-								}
+								render={<a href={href} target="_blank" rel="noopener noreferrer" />}
 							>
 								{icon}
 								{label}

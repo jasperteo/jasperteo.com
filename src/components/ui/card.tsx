@@ -32,10 +32,7 @@ function CardTitle({ className, ...props }: ComponentProps<"div">) {
 	return (
 		<div
 			data-slot="card-title"
-			className={cn(
-				"text-lg leading-none font-semibold text-card-foreground",
-				className
-			)}
+			className={cn("text-lg leading-none font-semibold text-card-foreground", className)}
 			{...props}
 		/>
 	);
@@ -55,19 +52,14 @@ function CardAction({ className, ...props }: ComponentProps<"div">) {
 	return (
 		<div
 			data-slot="card-action"
-			className={cn(
-				"col-start-2 row-span-2 row-start-1 self-start justify-self-end",
-				className
-			)}
+			className={cn("col-start-2 row-span-2 row-start-1 self-start justify-self-end", className)}
 			{...props}
 		/>
 	);
 }
 
 function CardPanel({ className, ...props }: ComponentProps<"div">) {
-	return (
-		<div data-slot="card-panel" className={cn("px-6", className)} {...props} />
-	);
+	return <div data-slot="card-panel" className={cn("px-6", className)} {...props} />;
 }
 
 function CardFooter({ className, ...props }: ComponentProps<"div">) {
@@ -80,12 +72,4 @@ function CardFooter({ className, ...props }: ComponentProps<"div">) {
 	);
 }
 
-export {
-	Card,
-	CardAction,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardPanel,
-	CardTitle,
-};
+export { Card, CardAction, CardDescription, CardFooter, CardHeader, CardPanel, CardTitle };

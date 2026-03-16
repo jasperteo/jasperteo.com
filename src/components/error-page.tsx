@@ -12,9 +12,7 @@ function ErrorPage({ error, reset }: ErrorComponentProps) {
 				500
 			</h1>
 
-			<h2 className="max-w-full text-5xl font-bold text-primary-accent-foreground">
-				Oops!
-			</h2>
+			<h2 className="max-w-full text-5xl font-bold text-primary-accent-foreground">Oops!</h2>
 
 			<div className="w-full">
 				<ErrorComponent error={error} />

@@ -1,10 +1,6 @@
 import type { IconProps } from "@/utils/utils";
 
-function ChevronLeft({
-	fill = "currentColor",
-	title = "Chevron Left Icon",
-	...props
-}: IconProps) {
+function ChevronLeft({ fill = "currentColor", title = "Chevron Left Icon", ...props }: IconProps) {
 	return (
 		<svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" {...props}>
 			<title>{title}</title>

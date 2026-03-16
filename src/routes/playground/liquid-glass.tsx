@@ -27,35 +27,32 @@ function Page() {
 	return (
 		<PlaygroundLayout title={TITLE} description={DESCRIPTION}>
 			<p>
-				On 10th June 2025, Apple introduced an update to their design system,
-				featuring a new liquid glass effect. It is one of the biggest design
-				language changes from Apple since the transition from skeuomorphism to
-				flat design in 2013 with iOS 7.
+				On 10th June 2025, Apple introduced an update to their design system, featuring a new liquid
+				glass effect. It is one of the biggest design language changes from Apple since the
+				transition from skeuomorphism to flat design in 2013 with iOS 7.
 			</p>
 
 			<p>
-				This isn't the first glass effect in modern UI design. Microsoft's
-				Windows Aero featured a similar aesthetic in Windows Vista, though it
-				was later phased out in favor of Metro and then Fluent Design.
+				This isn't the first glass effect in modern UI design. Microsoft's Windows Aero featured a
+				similar aesthetic in Windows Vista, though it was later phased out in favor of Metro and
+				then Fluent Design.
 			</p>
 
 			<p>
-				The liquid glass effect is characterized by its heavy emphasis on
-				replicating the look of real-world glass materials. This means
-				refracting the background behind the glass, as well as simulating light
-				scattering and reflections, while also adapting its color based on the
+				The liquid glass effect is characterized by its heavy emphasis on replicating the look of
+				real-world glass materials. This means refracting the background behind the glass, as well
+				as simulating light scattering and reflections, while also adapting its color based on the
 				surrounding environment.
 			</p>
 
 			<p>
-				One might assume that replicating the effect on the web requires complex
-				shaders and GPU-accelerated rendering through WebGL or WebGPU. However,
-				we can use a simpler approach to approximate a similar effect.
+				One might assume that replicating the effect on the web requires complex shaders and
+				GPU-accelerated rendering through WebGL or WebGPU. However, we can use a simpler approach to
+				approximate a similar effect.
 			</p>
 
 			<p>
-				Let us explore how to approximate the liquid glass effect using just CSS
-				and SVG instead.
+				Let us explore how to approximate the liquid glass effect using just CSS and SVG instead.
 			</p>
 		</PlaygroundLayout>
 	);

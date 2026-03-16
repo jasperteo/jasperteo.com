@@ -1,10 +1,6 @@
 import type { IconProps } from "@/utils/utils";
 
-function XTwitter({
-	fill = "currentColor",
-	title = "X and Twitter Icon",
-	...props
-}: IconProps) {
+function XTwitter({ fill = "currentColor", title = "X and Twitter Icon", ...props }: IconProps) {
 	return (
 		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
 			<title>{title}</title>

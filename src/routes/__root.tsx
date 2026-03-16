@@ -5,8 +5,7 @@ import { Devtools } from "@/components/devtools";
 import globalsCss from "@/styles/globals.css?url";
 
 const NAME = "Jasper Teo ‧ 張";
-const DESCRIPTION =
-	"Software Engineer crafting intuitive and delightful interfaces";
+const DESCRIPTION = "Software Engineer crafting intuitive and delightful interfaces";
 const URL = "https://jasperteo.com";
 const OG_IMAGE = "/opengraph-image.png";
 const TWITTER_HANDLE = "@jasper_teo";

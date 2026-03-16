@@ -1,10 +1,6 @@
 import type { IconProps } from "@/utils/utils";
 
-function Bluesky({
-	fill = "currentColor",
-	title = "Bluesky Icon",
-	...props
-}: IconProps) {
+function Bluesky({ fill = "currentColor", title = "Bluesky Icon", ...props }: IconProps) {
 	return (
 		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" {...props}>
 			<title>{title}</title>
