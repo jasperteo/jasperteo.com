@@ -2,13 +2,9 @@ import { defineConfig } from "oxfmt";
 
 const oxfmtConfig = defineConfig({
 	trailingComma: "es5",
-	tabWidth: 2,
-	semi: true,
-	singleQuote: false,
 	useTabs: true,
-	bracketSpacing: true,
-	printWidth: 100,
 
+	/* sortImports: attempts to mirror the grouping style of eslint-plugin-simple-import-sort */
 	sortImports: {
 		order: "asc",
 		ignoreCase: true,
@@ -31,11 +27,7 @@ const oxfmtConfig = defineConfig({
 	},
 
 	ignorePatterns: [
-		// Ignore all markdown files
-		"*.md",
-		"README",
-		"LICENSE",
-		// Ignore generated files
+		/* Generated Files */
 		"**/routeTree.gen.ts",
 	],
 });
