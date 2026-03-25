@@ -13,9 +13,8 @@ bun install                 # Install dependencies
 bun run dev                 # Start development server
 bun run build               # Build for production (type check + lint + build)
 bun run preview             # Preview production build
-bun run check               # TypeScript type checking
 bun run lint                # Lint with oxlint + ESLint
-bun run format              # Format with Prettier
+bun run fmt                 # Format with oxfmt
 ```
 
 ## Project Structure
@@ -32,4 +31,4 @@ src/
 
 ---
 
-**Built with ❤️ by Jasper** 
+**Built with ❤️ by Jasper**
