@@ -107,7 +107,7 @@ function RecruiterTab() {
 				className="flex w-fit items-center-safe gap-x-2 font-sans font-semibold text-card-foreground"
 			>
 				<span>My Resume</span>
-				<span>{"->"}</span>
+				<span aria-hidden="true">{"->"}</span>
 				<CVButton />
 			</Highlighter>
 		</motion.div>
@@ -126,10 +126,12 @@ function CVButton() {
 			render={<a href={CV} target="_blank" rel="noopener noreferrer" />}
 		>
 			<FileDownload
+				aria-hidden="true"
 				className="group-hover/cv:[--secondary-fill:var(--primary)] group-data-pressed/cv:[--secondary-fill:var(--primary)]"
 				secondaryfill="var(--secondary-fill, currentColor)"
 			/>
 			CV
+			<span className="sr-only">, opens in new tab</span>
 			<span className="absolute bottom-2 left-2 w-0 border-b border-dashed border-b-primary-hover bg-transparent transition-[width] duration-300 group-hover/cv:w-[calc(100%-1rem)] group-data-pressed/cv:w-[calc(100%-1rem)]" />
 		</Button>
 	);

@@ -12,22 +12,22 @@ import { Separator } from "@/components/ui/separator";
 type Social = { icon: ReactNode; label: string; href: string };
 const SOCIALS_ARRAY: Social[] = [
 	{
-		icon: <XTwitter />,
+		icon: <XTwitter aria-hidden="true" />,
 		label: "Twitter",
 		href: "https://x.com/jasper_teo",
 	},
 	{
-		icon: <Github />,
+		icon: <Github aria-hidden="true" />,
 		label: "GitHub",
 		href: "https://github.com/jasperteo",
 	},
 	{
-		icon: <Linkedin />,
+		icon: <Linkedin aria-hidden="true" />,
 		label: "LinkedIn",
 		href: "https://www.linkedin.com/in/jaspertzj/",
 	},
 	{
-		icon: <Bluesky />,
+		icon: <Bluesky aria-hidden="true" />,
 		label: "Bluesky",
 		href: "https://bsky.app/profile/jasperteo.bsky.social",
 	},
@@ -53,6 +53,7 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 							>
 								{icon}
 								{label}
+								<span className="sr-only">, opens in new tab</span>
 								<span className="absolute bottom-[2.5px] left-2 h-px w-0 bg-primary-hover transition-[width] duration-300 group-hover/social:w-[calc(100%-1rem)] group-data-pressed/social:w-[calc(100%-1rem)]" />
 							</Button>
 						</Fragment>

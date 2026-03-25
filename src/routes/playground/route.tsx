@@ -40,7 +40,7 @@ function Layout() {
 					nativeButton={false}
 					render={<Link to="/" />}
 				>
-					<ChevronLeft />
+					<ChevronLeft aria-hidden="true" />
 				</Button>
 			</header>
 

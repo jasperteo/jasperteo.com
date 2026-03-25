@@ -30,6 +30,7 @@ function ErrorPage({ error, reset }: ErrorComponentProps) {
 					}}
 				>
 					<Refresh
+						aria-hidden="true"
 						className="animate-spin-delay"
 						fill="var(--primary)"
 						secondaryfill="var(--secondary)"
@@ -43,7 +44,7 @@ function ErrorPage({ error, reset }: ErrorComponentProps) {
 					nativeButton={false}
 					render={<Link to="/" />}
 				>
-					<House className="invert" />
+					<House aria-hidden="true" className="invert" />
 					Go back home
 				</Button>
 			</div>
