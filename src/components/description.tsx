@@ -99,11 +99,10 @@ function RecruiterTab() {
 				questions or opportunities.
 			</p>
 			<Highlighter
-				isView
 				action="box"
 				strokeWidth={2}
 				color="var(--primary)"
-				shouldHighlight={shouldHighlight}
+				enabled={shouldHighlight}
 				className="flex w-fit items-center-safe gap-x-2 font-sans font-semibold text-card-foreground"
 			>
 				<span>My Resume</span>

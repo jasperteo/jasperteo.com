@@ -22,8 +22,7 @@ type HighlighterProps = ComponentProps<"div"> & {
 	iterations?: number;
 	padding?: number;
 	multiline?: boolean;
-	isView?: boolean;
-	shouldHighlight?: boolean;
+	enabled?: boolean;
 };
 
 function Highlighter({
@@ -34,23 +33,19 @@ function Highlighter({
 	iterations = 2,
 	padding = 2,
 	multiline = true,
-	isView = false,
-	shouldHighlight = true,
+	enabled = true,
 	className,
 	...props
 }: HighlighterProps) {
 	const viewRef = useRef<HTMLDivElement | null>(null);
 	const isInView = useInView(viewRef, { amount: "all", once: true });
 
-	// If isView is false, always show. If isView is true, wait for inView
-	const shouldShow = !isView || isInView;
-
 	return (
 		<div
 			ref={(element) => {
 				viewRef.current = element;
 
-				if (!shouldHighlight || !element || !shouldShow) {
+				if (!enabled || !element || !isInView) {
 					return;
 				}
 
