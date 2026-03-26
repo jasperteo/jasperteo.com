@@ -14,7 +14,9 @@ function NotFound() {
 					404
 				</h1>
 
-				<h2 className="text-5xl font-bold text-primary-accent-foreground">Nott -- ffound</h2>
+				<h2 aria-label="Not Found" className="text-5xl font-bold text-primary-accent-foreground">
+					Nott -- ffound
+				</h2>
 
 				<p>The page you are looking for does not exist</p>
 
@@ -25,7 +27,7 @@ function NotFound() {
 					nativeButton={false}
 					render={<Link to="/" />}
 				>
-					<House className="invert" />
+					<House aria-hidden="true" className="invert" />
 					Go back home
 				</Button>
 			</div>
