@@ -10,15 +10,17 @@ Distributes text evenly across lines, preventing orphaned words on headings and 
 
 ```css
 /* Good — even line lengths on short text */
-h1, h2, h3 {
-  text-wrap: balance;
+h1,
+h2,
+h3 {
+	text-wrap: balance;
 }
 ```
 
 ```css
 /* Bad — default wrapping leaves orphans */
 h1 {
-  /* no text-wrap rule → "Read our
+	/* no text-wrap rule → "Read our
      blog" instead of balanced lines */
 }
 ```
@@ -26,7 +28,7 @@ h1 {
 ```css
 /* Bad — balance on long paragraphs (silently ignored, wastes intent) */
 .article-body p {
-  text-wrap: balance;
+	text-wrap: balance;
 }
 ```
 
@@ -38,17 +40,17 @@ Optimizes the last line to avoid orphans using a slower algorithm that favors be
 
 ```css
 p {
-  text-wrap: pretty;
+	text-wrap: pretty;
 }
 ```
 
 ### When to Use Which
 
-| Scenario | Use |
-| --- | --- |
-| Headings, titles, short text (≤6 lines) | `text-wrap: balance` |
-| Body paragraphs, descriptions | `text-wrap: pretty` |
-| Code blocks, pre-formatted text | Neither — leave default |
+| Scenario                                | Use                     |
+| --------------------------------------- | ----------------------- |
+| Headings, titles, short text (≤6 lines) | `text-wrap: balance`    |
+| Body paragraphs, descriptions           | `text-wrap: pretty`     |
+| Code blocks, pre-formatted text         | Neither — leave default |
 
 ## Font Smoothing (macOS)
 
@@ -57,8 +59,8 @@ On macOS, text renders heavier than intended by default. Apply antialiased smoot
 ```css
 /* CSS */
 html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 ```
 
@@ -72,15 +74,15 @@ html {
 ```css
 /* Good — applied once at the root */
 html {
-  -webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
 }
 
 /* Bad — applied per-element, inconsistent */
 .heading {
-  -webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
 }
 .body {
-  /* no smoothing → heavier than heading */
+	/* no smoothing → heavier than heading */
 }
 ```
 
@@ -93,7 +95,7 @@ When numbers update dynamically (counters, prices, timers, table columns), use t
 ```css
 /* CSS */
 .counter {
-  font-variant-numeric: tabular-nums;
+	font-variant-numeric: tabular-nums;
 }
 ```
 
@@ -104,13 +106,13 @@ When numbers update dynamically (counters, prices, timers, table columns), use t
 
 ### When to Use
 
-| Use tabular-nums | Don't use tabular-nums |
-| --- | --- |
-| Counters and timers | Static display numbers |
-| Prices that update | Decorative large numbers |
-| Table columns with numbers | Phone numbers, zip codes |
+| Use tabular-nums            | Don't use tabular-nums   |
+| --------------------------- | ------------------------ |
+| Counters and timers         | Static display numbers   |
+| Prices that update          | Decorative large numbers |
+| Table columns with numbers  | Phone numbers, zip codes |
 | Animated number transitions | Version numbers (v2.1.0) |
-| Scoreboards, dashboards | |
+| Scoreboards, dashboards     |                          |
 
 ### Caveat
 

@@ -17,14 +17,14 @@ Never use `transition: all` or Tailwind's `transition` shorthand (which maps to 
 ```css
 /* Good — only transition what changes */
 .button {
-  transition-property: scale, background-color;
-  transition-duration: 150ms;
-  transition-timing-function: ease-out;
+	transition-property: scale, background-color;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
 }
 
 /* Bad — transition everything */
 .button {
-  transition: all 150ms ease-out;
+	transition: all 150ms ease-out;
 }
 ```
 
@@ -53,35 +53,35 @@ This particularly helps when an element is changing `scale`, `rotation`, or movi
 ```css
 /* Good — specific property that benefits from GPU compositing */
 .animated-card {
-  will-change: transform;
+	will-change: transform;
 }
 
 /* Good — multiple compositor-friendly properties */
 .animated-card {
-  will-change: transform, opacity;
+	will-change: transform, opacity;
 }
 
 /* Bad — never use will-change: all */
 .animated-card {
-  will-change: all;
+	will-change: all;
 }
 
 /* Bad — properties that can't be GPU-composited anyway */
 .animated-card {
-  will-change: background-color, padding;
+	will-change: background-color, padding;
 }
 ```
 
 ### Useful Properties
 
-| Property | GPU-compositable | Worth using `will-change` |
-| --- | --- | --- |
-| `transform` | Yes | Yes |
-| `opacity` | Yes | Yes |
-| `filter` (blur, brightness) | Yes | Yes |
-| `clip-path` | Yes | Yes |
-| `top`, `left`, `width`, `height` | No | No |
-| `background`, `border`, `color` | No | No |
+| Property                         | GPU-compositable | Worth using `will-change` |
+| -------------------------------- | ---------------- | ------------------------- |
+| `transform`                      | Yes              | Yes                       |
+| `opacity`                        | Yes              | Yes                       |
+| `filter` (blur, brightness)      | Yes              | Yes                       |
+| `clip-path`                      | Yes              | Yes                       |
+| `top`, `left`, `width`, `height` | No               | No                        |
+| `background`, `border`, `color`  | No               | No                        |
 
 ### When to Skip
 

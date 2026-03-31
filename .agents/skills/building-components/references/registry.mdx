@@ -35,18 +35,18 @@ Good registries include rich metadata about components like the name, descriptio
 
 ```json
 {
-  "name": "announcement",
-  "type": "registry:component",
-  "description": "A compound badge component designed to display announcements with theming support",
-  "dependencies": ["class-variance-authority", "lucide-react"],
-  "registryDependencies": ["badge"],
-  "files": [
-    {
-      "type": "registry:component",
-      "content": "..."
-    }
-  ],
-  "category": "ui"
+	"name": "announcement",
+	"type": "registry:component",
+	"description": "A compound badge component designed to display announcements with theming support",
+	"dependencies": ["class-variance-authority", "lucide-react"],
+	"registryDependencies": ["badge"],
+	"files": [
+		{
+			"type": "registry:component",
+			"content": "..."
+		}
+	],
+	"category": "ui"
 }
 ```
 
@@ -122,21 +122,21 @@ Create a `vercel.json` file next to `public/` with the following:
 
 ```json title="vercel.json"
 {
-  "headers": [
-    {
-      "source": "/(.*).json",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Content-Type",
-          "value": "application/json"
-        }
-      ]
-    }
-  ]
+	"headers": [
+		{
+			"source": "/(.*).json",
+			"headers": [
+				{
+					"key": "Access-Control-Allow-Origin",
+					"value": "*"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			]
+		}
+	]
 }
 ```
 
