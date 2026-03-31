@@ -1,30 +1,30 @@
 {
-  "version": 1,
-  "skills": {
-    "building-components": {
-      "source": "vercel/components.build",
-      "sourceType": "github",
-      "computedHash": "ca96444b70257eb3f4f4c76dfdd4a32312c835fe3c8755d2e3d75ac78d384bfd"
-    },
-    "make-interfaces-feel-better": {
-      "source": "jakubkrehel/make-interfaces-feel-better",
-      "sourceType": "github",
-      "computedHash": "41c2416e08bc9ec3c696585d31bd1243481a7a81615b810b1b8a32aded9360b5"
-    },
-    "vercel-composition-patterns": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "computedHash": "f98931159fa9c7fed043bcd18a891a46dcf89ababa38df13a4c5b7b30dc0ce07"
-    },
-    "vercel-react-best-practices": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "computedHash": "bbc31a48537b473ff4feea6360ef0de3bfdcbef26c14f4967a5deefe8ca801d3"
-    },
-    "web-design-guidelines": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
-    }
-  }
+	"version": 1,
+	"skills": {
+		"building-components": {
+			"source": "vercel/components.build",
+			"sourceType": "github",
+			"computedHash": "ca96444b70257eb3f4f4c76dfdd4a32312c835fe3c8755d2e3d75ac78d384bfd"
+		},
+		"make-interfaces-feel-better": {
+			"source": "jakubkrehel/make-interfaces-feel-better",
+			"sourceType": "github",
+			"computedHash": "41c2416e08bc9ec3c696585d31bd1243481a7a81615b810b1b8a32aded9360b5"
+		},
+		"vercel-composition-patterns": {
+			"source": "vercel-labs/agent-skills",
+			"sourceType": "github",
+			"computedHash": "f98931159fa9c7fed043bcd18a891a46dcf89ababa38df13a4c5b7b30dc0ce07"
+		},
+		"vercel-react-best-practices": {
+			"source": "vercel-labs/agent-skills",
+			"sourceType": "github",
+			"computedHash": "bbc31a48537b473ff4feea6360ef0de3bfdcbef26c14f4967a5deefe8ca801d3"
+		},
+		"web-design-guidelines": {
+			"source": "vercel-labs/agent-skills",
+			"sourceType": "github",
+			"computedHash": "a6a44d5498f7e8f68289902f3dedfc6f38ae0cee1e96527c80724cf27f727c2a"
+		}
+	}
 }

@@ -17,20 +17,20 @@ This rule is most useful when nested surfaces are close together. If padding is 
 ```css
 /* Good — concentric radii */
 .card {
-  border-radius: 20px; /* 12 + 8 */
-  padding: 8px;
+	border-radius: 20px; /* 12 + 8 */
+	padding: 8px;
 }
 .card-inner {
-  border-radius: 12px;
+	border-radius: 12px;
 }
 
 /* Bad — same radius on both */
 .card {
-  border-radius: 12px;
-  padding: 8px;
+	border-radius: 12px;
+	padding: 8px;
 }
 .card-inner {
-  border-radius: 12px;
+	border-radius: 12px;
 }
 ```
 
@@ -66,21 +66,21 @@ Use slightly less padding on the icon side to make the button feel balanced. A r
 ```css
 /* Good — less padding on icon side */
 .button-with-icon {
-  padding-left: 16px;
-  padding-right: 14px; /* icon side = text side - 2px */
+	padding-left: 16px;
+	padding-right: 14px; /* icon side = text side - 2px */
 }
 
 /* Bad — equal padding looks like icon is pushed too far right */
 .button-with-icon {
-  padding: 0 16px;
+	padding: 0 16px;
 }
 ```
 
 ```tsx
 // Tailwind
 <button className="pl-4 pr-3.5 flex items-center gap-2">
-  <span>Continue</span>
-  <ArrowRightIcon />
+	<span>Continue</span>
+	<ArrowRightIcon />
 </button>
 ```
 
@@ -91,12 +91,12 @@ Play icons are triangular and their geometric center is not their visual center.
 ```css
 /* Good — optically centered */
 .play-button svg {
-  margin-left: 2px; /* shift right to account for triangle shape */
+	margin-left: 2px; /* shift right to account for triangle shape */
 }
 
 /* Bad — geometrically centered but looks off */
 .play-button svg {
-  /* no adjustment */
+	/* no adjustment */
 }
 ```
 
@@ -110,7 +110,7 @@ Some icons have uneven visual weight. The best fix is adjusting the SVG directly
 
 // Fallback — adjust with margin
 <span className="ml-px">
-  <StarIcon />
+	<StarIcon />
 </span>
 ```
 
@@ -126,14 +126,12 @@ The shadow is comprised of three layers. The first acts as a 1px border ring, th
 
 ```css
 :root {
-  --shadow-border:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.06),
-    0px 1px 2px -1px rgba(0, 0, 0, 0.06),
-    0px 2px 4px 0px rgba(0, 0, 0, 0.04);
-  --shadow-border-hover:
-    0px 0px 0px 1px rgba(0, 0, 0, 0.08),
-    0px 1px 2px -1px rgba(0, 0, 0, 0.08),
-    0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+	--shadow-border:
+		0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 1px 2px -1px rgba(0, 0, 0, 0.06),
+		0px 2px 4px 0px rgba(0, 0, 0, 0.04);
+	--shadow-border-hover:
+		0px 0px 0px 1px rgba(0, 0, 0, 0.08), 0px 1px 2px -1px rgba(0, 0, 0, 0.08),
+		0px 2px 4px 0px rgba(0, 0, 0, 0.06);
 }
 ```
 
@@ -154,26 +152,26 @@ Apply the variable and add `transition-[box-shadow]` for a smooth hover:
 
 ```css
 .card {
-  box-shadow: var(--shadow-border);
-  transition-property: box-shadow;
-  transition-duration: 150ms;
-  transition-timing-function: ease-out;
+	box-shadow: var(--shadow-border);
+	transition-property: box-shadow;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-border-hover);
+	box-shadow: var(--shadow-border-hover);
 }
 ```
 
 ### When to Use Shadows vs. Borders
 
-| Use shadows | Use borders |
-| --- | --- |
-| Cards, containers with depth | Dividers between list items |
-| Buttons with bordered styles | Table cell boundaries |
+| Use shadows                           | Use borders                             |
+| ------------------------------------- | --------------------------------------- |
+| Cards, containers with depth          | Dividers between list items             |
+| Buttons with bordered styles          | Table cell boundaries                   |
 | Elevated elements (dropdowns, modals) | Form input outlines (for accessibility) |
-| Elements on varied backgrounds | Hairline separators in dense UI |
-| Hover/focus states for lift effect | |
+| Elements on varied backgrounds        | Hairline separators in dense UI         |
+| Hover/focus states for lift effect    |                                         |
 
 ## Image Outlines
 
@@ -183,8 +181,8 @@ Add a subtle `1px` outline with low opacity to images. This creates consistent d
 
 ```css
 img {
-  outline: 1px solid rgba(0, 0, 0, 0.1);
-  outline-offset: -1px; /* inset so it doesn't add to layout */
+	outline: 1px solid rgba(0, 0, 0, 0.1);
+	outline-offset: -1px; /* inset so it doesn't add to layout */
 }
 ```
 
@@ -192,8 +190,8 @@ img {
 
 ```css
 img {
-  outline: 1px solid rgba(255, 255, 255, 0.1);
-  outline-offset: -1px;
+	outline: 1px solid rgba(255, 255, 255, 0.1);
+	outline-offset: -1px;
 }
 ```
 
@@ -201,9 +199,9 @@ img {
 
 ```tsx
 <img
-  className="outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
-  src={src}
-  alt={alt}
+	className="outline outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10"
+	src={src}
+	alt={alt}
 />
 ```
 
@@ -218,19 +216,19 @@ Interactive elements should have a minimum hit area of 44×44px (WCAG) or at lea
 ```css
 /* Small checkbox with expanded hit area */
 .checkbox {
-  position: relative;
-  width: 20px;
-  height: 20px;
+	position: relative;
+	width: 20px;
+	height: 20px;
 }
 
 .checkbox::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 40px;
+	height: 40px;
 }
 ```
 
@@ -238,7 +236,7 @@ Interactive elements should have a minimum hit area of 44×44px (WCAG) or at lea
 
 ```tsx
 <button className="relative size-5 after:absolute after:top-1/2 after:left-1/2 after:size-10 after:-translate-1/2">
-  <CheckIcon />
+	<CheckIcon />
 </button>
 ```
 

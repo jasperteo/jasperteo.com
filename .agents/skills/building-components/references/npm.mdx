@@ -37,9 +37,9 @@ As the package author, you control versioning and updates. Users can lock to spe
 
 ```json
 {
-  "dependencies": {
-    "@acme/ui-components": "^2.1.0"
-  }
+	"dependencies": {
+		"@acme/ui-components": "^2.1.0"
+	}
 }
 ```
 
@@ -65,13 +65,13 @@ Published packages can include pre-built type definitions, providing immediate T
 
 ```json
 {
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
-  }
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	}
 }
 ```
 
@@ -127,37 +127,37 @@ To publish your components to npm, you need a properly configured `package.json`
 
 ```json title="package.json"
 {
-  "name": "@acme/ui-components",
-  "version": "1.0.0",
-  "description": "A collection of accessible React components",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./styles.css": "./dist/styles.css"
-  },
-  "files": ["dist"],
-  "scripts": {
-    "build": "tsup",
-    "prepublishOnly": "npm run build"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "dependencies": {
-    "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0"
-  },
-  "devDependencies": {
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0"
-  }
+	"name": "@acme/ui-components",
+	"version": "1.0.0",
+	"description": "A collection of accessible React components",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		},
+		"./styles.css": "./dist/styles.css"
+	},
+	"files": ["dist"],
+	"scripts": {
+		"build": "tsup",
+		"prepublishOnly": "npm run build"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0"
+	},
+	"dependencies": {
+		"clsx": "^2.0.0",
+		"tailwind-merge": "^2.0.0"
+	},
+	"devDependencies": {
+		"tsup": "^8.0.0",
+		"typescript": "^5.0.0"
+	}
 }
 ```
 
