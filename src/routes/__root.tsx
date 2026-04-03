@@ -1,16 +1,9 @@
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import { Devtools } from "@/components/devtools";
+import { NAME, OG_IMAGE, TWITTER_HANDLE, URL, WIDTH, HEIGHT } from "@/utils/utils";
 
 import globalsCss from "@/styles/globals.css?url";
-
-const NAME = "Jasper Teo ‧ 張";
-const DESCRIPTION = "Software Engineer crafting intuitive and delightful interfaces";
-const URL = "https://jasperteo.com";
-const OG_IMAGE = "/opengraph-image.png";
-const TWITTER_HANDLE = "@jasper_teo";
-const WIDTH = "1200";
-const HEIGHT = "630";
 
 export const Route = createRootRoute({
 	head: () => ({
@@ -18,14 +11,7 @@ export const Route = createRootRoute({
 			/* Standard Meta Tags */
 			{ charSet: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1.0" },
-			/* Primary Meta Tags */
-			{ title: NAME },
-			{ name: "description", content: DESCRIPTION },
-			/* SEO Meta Tags */
-			{ name: "robots", content: "index, follow" },
 			/* Open Graph Meta Tags */
-			{ property: "og:title", content: NAME },
-			{ property: "og:description", content: DESCRIPTION },
 			{ property: "og:type", content: "website" },
 			{ property: "og:url", content: URL },
 			{ property: "og:site_name", content: NAME },
@@ -34,8 +20,6 @@ export const Route = createRootRoute({
 			{ property: "og:image:width", content: WIDTH },
 			{ property: "og:image:height", content: HEIGHT },
 			/* Twitter Meta Tags */
-			{ name: "twitter:title", content: NAME },
-			{ name: "twitter:description", content: DESCRIPTION },
 			{ name: "twitter:card", content: "summary_large_image" },
 			{ name: "twitter:url", content: URL },
 			{ name: "twitter:creator", content: TWITTER_HANDLE },
@@ -50,17 +34,8 @@ export const Route = createRootRoute({
 			{ rel: "stylesheet", href: globalsCss },
 			{ rel: "canonical", href: URL },
 			{ rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-			{
-				rel: "icon",
-				href: "/favicon.ico",
-				sizes: "48x48",
-			},
-			{
-				rel: "icon",
-				href: "/favicon.svg",
-				sizes: "any",
-				type: "image/svg+xml",
-			},
+			{ rel: "icon", href: "/favicon.ico", sizes: "48x48" },
+			{ rel: "icon", href: "/favicon.svg", sizes: "any", type: "image/svg+xml" },
 		],
 	}),
 

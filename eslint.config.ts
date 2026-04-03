@@ -27,6 +27,7 @@ const eslintConfig = defineConfig([
 			reactRefresh.configs.vite({ extraHOCs: ["createFileRoute"] }),
 			reactHooks.configs.flat.recommended,
 			eslintReact.configs["strict-type-checked"],
+			eslintReact.configs["disable-conflict-eslint-plugin-react-hooks"],
 			pluginRouter.configs["flat/recommended"],
 		],
 		rules: {
@@ -38,7 +39,6 @@ const eslintConfig = defineConfig([
 			"unicorn/better-regex": "warn",
 			"unicorn/prevent-abbreviations": "off",
 			"unicorn/text-encoding-identifier-case": ["error", { withDash: true }],
-			"@eslint-react/prefer-namespace-import": "error",
 		},
 		languageOptions: {
 			parser: tseslint.parser,
