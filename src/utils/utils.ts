@@ -19,5 +19,13 @@ type IconProps = SVGProps<SVGSVGElement> & {
 	title?: string;
 };
 
-export { cn };
+const NAME = "Jasper Teo ‧ 張";
+const DESCRIPTION = "Software Engineer crafting intuitive and delightful interfaces";
+const URL = "https://jasperteo.com";
+const OG_IMAGE = `${URL}/opengraph-image.png`;
+const TWITTER_HANDLE = "@jasper_teo";
+const WIDTH = "1200";
+const HEIGHT = "630";
+
+export { cn, DESCRIPTION, HEIGHT, NAME, OG_IMAGE, TWITTER_HANDLE, URL, WIDTH };
 export type { IconProps };
