@@ -25,6 +25,9 @@
 }
 
 @theme {
+	--text-hero: clamp(1.875rem, 4vw + 1rem, 3rem);
+	--text-hero--line-height: 1.25;
+
 	--font-sans:
 		"Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
 		"Segoe UI Symbol", "Noto Color Emoji";
