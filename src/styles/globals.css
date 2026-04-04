@@ -25,7 +25,9 @@
 }
 
 @theme {
+	/* fluid: text-3xl (1.875rem) → text-5xl (3rem), scaling via viewport width, capped at ~800px */
 	--text-hero: clamp(1.875rem, 4vw + 1rem, 3rem);
+	/* 1.25× font-size, tracks fluid size */
 	--text-hero--line-height: 1.25;
 
 	--font-sans:
