@@ -12,6 +12,8 @@ import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
+import oxlintConfig from "./oxlint.config";
+
 const gitignorePath = path.join(import.meta.dirname, ".gitignore");
 
 const eslintConfig = defineConfig([
@@ -48,7 +50,7 @@ const eslintConfig = defineConfig([
 			},
 		},
 	},
-	oxlint.buildFromOxlintConfigFile("./oxlint.config.ts"),
+	oxlint.buildFromOxlintConfig(oxlintConfig),
 ]);
 
 export default eslintConfig;
