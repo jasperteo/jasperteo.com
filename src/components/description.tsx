@@ -21,6 +21,7 @@ function Description() {
 			value={tab}
 			onValueChange={(value: TabValues) => {
 				setHasInteracted(true);
+				setShouldHighlight(false);
 				setTab(value);
 			}}
 		>
@@ -63,11 +64,6 @@ function Description() {
 						/>
 					}
 					key={`${RECRUITER}-${tab}`}
-					ref={() => {
-						return () => {
-							setShouldHighlight(false);
-						};
-					}}
 				>
 					<RecruiterTab shouldHighlight={shouldHighlight} />
 				</TabsPanel>
