@@ -43,7 +43,7 @@ function Page() {
 						<Description />
 						<MotionSocials layout="position" />
 						<MotionExperience layout="position" />
-						<MotionSeparator layout="position" className="-mx-1 my-1" />
+						<MotionSeparator aria-hidden="true" layout="position" className="-mx-1 my-1" />
 					</main>
 				</div>
 			</MotionConfig>
