@@ -39,11 +39,11 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 	return (
 		<div ref={ref} className="-mx-2 flex flex-col gap-y-4">
 			<div className="flex w-fit flex-col gap-y-0.5">
-				<p className="px-2 font-medium">Find me on</p>
-				<div className="flex flex-wrap items-center-safe gap-x-0.5">
+				<h2 className="px-2 font-medium">Find me on</h2>
+				<nav className="flex flex-wrap items-center-safe gap-x-0.5">
 					{SOCIALS_ARRAY.map(({ icon, label, href }) => (
 						<Fragment key={label}>
-							<Separator orientation="vertical" className="h-6 first:hidden" />
+							<Separator aria-hidden="true" orientation="vertical" className="h-6 first:hidden" />
 							<Button
 								variant="link"
 								size="sm"
@@ -58,11 +58,11 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 							</Button>
 						</Fragment>
 					))}
-				</div>
+				</nav>
 			</div>
 
 			<div className="flex w-fit flex-col gap-y-0.5">
-				<p className="px-2 font-medium">Or hit me up at</p>
+				<h2 className="px-2 font-medium">Or hit me up at</h2>
 				<Button
 					variant="link"
 					size="sm"
@@ -71,6 +71,7 @@ function Socials({ ref }: Pick<ComponentProps<"div">, "ref">) {
 					render={<a href={`mailto:${EMAIL}`} />}
 				>
 					<EnvelopeOpenHeart
+						aria-hidden="true"
 						className="group-hover/email:[--secondary-fill:var(--primary)] group-data-pressed/email:[--secondary-fill:var(--primary)]"
 						secondaryfill="var(--secondary-fill)"
 					/>

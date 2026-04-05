@@ -13,6 +13,7 @@ const RECRUITER: TabValues = "recruiter";
 function Description() {
 	const [tab, setTab] = useState<TabValues>(ABOUT);
 	const [hasInteracted, setHasInteracted] = useState(false);
+	const [shouldHighlight, setShouldHighlight] = useState(false);
 
 	return (
 		<Tabs
@@ -20,6 +21,7 @@ function Description() {
 			value={tab}
 			onValueChange={(value: TabValues) => {
 				setHasInteracted(true);
+				setShouldHighlight(false);
 				setTab(value);
 			}}
 		>
@@ -33,26 +35,46 @@ function Description() {
 			</TabsList>
 
 			<motion.div layout="size" className="overflow-clip">
-				<TabsPanel value={ABOUT} className="px-1 py-3" key={`${ABOUT}-${tab}`}>
-					<AboutTab hasInteracted={hasInteracted} />
+				<TabsPanel
+					value={ABOUT}
+					className="flex flex-col gap-y-3 px-1 py-3 font-geist text-sm sm:text-base"
+					render={
+						<motion.div
+							layout
+							initial={hasInteracted && { opacity: 0.25, filter: "blur(4px)" }}
+							animate={{ opacity: 1, filter: "blur(0px)" }}
+						/>
+					}
+					key={`${ABOUT}-${tab}`}
+				>
+					<AboutTab />
 				</TabsPanel>
 
-				<TabsPanel value={RECRUITER} className="px-1 py-3" key={`${RECRUITER}-${tab}`}>
-					<RecruiterTab />
+				<TabsPanel
+					value={RECRUITER}
+					className="flex flex-col gap-y-3 px-1 py-3 font-geist text-sm sm:text-base"
+					render={
+						<motion.div
+							layout
+							initial={{ opacity: 0.25, filter: "blur(4px)" }}
+							animate={{ opacity: 1, filter: "blur(0px)" }}
+							onAnimationComplete={() => {
+								setShouldHighlight(true);
+							}}
+						/>
+					}
+					key={`${RECRUITER}-${tab}`}
+				>
+					<RecruiterTab shouldHighlight={shouldHighlight} />
 				</TabsPanel>
 			</motion.div>
 		</Tabs>
 	);
 }
 
-function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
+function AboutTab() {
 	return (
-		<motion.div
-			layout
-			initial={hasInteracted && { opacity: 0.25, filter: "blur(4px)" }}
-			animate={{ opacity: 1, filter: "blur(0px)" }}
-			className="flex flex-col gap-y-3 font-geist text-sm sm:text-base"
-		>
+		<>
 			<p>
 				A design-minded engineer focused on building intuitive and user-friendly web experiences
 				across the stack to improve how people interact with digital products and make them
@@ -67,23 +89,13 @@ function AboutTab({ hasInteracted }: { hasInteracted: boolean }) {
 				<strong className="font-[450] text-primary-highlight">🇸🇬 Singapore</strong> and love
 				exploring the city for new cafes and restaurants.
 			</p>
-		</motion.div>
+		</>
 	);
 }
 
-function RecruiterTab() {
-	const [shouldHighlight, setShouldHighlight] = useState(false);
-
+function RecruiterTab({ shouldHighlight }: { shouldHighlight: boolean }) {
 	return (
-		<motion.div
-			layout
-			initial={{ opacity: 0.25, filter: "blur(4px)" }}
-			animate={{ opacity: 1, filter: "blur(0px)" }}
-			onAnimationComplete={() => {
-				setShouldHighlight(true);
-			}}
-			className="flex flex-col gap-y-3 font-geist text-sm sm:text-base"
-		>
+		<>
 			<p>I am currently open to new employment opportunities and collaborations.</p>
 			<p>
 				As a design-minded engineer, I gravitate towards product-oriented engineering roles. My
@@ -109,7 +121,7 @@ function RecruiterTab() {
 				<span aria-hidden="true">{"->"}</span>
 				<CVButton />
 			</Highlighter>
-		</motion.div>
+		</>
 	);
 }
 

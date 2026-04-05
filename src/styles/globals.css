@@ -25,6 +25,11 @@
 }
 
 @theme {
+	/* fluid: text-3xl (1.875rem) → text-5xl (3rem), scaling via viewport width, capped at ~800px */
+	--text-hero: clamp(1.875rem, 4vw + 1rem, 3rem);
+	/* 1.25× font-size, tracks fluid size */
+	--text-hero--line-height: 1.25;
+
 	--font-sans:
 		"Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
 		"Segoe UI Symbol", "Noto Color Emoji";
@@ -56,6 +61,8 @@
 
 	--color-accent: var(--accent);
 	--color-accent-foreground: var(--accent-foreground);
+
+	--color-select: var(--select);
 
 	--color-muted: var(--muted);
 	--color-muted-foreground: var(--muted-foreground);
@@ -123,6 +130,8 @@
 	--accent: oklch(0.9257 0.014973 93.1764); /* Gold 4 */
 	--accent-foreground: oklch(0.2434 0.0079 96.31); /* Sand 12 */
 
+	--select: oklch(0.8904 0.106551 70.8359); /* Orange 5 */
+
 	--muted: oklch(0.9099 0.0038 95.91); /* Sand 5 */
 	--muted-foreground: oklch(0.4979 0.0079 106.68); /* Sand 11 */
 
@@ -174,6 +183,8 @@
 
 	--accent: oklch(0.2908 0.0095 86.76); /* Gold 4 */
 	--accent-foreground: oklch(0.9483 0.0026 106.45); /* Sand 12 */
+
+	--select: oklch(0.3346 0.0868 58.09); /* Orange 5 */
 
 	--muted: oklch(0.3124 0.0044 100.73); /* Sand 5 */
 	--muted-foreground: oklch(0.7666 0.009135 97.3831); /* Sand 11 */

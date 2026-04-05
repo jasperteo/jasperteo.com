@@ -44,7 +44,7 @@ export const Route = createRootRoute({
 			<head>
 				<HeadContent />
 			</head>
-			<body className="relative grid scroll-smooth bg-background text-foreground antialiased">
+			<body className="relative grid scroll-smooth bg-background bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,color-mix(in_oklch,var(--select)_20%,transparent),transparent_65%)] bg-fixed text-foreground antialiased">
 				{children}
 				<Scripts />
 				<Devtools enabled />

@@ -1,13 +1,11 @@
 function Hero() {
 	return (
-		<h1 className="text-3xl/9.5 font-bold tracking-tight sm:text-5xl/15">
-			I'm Jasper & I engineer
-			<br />
-			<span className="tracking-normal text-nowrap text-primary-hover italic underline underline-offset-4 sm:underline-offset-6">
+		<h1 className="text-hero font-bold tracking-tight text-balance">
+			<span className="block">I'm Jasper & I engineer</span>
+			<span className="block tracking-normal text-primary-hover italic underline underline-offset-4 sm:underline-offset-6">
 				design aspirations
 			</span>
-			<br />
-			into functional reality
+			<span className="block">into functional reality</span>
 		</h1>
 	);
 }
