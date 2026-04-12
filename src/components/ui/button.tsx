@@ -53,7 +53,7 @@ type ButtonProps = ButtonPrimitive.Props &
 
 function Button({ className, variant, size, nativeButton, render, ...props }: ButtonProps) {
 	const renderResult = useRender({
-		enabled: nativeButton === false,
+		enabled: !nativeButton,
 		defaultTagName: "button",
 		render,
 		props: mergeProps(
@@ -62,7 +62,7 @@ function Button({ className, variant, size, nativeButton, render, ...props }: Bu
 		),
 	});
 
-	if (nativeButton === false) {
+	if (!nativeButton) {
 		return renderResult;
 	}
 
