@@ -1,3 +1,5 @@
+"use client";
+
 import { useInView } from "motion/react";
 import type { ComponentProps } from "react";
 import { useRef } from "react";
