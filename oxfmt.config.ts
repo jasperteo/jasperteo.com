@@ -1,6 +1,8 @@
 import { defineConfig } from "oxfmt";
 
 const oxfmtConfig = defineConfig({
+	embeddedLanguageFormatting: "auto",
+	jsdoc: true,
 	trailingComma: "es5",
 	useTabs: true,
 
