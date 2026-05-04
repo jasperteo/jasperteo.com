@@ -1,11 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { LayoutGroup, motion, MotionConfig } from "motion/react";
+import { LayoutGroup, MotionConfig } from "motion/react";
 
 import { Description } from "@/components/description";
-import { Experience } from "@/components/experience";
 import { Hero } from "@/components/hero";
-import { Socials } from "@/components/socials";
-import { Separator } from "@/components/ui/separator";
+import { MotionExperience, MotionSeparator, MotionSocials } from "@/components/motion";
 import { DESCRIPTION, NAME } from "@/utils/utils";
 
 export const Route = createFileRoute("/")({
@@ -27,26 +25,22 @@ export const Route = createFileRoute("/")({
 	component: Page,
 });
 
-const MotionSocials = motion.create(Socials);
-const MotionExperience = motion.create(Experience);
-const MotionSeparator = motion.create(Separator);
-
 function Page() {
 	return (
-		<LayoutGroup>
-			<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
-				<div className="isolate grid size-full max-w-2xl min-w-xs gap-y-12 justify-self-center-safe px-6 py-12">
-					<header>
-						<Hero />
-					</header>
-					<main className="flex flex-col gap-y-8">
+		<div className="isolate grid size-full max-w-2xl min-w-xs gap-y-12 justify-self-center-safe px-6 py-12">
+			<header>
+				<Hero />
+			</header>
+			<main className="flex flex-col gap-y-8">
+				<LayoutGroup>
+					<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
 						<Description />
 						<MotionSocials layout="position" />
 						<MotionExperience layout="position" />
 						<MotionSeparator aria-hidden="true" layout="position" className="-mx-1 my-1" />
-					</main>
-				</div>
-			</MotionConfig>
-		</LayoutGroup>
+					</MotionConfig>
+				</LayoutGroup>
+			</main>
+		</div>
 	);
 }
