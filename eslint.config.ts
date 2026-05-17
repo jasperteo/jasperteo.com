@@ -1,7 +1,6 @@
 import path from "node:path";
 
 import eslintReact from "@eslint-react/eslint-plugin";
-import { includeIgnoreFile } from "@eslint/compat";
 import eslint from "@eslint/js";
 import pluginRouter from "@tanstack/eslint-plugin-router";
 import oxlint from "eslint-plugin-oxlint";
@@ -9,7 +8,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import { reactRefresh } from "eslint-plugin-react-refresh";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
-import { defineConfig, globalIgnores } from "eslint/config";
+import { defineConfig, globalIgnores, includeIgnoreFile } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 import oxlintConfig from "./oxlint.config";
