@@ -1,9 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { LayoutGroup, MotionConfig } from "motion/react";
 
 import { Description } from "@/components/description";
 import { Hero } from "@/components/hero";
-import { MotionExperience, MotionSeparator, MotionSocials } from "@/components/motion";
+import {
+	MotionExperience,
+	MotionProvider,
+	MotionSeparator,
+	MotionSocials,
+} from "@/components/motion";
 import { DESCRIPTION, NAME } from "@/utils/utils";
 
 export const Route = createFileRoute("/")({
@@ -32,14 +36,12 @@ function Page() {
 				<Hero />
 			</header>
 			<main className="flex flex-col gap-y-8">
-				<LayoutGroup>
-					<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
-						<Description />
-						<MotionSocials layout="position" />
-						<MotionExperience layout="position" />
-						<MotionSeparator aria-hidden="true" layout="position" className="-mx-1 my-1" />
-					</MotionConfig>
-				</LayoutGroup>
+				<MotionProvider>
+					<Description />
+					<MotionSocials layout="y" />
+					<MotionExperience layout="y" />
+					<MotionSeparator aria-hidden="true" layout="y" className="-mx-1 my-1" />
+				</MotionProvider>
 			</main>
 		</div>
 	);

@@ -27,7 +27,7 @@ function Description() {
 				setTab(value);
 			}}
 		>
-			<TabsList variant="default" activateOnFocus>
+			<TabsList variant="default" className="border border-accent shadow-lg" activateOnFocus>
 				<TabsTab value={ABOUT} className="h-8 text-sm">
 					About
 				</TabsTab>
@@ -145,7 +145,7 @@ function CVButton() {
 			/>
 			CV
 			<span className="sr-only">, opens in new tab</span>
-			<span className="absolute bottom-2 left-2 w-0 border-b border-dashed border-b-primary-hover bg-transparent transition-[width] duration-300 group-hover/cv:w-[calc(100%-1rem)] group-data-pressed/cv:w-[calc(100%-1rem)]" />
+			<span className="absolute bottom-2 left-2 w-[calc(100%-1rem)] border-b border-dashed border-b-primary-hover bg-transparent transition-[clip-path] duration-300 [clip-path:inset(0_100%_0_0)] group-hover/cv:[clip-path:inset(0_0%_0_0)] group-data-pressed/cv:[clip-path:inset(0_0%_0_0)]" />
 		</Button>
 	);
 }

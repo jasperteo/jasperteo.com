@@ -1,2 +1,6 @@
+[install]
+linker = "isolated"
+globalStore = true
+
 [install.security]
 scanner = "@socketsecurity/bun-security-scanner"

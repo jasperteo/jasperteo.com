@@ -23,10 +23,16 @@ function Experience({ ref }: Pick<ComponentProps<"div">, "ref">) {
 		<div ref={ref} className="flex flex-col gap-y-2">
 			<h2 className="text-lg font-semibold">Experience</h2>
 			<dl className="grid max-w-md grid-cols-12 gap-y-1">
-				{EXPERIENCES.map(({ company, role }) => (
+				{EXPERIENCES.map(({ company, role, isCurrent }) => (
 					<Fragment key={`${company}${role}`}>
-						<dt className="col-span-4 font-semibold tracking-wide text-primary-highlight">
+						<dt className="col-span-4 flex items-center-safe gap-x-2 font-semibold tracking-wide text-primary-highlight">
 							{company}
+							{isCurrent && (
+								<span
+									aria-label="Current role"
+									className="size-2 animate-pulse rounded-full bg-ring"
+								/>
+							)}
 						</dt>
 						<dd className="col-span-8 text-muted-foreground">{role}</dd>
 					</Fragment>
