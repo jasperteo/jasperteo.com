@@ -1,18 +1,11 @@
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
-type DevtoolsProps = { enabled?: boolean };
-
-function Devtools({ enabled = false }: DevtoolsProps) {
+function Devtools({ enabled = false }: { enabled?: boolean }) {
 	return (
 		enabled && (
 			<TanStackDevtools
-				plugins={[
-					{
-						name: "TanStack Router",
-						render: <TanStackRouterDevtoolsPanel />,
-					},
-				]}
+				plugins={[{ name: "TanStack Router", render: <TanStackRouterDevtoolsPanel /> }]}
 			/>
 		)
 	);
