@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { LayoutGroup, MotionConfig, motion } from "motion/react";
+import type { ReactNode } from "react";
 
 import { Experience } from "@/components/experience";
 import { Socials } from "@/components/socials";
@@ -10,4 +11,12 @@ const MotionSocials = motion.create(Socials);
 const MotionExperience = motion.create(Experience);
 const MotionSeparator = motion.create(Separator);
 
-export { MotionExperience, MotionSeparator, MotionSocials };
+function MotionProvider({ children }: { children: ReactNode }) {
+	return (
+		<MotionConfig transition={{ duration: 0.3, ease: "easeOut" }}>
+			<LayoutGroup>{children}</LayoutGroup>
+		</MotionConfig>
+	);
+}
+
+export { MotionExperience, MotionProvider, MotionSeparator, MotionSocials };
