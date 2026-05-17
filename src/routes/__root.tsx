@@ -1,6 +1,6 @@
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
-import { Devtools } from "@/components/devtools";
+// import { Devtools } from "@/components/devtools";
 import { NAME, OG_IMAGE, TWITTER_HANDLE, URL, WIDTH, HEIGHT } from "@/utils/utils";
 
 import globalsCss from "@/styles/globals.css?url";
@@ -47,7 +47,7 @@ export const Route = createRootRoute({
 			<body className="relative grid scroll-smooth bg-background bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,color-mix(in_oklch,var(--select)_20%,transparent),transparent_65%)] bg-fixed text-foreground antialiased">
 				{children}
 				<Scripts />
-				<Devtools enabled />
+				{/* <Devtools enabled /> */}
 			</body>
 		</html>
 	),
